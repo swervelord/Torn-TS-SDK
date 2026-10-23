@@ -6,7 +6,7 @@ A complete TypeScript port of `torn_sdk_planner` 2.0.0, running on Bun. The refe
 
 The SDK covers all **234 operations and 712 component schemas in Torn API 6.13.8**, all **205 capability selections**, and all **549 handwritten Rust facade model declarations**. Exact endpoint operations, typed selection batches, and compatibility resource helpers use the same execution engine. The original 6.13.6 model surface remains available explicitly for legacy decoding.
 
-Runtime, generators, tooling, and tests are TypeScript. Bun handles package management, execution, HTTP, file I/O, bundling, and tests. TypeScript's compiler checks types and emits declaration files. No Rust toolchain is required to install, build, test, or use this package.
+Runtime, generators, tooling, and tests are TypeScript. Bun 1.4.4 handles package management, execution, native typechecking, HTTP, file I/O, bundling, and tests. TypeScript's compiler emits declaration files. No Rust toolchain is required to install, build, test, or use this package. See [Bun compatibility](docs/BUN_COMPATIBILITY.md) for the checker commands and verification.
 
 ## Start
 
