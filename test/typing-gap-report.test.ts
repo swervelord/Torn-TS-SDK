@@ -4,8 +4,8 @@ import { buildTypingGapReport, buildSourceTypingGapReport, classifyTyping, forma
 import { defaultCapabilities } from '../src/capabilities.ts';
 import snapshot from '../spec/parity/typing-classification.json' with { type: 'json' };
 
-describe('Rust typing_gap_report parity', () => {
-  test('classifies all 205 selections exactly like the pinned Rust report', () => {
+describe('Typing coverage report regression contract', () => {
+  test('classifies all 205 selections according to the committed baseline report', () => {
     const report = buildSourceTypingGapReport();
     expect(report.total_selections).toBe(205);
     expect(report.typed_helpers).toBe(205);
@@ -18,7 +18,7 @@ describe('Rust typing_gap_report parity', () => {
       expect(selection).toMatchObject({ resource: original.resource, selection: original.selection, class: original.class, helper: original.helper, return_type: original.return_type, schema_refs: original.schema_refs, notes: original.notes });
     }
   });
-  test('Markdown output is byte identical to the original Rust report', async () => {
+  test('Markdown output matches the committed baseline report', async () => {
     const expected = await Bun.file(new URL('../spec/parity/typing-gap-report.md', import.meta.url)).text();
     expect(formatTypingGapReport(buildSourceTypingGapReport())).toBe(expected);
   });
@@ -31,7 +31,7 @@ describe('Rust typing_gap_report parity', () => {
     expect(current.selections.find(selection => selection.resource === 'torn' && selection.selection === 'elimination')!.schema_refs).toContain('#/components/schemas/TornEliminationTeamCaptain');
     expect(baseline.selections.find(selection => selection.resource === 'torn' && selection.selection === 'elimination')!.schema_refs).toContain('#/components/schemas/TornEliminationTeamLeader');
   });
-  test('JSON output has the Rust public field names and serializes only report data', () => {
+  test('JSON output preserves public field names and serializes only report data', () => {
     const json = JSON.parse(JSON.stringify(buildTypingGapReport()));
     expect(Object.keys(json)).toEqual(['total_selections', 'typed_helpers', 'resources', 'selections']);
     expect(Object.keys(json.selections[0])).toEqual(['resource', 'selection', 'class', 'helper', 'return_type', 'schema_refs', 'missing_schema_refs', 'notes']);
@@ -40,7 +40,7 @@ describe('Rust typing_gap_report parity', () => {
     const report = await loadReport(fileURLToPath(new URL('..', import.meta.url)));
     expect(report.classCounts()).toEqual(buildTypingGapReport().classCounts());
   });
-  test('classifier preserves all six Rust precedence branches', () => {
+  test('classifier preserves all six classification precedence branches', () => {
     const model = { has_extra: false, has_dynamic: false, missing_model: false };
     expect(classifyTyping(undefined, ['schema'], [], model)).toBe('schema-exists-but-not-wired');
     expect(classifyTyping(undefined, [], [], model)).toBe('missing-schema');

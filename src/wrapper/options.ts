@@ -25,7 +25,7 @@ export interface BaseOptionsInit {
   extraPathArgs?: Record<string,string>;
 }
 
-/** Common options preserve the Rust builder API and offer camelCase aliases. */
+/** Common options expose chainable builders and camelCase aliases. */
 export class BaseOptions {
   id?: string;
   limit?: number;

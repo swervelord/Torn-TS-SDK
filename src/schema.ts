@@ -37,11 +37,11 @@ export interface Schema {
 }
 export interface ValidationIssue { path: string; message: string }
 export interface SchemaValidationOptions {
-  /** Torn response unions, like serde untagged unions, accept any matching variant. */
+  /** Torn response unions accept any matching variant. */
   exactOneOf?: boolean;
-  /** Rust serde Option fields accept explicit null as well as omission. */
+  /** Optional model fields accept explicit null as well as omission. */
   optionalNullable?: boolean;
-  /** Validate constraints beyond the Rust serde model contract (for input parameters). */
+  /** Validate additional schema constraints for input parameters. */
   constraints?: boolean;
 }
 /** Validate without coercion or dropping unknown response fields. Unknown fields are accepted unless explicitly forbidden. */

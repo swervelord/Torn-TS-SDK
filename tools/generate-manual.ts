@@ -30,10 +30,10 @@ const declarations=Object.entries(manualModelMetadata).map(([name,model])=>{
   if(model.kind==="alias")return `export type ${name} = ${typeName(model.type)};\n`;
   return `export type ${name} = ${name==="DynamicValue"?"JsonValue":model.variants.map(v=>v==="null"?"null":typeName(v)).join(" | ")};\n`;
 });
-const generated='/** Complete manual compatibility models ported from the Rust SDK. Field names retain the Rust public model names. */\nimport type { JsonValue, Integer } from "../types.ts";\nimport type * as Generated from "../generated/models.ts";\nimport { DynamicValue as DynamicValueHelpers } from "./manual-values.ts";\nexport const DynamicValue = DynamicValueHelpers;\n\n'+declarations.join("\n");
+const generated='/** Complete SDK manual model declarations generated from the committed decoder schema. */\nimport type { JsonValue, Integer } from "../types.ts";\nimport type * as Generated from "../generated/models.ts";\nimport { DynamicValue as DynamicValueHelpers } from "./manual-values.ts";\nexport const DynamicValue = DynamicValueHelpers;\n\n'+declarations.join("\n");
 const path=new URL("../src/models/manual.ts",import.meta.url);
 if(process.argv.includes("--check")){
-  if((await Bun.file(path).text()).replaceAll("\r\n","\n")!==generated)throw new Error("Manual types are stale; run bun tools/port-facades.ts");
+  if((await Bun.file(path).text()).replaceAll("\r\n","\n")!==generated)throw new Error("Manual types are stale; run bun tools/generate-manual.ts");
 }else await Bun.write(path,generated);
 const typed=Object.values(facadeManifest).reduce((sum,r)=>sum+r.methods.length,0);
 console.log(`${Object.keys(manualModelMetadata).length} compatibility models and ${typed} facade helpers verified`);

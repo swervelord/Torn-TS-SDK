@@ -74,7 +74,7 @@ test('integer models and parameters retain precision beyond Number.MAX_SAFE_INTE
  expect(validateSchema({type:'integer',minimum:9007199254740992},9007199254740991n,{}, {constraints:true})).toHaveLength(1);
 });
 
-test('TypeScript capability refresh matches every pinned Rust-derived routing entry',async()=>{
+test('capability refresh matches every committed routing entry',async()=>{
  const {generateCapabilities,equivalentJson}=await import('../tools/refresh.ts');
  const spec=await Bun.file(import.meta.dir+'/../spec/torn-openapi-current.json').json();
  const overrides=await Bun.file(import.meta.dir+'/../spec/capability-overrides.json').json();
@@ -85,12 +85,12 @@ test('TypeScript capability refresh matches every pinned Rust-derived routing en
  expect((user.user!.selections as Record<string,unknown>[]).find(s=>s.name==='discord')?.standalone_only).toBe(true);
 });
 
-test('serde optional fields accept explicit null, while required nonnullable fields reject it',()=>{
+test('optional fields accept explicit null, while required nonnullable fields reject it',()=>{
  expect(validateModel('GetUserGenericResponse',{discord:null})).toEqual([]);
  expect(validateModel('UserDiscordResponse',{discord:null})).not.toEqual([]);
 });
 
-test('response decoding ignores upstream closed-object unknowns like serde, while inputs remain strict',()=>{
+test('response decoding ignores upstream closed-object unknown fields, while inputs remain strict',()=>{
  const schema={type:'object',properties:{id:{type:'integer'}},required:['id'],additionalProperties:false};
  expect(validateSchema(schema,{id:1,future:true},{})).toEqual([]);
  expect(validateSchema(schema,{id:1,future:true},{},{constraints:true})).toHaveLength(1);

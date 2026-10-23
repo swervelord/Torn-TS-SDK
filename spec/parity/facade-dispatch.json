@@ -1,8 +1,9 @@
 {
   "provenance": {
-    "repository": "https://github.com/swervelord/Torn-Rust-SDK",
-    "commit": "cd8716dad00ed7f4d0f58e1d013897bfa131f827",
-    "reference": "Public helper signatures, execute_typed/execute_text selections, return model types, aliases, and raw macro invocations extracted from unmodified Rust src/wrapper resource modules."
+    "kind": "facade-dispatch-regression",
+    "source_url": "https://www.torn.com/swagger/openapi.json",
+    "apiVersion": "6.13.6",
+    "reference": "Committed SDK public helper signatures, selection dispatch, return model types, aliases and raw helper inventory. These are SDK dispatch contracts, not helper signatures supplied by the API specification."
   },
   "resources": {
     "user": {

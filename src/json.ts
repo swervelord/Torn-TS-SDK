@@ -7,7 +7,7 @@ export function parseLosslessJson(text:string):JsonValue {
     return value;
   }) as JsonValue;
 }
-/** Serialize lossless SDK JSON. Bigints become unquoted integer tokens, matching serde_json. */
+/** Serialize lossless SDK JSON. Bigints become unquoted integer tokens. */
 export function stringifyLosslessJson(value:JsonValue,space?:number):string {
   // JSON.rawJSON is supported by Bun; the fallback encoder is portable and does not use marker substitutions.
   const raw=(JSON as typeof JSON & {rawJSON?:(source:string)=>unknown}).rawJSON;

@@ -6,7 +6,7 @@ import type { PlanRequestData, PlannedRequest, RequestPlan, SplitRequest } from 
 const normalize = (value: string): string => value.trim().replace(/[A-Z]/g, c => c.toLowerCase());
 const uniqueSelections = (selections: readonly string[]): string[] => [...new Set(selections.map(normalize).filter(Boolean))];
 
-/** Mutable, chainable request builder with Rust-compatible method aliases. */
+/** Mutable, chainable request builder with snake_case and camelCase method aliases. */
 export class PlanRequest implements PlanRequestData {
   resource: string;
   selections: string[];
@@ -83,7 +83,7 @@ function directPath(resource: string, selection: SelectionCapability, request: P
   return path;
 }
 
-/** Preserves Rust planner grouping, routing order, filter scrubbing and split fallback. */
+/** Plans request grouping, routing order, filter scrubbing and split fallback. */
 export class RequestPlanner {
   readonly capabilities: CapabilitiesDocument;
   readonly v1Catalog = new V1Catalog();

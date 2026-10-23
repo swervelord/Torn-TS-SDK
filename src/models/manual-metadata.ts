@@ -1,4 +1,4 @@
-/** Checked-in compatibility decoder schema; no Rust source is needed at runtime. */
+/** Committed manual decoder schema used by type generation and runtime validation. */
 export const manualModelMetadata = {
   "DynamicValue": {
     "kind": "union",

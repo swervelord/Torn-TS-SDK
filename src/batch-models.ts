@@ -1,4 +1,4 @@
-/** Generated typed JSON batch coverage from the pinned Rust facade contracts. */
+/** Generated typed JSON batch coverage from the committed resource facade contracts. */
 import type * as Manual from "./models/manual.ts";
 import type * as Generated from "./generated/models.ts";
 

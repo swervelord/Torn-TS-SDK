@@ -1,8 +1,5 @@
 Torn-TS-SDK is maintained by swervelord.
 
-The TypeScript implementation ports the MIT-licensed Torn Rust SDK at
-https://github.com/swervelord/Torn-Rust-SDK.
-Its original license notice is retained in LICENSE.
-
 API schemas originate from Torn's official OpenAPI specification.
 Versioned snapshots and source provenance are retained in spec/.
+Licensing terms and applicable copyright notices are retained in LICENSE.

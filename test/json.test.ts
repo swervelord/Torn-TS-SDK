@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { parseLosslessJson, stringifyLosslessJson } from "../src/json.ts";
-describe("lossless Rust integer parity",()=>{
+describe("lossless integer regression contracts",()=>{
   test("preserves signed/unsigned 64-bit integral tokens and normal number ergonomics",()=>{
     const value=parseLosslessJson('{"safe":42,"min":-9223372036854775808,"max":18446744073709551615,"float":1.25,"string":"9007199254740993"}');
     expect(value).toEqual({safe:42,min:-9223372036854775808n,max:18446744073709551615n,float:1.25,string:"9007199254740993"});

@@ -28,9 +28,9 @@ export class TypingGapReport {
   unexpected_raw_helpers(): SelectionTyping[] { return this.unexpectedRawHelpers(); }
 }
 
-/** Provenance is kept explicit because the Rust classifier uses textual model-analysis quirks. */
+/** Committed classification metadata freezes historical textual model-analysis behavior. */
 export const typingClassificationProvenance = sourceClassification.provenance;
-/** Audited metadata changes since the source SDK baseline. Other reference drift remains an error. */
+/** Audited metadata changes since the 6.13.6 contract baseline. Other reference drift remains an error. */
 export const typingReportSchemaRefUpgrades: Readonly<Record<string, Readonly<Record<string, Readonly<Record<string, string>>>>>> = {
   '6.13.8': { 'torn.elimination': { '#/components/schemas/TornEliminationTeamLeader': '#/components/schemas/TornEliminationTeamCaptain' } },
 };
@@ -72,7 +72,7 @@ export function buildTypingGapReport(capabilities: CapabilitiesDocument = defaul
       const schemaRefs = [...(capability.response_schema_refs ?? [])];
       const missingRefs = schemaRefs.filter(ref => !ref.startsWith('#/components/schemas/') || !schemas.has(ref.slice('#/components/schemas/'.length)));
       // The imported metadata proves the compatibility type still exists; the frozen flags
-      // reproduce the pinned Rust classifier's source-level interpretation of that type.
+      // preserve the committed classifier interpretation of that type.
       const knownModel = helper?.returnType === 'String' || helper?.returnType === 'RawSelectionBundle' || Object.hasOwn(manualModelMetadata, helper?.returnType ?? '') || schemas.has(helper?.returnType ?? '');
       const model = { has_extra: reference.has_extra, has_dynamic: reference.has_dynamic, missing_model: reference.missing_model || !knownModel };
       const classification = classifyTyping(helper ? { return_type: helper.returnType } : undefined, schemaRefs, missingRefs, model);
@@ -96,7 +96,7 @@ export function buildTypingGapReport(capabilities: CapabilitiesDocument = defaul
   return new TypingGapReport(selections.length, selections.filter(selection => selection.helper !== null).length, resources, selections);
 }
 
-/** Reproduce the frozen Rust source report using its original capabilities and schema inventory. */
+/** Build the frozen baseline report using its committed capabilities and schema inventory. */
 export function buildSourceTypingGapReport(): TypingGapReport {
   return buildTypingGapReport(sourceCapabilities, sourceSchemaNames);
 }

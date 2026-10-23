@@ -1,10 +1,9 @@
 {
   "provenance": {
-    "repository": "https://github.com/swervelord/Torn-Rust-SDK",
-    "commit": "cd8716dad00ed7f4d0f58e1d013897bfa131f827",
-    "crateVersion": "2.0.0",
+    "kind": "planner-regression",
+    "source_url": "https://www.torn.com/swagger/openapi.json",
     "apiVersion": "6.13.6",
-    "reference": "Executed unmodified Rust planner via temporary JSON exporter in reference checkout; exporter serializes plan fields and error variants, with only camelCase field conversion.",
+    "reference": "Committed SDK request-planning regression expectations. Expected results are SDK behavioral contracts, not responses supplied by the API specification.",
     "goldenSha256": "c17f58000d457f818f30f98885db10081b57934a144ae94a68d5d79f5cf6fe59"
   },
   "plannerScenarioCount": 466,

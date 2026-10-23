@@ -57,5 +57,5 @@ export class BunTransport implements HttpTransport {
   toJSON():object{return {timeoutMs:this.timeoutMs,userAgent:this.userAgent,routes:[...this.#routes.keys()],proxyConfigured:!!this.#proxyUrl};}
   [Symbol.for("nodejs.util.inspect.custom")]():object{return this.toJSON();}
 }
-/** Naming aliases for the Rust transport abstraction; implementation uses Bun's native fetch. */
+/** Naming aliases for the transport abstraction; implementation uses Bun's native fetch. */
 export { BunTransport as FetchTransport, BunTransport as ReqwestTransport };

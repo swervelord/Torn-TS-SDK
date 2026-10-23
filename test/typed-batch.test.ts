@@ -105,7 +105,7 @@ describe("typed planner batches",()=>{
     }
     expect(count).toBe(202);expect(selectionModelDefinitions.user.revivesFull.model).toBe("UserRevivesFullBundle");
   });
-  test("batch model generator remains deterministic without Rust sources",async()=>{
+  test("batch model generator remains deterministic from committed schemas",async()=>{
     const process=Bun.spawn([Bun.which("bun")!,"tools/generate-batch.ts","--check"],{cwd:import.meta.dir+"/..",stdout:"pipe",stderr:"pipe"});
     expect(await process.exited,await new Response(process.stderr).text()).toBe(0);
   });

@@ -39,7 +39,7 @@ const currentCaptains=currentTeam.captains;
 const originalLeaders=originalTeam.leaders;
 // @ts-expect-error Live6.13.8 changed leaders to captains; the root type must describe the real response.
 currentTeam.leaders;
-// @ts-expect-error Frozen6.13.6 keeps the original Rust response contract.
+// @ts-expect-error Frozen6.13.6 keeps the baseline response contract.
 originalTeam.captains;
 declare const compatibilityLeader:TornEliminationTeamLeader;
 const newCaptain:TornEliminationTeamCaptain=compatibilityLeader;

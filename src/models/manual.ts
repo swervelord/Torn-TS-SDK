@@ -1,4 +1,4 @@
-/** Complete manual compatibility models ported from the Rust SDK. Field names retain the Rust public model names. */
+/** Complete SDK manual model declarations generated from the committed decoder schema. */
 import type { JsonValue, Integer } from "../types.ts";
 import type * as Generated from "../generated/models.ts";
 import { DynamicValue as DynamicValueHelpers } from "./manual-values.ts";

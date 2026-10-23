@@ -9,8 +9,8 @@ function camel(name:string){return name.replace(/_([a-z])/g,(_,letter:string)=>l
 const sentinel=Object.freeze({dispatch:"sentinel"});
 
 /** The intercept is below each actual public helper body and above shared validation and HTTP.
- * Other suites verify the shared decoder/validation using Rust execution fixtures.
- * This suite independently freezes the original Rust helper -> selection/model/alias mapping.
+ * Other suites verify the shared decoder/validation using committed model regression fixtures.
+ * This suite verifies the committed public helper to selection/model/alias mapping.
  */
 function create(resource:string) {
   const sdk=new TornSdk({} as TornClient);
@@ -24,14 +24,14 @@ function create(resource:string) {
   return {api,invocations,stockValidation};
 }
 
-describe("exhaustive Rust public facade dispatch",()=>{
+describe("exhaustive public facade dispatch",()=>{
   test("the reference freezes all 207 typed and 200 raw convenience methods",()=>{
-    expect(golden.provenance.commit).toBe("cd8716dad00ed7f4d0f58e1d013897bfa131f827");
+    expect(golden.provenance.kind).toBe("facade-dispatch-regression");
     expect(Object.values(golden.resources).reduce((n,r)=>n+r.methods.length,0)).toBe(207);
     expect(Object.values(golden.resources).reduce((n,r)=>n+r.rawMethods.length,0)).toBe(200);
   });
   for(const [resource,reference] of Object.entries(golden.resources)){
-    test(`${resource} options: each Rust path builder, alias, default, initializer and ID precedence`,async()=>{
+    test(`${resource} options: each path builder, alias, default, initializer and ID precedence`,async()=>{
       const {api,invocations}=create(resource);
       const first=reference.methods[0]!;
       await Reflect.get(api,first.method).call(api);

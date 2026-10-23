@@ -232,7 +232,7 @@ export function runtimeV1Fallback(request:PlannedRequest,error:unknown):PlannedR
   const query=Object.fromEntries(Object.entries(request.query).filter(([name])=>name==="selections"||isAllowedV1Filter(name)));
   return {...request,path,query,apiVersion:"v1",strategy:"version-fallback",fallbackSplit:[]};
 }
-/** Object members merge recursively; later arrays/scalars replace earlier values, matching Rust. */
+/** Object members merge recursively; later arrays/scalars replace earlier values. */
 export function mergeJson(target:JsonValue,incoming:JsonValue):JsonValue {
   if(isJsonObject(target)&&isJsonObject(incoming)){
     for(const [key,value] of Object.entries(incoming)){

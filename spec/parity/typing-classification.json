@@ -1,12 +1,13 @@
 {
   "provenance": {
-    "repository": "https://github.com/swervelord/Torn-Rust-SDK",
-    "commit": "cd8716dad00ed7f4d0f58e1d013897bfa131f827",
     "tool": "typing_gap_report",
-    "source": "Rust report executed against pinned source during port; flags preserve source classifier semantics, including textual-analysis quirks",
+    "source": "Committed SDK typing-classification regression expectations, including historical textual-analysis behavior. Classifications are SDK audit contracts, not classifications supplied by the API specification.",
     "source_report_sha256": "d98a331c0415afd193d2860700eb806824896f19f62ad3c08169e20b27492508",
     "manual_metadata_sha256": "8ba067e9a378f5b6b70acec02eb57d16067270c028e00905a0e8c750af06a8c6",
-    "facade_manifest_sha256": "fc869d39a1a64a1b23b698a6162d84ab399579708fcce6dda21a4b3ad8c9e184"
+    "facade_manifest_sha256": "fc869d39a1a64a1b23b698a6162d84ab399579708fcce6dda21a4b3ad8c9e184",
+    "kind": "typing-classification-regression",
+    "source_url": "https://www.torn.com/swagger/openapi.json",
+    "apiVersion": "6.13.6"
   },
   "selections": [
     {

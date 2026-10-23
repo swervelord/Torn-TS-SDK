@@ -7,7 +7,7 @@ import { decodeManualModel } from "../models/manual-runtime.ts";
 import { ResourceOptions, TornOptions } from "./options.ts";
 import { decodeSelectionBatch, type JsonSelection, type ResourceName, type SelectionBatch, type SelectionBatchReport } from "../batch.ts";
 
-/** JSON selection bundle with the same flattened map and get helper as Rust. */
+/** JSON selection bundle exposing a flattened selection map and lookup helper. */
 export class RawSelectionBundle {
   constructor(readonly selections: JsonObject = {}) {}
   get(selection:string):JsonValue|undefined{return this.selections[selection];}

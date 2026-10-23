@@ -36,8 +36,8 @@ const harness = (responses: (TransportResponse | Error)[], config: ExecutorConfi
   return { executor, transport, clock };
 };
 
-describe('Rust executor contract audit', () => {
-  test('unsafe signed and unsigned Rust integers survive parsing, merging and re-serialization', async () => {
+describe('Executor contract audit', () => {
+  test('large signed and unsigned integers survive parsing, merging and re-serialization', async () => {
     const body = '{"unsigned":18446744073709551615,"signed":-9223372036854775808,"safe":9007199254740991,"decimal":1.25,"string":"18446744073709551615"}';
     const { executor } = harness([{ status: 200, body }, json({ nested: [1, 2] })]);
     const report = await executor.executePlan(plan(call(), call()));
@@ -45,7 +45,7 @@ describe('Rust executor contract audit', () => {
     expect(parseLosslessJson(stringifyLosslessJson(report.mergedJson))).toEqual(report.mergedJson);
     expect(stringifyLosslessJson(report.mergedJson)).toContain('"unsigned":18446744073709551615');
   });
-  test('reports expose Rust aliases and deserialize copies without mutating merged JSON', async () => {
+  test('reports expose public aliases and deserialize copies without mutating merged JSON', async () => {
     const report = await harness([json({ nested: { value: 1 } })]).executor.executePlan(plan(call()));
     expect(report.merged_json).toEqual(report.mergedJson);
     expect(report.calls[0]!.key_used).toBe('test-key-one');
@@ -149,7 +149,7 @@ describe('Rust executor contract audit', () => {
     const error = await executor.executePlan(plan(call())).catch(value => value as ApiError);
     expect((error as ApiError).message).toBe(`HTTP error response: ${'☀'.repeat(160)}...`);
   });
-  test('canonical pure error envelope is required on success; invalid code types do not deserialize in Rust', async () => {
+  test('canonical pure error envelope is required on success; invalid code types are rejected by the error decoder', async () => {
     for (const body of [{ error: { error: 'Invalid', code: 1 }, timestamp: 1 }, { error: 'Invalid' }, { error: { error: ' ' } }, { error: { error: 'Invalid', code: '1' } }, { error: { error: 'Invalid', code: 1.5 } }]) {
       const { executor } = harness([json(body)]);
       expect((await executor.executePlan(plan(call()))).mergedJson).toEqual(body as JsonValue);
@@ -261,14 +261,14 @@ describe('concurrency and cancellation', () => {
 });
 
 describe('environment and quota contracts', () => {
-  test('all Rust environment variables map to runtime configuration', () => {
+  test('all documented environment variables map to runtime configuration', () => {
     const runtime = RuntimeEnvConfig.fromEnv({ TORN_API_KEYS: ' one, ,two,one ', TORN_API_KEY: 'ignored', TORN_API_BASE_URL_V2: ' http://localhost/v2 ', TORN_API_BASE_URL_V1: ' http://localhost/v1 ', TORN_USER_AGENT: ' custom-agent ', TORN_HTTP_TIMEOUT_SECS: '2', TORN_MAX_ATTEMPTS: '0', TORN_NETWORK_RETRY_BACKOFF_MS: '10', TORN_RATE_LIMIT_PER_KEY_PER_MIN: '5', TORN_RATE_LIMIT_PER_IP_PER_MIN: '50', TORN_MAX_IN_FLIGHT: '2' });
     expect(runtime.apiKeys).toEqual(['one', 'two', 'one']);
     expect(runtime.executorConfig).toMatchObject({ baseUrlV2: 'http://localhost/v2', baseUrlV1: 'http://localhost/v1', userAgent: 'custom-agent', timeoutMs: 2000, maxAttempts: 0, networkRetryBackoffMs: 10, maxInFlight: 2, rateLimits: { perKeyPerMinute: 5, perIpPerMinute: 50 } });
     runtime.apiKeys.push('third'); expect(runtime.apiKeys).toHaveLength(3);
     expect(JSON.stringify(runtime)).not.toContain('"one"');
   });
-  test('single key fallback, whitespace defaults and Rust integer limits', () => {
+  test('single key fallback, whitespace defaults and integer limits', () => {
     expect(RuntimeEnvConfig.fromEnv({ TORN_API_KEYS: ', , ', TORN_API_KEY: ' single ', TORN_MAX_ATTEMPTS: ' ' }).apiKeys).toEqual(['single']);
     expect(() => RuntimeEnvConfig.fromEnv({})).toThrow(EnvConfigError);
     for (const [field, value] of [['TORN_MAX_ATTEMPTS', '-1'], ['TORN_MAX_ATTEMPTS', '1.5'], ['TORN_MAX_ATTEMPTS', '4294967296'], ['TORN_MAX_IN_FLIGHT', '4294967296'], ['TORN_MAX_IN_FLIGHT', '0'], ['TORN_RATE_LIMIT_PER_KEY_PER_MIN', '0'], ['TORN_RATE_LIMIT_PER_IP_PER_MIN', '0']]) expect(() => RuntimeEnvConfig.fromEnv({ TORN_API_KEY: 'test', [field!]: value })).toThrow(EnvConfigError);

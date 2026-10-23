@@ -23,7 +23,7 @@ if(Bun.argv.includes('--check')){ if(!equivalentJson(await Bun.file(resolve(root
 const baselineSpec = await Bun.file(resolve(root,'spec/versions/torn-openapi-6.13.6.json')).json() as Spec;
 const baselineMetadata = await Bun.file(resolve(root,'spec/versions/torn-openapi-6.13.6.metadata.json')).json() as {sha256:string};
 const baselineBytes = (await Bun.file(resolve(root,'spec/versions/torn-openapi-6.13.6.json')).text()).replace(/\r\n/g,'\n');
-if(new Bun.CryptoHasher('sha256').update(baselineBytes).digest('hex') !== baselineMetadata.sha256.toLowerCase()) throw new Error('Frozen Rust baseline specification provenance mismatch');
+if(new Bun.CryptoHasher('sha256').update(baselineBytes).digest('hex') !== baselineMetadata.sha256.toLowerCase()) throw new Error('Frozen baseline specification provenance mismatch');
 function generateSources(spec:Spec):Record<string,string> {
 const q = JSON.stringify;
 const pascal = (s:string) => s.split(/[^A-Za-z0-9]+/).map(x=>x.charAt(0).toUpperCase()+x.slice(1)).join('');

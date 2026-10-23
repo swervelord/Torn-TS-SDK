@@ -1,7 +1,7 @@
 import {describe,expect,test} from "bun:test";
 import {CapabilitiesDocument,ResourceCapabilities} from "../src/capabilities.ts";
 import {RequestPlanner,PlanRequest} from "../src/planner.ts";
-describe("serde-compatible capability document validation",()=>{
+describe("capability document validation",()=>{
   for(const json of ["null","[]","1",'"text"','{"resources":null}','{"spec":null}','{"spec":{"version":1}}','{"resources":{"user":{"selections":null}}}','{"resources":{"user":{"selections":[{"can_use_generic_endpoint":"true"}]}}}','{"resources":{"user":{"generic_parameters":[{"name":123}]}}}','{"resources":{"user":{"selections":[{"endpoints":[1]}]}}}'])test(`rejects invalid metadata ${json}`,()=>expect(()=>CapabilitiesDocument.fromJsonStr(json)).toThrow());
   test("accepts omitted/default fields, BOM, unknown metadata, and nullable paths",()=>{
     expect(CapabilitiesDocument.fromJsonStr("\uFEFF{}")).toEqual({spec:{},resources:{}});

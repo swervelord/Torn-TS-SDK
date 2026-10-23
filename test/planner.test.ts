@@ -22,7 +22,7 @@ function fixture(): RequestPlanner {
   } });
 }
 
-describe('Rust planner contract', () => {
+describe('Planner contract', () => {
   test('combines generic requests and precomputes individual fallback', () => {
     const request = new PlanRequest(' USER ', [' Profile ', 'discord', 'PROFILE', '', 'hof'])
       .withId('3637232').withFilter(' LIMIT ', 100).withFilter('foo', 'bar').withFilter('striptags', true);
@@ -56,7 +56,7 @@ describe('Rust planner contract', () => {
     expect(fixture().plan(new PlanRequest('user', ['crime']).with_path_arg('crimeId', 42)).requests[0]!.path).toBe('/user/42/crimes');
   });
 
-  test('v1 fallback, only resources and filters match Rust', () => {
+  test('v1 fallback, resource restriction and filter contracts', () => {
     const plan = fixture().plan(new PlanRequest('user', ['bazaar', 'profile']).with_id('3637232'));
     expect(plan.requests.map(call => [call.apiVersion, call.path])).toEqual([['v2', '/user'], ['v1', '/user/3637232']]);
     const company = fixture().plan(new PlanRequest('company', ['companies', 'news']).withId(' 55 ').withFilter('limit', 25).withFilter('timestamp', 1).withFilter('foo', 'bar')).requests[0]!;
@@ -96,11 +96,11 @@ describe('Rust planner contract', () => {
     expect(() => planner.plan(new PlanRequest('custom', ['direct']))).toThrow('Missing direct endpoint');
   });
 
-  test('BOM and absent document fields parse like serde defaults', () => {
+  test('BOM and absent document fields use documented parser defaults', () => {
     expect(CapabilitiesDocument.from_json_str('\uFEFF{}')).toEqual({ spec: {}, resources: {} });
   });
 
-  test('catalog supports exact Rust resource and selection sets', () => {
+  test('catalog supports the complete resource and selection inventory', () => {
     const catalog = new V1Catalog();
     expect(Object.keys(V1_RESOURCES)).toEqual(['user', 'property', 'faction', 'company', 'market', 'torn']);
     expect(catalog.has_selection('company', 'news')).toBe(true);

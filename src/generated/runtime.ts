@@ -25,7 +25,7 @@ export function validateLegacyModel(schemaName:string,value:unknown):ValidationI
  if(!schema)throw new ValidationError(`Unknown legacy 6.13.6 schema '${schemaName}'`);
  return validateSchema(schema,value,legacySchemas,{optionalNullable:true});
 }
-/** Decode the exact original Rust SDK schema contract. Current API operations use decodeModel. */
+/** Decode the frozen 6.13.6 schema contract. Current API operations use decodeModel. */
 export function decodeLegacyModel<T>(schemaName:string,value:unknown):T {
  const issues=validateLegacyModel(schemaName,value);
  if(issues.length)throw new DecodeError(`Invalid legacy 6.13.6 ${schemaName}: ${issues.slice(0,8).map(i=>i.path+': '+i.message).join('; ')}`,{schemaName,issues});
@@ -42,7 +42,7 @@ export function operationPlan(operationId:string,params:object):RequestPlan {
   const def=operationDefinitions[operationId];if(!def)throw new ValidationError(`Unknown operation '${operationId}'`);
   if(params===null||Array.isArray(params)||typeof params!=='object')throw new ValidationError('API parameters must be an object');
   const values=params as Record<string,unknown>;
-  // Null optional query parameters are omitted, matching the Rust Option parameter contract.
+  // Null optional query parameters are omitted from the request.
   const filtered=Object.fromEntries(Object.entries(values).filter(([,v])=>v!==undefined&&v!==null));
   const schema:Schema={type:'object',properties:Object.fromEntries(def.parameters.map(p=>[p.name,p.schema??{}])),required:def.parameters.filter(p=>p.required||p.in==='path').map(p=>p.name),additionalProperties:false};
   const issues=validateSchema(schema,filtered,schemas,{constraints:true});

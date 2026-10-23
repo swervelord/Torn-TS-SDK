@@ -49,24 +49,24 @@ describe('every component schema has a representative decodable value',()=>{
  });
 });
 
-interface GeneratedGolden {model:string;input:JsonValue;rust:{ok:boolean;normalized?:JsonValue;error?:string}}
+interface GeneratedGolden {model:string;input:JsonValue;validation:{ok:boolean;normalized?:JsonValue;error?:string}}
 const generatedGolden=await Bun.file(import.meta.dir+'/../spec/parity/generated-model-golden.json').json() as GeneratedGolden[];
-describe('all Rust generated model names accept their Rust-validated representative payload',()=>{
- test('the oracle includes all 1628 exported Rust generated model names',()=>{
+describe('all generated model names match committed representative payload expectations',()=>{
+ test('the regression fixture covers all 1628 baseline generated model names',()=>{
   expect(generatedGolden).toHaveLength(1628);
   expect(new Set(generatedGolden.map(c=>c.model)).size).toBe(1628);
  });
  for(const c of generatedGolden)test(c.model,()=>{
   expect(legacySchemas[c.model]).toBeDefined();
-  expect(validateLegacyModel(c.model,c.input).length===0).toBe(c.rust.ok);
+  expect(validateLegacyModel(c.model,c.input).length===0).toBe(c.validation.ok);
   expect(schemas[c.model]).toBeDefined();
-  // 6.13.8 changed the elimination team contract; the frozen Rust sample requires leaders.
-  expect(validateModel(c.model,c.input).length===0).toBe(c.model==='TornEliminationTeam'?false:c.rust.ok);
+  // 6.13.8 changed the elimination team contract; the frozen 6.13.6 sample requires leaders.
+  expect(validateModel(c.model,c.input).length===0).toBe(c.model==='TornEliminationTeam'?false:c.validation.ok);
  });
 });
 
 
-describe('6.13.8 elimination migration preserves an explicit frozen Rust contract',()=>{
+describe('6.13.8 elimination migration preserves an explicit frozen 6.13.6 contract',()=>{
  test('current models require captains while frozen models require leaders',()=>{
   const current=sampleSchema(schemas.TornEliminationTeam!,schemas);
   const legacy=sampleSchema(legacySchemas.TornEliminationTeam!,legacySchemas);

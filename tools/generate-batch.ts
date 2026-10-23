@@ -34,7 +34,7 @@ for(const [resource,definition] of Object.entries(facadeManifest)){
   }
   interfaces.push(`  ${resource}: {\n${properties.join("\n")}\n  };`);
 }
-const output='/** Generated typed JSON batch coverage from the pinned Rust facade contracts. */\nimport type * as Manual from "./models/manual.ts";\nimport type * as Generated from "./generated/models.ts";\n\nexport interface SelectionModelMap {\n'+interfaces.join("\n")+'\n}\n\nexport const selectionModelDefinitions = '+JSON.stringify(descriptors,null,2)+' as const;\n';
+const output='/** Generated typed JSON batch coverage from the committed resource facade contracts. */\nimport type * as Manual from "./models/manual.ts";\nimport type * as Generated from "./generated/models.ts";\n\nexport interface SelectionModelMap {\n'+interfaces.join("\n")+'\n}\n\nexport const selectionModelDefinitions = '+JSON.stringify(descriptors,null,2)+' as const;\n';
 const path=new URL("../src/batch-models.ts",import.meta.url);
 if(process.argv.includes("--check")){if((await Bun.file(path).text()).replaceAll("\r\n","\n")!==output)throw new Error("Batch selection models are stale; run bun tools/generate-batch.ts");}else await Bun.write(path,output);
 console.log(`${Object.values(descriptors).reduce((n,r)=>n+Object.keys(r).length,0)} typed JSON batch selections verified`);

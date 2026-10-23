@@ -1,7 +1,7 @@
 import rawCapabilities from '../spec/capabilities.json' with { type: 'json' };
 import { PlannerError } from './errors.ts';
 
-/** The pinned OpenAPI-derived planner metadata. JSON field names match Rust. */
+/** The pinned OpenAPI-derived planner metadata and stable JSON field names. */
 export interface CapabilitySpec { version?: string }
 export interface ParameterSchema {
   [key: string]: unknown;
@@ -46,7 +46,7 @@ export interface CapabilitiesDocument {
 
 export const defaultCapabilities: CapabilitiesDocument = rawCapabilities;
 
-/** Parse JSON, including the BOM accepted by the Rust SDK. */
+/** Parse JSON, accepting an optional leading byte order mark. */
 export function capabilitiesFromJson(content: string): CapabilitiesDocument {
   const parsed: unknown = JSON.parse(content.replace(/^\uFEFF+/, ''));
   validateCapabilities(parsed);
@@ -91,7 +91,7 @@ function validateCapabilities(value: unknown): asserts value is Partial<Capabili
   }
 }
 
-/** Companion utility for the Rust resource metadata selection accessor. */
+/** Companion utility for the resource metadata selection accessor. */
 export const ResourceCapabilities = {
   selection(resource: ResourceCapabilities, name: string): SelectionCapability | undefined {
     return resource.selections?.find(selection=>selection.name===name);
@@ -110,7 +110,7 @@ export async function capabilitiesFromPath(path: string | URL): Promise<Capabili
   }
 }
 
-/** Static helpers are also exposed under the Rust type's name. */
+/** Static helpers are also exposed under the public type's name. */
 export const CapabilitiesDocument = {
   fromJsonStr: capabilitiesFromJson, from_json_str: capabilitiesFromJson,
   fromPath: capabilitiesFromPath, from_path: capabilitiesFromPath,

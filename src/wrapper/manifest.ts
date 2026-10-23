@@ -1,4 +1,4 @@
-/** Public Rust facade inventory retained for exhaustive compatibility tests. */
+/** Public facade inventory retained for exhaustive dispatch and coverage tests. */
 export const facadeManifest = {
   "user": {
     "selections": [

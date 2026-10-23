@@ -27,7 +27,7 @@ function responseInfo(spec:JsonObject,op:JsonObject):JsonObject {
  for(const item of Object.values(object(response.content)))walk(at(item,'schema'),'',new Set());
  return {response_schema_refs:sorted(refs),response_top_level_fields:sorted(fields),response_field_paths:sorted(paths)};
 }
-/** Rebuild planner metadata using the same pinned OpenAPI + routing overrides as the Rust SDK. */
+/** Rebuild planner metadata from the pinned OpenAPI specification and routing overrides. */
 export function generateCapabilities(spec:JsonObject,overrides:JsonObject):JsonObject {
  const paths=object(spec.paths),resources:JsonObject={};
  for(const resource of sorted(Object.keys(paths).map(p=>p.split('/')[1]!).filter(Boolean))){

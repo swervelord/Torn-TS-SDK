@@ -7,7 +7,7 @@ import { operationDefinitions, componentSchemaNames } from '../src/generated/ope
 import sourceCapabilities from '../spec/versions/torn-capabilities-6.13.6.json' with { type: 'json' };
 import sourceSchemaNames from '../spec/parity/source-schema-names.json' with { type: 'json' };
 
-describe('differential parity against executed Rust reference', () => {
+describe('committed SDK regression contracts', () => {
   const planner = new RequestPlanner();
   const sourcePlanner = new RequestPlanner(sourceCapabilities);
   for (const [index, fixture] of fixtures.entries()) {
@@ -49,9 +49,9 @@ describe('differential parity against executed Rust reference', () => {
     expect(sourceCapabilities.spec.version).toBe(manifest.provenance.apiVersion);
   });
 
-  test('every public Rust manual model has a TypeScript declaration', async () => {
+  test('every public manual model has a TypeScript declaration', async () => {
     const source = await Bun.file(new URL('../src/models/manual.ts', import.meta.url)).text();
     const declarations = new Set([...source.matchAll(/export\s+(?:interface|type|class|enum)\s+([a-zA-Z_][a-zA-Z0-9_]*)/g)].map(match => match[1]!));
-    for (const names of Object.values(manifest.manualModels)) for (const name of names) expect(declarations.has(name), `Missing Rust manual model ${name}`).toBe(true);
+    for (const names of Object.values(manifest.manualModels)) for (const name of names) expect(declarations.has(name), `Missing manual model ${name}`).toBe(true);
   });
 });

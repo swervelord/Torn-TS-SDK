@@ -977,6 +977,6 @@
       "ok": true
     }
   ],
-  "description": "Rust manual models deserialize + public field normalization",
-  "source_commit": "cd8716d"
+  "description": "Committed manual model decoder regression inputs, expected outcomes and public field normalization",
+  "contract_kind": "manual-decoder-regression"
 }

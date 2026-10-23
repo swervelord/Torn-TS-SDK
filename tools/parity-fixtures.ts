@@ -1,4 +1,4 @@
-/** Verify the committed oracle produced by the pinned Rust SDK during the port. Runtime and tooling are TypeScript only. */
+/** Verify the committed planner regression contracts against both supported specification snapshots. */
 import { PlanRequest, RequestPlanner } from '../src/planner.ts';
 import { defaultCapabilities } from '../src/capabilities.ts';
 import type { PlanRequestData } from '../src/types.ts';
@@ -21,7 +21,7 @@ for (const fixture of fixtures) {
   let result: unknown;
   try { result = { plan: planner.plan(builder) }; }
   catch (error) { const typed = error as { kind: string; details: unknown }; result = { error: { kind: typed.kind, details: typed.details } }; }
-  if (!Bun.deepEquals(result, fixture.expected)) throw new Error(`Rust planner parity mismatch: ${JSON.stringify(input)}`);
+  if (!Bun.deepEquals(result, fixture.expected)) throw new Error(`Planner regression contract mismatch: ${JSON.stringify(input)}`);
 }
 }
 const hash = new Bun.CryptoHasher('sha256'); hash.update(await Bun.file(goldenPath).arrayBuffer());
@@ -34,4 +34,4 @@ const currentSpec = await Bun.file(new URL('../spec/torn-openapi-current.json', 
 if (Object.keys(baselineSpec.components.schemas).length !== manifest.schemaCount) throw new Error('Source baseline schema count differs from pinned parity manifest');
 if (!Bun.deepEquals([...componentSchemaNames].sort(), Object.keys(currentSpec.components.schemas).sort())) throw new Error('Current generated schema coverage differs from current spec');
 if (!Bun.deepEquals(Object.values(operationDefinitions).map(operation => operation.path).sort(), manifest.operations.map((operation: {path: string}) => operation.path).sort())) throw new Error('Generated operation paths differ from source operation inventory');
-console.log(`Rust parity: ${fixtures.length} planner scenarios verified against baseline ${baselineSpec.info.version} and current ${currentSpec.info.version}; ${manifest.selectionCount} selections, ${manifest.operationCount} operations; source ${manifest.schemaCount} / current ${componentSchemaNames.length} schemas.`);
+console.log(`SDK regression contracts: ${fixtures.length} planner scenarios verified against baseline ${baselineSpec.info.version} and current ${currentSpec.info.version}; ${manifest.selectionCount} selections, ${manifest.operationCount} operations; source ${manifest.schemaCount} / current ${componentSchemaNames.length} schemas.`);

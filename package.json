@@ -17,15 +17,15 @@
     "./spec/*": "./spec/*",
     "./package.json": "./package.json"
   },
-  "files": ["dist", "src", "spec", "docs", "README.md", "LICENSE", "NOTICE", "PARITY.md"],
+  "files": ["dist", "src", "spec", "docs", "README.md", "LICENSE", "NOTICE", "CONTRACT.md"],
   "scripts": {
     "test": "bun test",
     "typecheck": "bun check --no-script",
     "typecheck:tsc": "tsc --noEmit",
     "generate": "bun tools/generate.ts",
     "generate:check": "bun tools/generate.ts --check",
-    "generate:manual": "bun tools/port-facades.ts",
-    "generate:manual:check": "bun tools/port-facades.ts --check",
+    "generate:manual": "bun tools/generate-manual.ts",
+    "generate:manual:check": "bun tools/generate-manual.ts --check",
     "generate:batch": "bun tools/generate-batch.ts",
     "generate:batch:check": "bun tools/generate-batch.ts --check",
     "refresh": "bun tools/refresh.ts",

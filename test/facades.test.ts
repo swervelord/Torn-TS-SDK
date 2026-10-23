@@ -70,7 +70,7 @@ describe("complete facade surface",()=>{
   });
 });
 describe("manual compatibility decoding",()=>{
-  for(const fixture of fixtures)test(`Rust contract: ${fixture.name} (${fixture.model})`,()=>{expect(()=>decodeManualModel(fixture.model,fixture.value as unknown as JsonValue)).not.toThrow();});
+  for(const fixture of fixtures)test(`Model contract: ${fixture.name} (${fixture.model})`,()=>{expect(()=>decodeManualModel(fixture.model,fixture.value as unknown as JsonValue)).not.toThrow();});
   test("default fields, field aliases, flattened extras, company array news and custom position names",()=>{
     const bundle=decodeManualModel<CompanyProfileBundle>("CompanyProfileBundle",{profile:{ID:123,employees:{"5":{position:{name:"Florist"}}},future:{x:1}}});
     expect(bundle.company.id).toBe(123);expect(bundle.company.name).toBeNull();expect(bundle.company.extra.future).toEqual({x:1});

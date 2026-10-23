@@ -37,7 +37,7 @@ test("personal statistics bucket get works on nested categories and does not con
   expect(JSON.parse(JSON.stringify(category.attacking))).toEqual({stats:{attackswon:123,custom:{nested:true},get:"statistic"}});
 });
 
-test("DynamicValue companion preserves the Rust accessors for native TypeScript primitives",()=>{
+test("DynamicValue companion exposes accessors for native TypeScript primitives",()=>{
   expect(DynamicValue.asI64(42)).toBe(42);
   expect(DynamicValue.as_i64(-(1n<<63n))).toBe(-(1n<<63n));
   expect(DynamicValue.asI64((1n<<63n)-1n)).toBe((1n<<63n)-1n);
