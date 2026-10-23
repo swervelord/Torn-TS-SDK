@@ -1,0 +1,21 @@
+export * from "./types.ts";
+export * from "./errors.ts";
+export * from "./json.ts";
+export * from "./batch.ts";
+export * from "./typing-gap.ts";
+export * from "./config.ts";
+export * from "./capabilities.ts";
+export * from "./planner.ts";
+export * from "./v1-catalog.ts";
+export * from "./rate-limit.ts";
+export * from "./transport.ts";
+export * from "./executor.ts";
+export * from "./client.ts";
+export * from "./wrapper/index.ts";
+export * from "./generated/index.ts";
+// The runtime error class takes the root name; the upstream error schema remains generatedModels.ApiError.
+export { ApiError } from "./errors.ts";
+export * from "./models/manual-runtime.ts";
+export * as manualModels from "./models/manual.ts";
+export * as generatedModels from "./generated/models.ts";
+export * as models from "./models.ts";

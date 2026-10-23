@@ -1,0 +1,2521 @@
+{
+  "provenance": {
+    "repository": "https://github.com/swervelord/Torn-Rust-SDK",
+    "commit": "cd8716dad00ed7f4d0f58e1d013897bfa131f827",
+    "crateVersion": "2.0.0",
+    "apiVersion": "6.13.6",
+    "reference": "Executed unmodified Rust planner via temporary JSON exporter in reference checkout; exporter serializes plan fields and error variants, with only camelCase field conversion.",
+    "goldenSha256": "c17f58000d457f818f30f98885db10081b57934a144ae94a68d5d79f5cf6fe59"
+  },
+  "plannerScenarioCount": 466,
+  "resourceCount": 9,
+  "selectionCount": 205,
+  "operationCount": 234,
+  "schemaCount": 711,
+  "operations": [
+    {
+      "path": "/user/ammo",
+      "method": "GET",
+      "operationId": "getMyAmmo"
+    },
+    {
+      "path": "/user/attacks",
+      "method": "GET",
+      "operationId": "getMyAttacks"
+    },
+    {
+      "path": "/user/attacksfull",
+      "method": "GET",
+      "operationId": "getMyAttacksSimplified"
+    },
+    {
+      "path": "/user/bars",
+      "method": "GET",
+      "operationId": "getMyBars"
+    },
+    {
+      "path": "/user/basic",
+      "method": "GET",
+      "operationId": "getMyBasicInformation"
+    },
+    {
+      "path": "/user/{id}/basic",
+      "method": "GET",
+      "operationId": "getUserBasicInformation"
+    },
+    {
+      "path": "/user/battlestats",
+      "method": "GET",
+      "operationId": "getMyBattlestats"
+    },
+    {
+      "path": "/user/bounties",
+      "method": "GET",
+      "operationId": "getMyBounties"
+    },
+    {
+      "path": "/user/{id}/bounties",
+      "method": "GET",
+      "operationId": "getUserBounties"
+    },
+    {
+      "path": "/user/calendar",
+      "method": "GET",
+      "operationId": "getMyCalendarTime"
+    },
+    {
+      "path": "/user/casino",
+      "method": "GET",
+      "operationId": "getMyCasinoStreak"
+    },
+    {
+      "path": "/user/competition",
+      "method": "GET",
+      "operationId": "getMyCompetitionInfo"
+    },
+    {
+      "path": "/user/{id}/competition",
+      "method": "GET",
+      "operationId": "getUserCompetitionInfo"
+    },
+    {
+      "path": "/user/cooldowns",
+      "method": "GET",
+      "operationId": "getMyCooldowns"
+    },
+    {
+      "path": "/user/{crimeId}/crimes",
+      "method": "GET",
+      "operationId": "getMyCrimes"
+    },
+    {
+      "path": "/user/discord",
+      "method": "GET",
+      "operationId": "getMyDiscord"
+    },
+    {
+      "path": "/user/{id}/discord",
+      "method": "GET",
+      "operationId": "getUserDiscord"
+    },
+    {
+      "path": "/user/education",
+      "method": "GET",
+      "operationId": "getMyEducation"
+    },
+    {
+      "path": "/user/enlistedcars",
+      "method": "GET",
+      "operationId": "getMyEnlistedCars"
+    },
+    {
+      "path": "/user/equipment",
+      "method": "GET",
+      "operationId": "getMyEquipment"
+    },
+    {
+      "path": "/user/events",
+      "method": "GET",
+      "operationId": "getMyEvents"
+    },
+    {
+      "path": "/user/faction",
+      "method": "GET",
+      "operationId": "getMyFaction"
+    },
+    {
+      "path": "/user/{id}/faction",
+      "method": "GET",
+      "operationId": "getUserFaction"
+    },
+    {
+      "path": "/user/forumfeed",
+      "method": "GET",
+      "operationId": "getMyForumFeed"
+    },
+    {
+      "path": "/user/forumfriends",
+      "method": "GET",
+      "operationId": "getMyForumFriendsUpdates"
+    },
+    {
+      "path": "/user/forumposts",
+      "method": "GET",
+      "operationId": "getMyForumPosts"
+    },
+    {
+      "path": "/user/{id}/forumposts",
+      "method": "GET",
+      "operationId": "getUserForumPosts"
+    },
+    {
+      "path": "/user/forumsubscribedthreads",
+      "method": "GET",
+      "operationId": "getMyForumSubscribedThreads"
+    },
+    {
+      "path": "/user/forumthreads",
+      "method": "GET",
+      "operationId": "getMyForumThreads"
+    },
+    {
+      "path": "/user/{id}/forumthreads",
+      "method": "GET",
+      "operationId": "getUserForumThreads"
+    },
+    {
+      "path": "/user/gym",
+      "method": "GET",
+      "operationId": "getMyGym"
+    },
+    {
+      "path": "/user/hof",
+      "method": "GET",
+      "operationId": "getMyHoF"
+    },
+    {
+      "path": "/user/{id}/hof",
+      "method": "GET",
+      "operationId": "getUserHoF"
+    },
+    {
+      "path": "/user/honors",
+      "method": "GET",
+      "operationId": "getMyHonors"
+    },
+    {
+      "path": "/user/icons",
+      "method": "GET",
+      "operationId": "getMyIcons"
+    },
+    {
+      "path": "/user/{id}/icons",
+      "method": "GET",
+      "operationId": "getUserIcons"
+    },
+    {
+      "path": "/user/inventory",
+      "method": "GET",
+      "operationId": "getMyInventory"
+    },
+    {
+      "path": "/user/itemmarket",
+      "method": "GET",
+      "operationId": "getMyItemMarketListings"
+    },
+    {
+      "path": "/user/itemmods",
+      "method": "GET",
+      "operationId": "getMyItemModsInformation"
+    },
+    {
+      "path": "/user/job",
+      "method": "GET",
+      "operationId": "getMyJob"
+    },
+    {
+      "path": "/user/{id}/job",
+      "method": "GET",
+      "operationId": "getUserJob"
+    },
+    {
+      "path": "/user/jobpoints",
+      "method": "GET",
+      "operationId": "getMyJobPoints"
+    },
+    {
+      "path": "/user/jobranks",
+      "method": "GET",
+      "operationId": "getMyJobRanks"
+    },
+    {
+      "path": "/user/list",
+      "method": "GET",
+      "operationId": "getMyContactsList"
+    },
+    {
+      "path": "/user/log",
+      "method": "GET",
+      "operationId": "getMyLogs"
+    },
+    {
+      "path": "/user/medals",
+      "method": "GET",
+      "operationId": "getMyMedals"
+    },
+    {
+      "path": "/user/{id}/medals",
+      "method": "GET",
+      "operationId": "getUserMedals"
+    },
+    {
+      "path": "/user/merits",
+      "method": "GET",
+      "operationId": "getMyMerits"
+    },
+    {
+      "path": "/user/messages",
+      "method": "GET",
+      "operationId": "getMyMessages"
+    },
+    {
+      "path": "/user/missions",
+      "method": "GET",
+      "operationId": "getMyMissions"
+    },
+    {
+      "path": "/user/money",
+      "method": "GET",
+      "operationId": "getMyMoney"
+    },
+    {
+      "path": "/user/newevents",
+      "method": "GET",
+      "operationId": "getMyNewEvents"
+    },
+    {
+      "path": "/user/networth",
+      "method": "GET",
+      "operationId": "getMyNetworth"
+    },
+    {
+      "path": "/user/newmessages",
+      "method": "GET",
+      "operationId": "getMyNewMessages"
+    },
+    {
+      "path": "/user/notifications",
+      "method": "GET",
+      "operationId": "getMyNotifications"
+    },
+    {
+      "path": "/user/organizedcrime",
+      "method": "GET",
+      "operationId": "getMyOrganizedCrime"
+    },
+    {
+      "path": "/user/organizedcrimes",
+      "method": "GET",
+      "operationId": "getMyAvailableOrganizedCrimes"
+    },
+    {
+      "path": "/user/perks",
+      "method": "GET",
+      "operationId": "getMyPerks"
+    },
+    {
+      "path": "/user/personalstats",
+      "method": "GET",
+      "operationId": "getMyPersonalStats"
+    },
+    {
+      "path": "/user/{id}/personalstats",
+      "method": "GET",
+      "operationId": "getUserPersonalStats"
+    },
+    {
+      "path": "/user/profile",
+      "method": "GET",
+      "operationId": "getMyProfile"
+    },
+    {
+      "path": "/user/{id}/profile",
+      "method": "GET",
+      "operationId": "getUserProfile"
+    },
+    {
+      "path": "/user/properties",
+      "method": "GET",
+      "operationId": "getMyProperties"
+    },
+    {
+      "path": "/user/{id}/properties",
+      "method": "GET",
+      "operationId": "getUserProperties"
+    },
+    {
+      "path": "/user/property",
+      "method": "GET",
+      "operationId": "getMyProperty"
+    },
+    {
+      "path": "/user/{id}/property",
+      "method": "GET",
+      "operationId": "getUserProperty"
+    },
+    {
+      "path": "/user/races",
+      "method": "GET",
+      "operationId": "getMyRaces"
+    },
+    {
+      "path": "/user/racingrecords",
+      "method": "GET",
+      "operationId": "getMyRacingRecords"
+    },
+    {
+      "path": "/user/refills",
+      "method": "GET",
+      "operationId": "getMyRefills"
+    },
+    {
+      "path": "/user/reports",
+      "method": "GET",
+      "operationId": "getMyReports"
+    },
+    {
+      "path": "/user/revives",
+      "method": "GET",
+      "operationId": "getMyRevives"
+    },
+    {
+      "path": "/user/revivesFull",
+      "method": "GET",
+      "operationId": "getMyRevivesSimplified"
+    },
+    {
+      "path": "/user/skills",
+      "method": "GET",
+      "operationId": "getMySkills"
+    },
+    {
+      "path": "/user/search",
+      "method": "GET",
+      "operationId": "getUsersSearch"
+    },
+    {
+      "path": "/user/snapshot",
+      "method": "GET",
+      "operationId": "getUsersSnapshot"
+    },
+    {
+      "path": "/user/stocks",
+      "method": "GET",
+      "operationId": "getMyStocks"
+    },
+    {
+      "path": "/user/trades",
+      "method": "GET",
+      "operationId": "getMyTrades"
+    },
+    {
+      "path": "/user/{tradeId}/trade",
+      "method": "GET",
+      "operationId": "getMyDetailedTrade"
+    },
+    {
+      "path": "/user/travel",
+      "method": "GET",
+      "operationId": "getMyTravelInformation"
+    },
+    {
+      "path": "/user/virus",
+      "method": "GET",
+      "operationId": "getMyVirusCodingInformation"
+    },
+    {
+      "path": "/user/weaponexp",
+      "method": "GET",
+      "operationId": "getMyWeaponExp"
+    },
+    {
+      "path": "/user/workstats",
+      "method": "GET",
+      "operationId": "getMyWorkstats"
+    },
+    {
+      "path": "/user/lookup",
+      "method": "GET",
+      "operationId": "getUserLookup"
+    },
+    {
+      "path": "/user/timestamp",
+      "method": "GET",
+      "operationId": "getUserTimestamp"
+    },
+    {
+      "path": "/user",
+      "method": "GET",
+      "operationId": "getUserGeneric"
+    },
+    {
+      "path": "/faction/applications",
+      "method": "GET",
+      "operationId": "getMyFactionApplications"
+    },
+    {
+      "path": "/faction/attacks",
+      "method": "GET",
+      "operationId": "getMyFactionAttacks"
+    },
+    {
+      "path": "/faction/attacksfull",
+      "method": "GET",
+      "operationId": "getMyFactionAttacksSimplified"
+    },
+    {
+      "path": "/faction/balance",
+      "method": "GET",
+      "operationId": "getMyFactionBalance"
+    },
+    {
+      "path": "/faction/basic",
+      "method": "GET",
+      "operationId": "getMyFactionBasicInformation"
+    },
+    {
+      "path": "/faction/{id}/basic",
+      "method": "GET",
+      "operationId": "getFactionBasicInformation"
+    },
+    {
+      "path": "/faction/chain",
+      "method": "GET",
+      "operationId": "getMyFactionChain"
+    },
+    {
+      "path": "/faction/{id}/chain",
+      "method": "GET",
+      "operationId": "getFactionChain"
+    },
+    {
+      "path": "/faction/chains",
+      "method": "GET",
+      "operationId": "getMyFactionCompletedChains"
+    },
+    {
+      "path": "/faction/{id}/chains",
+      "method": "GET",
+      "operationId": "getFactionCompletedChains"
+    },
+    {
+      "path": "/faction/chainreport",
+      "method": "GET",
+      "operationId": "getMyFactionLatestChainReport"
+    },
+    {
+      "path": "/faction/{chainId}/chainreport",
+      "method": "GET",
+      "operationId": "getChainReport"
+    },
+    {
+      "path": "/faction/contributors",
+      "method": "GET",
+      "operationId": "getMyFactionContributors"
+    },
+    {
+      "path": "/faction/crimeexp",
+      "method": "GET",
+      "operationId": "getMyFactionCrimeExp"
+    },
+    {
+      "path": "/faction/crimes",
+      "method": "GET",
+      "operationId": "getMyFactionOrganizedCrimes"
+    },
+    {
+      "path": "/faction/{crimeId}/crime",
+      "method": "GET",
+      "operationId": "getMyFactionOrganizedCrime"
+    },
+    {
+      "path": "/faction/dirtybombs",
+      "method": "GET",
+      "operationId": "getWarfareDirtyBombs"
+    },
+    {
+      "path": "/faction/hof",
+      "method": "GET",
+      "operationId": "getMyFactionHoF"
+    },
+    {
+      "path": "/faction/{id}/hof",
+      "method": "GET",
+      "operationId": "getFactionHoF"
+    },
+    {
+      "path": "/faction/inventory",
+      "method": "GET",
+      "operationId": "getMyFactionInventory"
+    },
+    {
+      "path": "/faction/members",
+      "method": "GET",
+      "operationId": "getMyFactionMembers"
+    },
+    {
+      "path": "/faction/{id}/members",
+      "method": "GET",
+      "operationId": "getFactionMembers"
+    },
+    {
+      "path": "/faction/news",
+      "method": "GET",
+      "operationId": "getMyFactionNews"
+    },
+    {
+      "path": "/faction/positions",
+      "method": "GET",
+      "operationId": "getMyFactionPositions"
+    },
+    {
+      "path": "/faction/rackets",
+      "method": "GET",
+      "operationId": "getFactionRackets"
+    },
+    {
+      "path": "/faction/{raidWarId}/raidreport",
+      "method": "GET",
+      "operationId": "getRaidReport"
+    },
+    {
+      "path": "/faction/raids",
+      "method": "GET",
+      "operationId": "getMyFactionRaidsHistory"
+    },
+    {
+      "path": "/faction/{id}/raids",
+      "method": "GET",
+      "operationId": "getFactionRaidsHistory"
+    },
+    {
+      "path": "/faction/rankedwars",
+      "method": "GET",
+      "operationId": "getMyFactionRankedWarsHistory"
+    },
+    {
+      "path": "/faction/{id}/rankedwars",
+      "method": "GET",
+      "operationId": "getFactionRankedWarsHistory"
+    },
+    {
+      "path": "/faction/{rankedWarId}/rankedwarreport",
+      "method": "GET",
+      "operationId": "getRankedWarReport"
+    },
+    {
+      "path": "/faction/reports",
+      "method": "GET",
+      "operationId": "getMyFactionReports"
+    },
+    {
+      "path": "/faction/revives",
+      "method": "GET",
+      "operationId": "getMyFactionRevives"
+    },
+    {
+      "path": "/faction/revivesFull",
+      "method": "GET",
+      "operationId": "getMyFactionRevivesSimplified"
+    },
+    {
+      "path": "/faction/search",
+      "method": "GET",
+      "operationId": "getFactionSearch"
+    },
+    {
+      "path": "/faction/snapshot",
+      "method": "GET",
+      "operationId": "getFactionsSnapshot"
+    },
+    {
+      "path": "/faction/stats",
+      "method": "GET",
+      "operationId": "getMyFactionStats"
+    },
+    {
+      "path": "/faction/territory",
+      "method": "GET",
+      "operationId": "getMyFactionTerritory"
+    },
+    {
+      "path": "/faction/{id}/territory",
+      "method": "GET",
+      "operationId": "getFactionTerritory"
+    },
+    {
+      "path": "/faction/territoryownership",
+      "method": "GET",
+      "operationId": "getTerritoryOwnership"
+    },
+    {
+      "path": "/faction/territorywars",
+      "method": "GET",
+      "operationId": "getMyFactionTerritoryWarsHistory"
+    },
+    {
+      "path": "/faction/{id}/territorywars",
+      "method": "GET",
+      "operationId": "getFactionTerritoryWarsHistory"
+    },
+    {
+      "path": "/faction/{territoryWarId}/territorywarreport",
+      "method": "GET",
+      "operationId": "getTerritoryWarReport"
+    },
+    {
+      "path": "/faction/upgrades",
+      "method": "GET",
+      "operationId": "getMyFactionUpgrades"
+    },
+    {
+      "path": "/faction/warfarechains",
+      "method": "GET",
+      "operationId": "getWarfareChains"
+    },
+    {
+      "path": "/faction/warfareraids",
+      "method": "GET",
+      "operationId": "getWarfareRaids"
+    },
+    {
+      "path": "/faction/warfareranked",
+      "method": "GET",
+      "operationId": "getWarfareRankedWars"
+    },
+    {
+      "path": "/faction/warfareterritory",
+      "method": "GET",
+      "operationId": "getWarfareTerritoryWars"
+    },
+    {
+      "path": "/faction/warfare",
+      "method": "GET",
+      "operationId": "getWarfare"
+    },
+    {
+      "path": "/faction/wars",
+      "method": "GET",
+      "operationId": "getMyFactionWars"
+    },
+    {
+      "path": "/faction/{id}/wars",
+      "method": "GET",
+      "operationId": "getFactionWars"
+    },
+    {
+      "path": "/faction/lookup",
+      "method": "GET",
+      "operationId": "getFactionLookup"
+    },
+    {
+      "path": "/faction/timestamp",
+      "method": "GET",
+      "operationId": "getFactionTimestamp"
+    },
+    {
+      "path": "/faction",
+      "method": "GET",
+      "operationId": "getFactionGeneric"
+    },
+    {
+      "path": "/company/applications",
+      "method": "GET",
+      "operationId": "getMyCompanyApplications"
+    },
+    {
+      "path": "/company/employees",
+      "method": "GET",
+      "operationId": "getMyCompanyEmployees"
+    },
+    {
+      "path": "/company/{id}/employees",
+      "method": "GET",
+      "operationId": "getCompanyEmployees"
+    },
+    {
+      "path": "/company/news",
+      "method": "GET",
+      "operationId": "getMyCompanyNews"
+    },
+    {
+      "path": "/company/{typeId}/companies",
+      "method": "GET",
+      "operationId": "getCompaniesList"
+    },
+    {
+      "path": "/company/profile",
+      "method": "GET",
+      "operationId": "getMyCompanyProfile"
+    },
+    {
+      "path": "/company/{id}/profile",
+      "method": "GET",
+      "operationId": "getCompanyProfile"
+    },
+    {
+      "path": "/company/search",
+      "method": "GET",
+      "operationId": "getCompaniesSearch"
+    },
+    {
+      "path": "/company/snapshot",
+      "method": "GET",
+      "operationId": "getCompaniesSnapshot"
+    },
+    {
+      "path": "/company/stock",
+      "method": "GET",
+      "operationId": "getMyCompanyStock"
+    },
+    {
+      "path": "/company/lookup",
+      "method": "GET",
+      "operationId": "getCompanyLookup"
+    },
+    {
+      "path": "/company/timestamp",
+      "method": "GET",
+      "operationId": "getCompanyTimestamp"
+    },
+    {
+      "path": "/company",
+      "method": "GET",
+      "operationId": "getCompanyGeneric"
+    },
+    {
+      "path": "/forum/categories",
+      "method": "GET",
+      "operationId": "getForumCategories"
+    },
+    {
+      "path": "/forum/{threadId}/posts",
+      "method": "GET",
+      "operationId": "getForumThreadPosts"
+    },
+    {
+      "path": "/forum/{threadId}/thread",
+      "method": "GET",
+      "operationId": "getForumThread"
+    },
+    {
+      "path": "/forum/threads",
+      "method": "GET",
+      "operationId": "getForumAllThreads"
+    },
+    {
+      "path": "/forum/{categoryIds}/threads",
+      "method": "GET",
+      "operationId": "getForumThreads"
+    },
+    {
+      "path": "/forum/lookup",
+      "method": "GET",
+      "operationId": "getForumLookup"
+    },
+    {
+      "path": "/forum/timestamp",
+      "method": "GET",
+      "operationId": "getForumTimestamp"
+    },
+    {
+      "path": "/forum",
+      "method": "GET",
+      "operationId": "getForumGeneric"
+    },
+    {
+      "path": "/key/log",
+      "method": "GET",
+      "operationId": "getKeyLog"
+    },
+    {
+      "path": "/key/info",
+      "method": "GET",
+      "operationId": "getKeyInfo"
+    },
+    {
+      "path": "/key",
+      "method": "GET",
+      "operationId": "getKeyGeneric"
+    },
+    {
+      "path": "/market/{id}/auctionhouselisting",
+      "method": "GET",
+      "operationId": "getMarketAuctionHouseListing"
+    },
+    {
+      "path": "/market/{id}/auctionhouse",
+      "method": "GET",
+      "operationId": "getMarketAuctionHouseItem"
+    },
+    {
+      "path": "/market/auctionhouse",
+      "method": "GET",
+      "operationId": "getMarketAuctionHouse"
+    },
+    {
+      "path": "/market/bazaar",
+      "method": "GET",
+      "operationId": "getMarketBazaar"
+    },
+    {
+      "path": "/market/{id}/bazaar",
+      "method": "GET",
+      "operationId": "getMarketBazaarItem"
+    },
+    {
+      "path": "/market/{id}/itemmarket",
+      "method": "GET",
+      "operationId": "getMarketItemMarketItem"
+    },
+    {
+      "path": "/market/{propertyTypeId}/properties",
+      "method": "GET",
+      "operationId": "getMarketProperties"
+    },
+    {
+      "path": "/market/pointsmarket",
+      "method": "GET",
+      "operationId": "getMarketPoints"
+    },
+    {
+      "path": "/market/{propertyTypeId}/rentals",
+      "method": "GET",
+      "operationId": "getMarketPropertiesRental"
+    },
+    {
+      "path": "/market/lookup",
+      "method": "GET",
+      "operationId": "getMarketLookup"
+    },
+    {
+      "path": "/market/timestamp",
+      "method": "GET",
+      "operationId": "getMarketTimestamp"
+    },
+    {
+      "path": "/market",
+      "method": "GET",
+      "operationId": "getMarketGeneric"
+    },
+    {
+      "path": "/racing/cars",
+      "method": "GET",
+      "operationId": "getRacingCars"
+    },
+    {
+      "path": "/racing/carupgrades",
+      "method": "GET",
+      "operationId": "getRacingCarUpgrades"
+    },
+    {
+      "path": "/racing/races",
+      "method": "GET",
+      "operationId": "getRacingRaces"
+    },
+    {
+      "path": "/racing/{raceId}/race",
+      "method": "GET",
+      "operationId": "getRacingRaceDetails"
+    },
+    {
+      "path": "/racing/{trackId}/records",
+      "method": "GET",
+      "operationId": "getRacingTrackRecords"
+    },
+    {
+      "path": "/racing/tracks",
+      "method": "GET",
+      "operationId": "getRacingTracks"
+    },
+    {
+      "path": "/racing/lookup",
+      "method": "GET",
+      "operationId": "getRacingLookup"
+    },
+    {
+      "path": "/racing/timestamp",
+      "method": "GET",
+      "operationId": "getRacingTimestamp"
+    },
+    {
+      "path": "/racing",
+      "method": "GET",
+      "operationId": "getRacingGeneric"
+    },
+    {
+      "path": "/property/{id}/property",
+      "method": "GET",
+      "operationId": "getProperty"
+    },
+    {
+      "path": "/property/lookup",
+      "method": "GET",
+      "operationId": "getPropertyLookup"
+    },
+    {
+      "path": "/property/timestamp",
+      "method": "GET",
+      "operationId": "getPropertyTimestamp"
+    },
+    {
+      "path": "/property",
+      "method": "GET",
+      "operationId": "getPropertyGeneric"
+    },
+    {
+      "path": "/torn/attacklog",
+      "method": "GET",
+      "operationId": "getTornAttackLog"
+    },
+    {
+      "path": "/torn/bank",
+      "method": "GET",
+      "operationId": "getTornBank"
+    },
+    {
+      "path": "/torn/bounties",
+      "method": "GET",
+      "operationId": "getTornBounties"
+    },
+    {
+      "path": "/torn/calendar",
+      "method": "GET",
+      "operationId": "getTornCalendar"
+    },
+    {
+      "path": "/torn/cards",
+      "method": "GET",
+      "operationId": "getTornCards"
+    },
+    {
+      "path": "/torn/cityshops",
+      "method": "GET",
+      "operationId": "getTornCityShops"
+    },
+    {
+      "path": "/torn/{shopId}/cityshops",
+      "method": "GET",
+      "operationId": "getTornCityShopSpecific"
+    },
+    {
+      "path": "/torn/companies",
+      "method": "GET",
+      "operationId": "getTornCompanies"
+    },
+    {
+      "path": "/torn/{typeId}/companies",
+      "method": "GET",
+      "operationId": "getTornCompaniesSpecific"
+    },
+    {
+      "path": "/torn/crimes",
+      "method": "GET",
+      "operationId": "getTornCrimes"
+    },
+    {
+      "path": "/torn/education",
+      "method": "GET",
+      "operationId": "getTornEducation"
+    },
+    {
+      "path": "/torn/elimination",
+      "method": "GET",
+      "operationId": "getTornElimination"
+    },
+    {
+      "path": "/torn/{id}/eliminationteam",
+      "method": "GET",
+      "operationId": "getTornEliminationTeam"
+    },
+    {
+      "path": "/torn/factionhof",
+      "method": "GET",
+      "operationId": "getTornFactionHoF"
+    },
+    {
+      "path": "/torn/factiontree",
+      "method": "GET",
+      "operationId": "getTornFactionTree"
+    },
+    {
+      "path": "/torn/gyms",
+      "method": "GET",
+      "operationId": "getTornGyms"
+    },
+    {
+      "path": "/torn/honors",
+      "method": "GET",
+      "operationId": "getTornHonors"
+    },
+    {
+      "path": "/torn/{ids}/honors",
+      "method": "GET",
+      "operationId": "getTornHonorsSpecific"
+    },
+    {
+      "path": "/torn/hof",
+      "method": "GET",
+      "operationId": "getTornHoF"
+    },
+    {
+      "path": "/torn/itemammo",
+      "method": "GET",
+      "operationId": "getTornItemAmmo"
+    },
+    {
+      "path": "/torn/{ids}/itemdetails",
+      "method": "GET",
+      "operationId": "getTornItemDetails"
+    },
+    {
+      "path": "/torn/itemmods",
+      "method": "GET",
+      "operationId": "getTornItemMods"
+    },
+    {
+      "path": "/torn/{ids}/itemstats",
+      "method": "GET",
+      "operationId": "getTornItemStats"
+    },
+    {
+      "path": "/torn/items",
+      "method": "GET",
+      "operationId": "getTornItems"
+    },
+    {
+      "path": "/torn/{ids}/items",
+      "method": "GET",
+      "operationId": "getTornItemsSpecific"
+    },
+    {
+      "path": "/torn/logcategories",
+      "method": "GET",
+      "operationId": "getTornLogCategories"
+    },
+    {
+      "path": "/torn/logtypes",
+      "method": "GET",
+      "operationId": "getTornLogTypes"
+    },
+    {
+      "path": "/torn/{logCategoryId}/logtypes",
+      "method": "GET",
+      "operationId": "getTornLogTypesSpecific"
+    },
+    {
+      "path": "/torn/medals",
+      "method": "GET",
+      "operationId": "getTornMedals"
+    },
+    {
+      "path": "/torn/{ids}/medals",
+      "method": "GET",
+      "operationId": "getTornMedalsSpecific"
+    },
+    {
+      "path": "/torn/merits",
+      "method": "GET",
+      "operationId": "getTornMerits"
+    },
+    {
+      "path": "/torn/museum",
+      "method": "GET",
+      "operationId": "getTornMuseum"
+    },
+    {
+      "path": "/torn/organizedcrimes",
+      "method": "GET",
+      "operationId": "getTornOrganizedCrimes"
+    },
+    {
+      "path": "/torn/pokertables",
+      "method": "GET",
+      "operationId": "getTornPokerTables"
+    },
+    {
+      "path": "/torn/properties",
+      "method": "GET",
+      "operationId": "getTornProperties"
+    },
+    {
+      "path": "/torn/rockpaperscissors",
+      "method": "GET",
+      "operationId": "getTornRps"
+    },
+    {
+      "path": "/torn/searchforcash",
+      "method": "GET",
+      "operationId": "getTornSearchForCash"
+    },
+    {
+      "path": "/torn/shoplifting",
+      "method": "GET",
+      "operationId": "getTornShoplifting"
+    },
+    {
+      "path": "/torn/stats",
+      "method": "GET",
+      "operationId": "getTornCityStats"
+    },
+    {
+      "path": "/torn/stocks",
+      "method": "GET",
+      "operationId": "getTornStocks"
+    },
+    {
+      "path": "/torn/{stockId}/stocks",
+      "method": "GET",
+      "operationId": "getSpecificTornStock"
+    },
+    {
+      "path": "/torn/{crimeId}/subcrimes",
+      "method": "GET",
+      "operationId": "getTornSubcrimes"
+    },
+    {
+      "path": "/torn/territory",
+      "method": "GET",
+      "operationId": "getTornTerritory"
+    },
+    {
+      "path": "/torn/lookup",
+      "method": "GET",
+      "operationId": "getTornLookup"
+    },
+    {
+      "path": "/torn/timestamp",
+      "method": "GET",
+      "operationId": "getTornTimestamp"
+    },
+    {
+      "path": "/torn",
+      "method": "GET",
+      "operationId": "getTornGeneric"
+    }
+  ],
+  "wrappers": {
+    "company": {
+      "selectionCount": 10,
+      "selections": [
+        "applications",
+        "companies",
+        "employees",
+        "lookup",
+        "news",
+        "profile",
+        "search",
+        "snapshot",
+        "stock",
+        "timestamp"
+      ],
+      "publicMethodCount": 29,
+      "publicMethods": [
+        "applications",
+        "applications_raw",
+        "companies",
+        "companies_raw",
+        "detailed",
+        "employees",
+        "employees_raw",
+        "lookup",
+        "lookup_raw",
+        "news",
+        "news_raw",
+        "profile",
+        "profile_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "search",
+        "search_raw",
+        "snapshot",
+        "stock",
+        "stock_raw",
+        "timestamp",
+        "timestamp_raw",
+        "typed_selection",
+        "with_base",
+        "with_category",
+        "with_id",
+        "with_snapshot_timestamp",
+        "with_type_id"
+      ]
+    },
+    "faction": {
+      "selectionCount": 52,
+      "selections": [
+        "applications",
+        "armor",
+        "attacks",
+        "attacksfull",
+        "balance",
+        "basic",
+        "boosters",
+        "caches",
+        "cesium",
+        "chain",
+        "chainreport",
+        "chains",
+        "contributors",
+        "crime",
+        "crimeexp",
+        "crimes",
+        "dirtbombs",
+        "dirtybombs",
+        "drugs",
+        "hof",
+        "inventory",
+        "lookup",
+        "medical",
+        "members",
+        "news",
+        "positions",
+        "rackets",
+        "raidreport",
+        "raids",
+        "rankedwarreport",
+        "rankedwars",
+        "reports",
+        "revives",
+        "revivesfull",
+        "search",
+        "snapshot",
+        "stats",
+        "temporary",
+        "territory",
+        "territoryownership",
+        "territorywarreport",
+        "territorywars",
+        "timestamp",
+        "upgrades",
+        "utilities",
+        "warfare",
+        "warfarechains",
+        "warfareraids",
+        "warfareranked",
+        "warfareterritory",
+        "wars",
+        "weapons"
+      ],
+      "publicMethodCount": 113,
+      "publicMethods": [
+        "applications",
+        "applications_raw",
+        "armor",
+        "armor_raw",
+        "attacks",
+        "attacks_raw",
+        "attacksfull",
+        "attacksfull_raw",
+        "balance",
+        "balance_raw",
+        "basic",
+        "basic_raw",
+        "boosters",
+        "boosters_raw",
+        "caches",
+        "caches_raw",
+        "cesium",
+        "cesium_raw",
+        "chain",
+        "chain_raw",
+        "chainreport",
+        "chainreport_raw",
+        "chains",
+        "chains_raw",
+        "contributors",
+        "contributors_raw",
+        "crime",
+        "crime_raw",
+        "crimeexp",
+        "crimeexp_raw",
+        "crimes",
+        "crimes_raw",
+        "dirtbombs",
+        "dirtybombs",
+        "dirtybombs_raw",
+        "drugs",
+        "drugs_raw",
+        "hof",
+        "hof_raw",
+        "inventory",
+        "inventory_raw",
+        "lookup",
+        "lookup_raw",
+        "medical",
+        "medical_raw",
+        "members",
+        "members_raw",
+        "news",
+        "news_raw",
+        "positions",
+        "positions_raw",
+        "rackets",
+        "rackets_raw",
+        "raidreport",
+        "raidreport_raw",
+        "raids",
+        "raids_raw",
+        "rankedwarreport",
+        "rankedwarreport_raw",
+        "rankedwars",
+        "rankedwars_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "reports",
+        "reports_raw",
+        "revives",
+        "revives_raw",
+        "revivesfull",
+        "revivesfull_raw",
+        "search",
+        "search_raw",
+        "snapshot",
+        "stats",
+        "stats_raw",
+        "temporary",
+        "temporary_raw",
+        "territory",
+        "territory_raw",
+        "territoryownership",
+        "territoryownership_raw",
+        "territorywarreport",
+        "territorywarreport_raw",
+        "territorywars",
+        "territorywars_raw",
+        "timestamp",
+        "timestamp_raw",
+        "typed_selection",
+        "upgrades",
+        "upgrades_raw",
+        "utilities",
+        "utilities_raw",
+        "warfare",
+        "warfare_raw",
+        "warfarechains",
+        "warfarechains_raw",
+        "warfareraids",
+        "warfareraids_raw",
+        "warfareranked",
+        "warfareranked_raw",
+        "warfareterritory",
+        "warfareterritory_raw",
+        "wars",
+        "wars_raw",
+        "weapons",
+        "weapons_raw",
+        "with_base",
+        "with_chain_id",
+        "with_crime_id",
+        "with_id",
+        "with_raid_war_id",
+        "with_ranked_war_id",
+        "with_territory_war_id"
+      ]
+    },
+    "forum": {
+      "selectionCount": 6,
+      "selections": [
+        "categories",
+        "lookup",
+        "posts",
+        "thread",
+        "threads",
+        "timestamp"
+      ],
+      "publicMethodCount": 20,
+      "publicMethods": [
+        "categories",
+        "categories_raw",
+        "lookup",
+        "lookup_raw",
+        "posts",
+        "posts_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "thread",
+        "thread_raw",
+        "threads",
+        "threads_raw",
+        "timestamp",
+        "timestamp_raw",
+        "typed_selection",
+        "with_base",
+        "with_category_ids",
+        "with_id",
+        "with_thread_id"
+      ]
+    },
+    "key": {
+      "selectionCount": 2,
+      "selections": [
+        "info",
+        "log"
+      ],
+      "publicMethodCount": 10,
+      "publicMethods": [
+        "info",
+        "info_raw",
+        "log",
+        "log_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "typed_selection",
+        "with_base",
+        "with_id"
+      ]
+    },
+    "market": {
+      "selectionCount": 9,
+      "selections": [
+        "auctionhouse",
+        "auctionhouselisting",
+        "bazaar",
+        "itemmarket",
+        "lookup",
+        "pointsmarket",
+        "properties",
+        "rentals",
+        "timestamp"
+      ],
+      "publicMethodCount": 25,
+      "publicMethods": [
+        "auctionhouse",
+        "auctionhouse_raw",
+        "auctionhouselisting",
+        "auctionhouselisting_raw",
+        "bazaar",
+        "bazaar_raw",
+        "itemmarket",
+        "itemmarket_raw",
+        "lookup",
+        "lookup_raw",
+        "pointsmarket",
+        "pointsmarket_raw",
+        "properties",
+        "properties_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "rentals",
+        "rentals_raw",
+        "timestamp",
+        "timestamp_raw",
+        "typed_selection",
+        "with_base",
+        "with_id",
+        "with_property_type_id"
+      ]
+    },
+    "property": {
+      "selectionCount": 3,
+      "selections": [
+        "lookup",
+        "property",
+        "timestamp"
+      ],
+      "publicMethodCount": 12,
+      "publicMethods": [
+        "lookup",
+        "lookup_raw",
+        "property",
+        "property_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "timestamp",
+        "timestamp_raw",
+        "typed_selection",
+        "with_base",
+        "with_id"
+      ]
+    },
+    "racing": {
+      "selectionCount": 8,
+      "selections": [
+        "cars",
+        "carupgrades",
+        "lookup",
+        "race",
+        "races",
+        "records",
+        "timestamp",
+        "tracks"
+      ],
+      "publicMethodCount": 24,
+      "publicMethods": [
+        "cars",
+        "cars_raw",
+        "carupgrades",
+        "carupgrades_raw",
+        "lookup",
+        "lookup_raw",
+        "race",
+        "race_raw",
+        "races",
+        "races_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "records",
+        "records_raw",
+        "timestamp",
+        "timestamp_raw",
+        "tracks",
+        "tracks_raw",
+        "typed_selection",
+        "with_base",
+        "with_id",
+        "with_race_id",
+        "with_track_id"
+      ]
+    },
+    "torn": {
+      "selectionCount": 41,
+      "selections": [
+        "attacklog",
+        "bank",
+        "bounties",
+        "calendar",
+        "cards",
+        "cityshops",
+        "companies",
+        "competition",
+        "crimes",
+        "education",
+        "elimination",
+        "eliminationteam",
+        "factionhof",
+        "factiontree",
+        "gyms",
+        "hof",
+        "honors",
+        "itemammo",
+        "itemdetails",
+        "itemmods",
+        "items",
+        "itemstats",
+        "logcategories",
+        "logtypes",
+        "lookup",
+        "medals",
+        "merits",
+        "museum",
+        "organisedcrimes",
+        "organizedcrimes",
+        "pawnshop",
+        "pokertables",
+        "properties",
+        "rockpaperscissors",
+        "searchforcash",
+        "shoplifting",
+        "stats",
+        "stocks",
+        "subcrimes",
+        "territory",
+        "timestamp"
+      ],
+      "publicMethodCount": 95,
+      "publicMethods": [
+        "attacklog",
+        "attacklog_raw",
+        "bank",
+        "bank_raw",
+        "bounties",
+        "bounties_raw",
+        "calendar",
+        "calendar_raw",
+        "cards",
+        "cards_raw",
+        "cityshops",
+        "cityshops_raw",
+        "companies",
+        "companies_raw",
+        "competition",
+        "competition_raw",
+        "crimes",
+        "crimes_raw",
+        "education",
+        "education_raw",
+        "elimination",
+        "elimination_raw",
+        "eliminationteam",
+        "eliminationteam_raw",
+        "factionhof",
+        "factionhof_raw",
+        "factiontree",
+        "factiontree_raw",
+        "gyms",
+        "gyms_raw",
+        "hof",
+        "hof_raw",
+        "honors",
+        "honors_raw",
+        "itemammo",
+        "itemammo_raw",
+        "itemdetails",
+        "itemdetails_raw",
+        "itemmods",
+        "itemmods_raw",
+        "items",
+        "items_raw",
+        "itemstats",
+        "itemstats_raw",
+        "logcategories",
+        "logcategories_raw",
+        "logtypes",
+        "logtypes_raw",
+        "lookup",
+        "lookup_raw",
+        "medals",
+        "medals_raw",
+        "merits",
+        "merits_raw",
+        "museum",
+        "museum_raw",
+        "organisedcrimes",
+        "organisedcrimes_raw",
+        "organizedcrimes",
+        "organizedcrimes_raw",
+        "pawnshop",
+        "pawnshop_raw",
+        "pokertables",
+        "pokertables_raw",
+        "properties",
+        "properties_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "rockpaperscissors",
+        "rockpaperscissors_raw",
+        "searchforcash",
+        "searchforcash_raw",
+        "shoplifting",
+        "shoplifting_raw",
+        "stats",
+        "stats_raw",
+        "stock",
+        "stocks",
+        "stocks_raw",
+        "subcrimes",
+        "subcrimes_raw",
+        "territory",
+        "territory_raw",
+        "timestamp",
+        "timestamp_raw",
+        "typed_selection",
+        "with_base",
+        "with_crime_id",
+        "with_id",
+        "with_ids",
+        "with_log_category_id",
+        "with_shop_id",
+        "with_stock_id",
+        "with_type_id"
+      ]
+    },
+    "user": {
+      "selectionCount": 74,
+      "selections": [
+        "ammo",
+        "attacks",
+        "attacksfull",
+        "bars",
+        "basic",
+        "battlestats",
+        "bazaar",
+        "bounties",
+        "calendar",
+        "casino",
+        "competition",
+        "cooldowns",
+        "crimes",
+        "criminalrecord",
+        "discord",
+        "display",
+        "education",
+        "enlistedcars",
+        "equipment",
+        "events",
+        "faction",
+        "factionbalance",
+        "forumfeed",
+        "forumfriends",
+        "forumposts",
+        "forumsubscribedthreads",
+        "forumthreads",
+        "gym",
+        "hof",
+        "honors",
+        "icons",
+        "inventory",
+        "itemmarket",
+        "itemmod",
+        "itemmods",
+        "job",
+        "jobpoints",
+        "jobranks",
+        "list",
+        "log",
+        "lookup",
+        "medals",
+        "merits",
+        "messages",
+        "missions",
+        "money",
+        "networth",
+        "newevents",
+        "newmessages",
+        "notifications",
+        "organizedcrime",
+        "organizedcrimes",
+        "perks",
+        "personalstats",
+        "profile",
+        "properties",
+        "property",
+        "races",
+        "racingrecords",
+        "refills",
+        "reports",
+        "revives",
+        "revivesfull",
+        "search",
+        "skills",
+        "snapshot",
+        "stocks",
+        "timestamp",
+        "trade",
+        "trades",
+        "travel",
+        "virus",
+        "weaponexp",
+        "workstats"
+      ],
+      "publicMethodCount": 154,
+      "publicMethods": [
+        "ammo",
+        "ammo_raw",
+        "attacks",
+        "attacks_raw",
+        "attacksfull",
+        "attacksfull_raw",
+        "bars",
+        "bars_raw",
+        "basic",
+        "basic_raw",
+        "battlestats",
+        "battlestats_raw",
+        "bazaar",
+        "bazaar_raw",
+        "bounties",
+        "bounties_raw",
+        "calendar",
+        "calendar_raw",
+        "casino",
+        "casino_raw",
+        "competition",
+        "competition_raw",
+        "cooldowns",
+        "cooldowns_raw",
+        "crimes",
+        "crimes_raw",
+        "criminalrecord",
+        "criminalrecord_raw",
+        "discord",
+        "discord_raw",
+        "display",
+        "display_raw",
+        "education",
+        "education_raw",
+        "enlistedcars",
+        "enlistedcars_raw",
+        "equipment",
+        "equipment_raw",
+        "events",
+        "events_raw",
+        "faction",
+        "faction_raw",
+        "factionbalance",
+        "factionbalance_raw",
+        "forumfeed",
+        "forumfeed_raw",
+        "forumfriends",
+        "forumfriends_raw",
+        "forumposts",
+        "forumposts_raw",
+        "forumsubscribedthreads",
+        "forumsubscribedthreads_raw",
+        "forumthreads",
+        "forumthreads_raw",
+        "gym",
+        "gym_raw",
+        "hof",
+        "hof_raw",
+        "honors",
+        "honors_raw",
+        "icons",
+        "icons_raw",
+        "inventory",
+        "inventory_raw",
+        "itemmarket",
+        "itemmarket_raw",
+        "itemmod",
+        "itemmods",
+        "itemmods_raw",
+        "job",
+        "job_raw",
+        "jobpoints",
+        "jobpoints_raw",
+        "jobranks",
+        "jobranks_raw",
+        "list",
+        "list_raw",
+        "log",
+        "log_raw",
+        "lookup",
+        "lookup_raw",
+        "medals",
+        "medals_raw",
+        "merits",
+        "merits_raw",
+        "messages",
+        "messages_raw",
+        "missions",
+        "missions_raw",
+        "money",
+        "money_raw",
+        "networth",
+        "networth_raw",
+        "newevents",
+        "newevents_raw",
+        "newmessages",
+        "newmessages_raw",
+        "notifications",
+        "notifications_raw",
+        "organizedcrime",
+        "organizedcrime_raw",
+        "organizedcrimes",
+        "organizedcrimes_raw",
+        "perks",
+        "perks_raw",
+        "personalstats",
+        "personalstats_raw",
+        "profile",
+        "profile_raw",
+        "properties",
+        "properties_raw",
+        "property",
+        "property_raw",
+        "races",
+        "races_raw",
+        "racingrecords",
+        "racingrecords_raw",
+        "raw_client",
+        "raw_selection",
+        "raw_selections",
+        "refills",
+        "refills_raw",
+        "reports",
+        "reports_raw",
+        "revives",
+        "revives_raw",
+        "revivesfull",
+        "revivesfull_raw",
+        "search",
+        "search_raw",
+        "skills",
+        "skills_raw",
+        "snapshot",
+        "stocks",
+        "stocks_raw",
+        "timestamp",
+        "timestamp_raw",
+        "trade",
+        "trade_raw",
+        "trades",
+        "trades_raw",
+        "travel",
+        "travel_raw",
+        "typed_selection",
+        "virus",
+        "virus_raw",
+        "weaponexp",
+        "weaponexp_raw",
+        "with_base",
+        "with_crime_id",
+        "with_id",
+        "with_trade_id",
+        "workstats",
+        "workstats_raw"
+      ]
+    }
+  },
+  "manualModelCount": 549,
+  "manualModels": {
+    "common": [
+      "DynamicValue",
+      "PaginatedLinks",
+      "PaginatedMetadata",
+      "PaginatedMetadataWithTotal"
+    ],
+    "company": [
+      "CompanyApplicationStats",
+      "CompanyApplicationSummary",
+      "CompanyApplicationUser",
+      "CompanyApplicationsBundle",
+      "CompanyCompaniesBundle",
+      "CompanyCustomers",
+      "CompanyDetailedBundle",
+      "CompanyDirector",
+      "CompanyEmployee",
+      "CompanyEmployeeEffectiveness",
+      "CompanyEmployeeStats",
+      "CompanyEmployeesBundle",
+      "CompanyIncome",
+      "CompanyLookupBundle",
+      "CompanyNewsBundle",
+      "CompanyNewsEntry",
+      "CompanyProfile",
+      "CompanyProfileBundle",
+      "CompanyProfileEmployee",
+      "CompanyProfileEmployeeDetails",
+      "CompanySearchBundle",
+      "CompanySearchEntry",
+      "CompanyStockBundle",
+      "CompanyStockEntry",
+      "CompanyTimestampBundle",
+      "CompanyType",
+      "CompanyUpgrades"
+    ],
+    "faction": [
+      "FactionApplicantStats",
+      "FactionApplicantSummary",
+      "FactionApplicationSummary",
+      "FactionApplicationsBundle",
+      "FactionArmorBundle",
+      "FactionAttacksBundle",
+      "FactionAttacksFullBundle",
+      "FactionBalanceBundle",
+      "FactionBalanceFaction",
+      "FactionBalanceMember",
+      "FactionBalanceSummary",
+      "FactionBasic",
+      "FactionBasicBundle",
+      "FactionBoostersBundle",
+      "FactionCachesBundle",
+      "FactionCesiumBundle",
+      "FactionChainBundle",
+      "FactionChainReportAttackerRespectSummary",
+      "FactionChainReportAttackerSummary",
+      "FactionChainReportAttacksSummary",
+      "FactionChainReportBonusSummary",
+      "FactionChainReportBundle",
+      "FactionChainReportDetailsSummary",
+      "FactionChainReportSummary",
+      "FactionChainSummary",
+      "FactionChainWarfareSummary",
+      "FactionChainsBundle",
+      "FactionContributorSummary",
+      "FactionContributorsBundle",
+      "FactionCrime",
+      "FactionCrimeBundle",
+      "FactionCrimeExpBundle",
+      "FactionCrimeExpEntry",
+      "FactionCrimeExpSelection",
+      "FactionCrimeItemRequirement",
+      "FactionCrimePositionInfo",
+      "FactionCrimeReward",
+      "FactionCrimeRewardItem",
+      "FactionCrimeRewardPayout",
+      "FactionCrimeSlot",
+      "FactionCrimeUser",
+      "FactionCrimeUserItemOutcome",
+      "FactionCrimesBundle",
+      "FactionDrugsBundle",
+      "FactionHofBundle",
+      "FactionHofSummary",
+      "FactionHofValue",
+      "FactionHofValueString",
+      "FactionLastAction",
+      "FactionLegacyItemEntry",
+      "FactionLegacyItemLoanTarget",
+      "FactionLegacyItemLoanUser",
+      "FactionLegacyItemSelection",
+      "FactionLookupBundle",
+      "FactionMedicalBundle",
+      "FactionMemberStatus",
+      "FactionMemberSummary",
+      "FactionMembersBundle",
+      "FactionNewsBundle",
+      "FactionNewsEntry",
+      "FactionOngoingChainSummary",
+      "FactionPactSummary",
+      "FactionPositionSummary",
+      "FactionPositionsBundle",
+      "FactionRacketRewardSummary",
+      "FactionRacketSummary",
+      "FactionRacketsBundle",
+      "FactionRaidReportAttackerSummary",
+      "FactionRaidReportBundle",
+      "FactionRaidReportSideSummary",
+      "FactionRaidReportSummary",
+      "FactionRaidReportUserSummary",
+      "FactionRaidSummary",
+      "FactionRaidWarSummary",
+      "FactionRaidsBundle",
+      "FactionRank",
+      "FactionRankedWarDetails",
+      "FactionRankedWarReportBundle",
+      "FactionRankedWarReportFactionSummary",
+      "FactionRankedWarReportMemberSummary",
+      "FactionRankedWarReportRankSummary",
+      "FactionRankedWarReportRewardItemSummary",
+      "FactionRankedWarReportRewardsSummary",
+      "FactionRankedWarReportSummary",
+      "FactionRankedWarSummary",
+      "FactionRankedWarsBundle",
+      "FactionReportsBundle",
+      "FactionRevivesBundle",
+      "FactionRevivesFullBundle",
+      "FactionSearchBundle",
+      "FactionSearchLeader",
+      "FactionSearchSummary",
+      "FactionStatSummary",
+      "FactionStatsBundle",
+      "FactionTemporaryBundle",
+      "FactionTerritoryBundle",
+      "FactionTerritoryCoordinatesSummary",
+      "FactionTerritoryOwnershipBundle",
+      "FactionTerritoryOwnershipSummary",
+      "FactionTerritorySummary",
+      "FactionTerritoryWarHistoryEntry",
+      "FactionTerritoryWarParticipantSummary",
+      "FactionTerritoryWarReportBundle",
+      "FactionTerritoryWarReportFactionSummary",
+      "FactionTerritoryWarReportMemberSummary",
+      "FactionTerritoryWarReportSummary",
+      "FactionTerritoryWarfareSummary",
+      "FactionTerritoryWarsBundle",
+      "FactionTimestampBundle",
+      "FactionUnknownWarfareEntry",
+      "FactionUpgradeBranch",
+      "FactionUpgradeCore",
+      "FactionUpgradeDetails",
+      "FactionUpgradesBundle",
+      "FactionUpgradesSummary",
+      "FactionUtilitiesBundle",
+      "FactionWarFactionSummary",
+      "FactionWarfareBundle",
+      "FactionWarfareEntry",
+      "FactionWarfareFactionSummary",
+      "FactionWarfareUserSummary",
+      "FactionWarfareWallPlayerSummary",
+      "FactionWarsBundle",
+      "FactionWarsSummary",
+      "FactionWeaponsBundle"
+    ],
+    "forum": [
+      "ForumCategoriesBundle",
+      "ForumCategory",
+      "ForumLookupBundle",
+      "ForumPoll",
+      "ForumPollAnswer",
+      "ForumPost",
+      "ForumPostsBundle",
+      "ForumThread",
+      "ForumThreadBundle",
+      "ForumThreadsBundle",
+      "ForumTimestampBundle",
+      "ForumUserSummary"
+    ],
+    "key": [
+      "KeyAccess",
+      "KeyInfo",
+      "KeyInfoBundle",
+      "KeyLogAccess",
+      "KeyLogBundle",
+      "KeyLogCategoryAccess",
+      "KeyLogEntry",
+      "KeyLogTargetId",
+      "KeySelections"
+    ],
+    "market": [
+      "MarketAuctionHouseBundle",
+      "MarketAuctionHouseListing",
+      "MarketAuctionHouseListingBundle",
+      "MarketAuctionItem",
+      "MarketBazaar",
+      "MarketBazaarBundle",
+      "MarketBazaarSellerSummary",
+      "MarketItemBonus",
+      "MarketItemDetails",
+      "MarketItemMarket",
+      "MarketItemMarketBundle",
+      "MarketItemStats",
+      "MarketItemSummary",
+      "MarketListingSummary",
+      "MarketLookupBundle",
+      "MarketMetadata",
+      "MarketPaginationLinks",
+      "MarketPointsMarketBundle",
+      "MarketPointsMarketListing",
+      "MarketPropertiesBundle",
+      "MarketPropertyCatalog",
+      "MarketPropertyListing",
+      "MarketPropertyTypeSummary",
+      "MarketRentalCatalog",
+      "MarketRentalListing",
+      "MarketRentalsBundle",
+      "MarketTimestampBundle",
+      "MarketUserSummary"
+    ],
+    "mod": [],
+    "property": [
+      "PropertyActor",
+      "PropertyBundle",
+      "PropertyDetails",
+      "PropertyLookupBundle",
+      "PropertyStaffSummary",
+      "PropertyTimestampBundle",
+      "PropertyTypeSummary",
+      "PropertyUpkeep"
+    ],
+    "racing": [
+      "RacingCar",
+      "RacingCarUpgrade",
+      "RacingCarUpgradeCost",
+      "RacingCarUpgradeEffects",
+      "RacingCarUpgradesBundle",
+      "RacingCarsBundle",
+      "RacingLookupBundle",
+      "RacingParticipants",
+      "RacingRace",
+      "RacingRaceBundle",
+      "RacingRacesBundle",
+      "RacingRecord",
+      "RacingRecordsBundle",
+      "RacingRequirements",
+      "RacingResult",
+      "RacingSchedule",
+      "RacingTimestampBundle",
+      "RacingTrack",
+      "RacingTracksBundle"
+    ],
+    "torn": [
+      "TornAmmoItem",
+      "TornAttackItem",
+      "TornAttackLog",
+      "TornAttackLogBundle",
+      "TornAttackLogEntry",
+      "TornAttackLogSummary",
+      "TornAttackParticipant",
+      "TornAwardType",
+      "TornBankBundle",
+      "TornBankRates",
+      "TornBountiesBundle",
+      "TornBounty",
+      "TornCalendar",
+      "TornCalendarBundle",
+      "TornCalendarEntry",
+      "TornCard",
+      "TornCardShort",
+      "TornCardsBundle",
+      "TornCityShop",
+      "TornCityShopItem",
+      "TornCityShopsBundle",
+      "TornCompaniesBundle",
+      "TornCompany",
+      "TornCompanyPosition",
+      "TornCompetitionBundle",
+      "TornCompetitionEntry",
+      "TornCountEntry",
+      "TornCrime",
+      "TornCrimesBundle",
+      "TornDynamicObject",
+      "TornEducationBundle",
+      "TornEducationCourse",
+      "TornEliminationBundle",
+      "TornEliminationTeamBundle",
+      "TornEliminationTeamEntry",
+      "TornFactionHofBundle",
+      "TornFactionTreeBundle",
+      "TornGym",
+      "TornGymsBundle",
+      "TornHofBundle",
+      "TornHonorSummary",
+      "TornHonorsBundle",
+      "TornItemAmmoBundle",
+      "TornItemBaseStats",
+      "TornItemDetails",
+      "TornItemDetailsBundle",
+      "TornItemDetailsSelection",
+      "TornItemMod",
+      "TornItemModsBundle",
+      "TornItemStats",
+      "TornItemStatsBundle",
+      "TornItemSummary",
+      "TornItemsBundle",
+      "TornLogCategoriesBundle",
+      "TornLogCategory",
+      "TornLogType",
+      "TornLogTypesBundle",
+      "TornLookupBundle",
+      "TornMedalSummary",
+      "TornMedalsBundle",
+      "TornMerit",
+      "TornMeritsBundle",
+      "TornOrganisedCrime",
+      "TornOrganisedCrimesBundle",
+      "TornOrganizedCrime",
+      "TornOrganizedCrimePositionInfo",
+      "TornOrganizedCrimeSlot",
+      "TornOrganizedCrimesBundle",
+      "TornPawnshop",
+      "TornPawnshopBundle",
+      "TornPercentageEntry",
+      "TornPokerTable",
+      "TornPokerTablesBundle",
+      "TornPropertiesBundle",
+      "TornPropertyCatalogEntry",
+      "TornRockPaperScissorsBundle",
+      "TornSearchForCashBundle",
+      "TornShopliftingBundle",
+      "TornShopliftingEntry",
+      "TornStatsBundle",
+      "TornStockBonus",
+      "TornStockBundle",
+      "TornStockChart",
+      "TornStockDetailed",
+      "TornStockHistoryEntry",
+      "TornStockImages",
+      "TornStockMarket",
+      "TornStockPerformance",
+      "TornStockPerformanceWindow",
+      "TornStockSummary",
+      "TornStocksBundle",
+      "TornSubcrimesBundle",
+      "TornTerritoryBundle",
+      "TornTimestampBundle"
+    ],
+    "user": [
+      "TradeCompanyDetails",
+      "TradeCompanyItem",
+      "TradeFactionDetails",
+      "TradeFactionItem",
+      "TradeInventoryItem",
+      "TradeInventoryItemDetails",
+      "TradeItem",
+      "TradeMoneyDetails",
+      "TradeMoneyItem",
+      "TradeNapDetails",
+      "TradeNapFaction",
+      "TradeNapItem",
+      "TradePropertyDetails",
+      "TradePropertyItem",
+      "UnknownTradeItem",
+      "UnknownUserCompetition",
+      "UnknownUserEmployment",
+      "UserAmmoBundle",
+      "UserAmmoItem",
+      "UserAmmoVariant",
+      "UserAttack",
+      "UserAttackCombatant",
+      "UserAttackFaction",
+      "UserAttackFinishingHitEffect",
+      "UserAttackFull",
+      "UserAttackModifiers",
+      "UserAttacksBundle",
+      "UserAttacksFullBundle",
+      "UserAwardUnlock",
+      "UserBars",
+      "UserBarsBundle",
+      "UserBasicBundle",
+      "UserBasicProfile",
+      "UserBattleStat",
+      "UserBattleStatModifier",
+      "UserBattleStats",
+      "UserBattleStatsBundle",
+      "UserBazaarBundle",
+      "UserBountiesBundle",
+      "UserBounty",
+      "UserCalendar",
+      "UserCalendarBundle",
+      "UserCasino",
+      "UserCasinoBundle",
+      "UserChainBar",
+      "UserCityBank",
+      "UserCityJob",
+      "UserClothingItem",
+      "UserCompanyJob",
+      "UserCompanyPointCompany",
+      "UserCompanyPoints",
+      "UserCompetition",
+      "UserCompetitionBasket",
+      "UserCompetitionBundle",
+      "UserCompetitionHp",
+      "UserCooldowns",
+      "UserCooldownsBundle",
+      "UserCrimeAttemptSubcrime",
+      "UserCrimeAttempts",
+      "UserCrimeMiscellaneous",
+      "UserCrimeRewardAmmo",
+      "UserCrimeRewardItem",
+      "UserCrimeRewards",
+      "UserCrimeSummary",
+      "UserCrimeUnique",
+      "UserCrimeUniqueRewards",
+      "UserCrimesBundle",
+      "UserCriminalRecord",
+      "UserCriminalRecordBundle",
+      "UserCurrentEducation",
+      "UserDiscord",
+      "UserDiscordBundle",
+      "UserDisplayBundle",
+      "UserEasterCompetition",
+      "UserEducation",
+      "UserEducationBundle",
+      "UserEliminationCompetition",
+      "UserEmployment",
+      "UserEnlistedCar",
+      "UserEnlistedCarsBundle",
+      "UserEquipmentAmmo",
+      "UserEquipmentBundle",
+      "UserEquipmentItem",
+      "UserEquipmentMod",
+      "UserEvent",
+      "UserEventsBundle",
+      "UserFaction",
+      "UserFactionBalance",
+      "UserFactionBalanceBundle",
+      "UserFactionBundle",
+      "UserFactionMoney",
+      "UserForumFeedBundle",
+      "UserForumFeedEntry",
+      "UserForumFriendsBundle",
+      "UserForumPostsBundle",
+      "UserForumSubscribedThread",
+      "UserForumSubscribedThreadPosts",
+      "UserForumSubscribedThreadsBundle",
+      "UserForumThreadsBundle",
+      "UserGymBundle",
+      "UserHalloweenCompetition",
+      "UserHofBundle",
+      "UserHofStats",
+      "UserHofValue",
+      "UserHofValueFloat",
+      "UserHonorsBundle",
+      "UserIcon",
+      "UserIconsBundle",
+      "UserIdentitySummary",
+      "UserInventory",
+      "UserInventoryBundle",
+      "UserInventoryItem",
+      "UserItemMarketBundle",
+      "UserItemMarketItemBonus",
+      "UserItemMarketItemDetails",
+      "UserItemMarketItemStats",
+      "UserItemMarketListing",
+      "UserItemModsBundle",
+      "UserJobBundle",
+      "UserJobPointTotals",
+      "UserJobPoints",
+      "UserJobPointsBundle",
+      "UserJobRanks",
+      "UserJobRanksBundle",
+      "UserLastAction",
+      "UserLegacyItemSummary",
+      "UserLifeBar",
+      "UserListBundle",
+      "UserListEntry",
+      "UserLogBundle",
+      "UserLogDetails",
+      "UserLogEntry",
+      "UserLookupBundle",
+      "UserMedalsBundle",
+      "UserMeritUpgrade",
+      "UserMerits",
+      "UserMeritsBundle",
+      "UserMessage",
+      "UserMessagesBundle",
+      "UserMissionContract",
+      "UserMissionContractRewards",
+      "UserMissionGiver",
+      "UserMissionReward",
+      "UserMissionRewardDetails",
+      "UserMissions",
+      "UserMissionsBundle",
+      "UserMoney",
+      "UserMoneyBundle",
+      "UserNetworth",
+      "UserNetworthBundle",
+      "UserNewEventsBundle",
+      "UserNewMessagesBundle",
+      "UserNotifications",
+      "UserNotificationsBundle",
+      "UserOrganizedCrime",
+      "UserOrganizedCrimeBundle",
+      "UserOrganizedCrimeError",
+      "UserOrganizedCrimeItemRequirement",
+      "UserOrganizedCrimePositionInfo",
+      "UserOrganizedCrimeRewardItem",
+      "UserOrganizedCrimeRewards",
+      "UserOrganizedCrimeSelection",
+      "UserOrganizedCrimeSlot",
+      "UserOrganizedCrimeUser",
+      "UserPerksBundle",
+      "UserPersonalStatPoint",
+      "UserPersonalStatsBucket",
+      "UserPersonalStatsBundle",
+      "UserPersonalStatsCategory",
+      "UserPersonalStatsSelection",
+      "UserProfile",
+      "UserProfileBundle",
+      "UserPropertiesBundle",
+      "UserPropertyBundle",
+      "UserPropertyKind",
+      "UserPropertyLeaseExtension",
+      "UserPropertyStaffEntry",
+      "UserPropertySummary",
+      "UserPropertyUpkeep",
+      "UserRace",
+      "UserRaceParticipants",
+      "UserRaceRequirements",
+      "UserRaceResult",
+      "UserRaceSchedule",
+      "UserRaceTrackSummary",
+      "UserRacesBundle",
+      "UserRacingLapRecord",
+      "UserRacingRecordSummary",
+      "UserRacingRecordsBundle",
+      "UserRefills",
+      "UserRefillsBundle",
+      "UserReportDetails",
+      "UserReportSummary",
+      "UserReportsBundle",
+      "UserResourceBar",
+      "UserRevive",
+      "UserReviveFull",
+      "UserReviveLastAction",
+      "UserReviveReviver",
+      "UserReviveTarget",
+      "UserRevivesBundle",
+      "UserRevivesFullBundle",
+      "UserRpsCompetition",
+      "UserSkill",
+      "UserSkillsBundle",
+      "UserStatus",
+      "UserStockBonus",
+      "UserStockHolding",
+      "UserStockTransaction",
+      "UserStocksBundle",
+      "UserTimestampBundle",
+      "UserTrade",
+      "UserTradeBundle",
+      "UserTradeDetailed",
+      "UserTradeParticipant",
+      "UserTradeTimestamp",
+      "UserTradesBundle",
+      "UserTravel",
+      "UserTravelBundle",
+      "UserWeaponExpBundle",
+      "UserWeaponExpEntry",
+      "UserWorkStats",
+      "UserWorkStatsBundle"
+    ]
+  }
+}

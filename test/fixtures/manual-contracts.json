@@ -1,0 +1,3198 @@
+[
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:0",
+    "model": "CompanyApplicationsBundle",
+    "value": {
+      "applications": [
+        {
+          "id": 44,
+          "message": "Ready to work",
+          "valid_until": 1710000600,
+          "status": "pending",
+          "user": {
+            "id": 2077404,
+            "name": "RezVX",
+            "level": 55
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:1",
+    "model": "CompanyCompaniesBundle",
+    "value": {
+      "companies": [
+        {
+          "id": 76323,
+          "name": "Novel Ideas",
+          "created_at": 1700000000,
+          "days_old": 923,
+          "image": "https://www.torn.com/images/company/10.png",
+          "type": {
+            "id": 10,
+            "name": "Flower Shop"
+          },
+          "rating": 7,
+          "director": {
+            "id": 1234,
+            "name": "Director",
+            "status": {
+              "state": "Okay",
+              "color": "green",
+              "description": "Online",
+              "details": "",
+              "until": 0
+            },
+            "last_action": {
+              "status": "Online",
+              "timestamp": 1710000000,
+              "relative": "1 minute ago"
+            }
+          },
+          "employees": {
+            "2077404": {
+              "name": "RezVX",
+              "position": "Florist"
+            }
+          },
+          "income": {
+            "daily": 3210000,
+            "weekly": 21987000
+          },
+          "customers": {
+            "daily": 200,
+            "weekly": 1400
+          }
+        }
+      ],
+      "companies_timestamp": 1710000650,
+      "companies_delay": 60,
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        },
+        "total": 1
+      }
+    }
+  },
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:2",
+    "model": "CompanyLookupBundle",
+    "value": {
+      "selections": [
+        "applications",
+        "companies",
+        "employees",
+        "lookup",
+        "news",
+        "profile",
+        "search",
+        "stock",
+        "timestamp"
+      ]
+    }
+  },
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:3",
+    "model": "CompanyTimestampBundle",
+    "value": {
+      "timestamp": 1710000700
+    }
+  },
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:4",
+    "model": "CompanyProfileBundle",
+    "value": {
+      "profile": {
+        "id": 76323,
+        "name": "Novel Ideas",
+        "type": {
+          "id": 10,
+          "name": "Flower Shop"
+        },
+        "rating": 7,
+        "days_old": 923,
+        "income": {
+          "daily": 3210000,
+          "weekly": 21987000
+        },
+        "employees": {
+          "2077404": {
+            "name": "RezVX",
+            "position": "Florist"
+          }
+        },
+        "status": {
+          "state": "Okay",
+          "color": "green",
+          "description": "Open",
+          "details": "",
+          "until": 0
+        }
+      }
+    }
+  },
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:5",
+    "model": "CompanyEmployeesBundle",
+    "value": {
+      "employees": [
+        {
+          "id": 2077404,
+          "name": "RezVX",
+          "position": {
+            "id": 1,
+            "name": "Florist"
+          },
+          "days_in_company": 12,
+          "joined_at": 1700000000,
+          "wage": 0,
+          "stats": {
+            "manual_labor": 2802,
+            "intelligence": 3143,
+            "endurance": 6473
+          },
+          "effectiveness": {
+            "working_stats": 126,
+            "settled_in": 10,
+            "director_education": 12,
+            "total": 148
+          },
+          "working_stats": 12418,
+          "efficiency": 87,
+          "value": 12345,
+          "status": {
+            "state": "Okay",
+            "color": "green",
+            "description": "Working",
+            "details": "",
+            "until": 0
+          },
+          "last_action": {
+            "status": "Online",
+            "timestamp": 1710000000,
+            "relative": "1 minute ago"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:6",
+    "model": "CompanyNewsBundle",
+    "value": {
+      "news": {
+        "abc123": {
+          "news": "Director hired a new employee",
+          "timestamp": 1710000750
+        }
+      }
+    }
+  },
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:7",
+    "model": "CompanySearchBundle",
+    "value": {
+      "search": [
+        {
+          "id": 76323,
+          "name": "Novel Ideas",
+          "image": null,
+          "type": {
+            "id": 10,
+            "name": "Flower Shop"
+          },
+          "rating": 7,
+          "days_old": 923,
+          "income": {
+            "daily": 3210000,
+            "weekly": 21987000
+          },
+          "customers": {
+            "daily": 200,
+            "weekly": 1400
+          },
+          "applications_allowed": true
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "company_typed_helpers_deserialize_stable_company_shapes:8",
+    "model": "CompanyStockBundle",
+    "value": {
+      "stock": [
+        {
+          "id": 1,
+          "name": "Erotic DVD",
+          "cost": 1400,
+          "rrp": 2000,
+          "price": 2200,
+          "in_stock": 120,
+          "on_order": 12,
+          "sold_amount": 43,
+          "sold_worth": 94600
+        },
+        {
+          "id": 2,
+          "name": "Lube",
+          "cost": 400,
+          "rrp": 600,
+          "price": 650,
+          "in_stock": 55,
+          "on_order": 5,
+          "sold_amount": 19,
+          "sold_worth": 12350
+        }
+      ]
+    }
+  },
+  {
+    "name": "company_wrapper_supports_owner_and_id_scoped_routes:0",
+    "model": "CompanyLookupBundle",
+    "value": {
+      "selections": [
+        "lookup"
+      ]
+    }
+  },
+  {
+    "name": "company_wrapper_supports_owner_and_id_scoped_routes:1",
+    "model": "CompanyProfileBundle",
+    "value": {
+      "company": {
+        "ID": 76323,
+        "name": "Novel Ideas"
+      }
+    }
+  },
+  {
+    "name": "company_wrapper_supports_owner_and_id_scoped_routes:2",
+    "model": "CompanyEmployeesBundle",
+    "value": {
+      "company_employees": null
+    }
+  },
+  {
+    "name": "company_search_uses_v2_direct_route_with_new_filter_format:0",
+    "model": "CompanySearchBundle",
+    "value": {
+      "search": []
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:0",
+    "model": "FactionApplicationsBundle",
+    "value": {
+      "applications": [
+        {
+          "id": 1,
+          "message": "hello",
+          "valid_until": 1710000200,
+          "status": "pending",
+          "user": {
+            "id": 99,
+            "name": "Applicant",
+            "level": 30,
+            "stats": {
+              "strength": 1,
+              "speed": 2,
+              "dexterity": 3,
+              "defense": 4
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:1",
+    "model": "FactionLookupBundle",
+    "value": {
+      "selections": [
+        "applications",
+        "chain",
+        "chains",
+        "news",
+        "territoryownership",
+        "warfare"
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:2",
+    "model": "FactionChainBundle",
+    "value": {
+      "chain": {
+        "id": 0,
+        "current": 0,
+        "max": 10,
+        "timeout": 0,
+        "modifier": 1,
+        "cooldown": 0,
+        "start": 0,
+        "end": 1777422590
+      }
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:3",
+    "model": "FactionChainsBundle",
+    "value": {
+      "chains": [
+        {
+          "id": 62264214,
+          "chain": 19,
+          "respect": 53,
+          "start": 1777416675,
+          "end": 1777417656
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": "https://api.torn.com/v2/faction/16312/chains?&limit=1&sort=desc&to=1777416675",
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:4",
+    "model": "FactionChainReportBundle",
+    "value": {
+      "chainreport": {
+        "id": 62264214,
+        "faction_id": 16312,
+        "start": 1777416675,
+        "end": 1777417656,
+        "details": {
+          "chain": 19,
+          "respect": 53,
+          "members": 2,
+          "targets": 19,
+          "war": 0,
+          "best": 10,
+          "leave": 17,
+          "mug": 2,
+          "hospitalize": 0,
+          "assists": 0,
+          "retaliations": 0,
+          "overseas": 0,
+          "draws": 0,
+          "escapes": 2,
+          "losses": 0
+        },
+        "bonuses": [
+          {
+            "attacker_id": 1328948,
+            "defender_id": 487915,
+            "chain": 10,
+            "respect": 10
+          }
+        ],
+        "attackers": [
+          {
+            "id": 8491,
+            "respect": {
+              "total": 5.81,
+              "average": 2.91,
+              "best": 3.33
+            },
+            "attacks": {
+              "total": 2,
+              "leave": 0,
+              "mug": 2,
+              "hospitalize": 0,
+              "assists": 0,
+              "retaliations": 0,
+              "overseas": 0,
+              "draws": 0,
+              "escapes": 0,
+              "losses": 0,
+              "war": 0,
+              "bonuses": 0
+            }
+          }
+        ],
+        "non_attackers": [
+          2959112,
+          21955
+        ]
+      }
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:5",
+    "model": "FactionBalanceBundle",
+    "value": {
+      "balance": {
+        "faction": {
+          "money": 1000,
+          "points": 50,
+          "scope": 1
+        },
+        "members": [
+          {
+            "id": 1,
+            "username": "One",
+            "money": 10,
+            "points": 2
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:6",
+    "model": "FactionContributorsBundle",
+    "value": {
+      "contributors": [
+        {
+          "id": 1,
+          "username": "One",
+          "value": 100,
+          "in_faction": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:7",
+    "model": "FactionRacketsBundle",
+    "value": {
+      "rackets": [
+        {
+          "territory": "IFE",
+          "faction_id": 7835,
+          "name": "Bootleg Distillery IV",
+          "level": 4,
+          "description": "80x Bottle of Moonshine daily",
+          "reward": {
+            "type": "Item",
+            "quantity": 80,
+            "id": 984
+          },
+          "created_at": 1592153824,
+          "changed_at": 1774501023
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:8",
+    "model": "FactionHofBundle",
+    "value": {
+      "hof": {
+        "rank": {
+          "rank": "A",
+          "value": "Top"
+        },
+        "respect": {
+          "rank": 4,
+          "value": 5000
+        },
+        "chain": {
+          "rank": 2,
+          "value": 300
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:9",
+    "model": "FactionPositionsBundle",
+    "value": {
+      "positions": [
+        {
+          "name": "Leader",
+          "is_default": false,
+          "abilities": [
+            "armory",
+            "kick"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:10",
+    "model": "FactionSearchBundle",
+    "value": {
+      "search": [
+        {
+          "id": 123,
+          "name": "Faction A",
+          "respect": 500,
+          "members": 10,
+          "members_max": 100,
+          "leader": {
+            "id": 1,
+            "name": "Lead"
+          },
+          "co_leader": null,
+          "image": null,
+          "tag_image": "tag.png",
+          "tag": "TAG",
+          "is_destroyed": false,
+          "is_recruiting": true
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:11",
+    "model": "FactionStatsBundle",
+    "value": {
+      "stats": [
+        {
+          "name": "attacks",
+          "value": 25
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:12",
+    "model": "FactionRaidsBundle",
+    "value": {
+      "raids": [
+        {
+          "id": 7382,
+          "start": 1757164550,
+          "end": 1757168483,
+          "aggressor": {
+            "id": 16312,
+            "name": "39th Street Killers X",
+            "score": 0
+          },
+          "defender": {
+            "id": 54858,
+            "name": "39th Street Creepers",
+            "score": 0
+          }
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": "https://api.torn.com/v2/faction/raids?&limit=1&sort=desc&to=1757164550",
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:13",
+    "model": "FactionTimestampBundle",
+    "value": {
+      "timestamp": 1710000300
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:14",
+    "model": "FactionTerritoryBundle",
+    "value": {
+      "territory": [
+        {
+          "id": "KDD",
+          "acquired_at": 1724193041,
+          "sector": 5,
+          "size": 3,
+          "density": 2,
+          "slots": 21,
+          "respect": 90,
+          "coordinates": {
+            "x": 4257.67,
+            "y": 1819.67
+          },
+          "racket": {
+            "territory": "KDD",
+            "faction_id": 10174,
+            "name": "Money Launderer II",
+            "level": 2,
+            "description": "$20,000,000 daily",
+            "reward": {
+              "type": "Money",
+              "quantity": 20000000,
+              "id": null
+            },
+            "created_at": 1598893024,
+            "changed_at": 1776009423
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:15",
+    "model": "FactionTerritoryOwnershipBundle",
+    "value": {
+      "territoryOwnership": [
+        {
+          "id": "AAB",
+          "irradiated": false,
+          "owned_by": 23193,
+          "acquired_at": 1773784300
+        },
+        {
+          "id": "AAG",
+          "irradiated": true,
+          "owned_by": null,
+          "acquired_at": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:16",
+    "model": "FactionUpgradesBundle",
+    "value": {
+      "state": "peace",
+      "upgrades": {
+        "core": {
+          "upgrades": [
+            {
+              "id": 1,
+              "name": "Core A",
+              "ability": "Thing",
+              "level": 2,
+              "cost": 1000,
+              "unlocked_at": 1710000000
+            }
+          ]
+        },
+        "peace": [
+          {
+            "name": "Peace",
+            "order": 1,
+            "multiplier": 1.5,
+            "upgrades": []
+          }
+        ],
+        "war": []
+      }
+    }
+  },
+  {
+    "name": "faction_typed_methods_deserialize_stable_selection_shapes:17",
+    "model": "FactionWarfareBundle",
+    "value": {
+      "warfare": [
+        {
+          "id": 62267143,
+          "chain": 10,
+          "respect": 44.35,
+          "start": 1777422161,
+          "end": 1777422431,
+          "faction": {
+            "id": 56304,
+            "name": "Reckless Pirate Co"
+          }
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": "https://api.torn.com/v2/faction/warfare?cat=chain&from=1777422161"
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:0",
+    "model": "FactionArmorBundle",
+    "value": {
+      "armor": {
+        "11": {
+          "name": "Kevlar Vest",
+          "type": "Defensive",
+          "quantity": 2,
+          "available": 1,
+          "loaned": 1,
+          "loaned_to": 8491,
+          "armor": 35.5
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:1",
+    "model": "FactionBoostersBundle",
+    "value": {
+      "boosters": [
+        {
+          "id": 12,
+          "name": "Boxing Booster",
+          "type": "Booster",
+          "quantity": 3,
+          "available": 3,
+          "loaned": 0
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:2",
+    "model": "FactionCachesBundle",
+    "value": {
+      "caches": {
+        "13": {
+          "name": "Weapons Cache",
+          "quantity": 1,
+          "available": 1
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:3",
+    "model": "FactionCesiumBundle",
+    "value": {
+      "cesium": [
+        {
+          "id": 14,
+          "name": "Cesium-137",
+          "quantity": 2,
+          "available": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:4",
+    "model": "FactionCrimeBundle",
+    "value": {
+      "crime": {
+        "id": 1186857,
+        "name": "Cracking the Vault",
+        "previous_crime_id": 1186000,
+        "difficulty": 8,
+        "status": "Successful",
+        "created_at": 1710000000,
+        "planning_at": 1710000100,
+        "ready_at": 1710000200,
+        "expired_at": 1710000300,
+        "executed_at": 1710000400,
+        "slots": [
+          {
+            "position": "Hacker",
+            "position_info": {
+              "id": "P1",
+              "label": "Hacker",
+              "number": 1
+            },
+            "position_id": "P1",
+            "position_number": 1,
+            "item_requirement": {
+              "id": 77,
+              "is_reusable": true,
+              "is_available": true
+            },
+            "user": {
+              "id": 8491,
+              "outcome": "Successful",
+              "outcome_duration": 45,
+              "item_outcome": {
+                "owned_by": "User",
+                "item_id": 77,
+                "item_uid": 9001,
+                "outcome": "Used"
+              },
+              "joined_at": 1710000050,
+              "progress": 99.5
+            },
+            "checkpoint_pass_rate": 42
+          }
+        ],
+        "rewards": {
+          "money": 750000,
+          "items": [
+            {
+              "id": 5,
+              "quantity": 2
+            }
+          ],
+          "respect": 12,
+          "scope": 3,
+          "payout": {
+            "type": "automatic",
+            "percentage": 100.0,
+            "paid_by": 1631210,
+            "paid_at": 1710000500
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:5",
+    "model": "FactionCrimeExpBundle",
+    "value": {
+      "crimeexp": {
+        "8491": {
+          "name": "Hencia",
+          "crimeexp": 1250,
+          "position": "Planner"
+        },
+        "21955": {
+          "name": "Charger",
+          "crime_exp": 1001
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:6",
+    "model": "FactionCrimesBundle",
+    "value": {
+      "crimes": [
+        {
+          "id": 1186857,
+          "name": "Cracking the Vault",
+          "previous_crime_id": null,
+          "difficulty": 8,
+          "status": "Planning",
+          "created_at": 1710000000,
+          "planning_at": 1710000100,
+          "ready_at": 1710000200,
+          "expired_at": 1710000300,
+          "executed_at": null,
+          "slots": [
+            {
+              "position": "Hacker",
+              "position_info": {
+                "id": "P1",
+                "label": "Hacker",
+                "number": 1
+              },
+              "position_id": "P1",
+              "position_number": 1,
+              "item_requirement": null,
+              "user": null,
+              "checkpoint_pass_rate": 42
+            }
+          ],
+          "rewards": null
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": "https://api.torn.com/v2/faction/crimes?offset=1"
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:7",
+    "model": "FactionDrugsBundle",
+    "value": {
+      "drugs": {
+        "15": {
+          "name": "Xanax",
+          "quantity": 25,
+          "available": 20,
+          "loaned": 5
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:8",
+    "model": "FactionMedicalBundle",
+    "value": {
+      "medical": [
+        {
+          "id": 16,
+          "name": "Morphine",
+          "quantity": 8,
+          "available": 6,
+          "loaned": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:9",
+    "model": "FactionTemporaryBundle",
+    "value": {
+      "temporary": {
+        "17": {
+          "name": "Smoke Grenade",
+          "quantity": 4,
+          "available": 4,
+          "bonus": "escape"
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:10",
+    "model": "FactionUtilitiesBundle",
+    "value": {
+      "utilities": [
+        {
+          "id": 18,
+          "name": "Flashlight",
+          "quantity": 9,
+          "available": 9,
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_typed_armory_and_crime_surfaces_deserialize:11",
+    "model": "FactionWeaponsBundle",
+    "value": {
+      "weapons": {
+        "19": {
+          "name": "Armalite",
+          "type": "Primary",
+          "quantity": 2,
+          "available": 1,
+          "loaned": 1,
+          "damage": 75.5,
+          "accuracy": 62.0
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:0",
+    "model": "FactionAttacksBundle",
+    "value": {
+      "attacks": [
+        {
+          "id": 1,
+          "code": "abc",
+          "started": 1710000000,
+          "ended": 1710000005,
+          "attacker": {
+            "id": 10,
+            "name": "Attacker",
+            "level": 50,
+            "faction": {
+              "id": 16312,
+              "name": "39th Street Killers X"
+            }
+          },
+          "defender": {
+            "id": 20,
+            "name": "Defender",
+            "level": 45,
+            "faction": {
+              "id": 9,
+              "name": "Target Faction"
+            }
+          },
+          "result": "Hospitalized",
+          "respect_gain": 1.23,
+          "respect_loss": 0.45,
+          "chain": 10,
+          "is_interrupted": false,
+          "is_stealthed": false,
+          "is_raid": false,
+          "is_ranked_war": true,
+          "modifiers": {
+            "fair_fight": 1.1,
+            "war": 1,
+            "chain": 1.5
+          },
+          "finishing_hit_effects": [
+            {
+              "name": "Bleed",
+              "value": 5
+            }
+          ]
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": "https://api.torn.com/v2/faction/attacks?from=1710000000"
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:1",
+    "model": "FactionAttacksFullBundle",
+    "value": {
+      "attacks": [
+        {
+          "id": 2,
+          "code": "def",
+          "started": 1710000010,
+          "ended": 1710000015,
+          "attacker": {
+            "id": 11,
+            "faction_id": 16312
+          },
+          "defender": {
+            "id": 21,
+            "faction_id": 8
+          },
+          "result": "Mugged",
+          "respect_gain": 0.5,
+          "respect_loss": 0.1
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:2",
+    "model": "FactionReportsBundle",
+    "value": {
+      "reports": [
+        {
+          "type": "spy",
+          "target_id": 1,
+          "reporter_id": 2,
+          "faction_id": 16312,
+          "timestamp": 1710000100,
+          "report": {
+            "strength": 1000,
+            "speed": 900
+          }
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:3",
+    "model": "FactionRevivesBundle",
+    "value": {
+      "revives": [
+        {
+          "id": 3,
+          "reviver": {
+            "id": 12,
+            "name": "Medic",
+            "faction": {
+              "id": 16312,
+              "name": "39th Street Killers X"
+            },
+            "skill": 88.5
+          },
+          "target": {
+            "id": 22,
+            "name": "Target",
+            "faction": {
+              "id": 7,
+              "name": "Other"
+            },
+            "hospital_reason": "Mugged",
+            "early_discharge": false,
+            "last_action": {
+              "status": "Offline",
+              "relative": "1 minute",
+              "timestamp": 1710000000
+            },
+            "online_status": "Offline"
+          },
+          "success_chance": 95.5,
+          "result": "success",
+          "timestamp": 1710000200
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:4",
+    "model": "FactionRevivesFullBundle",
+    "value": {
+      "revives": [
+        {
+          "id": 4,
+          "reviver": {
+            "id": 13,
+            "faction_id": 16312
+          },
+          "target": {
+            "id": 23,
+            "faction_id": 6,
+            "hospital_reason": "Attacked",
+            "early_discharge": true,
+            "last_action": 1710000000,
+            "online_status": "Online"
+          },
+          "success_chance": 90.0,
+          "result": "fail",
+          "timestamp": 1710000300
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:5",
+    "model": "FactionTerritoryWarsBundle",
+    "value": {
+      "territorywars": [
+        {
+          "id": 45231,
+          "war_id": 45231,
+          "territory": "RYD",
+          "start": 1777420000,
+          "end": 1777423000,
+          "target": 777,
+          "result": "Won",
+          "factions": [
+            {
+              "id": 16312,
+              "name": "39th Street Killers X",
+              "score": 100,
+              "is_aggressor": true
+            },
+            {
+              "id": 777,
+              "name": "Target Faction",
+              "score": 55,
+              "is_aggressor": false
+            }
+          ]
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:6",
+    "model": "FactionRaidReportBundle",
+    "value": {
+      "raidreport": {
+        "id": 7382,
+        "start": 1757164550,
+        "end": 1757168483,
+        "aggressor": {
+          "id": 16312,
+          "name": "39th Street Killers X",
+          "score": 0,
+          "attackers": [
+            {
+              "user": {
+                "id": 1,
+                "name": "One"
+              },
+              "attacks": 4,
+              "damage": 1234
+            }
+          ],
+          "non_attackers": [
+            {
+              "id": 2,
+              "name": "Two"
+            }
+          ]
+        },
+        "defender": {
+          "id": 54858,
+          "name": "39th Street Creepers",
+          "score": 0,
+          "attackers": [],
+          "non_attackers": []
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:7",
+    "model": "FactionRankedWarReportBundle",
+    "value": {
+      "rankedwarreport": {
+        "id": 40884,
+        "start": 1777421000,
+        "end": 1777429000,
+        "winner": 16312,
+        "forfeit": false,
+        "factions": [
+          {
+            "id": 16312,
+            "name": "39th Street Killers X",
+            "score": 1000,
+            "attacks": 50,
+            "rank": {
+              "before": "Diamond II",
+              "after": "Diamond I"
+            },
+            "rewards": {
+              "respect": 12.5,
+              "points": 100,
+              "items": [
+                {
+                  "id": 1,
+                  "name": "Point",
+                  "quantity": 5
+                }
+              ]
+            },
+            "members": [
+              {
+                "id": 1,
+                "name": "One",
+                "level": 100,
+                "score": 500,
+                "attacks": 25
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "faction_typed_history_and_report_surfaces_deserialize:8",
+    "model": "FactionTerritoryWarReportBundle",
+    "value": {
+      "territorywarreport": {
+        "id": 45231,
+        "territory": "RYD",
+        "started_at": 1777420000,
+        "ended_at": 1777423000,
+        "winner": 16312,
+        "result": "Won",
+        "factions": [
+          {
+            "id": 16312,
+            "name": "39th Street Killers X",
+            "score": 100,
+            "is_aggressor": true,
+            "clears": 3,
+            "joins": 5,
+            "members": [
+              {
+                "id": 1,
+                "username": "One",
+                "level": 100,
+                "score": 55,
+                "joins": 2,
+                "clears": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "faction_generic_route_typed_helpers_allow_idless_owned_surfaces:0",
+    "model": "FactionChainBundle",
+    "value": {
+      "chain": {
+        "id": 0,
+        "current": 0,
+        "max": 10,
+        "timeout": 0,
+        "modifier": 1,
+        "cooldown": 0,
+        "start": 0,
+        "end": 1777422590
+      }
+    }
+  },
+  {
+    "name": "faction_generic_route_typed_helpers_allow_idless_owned_surfaces:1",
+    "model": "FactionChainsBundle",
+    "value": {
+      "chains": [
+        {
+          "id": 62264214,
+          "chain": 19,
+          "respect": 53,
+          "start": 1777416675,
+          "end": 1777417656
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_generic_route_typed_helpers_allow_idless_owned_surfaces:2",
+    "model": "FactionChainReportBundle",
+    "value": {
+      "chainreport": {
+        "id": 62264214,
+        "faction_id": 16312,
+        "start": 1777416675,
+        "end": 1777417656,
+        "details": {
+          "chain": 19,
+          "respect": 53,
+          "members": 2,
+          "targets": 19,
+          "war": 0,
+          "best": 10,
+          "leave": 17,
+          "mug": 2,
+          "hospitalize": 0,
+          "assists": 0,
+          "retaliations": 0,
+          "overseas": 0,
+          "draws": 0,
+          "escapes": 2,
+          "losses": 0
+        },
+        "bonuses": [],
+        "attackers": [],
+        "non_attackers": []
+      }
+    }
+  },
+  {
+    "name": "faction_generic_route_typed_helpers_allow_idless_owned_surfaces:3",
+    "model": "FactionRaidsBundle",
+    "value": {
+      "raids": [
+        {
+          "id": 7382,
+          "start": 1757164550,
+          "end": 1757168483,
+          "aggressor": {
+            "id": 16312,
+            "name": "39th Street Killers X",
+            "score": 0
+          },
+          "defender": {
+            "id": 54858,
+            "name": "39th Street Creepers",
+            "score": 0
+          }
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_generic_route_typed_helpers_allow_idless_owned_surfaces:4",
+    "model": "FactionTerritoryOwnershipBundle",
+    "value": {
+      "territoryOwnership": [
+        {
+          "id": "RYD",
+          "owned_by": 16312,
+          "acquired_at": 1773093363
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "faction_generic_route_typed_helpers_allow_idless_owned_surfaces:5",
+    "model": "FactionTerritoryBundle",
+    "value": {
+      "territory": [
+        {
+          "id": "RYD",
+          "acquired_at": 1773093363,
+          "sector": 6,
+          "size": 4,
+          "density": 2,
+          "slots": 26,
+          "respect": 118,
+          "coordinates": {
+            "x": 4158.11,
+            "y": 1581
+          },
+          "racket": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "faction_generic_route_typed_helpers_allow_idless_owned_surfaces:6",
+    "model": "FactionTerritoryWarsBundle",
+    "value": {
+      "territorywars": [
+        {
+          "id": 45231,
+          "war_id": 45231,
+          "territory": "RYD",
+          "start": 1777420000,
+          "end": 1777423000,
+          "target": 777,
+          "result": "Won",
+          "factions": [
+            {
+              "id": 16312,
+              "name": "39th Street Killers X",
+              "score": 100,
+              "is_aggressor": true
+            },
+            {
+              "id": 777,
+              "name": "Target Faction",
+              "score": 55,
+              "is_aggressor": false
+            }
+          ]
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "forum_typed_helpers_deserialize_contract_payloads:0",
+    "model": "ForumCategoriesBundle",
+    "value": {
+      "categories": [
+        {
+          "id": 63,
+          "title": "API Development",
+          "acronym": "API",
+          "threads": 1026
+        }
+      ]
+    }
+  },
+  {
+    "name": "forum_typed_helpers_deserialize_contract_payloads:1",
+    "model": "ForumLookupBundle",
+    "value": {
+      "selections": [
+        "categories",
+        "lookup",
+        "posts",
+        "thread",
+        "threads",
+        "timestamp"
+      ]
+    }
+  },
+  {
+    "name": "forum_typed_helpers_deserialize_contract_payloads:2",
+    "model": "ForumThreadsBundle",
+    "value": {
+      "threads": [
+        {
+          "id": 16559714,
+          "title": "How do I become the best degenerate gambler in this game",
+          "forum_id": 15,
+          "posts": 22,
+          "rating": -12,
+          "views": 297,
+          "author": {
+            "id": 4265422,
+            "username": "JohnJohn_Site",
+            "karma": 0
+          },
+          "last_poster": {
+            "id": 4265422,
+            "username": "JohnJohn_Site",
+            "karma": 0
+          },
+          "first_post_time": 1777369314,
+          "last_post_time": 1777419396,
+          "has_poll": false,
+          "is_locked": false,
+          "is_sticky": false
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": "https://api.torn.com/v2/forum/threads?&limit=1&sort=desc&to=1777419396",
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "forum_typed_helpers_deserialize_contract_payloads:3",
+    "model": "ForumThreadBundle",
+    "value": {
+      "thread": {
+        "id": 16559714,
+        "title": "How do I become the best degenerate gambler in this game",
+        "forum_id": 15,
+        "posts": 22,
+        "rating": -12,
+        "views": 297,
+        "author": {
+          "id": 4265422,
+          "username": "JohnJohn_Site",
+          "karma": 0
+        },
+        "last_poster": {
+          "id": 4265422,
+          "username": "JohnJohn_Site",
+          "karma": 0
+        },
+        "first_post_time": 1777369314,
+        "last_post_time": 1777419396,
+        "has_poll": false,
+        "is_locked": false,
+        "is_sticky": false,
+        "content": "Plain text body",
+        "content_raw": "<p>Plain text body</p>",
+        "poll": null
+      }
+    }
+  },
+  {
+    "name": "forum_typed_helpers_deserialize_contract_payloads:4",
+    "model": "ForumPostsBundle",
+    "value": {
+      "posts": [
+        {
+          "id": 27283947,
+          "thread_id": 16559714,
+          "author": {
+            "id": 4265422,
+            "username": "JohnJohn_Site",
+            "karma": 0
+          },
+          "is_legacy": false,
+          "is_topic": true,
+          "is_edited": false,
+          "is_pinned": false,
+          "created_time": 1777369314,
+          "edited_by": null,
+          "has_quote": false,
+          "quoted_post_id": null,
+          "content": "Plain text body",
+          "likes": 1,
+          "dislikes": 13
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": "https://api.torn.com/v2/forum/16559714/posts?&limit=1&stripTags=true&offset=1"
+        }
+      }
+    }
+  },
+  {
+    "name": "forum_typed_helpers_deserialize_contract_payloads:5",
+    "model": "ForumTimestampBundle",
+    "value": {
+      "timestamp": 1710000400
+    }
+  },
+  {
+    "name": "forum_threads_supports_global_and_category_scoped_routes:0",
+    "model": "ForumThreadsBundle",
+    "value": {
+      "threads": [],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "forum_threads_supports_global_and_category_scoped_routes:1",
+    "model": "ForumThreadsBundle",
+    "value": {
+      "threads": [],
+      "_metadata": {
+        "links": {
+          "prev": null,
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "key_log_and_property_helpers_deserialize_typed_payloads:0",
+    "model": "KeyLogBundle",
+    "value": {
+      "log": [
+        {
+          "timestamp": 1710000000,
+          "type": "user",
+          "selections": "profile",
+          "id": 42,
+          "comment": "numeric id",
+          "ip": "127.0.0.1"
+        },
+        {
+          "timestamp": 1710000300,
+          "type": "property",
+          "selections": "lookup",
+          "id": "property-1",
+          "comment": null,
+          "ip": "127.0.0.2"
+        }
+      ]
+    }
+  },
+  {
+    "name": "key_log_and_property_helpers_deserialize_typed_payloads:1",
+    "model": "PropertyLookupBundle",
+    "value": {
+      "selections": [
+        "property",
+        "lookup",
+        "timestamp"
+      ]
+    }
+  },
+  {
+    "name": "key_log_and_property_helpers_deserialize_typed_payloads:2",
+    "model": "PropertyTimestampBundle",
+    "value": {
+      "timestamp": 1710000400
+    }
+  },
+  {
+    "name": "market_auctionhouse_supports_collection_requests_without_id:0",
+    "model": "MarketAuctionHouseBundle",
+    "value": {
+      "auctionhouse": [],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "racing_typed_methods_deserialize_stable_surfaces:0",
+    "model": "RacingTracksBundle",
+    "value": {
+      "tracks": [
+        {
+          "id": 6,
+          "title": "Uptown",
+          "description": "Fast corners"
+        }
+      ]
+    }
+  },
+  {
+    "name": "racing_typed_methods_deserialize_stable_surfaces:1",
+    "model": "RacingCarsBundle",
+    "value": {
+      "cars": [
+        {
+          "car_item_id": 77,
+          "car_item_name": "Tabata RM2",
+          "top_speed": 25,
+          "acceleration": 20,
+          "braking": 15,
+          "dirt": 15,
+          "handling": 20,
+          "safety": 20,
+          "tarmac": 20,
+          "class": "D"
+        }
+      ]
+    }
+  },
+  {
+    "name": "racing_typed_methods_deserialize_stable_surfaces:2",
+    "model": "RacingCarUpgradesBundle",
+    "value": {
+      "carupgrades": [
+        {
+          "id": 1,
+          "class_required": "E",
+          "name": "Strip Out",
+          "description": "Reduce weight",
+          "category": "Weight Reduction",
+          "subcategory": "Strip out",
+          "effects": {
+            "top_speed": 1,
+            "acceleration": 1,
+            "braking": 1,
+            "handling": 1,
+            "safety": 0,
+            "dirt": 0,
+            "tarmac": 0
+          },
+          "cost": {
+            "points": 1,
+            "cash": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "racing_typed_methods_deserialize_stable_surfaces:3",
+    "model": "RacingRacesBundle",
+    "value": {
+      "races": [
+        {
+          "id": 18901349,
+          "title": "Quick Speedway",
+          "track_id": 21,
+          "creator_id": 983221,
+          "status": "open",
+          "laps": 1,
+          "participants": {
+            "minimum": 2,
+            "maximum": 2,
+            "current": 1
+          },
+          "schedule": {
+            "join_from": 1777419313,
+            "join_until": 1777419373,
+            "start": 1777419373,
+            "end": null
+          },
+          "requirements": {
+            "driver_class": null,
+            "car_class": null,
+            "car_item_id": null,
+            "requires_stock_car": false,
+            "requires_password": false,
+            "join_fee": 0
+          },
+          "is_official": false
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": "https://api.torn.com/v2/racing/races?limit=1&to=1777419373",
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "racing_typed_methods_deserialize_stable_surfaces:4",
+    "model": "RacingRecordsBundle",
+    "value": {
+      "records": [
+        {
+          "driver_id": 1,
+          "driver_name": "Racer",
+          "car_item_id": 77,
+          "lap_time": 123.45,
+          "car_item_name": "Tabata RM2"
+        }
+      ]
+    }
+  },
+  {
+    "name": "racing_typed_methods_deserialize_stable_surfaces:5",
+    "model": "RacingRaceBundle",
+    "value": {
+      "race": {
+        "id": 18900843,
+        "title": "Off race",
+        "track_id": 23,
+        "creator_id": 4192829,
+        "status": "finished",
+        "laps": 8,
+        "participants": {
+          "minimum": 3,
+          "maximum": 6,
+          "current": 6
+        },
+        "schedule": {
+          "join_from": 1777415699,
+          "join_until": 1777419299,
+          "start": 1777419367,
+          "end": 1777420944
+        },
+        "requirements": {
+          "driver_class": "E",
+          "car_class": null,
+          "car_item_id": null,
+          "requires_stock_car": false,
+          "requires_password": false,
+          "join_fee": 0
+        },
+        "is_official": true,
+        "results": [
+          {
+            "driver_id": 2,
+            "position": 1,
+            "car_id": 900,
+            "car_item_id": 78,
+            "car_item_name": "Edomondo NSX",
+            "car_class": "A",
+            "has_crashed": false,
+            "best_lap_time": 54.32,
+            "race_time": 450.12,
+            "time_ended": 1777420944
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "racing_typed_methods_deserialize_stable_surfaces:6",
+    "model": "RacingLookupBundle",
+    "value": {
+      "selections": [
+        "cars",
+        "carupgrades",
+        "lookup",
+        "race",
+        "races",
+        "records",
+        "timestamp",
+        "tracks"
+      ]
+    }
+  },
+  {
+    "name": "racing_typed_methods_deserialize_stable_surfaces:7",
+    "model": "RacingTimestampBundle",
+    "value": {
+      "timestamp": 1777419373
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:0",
+    "model": "UserTimestampBundle",
+    "value": {
+      "timestamp": 1710000000
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:1",
+    "model": "UserNotificationsBundle",
+    "value": {
+      "notifications": {
+        "messages": 1,
+        "events": 2,
+        "awards": 3,
+        "competition": 4
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:2",
+    "model": "UserIconsBundle",
+    "value": {
+      "icons": [
+        {
+          "id": 6,
+          "title": "Male",
+          "description": null,
+          "until": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:3",
+    "model": "UserEnlistedCarsBundle",
+    "value": {
+      "enlistedcars": [
+        {
+          "id": 1016331,
+          "car_item_id": 77,
+          "car_item_name": "Tabata RM2",
+          "car_name": "Roadster",
+          "top_speed": 30,
+          "acceleration": 27,
+          "braking": 18,
+          "handling": 23,
+          "safety": 20,
+          "dirt": 15,
+          "tarmac": 20,
+          "class": "D",
+          "worth": 57000,
+          "points_spent": 15,
+          "races_entered": 42,
+          "races_won": 12,
+          "is_removed": true,
+          "parts": [
+            1,
+            35
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:4",
+    "model": "UserJobBundle",
+    "value": {
+      "job": {
+        "type": "company",
+        "id": 92041,
+        "type_id": 38,
+        "name": "Black Salts",
+        "rating": 10,
+        "position": "Director",
+        "days_in_company": 117
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:5",
+    "model": "UserJobPointsBundle",
+    "value": {
+      "jobpoints": {
+        "jobs": {
+          "army": 0,
+          "casino": 1,
+          "education": 2,
+          "grocer": 3,
+          "law": 4,
+          "medical": 5
+        },
+        "companies": [
+          {
+            "company": {
+              "id": 38,
+              "name": "Mining Corporation"
+            },
+            "points": 235
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:6",
+    "model": "UserJobRanksBundle",
+    "value": {
+      "jobranks": {
+        "army": "Corporal",
+        "grocer": "Bagboy",
+        "casino": "Dealer",
+        "medical": "Medical Student",
+        "law": "Law Student",
+        "education": "Principal"
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:7",
+    "model": "UserRefillsBundle",
+    "value": {
+      "refills": {
+        "energy": true,
+        "nerve": false,
+        "token": true,
+        "special_count": 7
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:8",
+    "model": "UserSkillsBundle",
+    "value": {
+      "skills": [
+        {
+          "slug": "racing",
+          "name": "Racing",
+          "level": 32.43
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:9",
+    "model": "UserStocksBundle",
+    "value": {
+      "stocks": [
+        {
+          "id": 9,
+          "shares": 100000,
+          "transactions": [
+            {
+              "id": 17950269,
+              "shares": 100000,
+              "price": 323.94,
+              "timestamp": 1747624406
+            }
+          ],
+          "bonus": {
+            "available": false,
+            "increment": 1,
+            "progress": 3,
+            "frequency": 31
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:10",
+    "model": "UserCalendarBundle",
+    "value": {
+      "calendar": {
+        "start_time": "13:00 TCT"
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:11",
+    "model": "UserLookupBundle",
+    "value": {
+      "selections": [
+        "profile",
+        "virus",
+        "organizedcrimes"
+      ]
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:12",
+    "model": "UserFactionBalanceBundle",
+    "value": {
+      "factionBalance": {
+        "money": 5000,
+        "points": 10
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:13",
+    "model": "UserEducationBundle",
+    "value": {
+      "education": {
+        "complete": [
+          1,
+          2,
+          3
+        ],
+        "current": {
+          "id": 50,
+          "until": 1777949732
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:14",
+    "model": "UserCompetitionBundle",
+    "value": {
+      "competition": {
+        "name": "Rock, Paper, Scissors",
+        "status": "paper",
+        "hp": {
+          "current": 179,
+          "maximum": 269
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:15",
+    "model": "UserWeaponExpBundle",
+    "value": {
+      "weaponexp": [
+        {
+          "id": 1,
+          "name": "Armalite M-15A4 Rifle",
+          "exp": 100
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:16",
+    "model": "UserRacingRecordsBundle",
+    "value": {
+      "racingrecords": [
+        {
+          "track": {
+            "id": 21,
+            "name": "Speedway"
+          },
+          "records": [
+            {
+              "car_id": 522,
+              "car_name": "Veloria LFA",
+              "lap_time": 2656
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:17",
+    "model": "UserHonorsBundle",
+    "value": {
+      "honors": [
+        {
+          "id": 1,
+          "timestamp": 1748501303
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_methods_cover_stable_low_risk_surfaces:18",
+    "model": "UserMedalsBundle",
+    "value": {
+      "medals": [
+        {
+          "id": 3,
+          "timestamp": 1748501304
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_account_state_slice_deserializes:0",
+    "model": "UserAmmoBundle",
+    "value": {
+      "ammo": [
+        {
+          "id": 2,
+          "name": "9mm Parabellum Round",
+          "types": [
+            {
+              "name": "Standard",
+              "quantity": 8557,
+              "equipped": false
+            },
+            {
+              "name": "Tracer",
+              "quantity": 1000,
+              "equipped": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_account_state_slice_deserializes:1",
+    "model": "UserEquipmentBundle",
+    "value": {
+      "equipment": [
+        {
+          "id": 399,
+          "name": "ArmaLite M-15A4",
+          "uid": 18528121925,
+          "type": "Weapon",
+          "sub_type": "Rifle",
+          "stats": {
+            "damage": 84.26,
+            "accuracy": 68.85,
+            "armor": null,
+            "quality": 281.07
+          },
+          "bonuses": [
+            {
+              "id": 72,
+              "title": "Assassinate",
+              "description": "116% increased damage on the first turn",
+              "value": 116
+            }
+          ],
+          "rarity": "red",
+          "slot": 1,
+          "ammo": {
+            "id": 5,
+            "name": "5.56mm Rifle Round",
+            "type": "Hollow Point",
+            "quantity": 120
+          },
+          "mods": [
+            {
+              "id": 1,
+              "name": "Reflex Sight",
+              "image": "https://www.torn.com/images/items/1/large.png",
+              "description": "+1 Accuracy"
+            }
+          ]
+        },
+        {
+          "id": 676,
+          "name": "Marauder Body",
+          "uid": 17279982078,
+          "type": "Armor",
+          "sub_type": null,
+          "stats": {
+            "damage": null,
+            "accuracy": null,
+            "armor": 52.65,
+            "quality": 12.98
+          },
+          "bonuses": [
+            {
+              "id": 97,
+              "title": "Imperviable",
+              "description": "10% increased life",
+              "value": 10
+            }
+          ],
+          "rarity": "orange",
+          "slot": 4
+        }
+      ],
+      "clothing": [
+        {
+          "id": 1129,
+          "name": "Cat Ears",
+          "uid": 18387458439,
+          "type": "Clothing"
+        },
+        {
+          "id": 1465,
+          "name": "Cluster Ring",
+          "uid": 15777493825,
+          "type": "Jewelry"
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_account_state_slice_deserializes:2",
+    "model": "UserMissionsBundle",
+    "value": {
+      "missions": {
+        "credits": 1086,
+        "givers": [
+          {
+            "id": 4,
+            "name": "Duke",
+            "contracts": [
+              {
+                "title": "Out of the Frying Pan",
+                "difficulty": "Hard",
+                "status": "Completed",
+                "created_at": 1776643243,
+                "started_at": 1776643249,
+                "expires_at": null,
+                "completed_at": 1776852865,
+                "rewards": {
+                  "money": 28000,
+                  "credits": 27
+                }
+              },
+              {
+                "title": "Birthday Surprise",
+                "difficulty": "Expert",
+                "status": "Accepted",
+                "created_at": 1777334461,
+                "started_at": 1777334465,
+                "expires_at": 1777593665,
+                "completed_at": null,
+                "rewards": null
+              }
+            ]
+          }
+        ],
+        "rewards": [
+          {
+            "type": "Ammo",
+            "details": {
+              "id": 5,
+              "name": "5.56mm Rifle Round",
+              "type": "Hollow Point"
+            },
+            "amount": 500,
+            "cost": 73,
+            "expires_at": 1777347345
+          },
+          {
+            "type": "Item",
+            "details": {
+              "id": 68,
+              "name": "Small First Aid Kit",
+              "type": "Medical",
+              "sub_type": null
+            },
+            "amount": 50,
+            "cost": 26,
+            "expires_at": 1777343626
+          },
+          {
+            "type": "Upgrade",
+            "details": {
+              "id": 14,
+              "name": "Extra Magazine"
+            },
+            "amount": 1,
+            "cost": 374,
+            "expires_at": 1777168501
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "typed_user_account_state_slice_deserializes:3",
+    "model": "UserBattleStatsBundle",
+    "value": {
+      "battlestats": {
+        "strength": {
+          "value": 267340633,
+          "modifier": -5,
+          "modifiers": [
+            {
+              "effect": "+20% to Strength from Faction",
+              "value": 20,
+              "type": "Faction"
+            },
+            {
+              "effect": "-25% to Strength from Drug",
+              "value": -25,
+              "type": "Drug"
+            }
+          ]
+        },
+        "defense": {
+          "value": 350191493,
+          "modifier": -25,
+          "modifiers": [
+            {
+              "effect": "-25% to Defense from Drug",
+              "value": -25,
+              "type": "Drug"
+            }
+          ]
+        },
+        "speed": {
+          "value": 275316330,
+          "modifier": -5,
+          "modifiers": [
+            {
+              "effect": "+20% to Speed from Faction",
+              "value": 20,
+              "type": "Faction"
+            }
+          ]
+        },
+        "dexterity": {
+          "value": 1503806,
+          "modifier": -25,
+          "modifiers": [
+            {
+              "effect": "-25% to Dexterity from Drug",
+              "value": -25,
+              "type": "Drug"
+            }
+          ]
+        },
+        "total": 894352262
+      }
+    }
+  },
+  {
+    "name": "typed_user_unions_preserve_unknown_variants:0",
+    "model": "UserJobBundle",
+    "value": {
+      "job": {
+        "type": "guild",
+        "rank": "Architect"
+      }
+    }
+  },
+  {
+    "name": "typed_user_unions_preserve_unknown_variants:1",
+    "model": "UserCompetitionBundle",
+    "value": {
+      "competition": {
+        "name": "Snowball Fight",
+        "score": 99,
+        "team": "blue"
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:0",
+    "model": "UserEventsBundle",
+    "value": {
+      "events": [
+        {
+          "id": "evt-1",
+          "timestamp": 1710001000,
+          "event": "You found a cache."
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:1",
+    "model": "UserNewEventsBundle",
+    "value": {
+      "events": [
+        {
+          "id": "evt-2",
+          "timestamp": 1710001001,
+          "event": "Fresh event"
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:2",
+    "model": "UserMessagesBundle",
+    "value": {
+      "messages": [
+        {
+          "id": 278872269,
+          "sender": {
+            "id": 1268021,
+            "name": "Toxin"
+          },
+          "timestamp": 1777372065,
+          "topic": "Race notice",
+          "type": "Faction newsletter",
+          "seen": true,
+          "read": false
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:3",
+    "model": "UserNewMessagesBundle",
+    "value": {
+      "messages": [
+        {
+          "id": 278872270,
+          "sender": {
+            "id": 1,
+            "name": "Admin"
+          },
+          "timestamp": 1777372070,
+          "topic": "Fresh mail",
+          "type": "Company newsletter",
+          "seen": false,
+          "read": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:4",
+    "model": "UserRacesBundle",
+    "value": {
+      "races": [
+        {
+          "id": 18895661,
+          "title": "Docks",
+          "track_id": 10,
+          "creator_id": 3637232,
+          "status": "finished",
+          "laps": 100,
+          "participants": {
+            "minimum": 6,
+            "maximum": 100,
+            "current": 6
+          },
+          "schedule": {
+            "join_from": 1777385648,
+            "join_until": 1777385648,
+            "start": 1777386006,
+            "end": 1777403871
+          },
+          "requirements": {
+            "driver_class": null,
+            "car_class": null,
+            "car_item_id": null,
+            "requires_stock_car": false,
+            "requires_password": false,
+            "join_fee": 0
+          },
+          "is_official": false,
+          "skill_gain": 0.0323,
+          "results": [
+            {
+              "driver_id": 511670,
+              "position": 1,
+              "car_id": 434034,
+              "car_item_id": 85,
+              "car_item_name": "Volt GT",
+              "car_class": "A",
+              "has_crashed": false,
+              "best_lap_time": 170.37,
+              "race_time": 17851.58,
+              "time_ended": 1777403858
+            }
+          ]
+        },
+        {
+          "id": 18895662,
+          "title": "Uptown",
+          "track_id": 11,
+          "creator_id": 3637232,
+          "status": "in_progress",
+          "laps": 10,
+          "participants": {
+            "minimum": 2,
+            "maximum": 6,
+            "current": 2
+          },
+          "schedule": {
+            "join_from": 1777385648,
+            "join_until": 1777385648,
+            "start": 1777386006,
+            "end": null
+          },
+          "requirements": {
+            "driver_class": null,
+            "car_class": null,
+            "car_item_id": null,
+            "requires_stock_car": false,
+            "requires_password": false,
+            "join_fee": 0
+          },
+          "is_official": false,
+          "skill_gain": null,
+          "results": []
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:5",
+    "model": "UserHofBundle",
+    "value": {
+      "hof": {
+        "attacks": {
+          "value": 3199,
+          "rank": 32895
+        },
+        "racing_skill": {
+          "value": 32.43,
+          "rank": 5548
+        },
+        "battle_stats": {
+          "value": 892850347,
+          "rank": 23754
+        },
+        "working_stats": {
+          "value": 188258,
+          "rank": 139905
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:6",
+    "model": "UserBountiesBundle",
+    "value": {
+      "bounties_timestamp": 1777422599,
+      "bounties_delay": 30,
+      "bounties": [
+        {
+          "target_id": 123,
+          "target_name": "Target",
+          "target_level": 50,
+          "lister_id": 456,
+          "lister_name": "Poster",
+          "reward": 500000,
+          "reason": "Testing",
+          "quantity": 2,
+          "is_anonymous": false,
+          "valid_until": 1778000000
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:7",
+    "model": "UserPropertiesBundle",
+    "value": {
+      "properties": [
+        {
+          "id": 1858770,
+          "owner": {
+            "id": 2057854,
+            "name": "Flamer"
+          },
+          "property": {
+            "id": 13,
+            "name": "Private Island"
+          },
+          "happy": 3725,
+          "upkeep": {
+            "property": 100000,
+            "staff": 0
+          },
+          "market_price": 1057788000,
+          "modifications": [
+            "Hot Tub"
+          ],
+          "staff": [],
+          "status": "rented",
+          "used_by": [],
+          "cost": 40000000,
+          "cost_per_day": 400000,
+          "rental_period": 100,
+          "rental_period_remaining": 14,
+          "rented_by": {
+            "id": 4057573,
+            "name": "Muthalali"
+          },
+          "lease_extension": null
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:8",
+    "model": "UserPropertyBundle",
+    "value": {
+      "property": {
+        "id": 2704636,
+        "owner": {
+          "id": 3637232,
+          "name": "Swervelord"
+        },
+        "property": {
+          "id": 13,
+          "name": "Private Island"
+        },
+        "happy": 5025,
+        "upkeep": {
+          "property": 100000,
+          "staff": 252500
+        },
+        "market_price": 1952788000,
+        "modifications": [
+          "Hot Tub",
+          "Airstrip"
+        ],
+        "staff": [
+          {
+            "type": "Maid",
+            "amount": 4
+          }
+        ],
+        "status": "in_use",
+        "used_by": [
+          {
+            "id": 2057854,
+            "name": "Flamer"
+          },
+          {
+            "id": 3637232,
+            "name": "Swervelord"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:9",
+    "model": "UserForumThreadsBundle",
+    "value": {
+      "forumThreads": [
+        {
+          "id": 16552320,
+          "title": "Selling items",
+          "forum_id": 10,
+          "posts": 206,
+          "rating": 7,
+          "views": 635,
+          "author": {
+            "id": 3637232,
+            "username": "Swervelord",
+            "karma": 476
+          },
+          "last_poster": {
+            "id": 3637232,
+            "username": "Swervelord",
+            "karma": 476
+          },
+          "first_post_time": 1775106615,
+          "last_post_time": 1777422128,
+          "has_poll": false,
+          "is_locked": false,
+          "is_sticky": false,
+          "new_posts": 0
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:10",
+    "model": "UserForumPostsBundle",
+    "value": {
+      "forumPosts": [
+        {
+          "id": 27286639,
+          "thread_id": 16552320,
+          "author": {
+            "id": 3637232,
+            "username": "Swervelord",
+            "karma": 476
+          },
+          "is_legacy": false,
+          "is_topic": false,
+          "is_edited": false,
+          "is_pinned": false,
+          "created_time": 1777422128,
+          "edited_by": null,
+          "has_quote": false,
+          "quoted_post_id": null,
+          "content": "b",
+          "likes": 0,
+          "dislikes": 0
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:11",
+    "model": "UserForumSubscribedThreadsBundle",
+    "value": {
+      "forumSubscribedThreads": [
+        {
+          "id": 15907925,
+          "forum_id": 46,
+          "title": "Looking for Work",
+          "posts": {
+            "new": 1550,
+            "total": 97105
+          },
+          "author": {
+            "id": 860829,
+            "username": "Magikarp",
+            "karma": 1824
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:12",
+    "model": "UserForumFriendsBundle",
+    "value": {
+      "forumFriends": [
+        {
+          "thread_id": 16531657,
+          "post_id": 27283828,
+          "title": "RW weapons",
+          "timestamp": 1777366393,
+          "text": "-Josh- posted on a thread",
+          "type": 1,
+          "is_seen": false,
+          "user": {
+            "id": 3954449,
+            "username": "-Josh-",
+            "karma": 33
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:13",
+    "model": "UserForumFeedBundle",
+    "value": {
+      "forumFeed": [
+        {
+          "thread_id": 16480171,
+          "post_id": 26104826,
+          "title": "Scripts",
+          "timestamp": 1777208516,
+          "text": "ANXIETY_ liked your thread",
+          "type": 3,
+          "is_seen": true,
+          "user": {
+            "id": 3853621,
+            "username": "ANXIETY_",
+            "karma": 44
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:14",
+    "model": "UserWorkStatsBundle",
+    "value": {
+      "workstats": {
+        "endurance": 68987,
+        "intelligence": 109030,
+        "manual_labor": 10241,
+        "total": 188258
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:15",
+    "model": "UserMeritsBundle",
+    "value": {
+      "merits": {
+        "upgrades": [
+          {
+            "id": 3,
+            "level": 10
+          }
+        ],
+        "available": 3,
+        "used": 400,
+        "medals": 168,
+        "honors": 235
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:16",
+    "model": "UserItemModsBundle",
+    "value": {
+      "itemmods": [
+        {
+          "id": 1,
+          "name": "Reflex Sight",
+          "image": "https://www.torn.com/images/items/1/large.png",
+          "description": "+1 Accuracy",
+          "dual_fit": false,
+          "weapons": [
+            "Rifle",
+            "SMG"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:17",
+    "model": "UserItemMarketBundle",
+    "value": {
+      "itemmarket": [
+        {
+          "id": 69077780,
+          "price": 51000000000,
+          "average_price": 553,
+          "amount": 1,
+          "is_anonymous": false,
+          "available": 0,
+          "item": {
+            "id": 487,
+            "name": "Thompson",
+            "type": "Primary",
+            "uid": 9300424431,
+            "stats": {
+              "damage": 53.49,
+              "accuracy": 54.71,
+              "armor": null,
+              "quality": 261.97
+            },
+            "rarity": "red",
+            "bonuses": [
+              {
+                "id": 0,
+                "title": "Revitalize",
+                "description": "19% chance",
+                "value": 19
+              }
+            ]
+          }
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "next": null,
+          "prev": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_stable_activity_and_property_surfaces_deserialize:18",
+    "model": "UserOrganizedCrimeBundle",
+    "value": {
+      "organizedCrime": {
+        "id": 1567682,
+        "previous_crime_id": null,
+        "name": "Blast from the Past",
+        "difficulty": 7,
+        "status": "Planning",
+        "created_at": 1777161335,
+        "planning_at": 1777308831,
+        "executed_at": null,
+        "ready_at": 1777827231,
+        "expired_at": 1777766135,
+        "slots": [
+          {
+            "position": "Picklock",
+            "position_info": {
+              "id": "P1",
+              "label": "Picklock #1",
+              "number": 1
+            },
+            "position_id": "P1",
+            "position_number": 1,
+            "item_requirement": null,
+            "user": {
+              "outcome": null,
+              "id": 3449728,
+              "joined_at": 1777379739,
+              "progress": 0,
+              "item_outcome": null
+            },
+            "checkpoint_pass_rate": 73
+          }
+        ],
+        "rewards": null
+      }
+    }
+  },
+  {
+    "name": "typed_user_combat_history_surfaces_deserialize:0",
+    "model": "UserAttacksBundle",
+    "value": {
+      "attacks": [
+        {
+          "id": 469638809,
+          "code": "6f5b7edde64f1180770edf1edb80c127",
+          "started": 1777425242,
+          "ended": 1777425248,
+          "attacker": {
+            "id": 3637232,
+            "name": "Swervelord",
+            "level": 74,
+            "faction": {
+              "id": 16312,
+              "name": "39th Street Killers X"
+            }
+          },
+          "defender": {
+            "id": 1546551,
+            "name": "Piercyy",
+            "level": 100,
+            "faction": {
+              "id": 41234,
+              "name": "Peaky CS"
+            }
+          },
+          "result": "Hospitalize",
+          "respect_gain": 4.21,
+          "respect_loss": 0,
+          "chain": 98,
+          "is_interrupted": false,
+          "is_stealthed": false,
+          "is_raid": true,
+          "is_ranked_war": false,
+          "modifiers": {
+            "fair_fight": 2.06,
+            "war": 2,
+            "retaliation": 1,
+            "group": 1,
+            "overseas": 1,
+            "chain": 1.24,
+            "warlord": 1.32
+          },
+          "finishing_hit_effects": [
+            {
+              "name": "warlord",
+              "value": 32
+            }
+          ]
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": "https://api.torn.com/v2/user/attacks?&limit=1&sort=desc&to=1777425248",
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_combat_history_surfaces_deserialize:1",
+    "model": "UserAttacksFullBundle",
+    "value": {
+      "attacks": [
+        {
+          "id": 469638809,
+          "code": "6f5b7edde64f1180770edf1edb80c127",
+          "started": 1777425242,
+          "ended": 1777425248,
+          "attacker": {
+            "id": 3637232,
+            "faction_id": 16312
+          },
+          "defender": {
+            "id": 1546551,
+            "faction_id": 41234
+          },
+          "result": "Assist",
+          "respect_gain": 0,
+          "respect_loss": 0
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": "https://api.torn.com/v2/user/attacksfull?&limit=1&sort=desc&to=1777425248",
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_combat_history_surfaces_deserialize:2",
+    "model": "UserRevivesBundle",
+    "value": {
+      "revives": [
+        {
+          "id": 16836764,
+          "reviver": {
+            "id": 2721059,
+            "name": "Raid",
+            "faction": {
+              "id": 17133,
+              "name": "Torn Medical"
+            },
+            "skill": 49.31
+          },
+          "target": {
+            "id": 3637232,
+            "name": "Swervelord",
+            "faction": {
+              "id": 16312,
+              "name": "39th Street Killers X"
+            },
+            "hospital_reason": "Hospitalized by Oops",
+            "early_discharge": false,
+            "last_action": 1777421593,
+            "online_status": "Online"
+          },
+          "success_chance": 89,
+          "result": "success",
+          "timestamp": 1777421633
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": "https://api.torn.com/v2/user/revives?&limit=1&sort=desc&to=1777421633",
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_combat_history_surfaces_deserialize:3",
+    "model": "UserRevivesFullBundle",
+    "value": {
+      "revives": [
+        {
+          "id": 16836764,
+          "reviver": {
+            "id": 2721059,
+            "faction_id": 17133
+          },
+          "target": {
+            "id": 3637232,
+            "faction_id": 16312,
+            "hospital_reason": "Hospitalized by Oops",
+            "early_discharge": false,
+            "last_action": 1777421593,
+            "online_status": "Online"
+          },
+          "success_chance": 89,
+          "result": "success",
+          "timestamp": 1777421633
+        }
+      ],
+      "_metadata": {
+        "links": {
+          "prev": "https://api.torn.com/v2/user/revivesfull?&limit=1&sort=desc&to=1777421633",
+          "next": null
+        }
+      }
+    }
+  },
+  {
+    "name": "typed_user_organizedcrime_preserves_error_variant:0",
+    "model": "UserOrganizedCrimeBundle",
+    "value": {
+      "organizedCrime": {
+        "code": 27,
+        "error": "User is not in an organized crime."
+      }
+    }
+  }
+]

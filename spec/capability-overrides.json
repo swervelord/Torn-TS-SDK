@@ -1,0 +1,87 @@
+{
+  "endpoint_selection_overrides": {},
+  "standalone_selections": {},
+  "selection_notes": {},
+  "legacy_selections": {
+    "faction": [
+      "armor",
+      "boosters",
+      "caches",
+      "cesium",
+      "crimeexp",
+      "drugs",
+      "medical",
+      "temporary",
+      "utilities",
+      "weapons"
+    ],
+    "market": [
+      "pointsmarket"
+    ],
+    "torn": [
+      "bank",
+      "cards",
+      "cityshops",
+      "companies",
+      "competition",
+      "gyms",
+      "itemdetails",
+      "itemstats",
+      "organisedcrimes",
+      "pawnshop",
+      "pokertables",
+      "rockpaperscissors",
+      "searchforcash",
+      "shoplifting",
+      "stats"
+    ],
+    "user": [
+      "bazaar",
+      "criminalrecord",
+      "display",
+      "gym",
+      "networth",
+      "perks"
+    ]
+  },
+  "selection_routing_overrides": {
+    "company": {
+      "applications": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      },
+      "companies": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      },
+      "employees": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      },
+      "lookup": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      },
+      "profile": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      },
+      "search": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      },
+      "snapshot": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      },
+      "stock": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      },
+      "timestamp": {
+        "can_use_generic_endpoint": false,
+        "requires_direct_endpoint_only": true
+      }
+    }
+  }
+}

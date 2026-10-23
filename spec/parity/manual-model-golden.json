@@ -1,0 +1,982 @@
+{
+  "cases": [
+    {
+      "input": {},
+      "model": "UserInventory",
+      "normalized": {
+        "extra": {},
+        "items": [],
+        "timestamp": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "future": true,
+        "items": [
+          {
+            "amount": 3,
+            "custom": {
+              "x": 1
+            },
+            "id": 1,
+            "uid": 100
+          }
+        ],
+        "timestamp": 123
+      },
+      "model": "UserInventory",
+      "normalized": {
+        "extra": {
+          "future": true
+        },
+        "items": [
+          {
+            "amount": 3,
+            "equipped": null,
+            "extra": {
+              "custom": {
+                "x": 1
+              }
+            },
+            "faction_owned": null,
+            "id": 1,
+            "name": null,
+            "uid": 100
+          }
+        ],
+        "timestamp": 123
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "items": null
+      },
+      "model": "UserInventory",
+      "ok": false
+    },
+    {
+      "input": {
+        "items": [
+          {
+            "id": -1
+          }
+        ]
+      },
+      "model": "UserInventory",
+      "ok": false
+    },
+    {
+      "input": [],
+      "model": "UserInventory",
+      "ok": false
+    },
+    {
+      "input": {},
+      "model": "UserPersonalStatsSelection",
+      "normalized": {
+        "attacking": null,
+        "crimes": null,
+        "drugs": null,
+        "extra": {},
+        "hospital": null,
+        "items": null,
+        "jobs": null,
+        "networth": null,
+        "other": null,
+        "travel": null
+      },
+      "ok": true
+    },
+    {
+      "input": [],
+      "model": "UserPersonalStatsSelection",
+      "normalized": [],
+      "ok": true
+    },
+    {
+      "input": {
+        "attacking": {
+          "attackswon": 4,
+          "nested": {
+            "a": [
+              1,
+              true,
+              null
+            ]
+          }
+        },
+        "future": 123
+      },
+      "model": "UserPersonalStatsSelection",
+      "normalized": {
+        "attacking": {
+          "stats": {
+            "attackswon": 4,
+            "nested": {
+              "a": [
+                1,
+                true,
+                null
+              ]
+            }
+          }
+        },
+        "crimes": null,
+        "drugs": null,
+        "extra": {
+          "future": 123
+        },
+        "hospital": null,
+        "items": null,
+        "jobs": null,
+        "networth": null,
+        "other": null,
+        "travel": null
+      },
+      "ok": true
+    },
+    {
+      "input": [
+        {
+          "name": "networth",
+          "new": true,
+          "timestamp": 123,
+          "value": 7
+        }
+      ],
+      "model": "UserPersonalStatsSelection",
+      "normalized": [
+        {
+          "extra": {
+            "new": true
+          },
+          "name": "networth",
+          "timestamp": 123,
+          "value": 7
+        }
+      ],
+      "ok": true
+    },
+    {
+      "input": {
+        "attacking": 3
+      },
+      "model": "UserPersonalStatsSelection",
+      "normalized": {
+        "attacking": 3
+      },
+      "ok": true
+    },
+    {
+      "input": [
+        1
+      ],
+      "model": "UserPersonalStatsSelection",
+      "normalized": [
+        1
+      ],
+      "ok": true
+    },
+    {
+      "input": "raw",
+      "model": "UserPersonalStatsSelection",
+      "normalized": "raw",
+      "ok": true
+    },
+    {
+      "input": {},
+      "model": "UserTrade",
+      "normalized": {
+        "completed_at": null,
+        "description": null,
+        "expires_at": null,
+        "extra": {},
+        "id": null,
+        "modified_at": null,
+        "timestamp": null,
+        "trader": null,
+        "user": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "timestamp": null
+      },
+      "model": "UserTrade",
+      "normalized": {
+        "completed_at": null,
+        "description": null,
+        "expires_at": null,
+        "extra": {},
+        "id": null,
+        "modified_at": null,
+        "timestamp": null,
+        "trader": null,
+        "user": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "timestamp": false
+      },
+      "model": "UserTrade",
+      "normalized": {
+        "completed_at": null,
+        "description": null,
+        "expires_at": null,
+        "extra": {},
+        "id": null,
+        "modified_at": null,
+        "timestamp": false,
+        "trader": null,
+        "user": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "id": 1,
+        "new": "extra",
+        "timestamp": 123,
+        "user": {
+          "name": "A"
+        }
+      },
+      "model": "UserTrade",
+      "normalized": {
+        "completed_at": null,
+        "description": null,
+        "expires_at": null,
+        "extra": {
+          "new": "extra"
+        },
+        "id": 1,
+        "modified_at": null,
+        "timestamp": 123,
+        "trader": null,
+        "user": {
+          "extra": {},
+          "id": null,
+          "name": "A"
+        }
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "timestamp": "unavailable"
+      },
+      "model": "UserTrade",
+      "normalized": {
+        "completed_at": null,
+        "description": null,
+        "expires_at": null,
+        "extra": {},
+        "id": null,
+        "modified_at": null,
+        "timestamp": "unavailable",
+        "trader": null,
+        "user": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "timestamp": {
+          "future": true
+        }
+      },
+      "model": "UserTrade",
+      "normalized": {
+        "completed_at": null,
+        "description": null,
+        "expires_at": null,
+        "extra": {},
+        "id": null,
+        "modified_at": null,
+        "timestamp": {
+          "future": true
+        },
+        "trader": null,
+        "user": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "id": -1
+      },
+      "model": "UserTrade",
+      "ok": false
+    },
+    {
+      "input": {
+        "details": {
+          "amount": 123,
+          "fee": 4
+        },
+        "new": "extra",
+        "type": "Money",
+        "user_id": 1
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": {
+          "amount": 123,
+          "extra": {
+            "fee": 4
+          }
+        },
+        "extra": {
+          "new": "extra"
+        },
+        "user_id": 1
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "details": {
+          "amount": 2,
+          "id": 1,
+          "uid": 123
+        },
+        "type": "Item"
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": {
+          "amount": 2,
+          "extra": {},
+          "id": 1,
+          "uid": 123
+        },
+        "extra": {},
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "details": {
+          "id": 1,
+          "name": "F",
+          "respect": 100
+        },
+        "type": "Faction"
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": {
+          "extra": {},
+          "id": 1,
+          "name": "F",
+          "respect": 100
+        },
+        "extra": {},
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "details": {
+          "id": 1,
+          "name": "C",
+          "value": 100
+        },
+        "type": "Company"
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": {
+          "extra": {},
+          "id": 1,
+          "name": "C",
+          "value": 100
+        },
+        "extra": {},
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "details": {
+          "happiness": 100,
+          "id": 1
+        },
+        "type": "Property"
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": {
+          "extra": {},
+          "happiness": 100,
+          "id": 1
+        },
+        "extra": {},
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "details": {
+          "days": 3,
+          "factions": [
+            {
+              "id": 1
+            }
+          ]
+        },
+        "type": "NAP"
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": {
+          "days": 3,
+          "extra": {},
+          "factions": [
+            {
+              "extra": {},
+              "id": 1,
+              "name": null
+            }
+          ]
+        },
+        "extra": {},
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "details": null,
+        "type": "Money"
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": null,
+        "extra": {},
+        "item_type": "Money",
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "details": {
+          "amount": "bad"
+        },
+        "type": "Money"
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": {
+          "amount": "bad"
+        },
+        "extra": {},
+        "item_type": "Money",
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "details": [
+          1,
+          true
+        ],
+        "type": "Future"
+      },
+      "model": "TradeItem",
+      "normalized": {
+        "details": [
+          1,
+          true
+        ],
+        "extra": {},
+        "item_type": "Future",
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {},
+      "model": "TradeItem",
+      "normalized": {
+        "details": null,
+        "extra": {},
+        "item_type": null,
+        "user_id": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "type": 1
+      },
+      "model": "TradeItem",
+      "ok": false
+    },
+    {
+      "input": {
+        "user_id": -1
+      },
+      "model": "TradeItem",
+      "ok": false
+    },
+    {
+      "input": {
+        "future": 3,
+        "name": "Army",
+        "position": "General",
+        "type": "job"
+      },
+      "model": "UserEmployment",
+      "normalized": {
+        "extra": {
+          "future": 3
+        },
+        "job_type": "job",
+        "name": "Army",
+        "position": "General"
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "id": 1,
+        "rating": 5,
+        "type": "company",
+        "type_id": 2
+      },
+      "model": "UserEmployment",
+      "normalized": {
+        "days_in_company": null,
+        "extra": {},
+        "id": 1,
+        "job_type": "company",
+        "name": null,
+        "position": null,
+        "rating": 5,
+        "type_id": 2
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "name": 1,
+        "type": "job"
+      },
+      "model": "UserEmployment",
+      "ok": false
+    },
+    {
+      "input": {
+        "data": 3,
+        "type": "future"
+      },
+      "model": "UserEmployment",
+      "normalized": {
+        "extra": {
+          "data": 3,
+          "type": "future"
+        },
+        "job_type": "future"
+      },
+      "ok": true
+    },
+    {
+      "input": [
+        1
+      ],
+      "model": "UserEmployment",
+      "normalized": {
+        "extra": {
+          "raw": [
+            1
+          ]
+        },
+        "job_type": null
+      },
+      "ok": true
+    },
+    {
+      "input": null,
+      "model": "UserEmployment",
+      "normalized": {
+        "extra": {
+          "raw": null
+        },
+        "job_type": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "name": "Halloween",
+        "treats_collected": 3
+      },
+      "model": "UserCompetition",
+      "normalized": {
+        "basket": null,
+        "extra": {},
+        "name": "Halloween",
+        "treats_collected": 3
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "name": "Easter Egg Hunt",
+        "score": 10
+      },
+      "model": "UserCompetition",
+      "normalized": {
+        "extra": {},
+        "name": "Easter Egg Hunt",
+        "score": 10,
+        "total": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "hp": {
+          "current": 1,
+          "maximum": 10
+        },
+        "name": "Rock, Paper, Scissors"
+      },
+      "model": "UserCompetition",
+      "normalized": {
+        "extra": {},
+        "hp": {
+          "current": 1,
+          "extra": {},
+          "maximum": 10
+        },
+        "name": "Rock, Paper, Scissors",
+        "status": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "name": "Elimination",
+        "score": 1,
+        "team": "Blue"
+      },
+      "model": "UserCompetition",
+      "normalized": {
+        "attacks": null,
+        "extra": {},
+        "name": "Elimination",
+        "score": 1,
+        "team": "Blue"
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "foo": true,
+        "name": "Future"
+      },
+      "model": "UserCompetition",
+      "normalized": {
+        "extra": {
+          "foo": true,
+          "name": "Future"
+        },
+        "name": "Future"
+      },
+      "ok": true
+    },
+    {
+      "input": null,
+      "model": "UserCompetition",
+      "normalized": {
+        "extra": {
+          "raw": null
+        },
+        "name": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "name": "Halloween",
+        "treats_collected": "bad"
+      },
+      "model": "UserCompetition",
+      "ok": false
+    },
+    {
+      "input": {},
+      "model": "CompanyNewsBundle",
+      "normalized": {
+        "extra": {},
+        "news": {}
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "news": null
+      },
+      "model": "CompanyNewsBundle",
+      "normalized": {
+        "extra": {},
+        "news": {}
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "news": {
+          "a": {
+            "id": "x",
+            "new": 1,
+            "news": "first"
+          }
+        }
+      },
+      "model": "CompanyNewsBundle",
+      "normalized": {
+        "extra": {},
+        "news": {
+          "a": {
+            "category": null,
+            "extra": {
+              "new": 1
+            },
+            "id": "x",
+            "news": "first",
+            "timestamp": null
+          }
+        }
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "news": [
+          {
+            "id": "x",
+            "news": "one"
+          },
+          {
+            "news": "two",
+            "timestamp": 123
+          },
+          {
+            "news": "three"
+          }
+        ]
+      },
+      "model": "CompanyNewsBundle",
+      "normalized": {
+        "extra": {},
+        "news": {
+          "123": {
+            "category": null,
+            "extra": {},
+            "id": null,
+            "news": "two",
+            "timestamp": 123
+          },
+          "2": {
+            "category": null,
+            "extra": {},
+            "id": null,
+            "news": "three",
+            "timestamp": null
+          },
+          "x": {
+            "category": null,
+            "extra": {},
+            "id": "x",
+            "news": "one",
+            "timestamp": null
+          }
+        }
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "news": [
+          {
+            "id": "same",
+            "news": "old"
+          },
+          {
+            "id": "same",
+            "news": "new"
+          }
+        ]
+      },
+      "model": "CompanyNewsBundle",
+      "normalized": {
+        "extra": {},
+        "news": {
+          "same": {
+            "category": null,
+            "extra": {},
+            "id": "same",
+            "news": "new",
+            "timestamp": null
+          }
+        }
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "news": 1
+      },
+      "model": "CompanyNewsBundle",
+      "ok": false
+    },
+    {
+      "input": {
+        "news": [
+          {
+            "id": 1
+          }
+        ]
+      },
+      "model": "CompanyNewsBundle",
+      "ok": false
+    },
+    {
+      "input": {
+        "storage_capacity": 123.5
+      },
+      "model": "CompanyUpgrades",
+      "normalized": {
+        "extra": {},
+        "staff_room": null,
+        "storage": null,
+        "storage_capacity": "123.5"
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "storage_capacity": true
+      },
+      "model": "CompanyUpgrades",
+      "normalized": {
+        "extra": {},
+        "staff_room": null,
+        "storage": null,
+        "storage_capacity": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "storage_capacity": {
+          "name": "x"
+        }
+      },
+      "model": "CompanyUpgrades",
+      "normalized": {
+        "extra": {},
+        "staff_room": null,
+        "storage": null,
+        "storage_capacity": null
+      },
+      "ok": true
+    },
+    {
+      "input": {},
+      "model": "CompanyUpgrades",
+      "normalized": {
+        "extra": {},
+        "staff_room": null,
+        "storage": null,
+        "storage_capacity": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "position": "Manager"
+      },
+      "model": "CompanyProfileEmployeeDetails",
+      "normalized": {
+        "days_in_company": null,
+        "extra": {},
+        "id": null,
+        "last_action": null,
+        "name": null,
+        "position": "Manager",
+        "status": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "position": {
+          "id": 1,
+          "name": "Manager"
+        }
+      },
+      "model": "CompanyProfileEmployeeDetails",
+      "normalized": {
+        "days_in_company": null,
+        "extra": {},
+        "id": null,
+        "last_action": null,
+        "name": null,
+        "position": "Manager",
+        "status": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "position": {
+          "name": 3
+        }
+      },
+      "model": "CompanyProfileEmployeeDetails",
+      "normalized": {
+        "days_in_company": null,
+        "extra": {},
+        "id": null,
+        "last_action": null,
+        "name": null,
+        "position": null,
+        "status": null
+      },
+      "ok": true
+    },
+    {
+      "input": {
+        "position": true
+      },
+      "model": "CompanyProfileEmployeeDetails",
+      "normalized": {
+        "days_in_company": null,
+        "extra": {},
+        "id": null,
+        "last_action": null,
+        "name": null,
+        "position": null,
+        "status": null
+      },
+      "ok": true
+    }
+  ],
+  "description": "Rust manual models deserialize + public field normalization",
+  "source_commit": "cd8716d"
+}

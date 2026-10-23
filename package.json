@@ -1,0 +1,38 @@
+{
+  "name": "torn-ts-sdk",
+  "version": "2.0.0",
+  "description": "Typed Torn API SDK with planner-driven v2/v1 routing, resilient execution, and complete generated operations.",
+  "type": "module",
+  "license": "MIT",
+  "author": "swervelord",
+  "repository": { "type": "git", "url": "https://github.com/swervelord/Torn-TS-SDK.git" },
+  "homepage": "https://github.com/swervelord/Torn-TS-SDK#readme",
+  "bugs": { "url": "https://github.com/swervelord/Torn-TS-SDK/issues" },
+  "sideEffects": false,
+  "engines": { "bun": ">=1.4.4" },
+  "exports": {
+    ".": { "types": "./src/index.ts", "import": "./src/index.ts" },
+    "./models": { "types": "./src/models.ts", "import": "./src/models.ts" },
+    "./generated": { "types": "./src/generated/index.ts", "import": "./src/generated/index.ts" },
+    "./spec/*": "./spec/*",
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "src", "spec", "docs", "README.md", "LICENSE", "NOTICE", "PARITY.md"],
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "generate": "bun tools/generate.ts",
+    "generate:check": "bun tools/generate.ts --check",
+    "generate:manual": "bun tools/port-facades.ts",
+    "generate:manual:check": "bun tools/port-facades.ts --check",
+    "generate:batch": "bun tools/generate-batch.ts",
+    "generate:batch:check": "bun tools/generate-batch.ts --check",
+    "refresh": "bun tools/refresh.ts",
+    "refresh:check": "bun tools/refresh.ts --spec spec/torn-openapi-current.json --check",
+    "parity:check": "bun tools/parity-fixtures.ts",
+    "typing-gap-report": "bun tools/typing-gap-report.ts",
+    "build": "bun tools/build.ts",
+    "check": "bun run typecheck && bun test && bun run generate:check && bun run generate:manual:check && bun run generate:batch:check && bun run refresh:check && bun run parity:check && bun run build"
+  },
+  "devDependencies": { "@types/bun": "^1.3.0", "typescript": "^5.9.0" }
+}
