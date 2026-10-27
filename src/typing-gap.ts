@@ -75,7 +75,7 @@ export function buildTypingGapReport(capabilities: CapabilitiesDocument = defaul
       const missingRefs = schemaRefs.filter(ref => !ref.startsWith('#/components/schemas/') || !schemas.has(ref.slice('#/components/schemas/'.length)));
       // The imported metadata proves the compatibility type still exists; the frozen flags
       // preserve the committed classifier interpretation of that type.
-      const knownModel = helper?.returnType === 'String' || helper?.returnType === 'RawSelectionBundle' || Object.hasOwn(manualModelMetadata, helper?.returnType ?? '') || schemas.has(helper?.returnType ?? '');
+      const knownModel = helper?.returnType === 'string' || helper?.returnType === 'RawSelectionBundle' || Object.hasOwn(manualModelMetadata, helper?.returnType ?? '') || schemas.has(helper?.returnType ?? '');
       const model = { has_extra: reference.has_extra, has_dynamic: reference.has_dynamic, missing_model: reference.missing_model || !knownModel };
       const classification = classifyTyping(helper ? { return_type: helper.returnType } : undefined, schemaRefs, missingRefs, model);
       const notes = [...(capability.notes ?? [])];

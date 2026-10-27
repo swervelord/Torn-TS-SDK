@@ -107,7 +107,7 @@ export const facadeManifest = {
       },
       {
         "method": "snapshot",
-        "returnType": "String",
+        "returnType": "string",
         "selection": "snapshot",
         "alias": null,
         "idArgument": false
@@ -984,7 +984,7 @@ export const facadeManifest = {
       },
       {
         "method": "snapshot",
-        "returnType": "String",
+        "returnType": "string",
         "selection": "snapshot",
         "alias": null,
         "idArgument": false
@@ -1144,7 +1144,7 @@ export const facadeManifest = {
       },
       {
         "method": "snapshot",
-        "returnType": "String",
+        "returnType": "string",
         "selection": "snapshot",
         "alias": null,
         "idArgument": false

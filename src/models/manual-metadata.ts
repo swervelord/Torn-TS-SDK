@@ -4,12 +4,12 @@ export const manualModelMetadata = {
     "kind": "union",
     "variants": [
       "null",
-      "bool",
-      "i64",
-      "f64",
-      "String",
-      "Vec<DynamicValue>",
-      "BTreeMap<String, DynamicValue>"
+      "boolean",
+      "int64",
+      "float64",
+      "string",
+      "Array<DynamicValue>",
+      "Record<string, DynamicValue>"
     ]
   },
   "PaginatedMetadata": {
@@ -18,7 +18,7 @@ export const manualModelMetadata = {
       {
         "name": "links",
         "key": "links",
-        "type": "Option<PaginatedLinks>",
+        "type": "Nullable<PaginatedLinks>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -27,7 +27,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -41,7 +41,7 @@ export const manualModelMetadata = {
       {
         "name": "prev",
         "key": "prev",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -50,7 +50,7 @@ export const manualModelMetadata = {
       {
         "name": "next",
         "key": "next",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -59,7 +59,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -73,7 +73,7 @@ export const manualModelMetadata = {
       {
         "name": "links",
         "key": "links",
-        "type": "Option<PaginatedLinks>",
+        "type": "Nullable<PaginatedLinks>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -82,7 +82,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -91,7 +91,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -105,7 +105,7 @@ export const manualModelMetadata = {
       {
         "name": "applications",
         "key": "applications",
-        "type": "Vec<CompanyApplicationSummary>",
+        "type": "Array<CompanyApplicationSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -114,7 +114,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -128,7 +128,7 @@ export const manualModelMetadata = {
       {
         "name": "company",
         "key": "company",
-        "type": "Option<CompanyProfile>",
+        "type": "Nullable<CompanyProfile>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -137,7 +137,7 @@ export const manualModelMetadata = {
       {
         "name": "companies",
         "key": "companies",
-        "type": "Vec<CompanyProfile>",
+        "type": "Array<CompanyProfile>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -146,7 +146,7 @@ export const manualModelMetadata = {
       {
         "name": "company_timestamp",
         "key": "company_timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -155,7 +155,7 @@ export const manualModelMetadata = {
       {
         "name": "company_delay",
         "key": "company_delay",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -164,7 +164,7 @@ export const manualModelMetadata = {
       {
         "name": "companies_timestamp",
         "key": "companies_timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -173,7 +173,7 @@ export const manualModelMetadata = {
       {
         "name": "companies_delay",
         "key": "companies_delay",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -182,7 +182,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadataWithTotal>",
+        "type": "Nullable<PaginatedMetadataWithTotal>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -191,7 +191,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -205,7 +205,7 @@ export const manualModelMetadata = {
       {
         "name": "search",
         "key": "search",
-        "type": "Vec<CompanySearchEntry>",
+        "type": "Array<CompanySearchEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -214,7 +214,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -228,7 +228,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -237,7 +237,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -251,16 +251,16 @@ export const manualModelMetadata = {
       {
         "name": "news",
         "key": "news",
-        "type": "BTreeMap<String, CompanyNewsEntry>",
+        "type": "Record<string, CompanyNewsEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
-        "custom": "deserialize_company_news"
+        "custom": "companyNews"
       },
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -274,7 +274,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -283,7 +283,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -313,7 +313,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -324,7 +324,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -333,7 +333,7 @@ export const manualModelMetadata = {
       {
         "name": "company_type",
         "key": "company_type",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -342,7 +342,7 @@ export const manualModelMetadata = {
       {
         "name": "company_kind",
         "key": "type",
-        "type": "Option<CompanyType>",
+        "type": "Nullable<CompanyType>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -351,7 +351,7 @@ export const manualModelMetadata = {
       {
         "name": "rating",
         "key": "rating",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -360,7 +360,7 @@ export const manualModelMetadata = {
       {
         "name": "age",
         "key": "age",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -369,7 +369,7 @@ export const manualModelMetadata = {
       {
         "name": "days_old",
         "key": "days_old",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -378,7 +378,7 @@ export const manualModelMetadata = {
       {
         "name": "created_at",
         "key": "created_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -387,7 +387,7 @@ export const manualModelMetadata = {
       {
         "name": "image",
         "key": "image",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -396,7 +396,7 @@ export const manualModelMetadata = {
       {
         "name": "daily_income",
         "key": "daily_income",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -405,7 +405,7 @@ export const manualModelMetadata = {
       {
         "name": "weekly_income",
         "key": "weekly_income",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -414,7 +414,7 @@ export const manualModelMetadata = {
       {
         "name": "income",
         "key": "income",
-        "type": "Option<CompanyIncome>",
+        "type": "Nullable<CompanyIncome>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -423,7 +423,7 @@ export const manualModelMetadata = {
       {
         "name": "customers",
         "key": "customers",
-        "type": "Option<CompanyCustomers>",
+        "type": "Nullable<CompanyCustomers>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -432,7 +432,7 @@ export const manualModelMetadata = {
       {
         "name": "employees",
         "key": "employees",
-        "type": "Option<BTreeMap<String, CompanyProfileEmployee>>",
+        "type": "Nullable<Record<string, CompanyProfileEmployee>>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -441,7 +441,7 @@ export const manualModelMetadata = {
       {
         "name": "director",
         "key": "director",
-        "type": "Option<CompanyDirector>",
+        "type": "Nullable<CompanyDirector>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -450,7 +450,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<UserStatus>",
+        "type": "Nullable<UserStatus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -459,7 +459,7 @@ export const manualModelMetadata = {
       {
         "name": "funds",
         "key": "funds",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -468,7 +468,7 @@ export const manualModelMetadata = {
       {
         "name": "popularity",
         "key": "popularity",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -477,7 +477,7 @@ export const manualModelMetadata = {
       {
         "name": "efficiency",
         "key": "efficiency",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -486,7 +486,7 @@ export const manualModelMetadata = {
       {
         "name": "environment",
         "key": "environment",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -495,7 +495,7 @@ export const manualModelMetadata = {
       {
         "name": "trains",
         "key": "trains",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -504,7 +504,7 @@ export const manualModelMetadata = {
       {
         "name": "applications_allowed",
         "key": "applications_allowed",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -513,7 +513,7 @@ export const manualModelMetadata = {
       {
         "name": "advertisement_budget",
         "key": "advertisement_budget",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -522,7 +522,7 @@ export const manualModelMetadata = {
       {
         "name": "upgrades",
         "key": "upgrades",
-        "type": "Option<CompanyUpgrades>",
+        "type": "Nullable<CompanyUpgrades>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -531,7 +531,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -540,7 +540,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -554,7 +554,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -563,7 +563,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -572,7 +572,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -586,7 +586,7 @@ export const manualModelMetadata = {
       {
         "name": "daily",
         "key": "daily",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -595,7 +595,7 @@ export const manualModelMetadata = {
       {
         "name": "weekly",
         "key": "weekly",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -604,7 +604,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -618,7 +618,7 @@ export const manualModelMetadata = {
       {
         "name": "daily",
         "key": "daily",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -627,7 +627,7 @@ export const manualModelMetadata = {
       {
         "name": "weekly",
         "key": "weekly",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -636,7 +636,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -650,7 +650,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -659,7 +659,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -668,7 +668,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<UserStatus>",
+        "type": "Nullable<UserStatus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -677,7 +677,7 @@ export const manualModelMetadata = {
       {
         "name": "last_action",
         "key": "last_action",
-        "type": "Option<UserLastAction>",
+        "type": "Nullable<UserLastAction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -686,7 +686,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -700,7 +700,7 @@ export const manualModelMetadata = {
       {
         "name": "staff_room",
         "key": "staff_room",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -709,7 +709,7 @@ export const manualModelMetadata = {
       {
         "name": "storage",
         "key": "storage",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -718,16 +718,16 @@ export const manualModelMetadata = {
       {
         "name": "storage_capacity",
         "key": "storage_capacity",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
-        "custom": "deserialize_optional_stringish"
+        "custom": "optionalStringish"
       },
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -741,7 +741,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -750,7 +750,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -759,7 +759,7 @@ export const manualModelMetadata = {
       {
         "name": "company_kind",
         "key": "type",
-        "type": "Option<CompanyType>",
+        "type": "Nullable<CompanyType>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -768,7 +768,7 @@ export const manualModelMetadata = {
       {
         "name": "rating",
         "key": "rating",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -777,7 +777,7 @@ export const manualModelMetadata = {
       {
         "name": "days_old",
         "key": "days_old",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -786,7 +786,7 @@ export const manualModelMetadata = {
       {
         "name": "image",
         "key": "image",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -795,7 +795,7 @@ export const manualModelMetadata = {
       {
         "name": "income",
         "key": "income",
-        "type": "Option<CompanyIncome>",
+        "type": "Nullable<CompanyIncome>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -804,7 +804,7 @@ export const manualModelMetadata = {
       {
         "name": "customers",
         "key": "customers",
-        "type": "Option<CompanyCustomers>",
+        "type": "Nullable<CompanyCustomers>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -813,7 +813,7 @@ export const manualModelMetadata = {
       {
         "name": "director",
         "key": "director",
-        "type": "Option<CompanyDirector>",
+        "type": "Nullable<CompanyDirector>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -822,7 +822,7 @@ export const manualModelMetadata = {
       {
         "name": "applications_allowed",
         "key": "applications_allowed",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -831,7 +831,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -842,8 +842,8 @@ export const manualModelMetadata = {
   "CompanyProfileEmployee": {
     "kind": "union",
     "variants": [
-      "Box<CompanyProfileEmployeeDetails>",
-      "u64"
+      "CompanyProfileEmployeeDetails",
+      "uint64"
     ]
   },
   "CompanyProfileEmployeeDetails": {
@@ -852,7 +852,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -861,7 +861,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -870,16 +870,16 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
-        "custom": "deserialize_optional_position_name"
+        "custom": "optionalPositionName"
       },
       {
         "name": "days_in_company",
         "key": "days_in_company",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -888,7 +888,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<UserStatus>",
+        "type": "Nullable<UserStatus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -897,7 +897,7 @@ export const manualModelMetadata = {
       {
         "name": "last_action",
         "key": "last_action",
-        "type": "Option<UserLastAction>",
+        "type": "Nullable<UserLastAction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -906,7 +906,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -920,7 +920,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -929,7 +929,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Option<CompanyApplicationUser>",
+        "type": "Nullable<CompanyApplicationUser>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -940,7 +940,7 @@ export const manualModelMetadata = {
       {
         "name": "message",
         "key": "message",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -949,7 +949,7 @@ export const manualModelMetadata = {
       {
         "name": "valid_until",
         "key": "valid_until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -960,7 +960,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -969,7 +969,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -983,7 +983,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -992,7 +992,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1001,7 +1001,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1010,7 +1010,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Option<CompanyApplicationStats>",
+        "type": "Nullable<CompanyApplicationStats>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1019,7 +1019,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1033,7 +1033,7 @@ export const manualModelMetadata = {
       {
         "name": "manual_labor",
         "key": "manual_labor",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1042,7 +1042,7 @@ export const manualModelMetadata = {
       {
         "name": "intelligence",
         "key": "intelligence",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1051,7 +1051,7 @@ export const manualModelMetadata = {
       {
         "name": "endurance",
         "key": "endurance",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1060,7 +1060,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1074,7 +1074,7 @@ export const manualModelMetadata = {
       {
         "name": "company_employees",
         "key": "company_employees",
-        "type": "Option<BTreeMap<String, CompanyEmployee>>",
+        "type": "Nullable<Record<string, CompanyEmployee>>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1083,7 +1083,7 @@ export const manualModelMetadata = {
       {
         "name": "employees",
         "key": "employees",
-        "type": "Vec<CompanyEmployee>",
+        "type": "Array<CompanyEmployee>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1092,7 +1092,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1106,7 +1106,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1115,7 +1115,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1124,16 +1124,16 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
-        "custom": "deserialize_optional_position_name"
+        "custom": "optionalPositionName"
       },
       {
         "name": "days_in_company",
         "key": "days_in_company",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1142,7 +1142,7 @@ export const manualModelMetadata = {
       {
         "name": "joined_at",
         "key": "joined_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1151,7 +1151,7 @@ export const manualModelMetadata = {
       {
         "name": "wage",
         "key": "wage",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1160,7 +1160,7 @@ export const manualModelMetadata = {
       {
         "name": "manual_labor",
         "key": "manual_labor",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1169,7 +1169,7 @@ export const manualModelMetadata = {
       {
         "name": "intelligence",
         "key": "intelligence",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1178,7 +1178,7 @@ export const manualModelMetadata = {
       {
         "name": "endurance",
         "key": "endurance",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1187,7 +1187,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Option<CompanyEmployeeStats>",
+        "type": "Nullable<CompanyEmployeeStats>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1196,7 +1196,7 @@ export const manualModelMetadata = {
       {
         "name": "effectiveness",
         "key": "effectiveness",
-        "type": "Option<CompanyEmployeeEffectiveness>",
+        "type": "Nullable<CompanyEmployeeEffectiveness>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1205,7 +1205,7 @@ export const manualModelMetadata = {
       {
         "name": "working_stats",
         "key": "working_stats",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1214,7 +1214,7 @@ export const manualModelMetadata = {
       {
         "name": "efficiency",
         "key": "efficiency",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1223,7 +1223,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1232,7 +1232,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<UserStatus>",
+        "type": "Nullable<UserStatus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1241,7 +1241,7 @@ export const manualModelMetadata = {
       {
         "name": "last_action",
         "key": "last_action",
-        "type": "Option<UserLastAction>",
+        "type": "Nullable<UserLastAction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1250,7 +1250,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1264,7 +1264,7 @@ export const manualModelMetadata = {
       {
         "name": "manual_labor",
         "key": "manual_labor",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1273,7 +1273,7 @@ export const manualModelMetadata = {
       {
         "name": "intelligence",
         "key": "intelligence",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1282,7 +1282,7 @@ export const manualModelMetadata = {
       {
         "name": "endurance",
         "key": "endurance",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1291,7 +1291,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1305,7 +1305,7 @@ export const manualModelMetadata = {
       {
         "name": "working_stats",
         "key": "working_stats",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1314,7 +1314,7 @@ export const manualModelMetadata = {
       {
         "name": "settled_in",
         "key": "settled_in",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1323,7 +1323,7 @@ export const manualModelMetadata = {
       {
         "name": "book",
         "key": "book",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1332,7 +1332,7 @@ export const manualModelMetadata = {
       {
         "name": "merits",
         "key": "merits",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1341,7 +1341,7 @@ export const manualModelMetadata = {
       {
         "name": "director_education",
         "key": "director_education",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1350,7 +1350,7 @@ export const manualModelMetadata = {
       {
         "name": "management",
         "key": "management",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1359,7 +1359,7 @@ export const manualModelMetadata = {
       {
         "name": "wrong_gender",
         "key": "wrong_gender",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1368,7 +1368,7 @@ export const manualModelMetadata = {
       {
         "name": "addiction",
         "key": "addiction",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1377,7 +1377,7 @@ export const manualModelMetadata = {
       {
         "name": "inactivity",
         "key": "inactivity",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1386,7 +1386,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1395,7 +1395,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1409,7 +1409,7 @@ export const manualModelMetadata = {
       {
         "name": "company_stock",
         "key": "company_stock",
-        "type": "BTreeMap<String, CompanyStockEntry>",
+        "type": "Record<string, CompanyStockEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1418,7 +1418,7 @@ export const manualModelMetadata = {
       {
         "name": "stock",
         "key": "stock",
-        "type": "Vec<CompanyStockEntry>",
+        "type": "Array<CompanyStockEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1427,7 +1427,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1441,7 +1441,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1450,7 +1450,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1459,7 +1459,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1468,7 +1468,7 @@ export const manualModelMetadata = {
       {
         "name": "rrp",
         "key": "rrp",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1477,7 +1477,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1486,7 +1486,7 @@ export const manualModelMetadata = {
       {
         "name": "in_stock",
         "key": "in_stock",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1495,7 +1495,7 @@ export const manualModelMetadata = {
       {
         "name": "on_order",
         "key": "on_order",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1504,7 +1504,7 @@ export const manualModelMetadata = {
       {
         "name": "sold_amount",
         "key": "sold_amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1513,7 +1513,7 @@ export const manualModelMetadata = {
       {
         "name": "sold_worth",
         "key": "sold_worth",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1522,7 +1522,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1536,7 +1536,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1545,7 +1545,7 @@ export const manualModelMetadata = {
       {
         "name": "category",
         "key": "category",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1554,7 +1554,7 @@ export const manualModelMetadata = {
       {
         "name": "news",
         "key": "news",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1563,7 +1563,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1572,7 +1572,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1604,7 +1604,7 @@ export const manualModelMetadata = {
       {
         "name": "members",
         "key": "members",
-        "type": "Vec<FactionMemberSummary>",
+        "type": "Array<FactionMemberSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1627,7 +1627,7 @@ export const manualModelMetadata = {
       {
         "name": "pacts",
         "key": "pacts",
-        "type": "Vec<FactionPactSummary>",
+        "type": "Array<FactionPactSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1641,7 +1641,7 @@ export const manualModelMetadata = {
       {
         "name": "rankedwars",
         "key": "rankedwars",
-        "type": "Vec<FactionRankedWarSummary>",
+        "type": "Array<FactionRankedWarSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1650,7 +1650,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1664,7 +1664,7 @@ export const manualModelMetadata = {
       {
         "name": "applications",
         "key": "applications",
-        "type": "Vec<FactionApplicationSummary>",
+        "type": "Array<FactionApplicationSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1762,7 +1762,7 @@ export const manualModelMetadata = {
       {
         "name": "crimes",
         "key": "crimes",
-        "type": "Vec<FactionCrime>",
+        "type": "Array<FactionCrime>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1771,7 +1771,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1799,7 +1799,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1808,7 +1808,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -1836,7 +1836,7 @@ export const manualModelMetadata = {
       {
         "name": "chains",
         "key": "chains",
-        "type": "Vec<FactionChainSummary>",
+        "type": "Array<FactionChainSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1845,7 +1845,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1887,7 +1887,7 @@ export const manualModelMetadata = {
       {
         "name": "contributors",
         "key": "contributors",
-        "type": "Vec<FactionContributorSummary>",
+        "type": "Array<FactionContributorSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1915,7 +1915,7 @@ export const manualModelMetadata = {
       {
         "name": "rackets",
         "key": "rackets",
-        "type": "Vec<FactionRacketSummary>",
+        "type": "Array<FactionRacketSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1943,7 +1943,7 @@ export const manualModelMetadata = {
       {
         "name": "positions",
         "key": "positions",
-        "type": "Vec<FactionPositionSummary>",
+        "type": "Array<FactionPositionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1957,7 +1957,7 @@ export const manualModelMetadata = {
       {
         "name": "search",
         "key": "search",
-        "type": "Vec<FactionSearchSummary>",
+        "type": "Array<FactionSearchSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1966,7 +1966,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1980,7 +1980,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Vec<FactionStatSummary>",
+        "type": "Array<FactionStatSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -1994,7 +1994,7 @@ export const manualModelMetadata = {
       {
         "name": "raids",
         "key": "raids",
-        "type": "Vec<FactionRaidSummary>",
+        "type": "Array<FactionRaidSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2003,7 +2003,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2017,7 +2017,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2045,7 +2045,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Vec<UserAttack>",
+        "type": "Array<UserAttack>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2054,7 +2054,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2068,7 +2068,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Vec<UserAttackFull>",
+        "type": "Array<UserAttackFull>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2077,7 +2077,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2091,7 +2091,7 @@ export const manualModelMetadata = {
       {
         "name": "revives",
         "key": "revives",
-        "type": "Vec<UserRevive>",
+        "type": "Array<UserRevive>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2100,7 +2100,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2114,7 +2114,7 @@ export const manualModelMetadata = {
       {
         "name": "revives",
         "key": "revives",
-        "type": "Vec<UserReviveFull>",
+        "type": "Array<UserReviveFull>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2123,7 +2123,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2137,7 +2137,7 @@ export const manualModelMetadata = {
       {
         "name": "reports",
         "key": "reports",
-        "type": "Vec<UserReportSummary>",
+        "type": "Array<UserReportSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2146,7 +2146,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2160,7 +2160,7 @@ export const manualModelMetadata = {
       {
         "name": "territory",
         "key": "territory",
-        "type": "Vec<FactionTerritorySummary>",
+        "type": "Array<FactionTerritorySummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2174,7 +2174,7 @@ export const manualModelMetadata = {
       {
         "name": "territory_ownership",
         "key": "territoryOwnership",
-        "type": "Vec<FactionTerritoryOwnershipSummary>",
+        "type": "Array<FactionTerritoryOwnershipSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2188,7 +2188,7 @@ export const manualModelMetadata = {
       {
         "name": "territorywars",
         "key": "territorywars",
-        "type": "Vec<FactionTerritoryWarHistoryEntry>",
+        "type": "Array<FactionTerritoryWarHistoryEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2197,7 +2197,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2253,7 +2253,7 @@ export const manualModelMetadata = {
       {
         "name": "warfare",
         "key": "warfare",
-        "type": "Vec<FactionWarfareEntry>",
+        "type": "Array<FactionWarfareEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2262,7 +2262,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2304,7 +2304,7 @@ export const manualModelMetadata = {
       {
         "name": "news",
         "key": "news",
-        "type": "Vec<FactionNewsEntry>",
+        "type": "Array<FactionNewsEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2313,7 +2313,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2327,7 +2327,7 @@ export const manualModelMetadata = {
       {
         "name": "state",
         "key": "state",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2336,7 +2336,7 @@ export const manualModelMetadata = {
       {
         "name": "upgrades",
         "key": "upgrades",
-        "type": "Option<FactionUpgradesSummary>",
+        "type": "Nullable<FactionUpgradesSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2350,7 +2350,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2359,7 +2359,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2368,7 +2368,7 @@ export const manualModelMetadata = {
       {
         "name": "tag",
         "key": "tag",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2377,7 +2377,7 @@ export const manualModelMetadata = {
       {
         "name": "tag_image",
         "key": "tag_image",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2386,7 +2386,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2395,7 +2395,7 @@ export const manualModelMetadata = {
       {
         "name": "members",
         "key": "members",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2404,7 +2404,7 @@ export const manualModelMetadata = {
       {
         "name": "leader_id",
         "key": "leader_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2413,7 +2413,7 @@ export const manualModelMetadata = {
       {
         "name": "co_leader_id",
         "key": "co_leader_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2422,7 +2422,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<FactionRank>",
+        "type": "Nullable<FactionRank>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2431,7 +2431,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2445,7 +2445,7 @@ export const manualModelMetadata = {
       {
         "name": "division",
         "key": "division",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2454,7 +2454,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2463,7 +2463,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2472,7 +2472,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2481,7 +2481,7 @@ export const manualModelMetadata = {
       {
         "name": "wins",
         "key": "wins",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2490,7 +2490,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2504,7 +2504,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2513,7 +2513,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2522,7 +2522,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2531,7 +2531,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2540,7 +2540,7 @@ export const manualModelMetadata = {
       {
         "name": "days_in_faction",
         "key": "days_in_faction",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2549,7 +2549,7 @@ export const manualModelMetadata = {
       {
         "name": "is_revivable",
         "key": "is_revivable",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2558,7 +2558,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<FactionMemberStatus>",
+        "type": "Nullable<FactionMemberStatus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2567,7 +2567,7 @@ export const manualModelMetadata = {
       {
         "name": "last_action",
         "key": "last_action",
-        "type": "Option<FactionLastAction>",
+        "type": "Nullable<FactionLastAction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2576,7 +2576,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2590,7 +2590,7 @@ export const manualModelMetadata = {
       {
         "name": "state",
         "key": "state",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2599,7 +2599,7 @@ export const manualModelMetadata = {
       {
         "name": "color",
         "key": "color",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2608,7 +2608,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2617,7 +2617,7 @@ export const manualModelMetadata = {
       {
         "name": "details",
         "key": "details",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2626,7 +2626,7 @@ export const manualModelMetadata = {
       {
         "name": "plane_image_type",
         "key": "plane_image_type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2635,7 +2635,7 @@ export const manualModelMetadata = {
       {
         "name": "until",
         "key": "until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2644,7 +2644,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2658,7 +2658,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2667,7 +2667,7 @@ export const manualModelMetadata = {
       {
         "name": "relative",
         "key": "relative",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2676,7 +2676,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2685,7 +2685,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2699,7 +2699,7 @@ export const manualModelMetadata = {
       {
         "name": "raids",
         "key": "raids",
-        "type": "Vec<FactionRaidWarSummary>",
+        "type": "Array<FactionRaidWarSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2708,7 +2708,7 @@ export const manualModelMetadata = {
       {
         "name": "ranked",
         "key": "ranked",
-        "type": "Option<FactionRankedWarDetails>",
+        "type": "Nullable<FactionRankedWarDetails>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2717,7 +2717,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2731,7 +2731,7 @@ export const manualModelMetadata = {
       {
         "name": "war_id",
         "key": "war_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -2742,7 +2742,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2751,7 +2751,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2760,7 +2760,7 @@ export const manualModelMetadata = {
       {
         "name": "factions",
         "key": "factions",
-        "type": "Vec<FactionWarFactionSummary>",
+        "type": "Array<FactionWarFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2769,7 +2769,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2783,7 +2783,7 @@ export const manualModelMetadata = {
       {
         "name": "war_id",
         "key": "war_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -2794,7 +2794,7 @@ export const manualModelMetadata = {
       {
         "name": "target",
         "key": "target",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2803,7 +2803,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2812,7 +2812,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2821,7 +2821,7 @@ export const manualModelMetadata = {
       {
         "name": "winner",
         "key": "winner",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2830,7 +2830,7 @@ export const manualModelMetadata = {
       {
         "name": "factions",
         "key": "factions",
-        "type": "Vec<FactionWarFactionSummary>",
+        "type": "Array<FactionWarFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2839,7 +2839,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2853,7 +2853,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2862,7 +2862,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2871,7 +2871,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2880,7 +2880,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2889,7 +2889,7 @@ export const manualModelMetadata = {
       {
         "name": "is_aggressor",
         "key": "is_aggressor",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2898,7 +2898,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2912,7 +2912,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2921,7 +2921,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_name",
         "key": "faction_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2930,7 +2930,7 @@ export const manualModelMetadata = {
       {
         "name": "until",
         "key": "until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2939,7 +2939,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -2953,7 +2953,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -2964,7 +2964,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2973,7 +2973,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2982,7 +2982,7 @@ export const manualModelMetadata = {
       {
         "name": "target",
         "key": "target",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -2991,7 +2991,7 @@ export const manualModelMetadata = {
       {
         "name": "winner",
         "key": "winner",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3000,7 +3000,7 @@ export const manualModelMetadata = {
       {
         "name": "factions",
         "key": "factions",
-        "type": "Vec<FactionWarFactionSummary>",
+        "type": "Array<FactionWarFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3009,7 +3009,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3023,7 +3023,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3032,7 +3032,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Option<FactionApplicantSummary>",
+        "type": "Nullable<FactionApplicantSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3041,7 +3041,7 @@ export const manualModelMetadata = {
       {
         "name": "message",
         "key": "message",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3050,7 +3050,7 @@ export const manualModelMetadata = {
       {
         "name": "valid_until",
         "key": "valid_until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3059,7 +3059,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3068,7 +3068,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3082,7 +3082,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3091,7 +3091,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3100,7 +3100,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3109,7 +3109,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Option<FactionApplicantStats>",
+        "type": "Nullable<FactionApplicantStats>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3118,7 +3118,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3132,7 +3132,7 @@ export const manualModelMetadata = {
       {
         "name": "strength",
         "key": "strength",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3141,7 +3141,7 @@ export const manualModelMetadata = {
       {
         "name": "speed",
         "key": "speed",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3150,7 +3150,7 @@ export const manualModelMetadata = {
       {
         "name": "dexterity",
         "key": "dexterity",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3159,7 +3159,7 @@ export const manualModelMetadata = {
       {
         "name": "defense",
         "key": "defense",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3168,7 +3168,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3182,7 +3182,7 @@ export const manualModelMetadata = {
       {
         "name": "faction",
         "key": "faction",
-        "type": "Option<FactionBalanceFaction>",
+        "type": "Nullable<FactionBalanceFaction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3191,7 +3191,7 @@ export const manualModelMetadata = {
       {
         "name": "members",
         "key": "members",
-        "type": "Vec<FactionBalanceMember>",
+        "type": "Array<FactionBalanceMember>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3200,7 +3200,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3214,7 +3214,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3223,7 +3223,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3232,7 +3232,7 @@ export const manualModelMetadata = {
       {
         "name": "scope",
         "key": "scope",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3241,7 +3241,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3255,7 +3255,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3264,7 +3264,7 @@ export const manualModelMetadata = {
       {
         "name": "username",
         "key": "username",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3273,7 +3273,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3282,7 +3282,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3291,7 +3291,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3305,7 +3305,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3314,7 +3314,7 @@ export const manualModelMetadata = {
       {
         "name": "username",
         "key": "username",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3323,7 +3323,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3332,7 +3332,7 @@ export const manualModelMetadata = {
       {
         "name": "in_faction",
         "key": "in_faction",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3341,7 +3341,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3352,9 +3352,9 @@ export const manualModelMetadata = {
   "FactionLegacyItemSelection": {
     "kind": "union",
     "variants": [
-      "BTreeMap<String, FactionLegacyItemEntry>",
-      "Vec<FactionLegacyItemEntry>",
-      "Value"
+      "Record<string, FactionLegacyItemEntry>",
+      "Array<FactionLegacyItemEntry>",
+      "JsonValue"
     ]
   },
   "FactionLegacyItemEntry": {
@@ -3363,7 +3363,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "ID",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -3374,7 +3374,7 @@ export const manualModelMetadata = {
       {
         "name": "item_id",
         "key": "item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3383,7 +3383,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3392,7 +3392,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3401,7 +3401,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3410,7 +3410,7 @@ export const manualModelMetadata = {
       {
         "name": "category",
         "key": "category",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3419,7 +3419,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3428,7 +3428,7 @@ export const manualModelMetadata = {
       {
         "name": "available",
         "key": "available",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3437,7 +3437,7 @@ export const manualModelMetadata = {
       {
         "name": "loaned",
         "key": "loaned",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3446,7 +3446,7 @@ export const manualModelMetadata = {
       {
         "name": "loaned_to",
         "key": "loaned_to",
-        "type": "Option<FactionLegacyItemLoanTarget>",
+        "type": "Nullable<FactionLegacyItemLoanTarget>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3455,7 +3455,7 @@ export const manualModelMetadata = {
       {
         "name": "market_price",
         "key": "market_price",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3464,7 +3464,7 @@ export const manualModelMetadata = {
       {
         "name": "average_price",
         "key": "average_price",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3473,7 +3473,7 @@ export const manualModelMetadata = {
       {
         "name": "damage",
         "key": "damage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3482,7 +3482,7 @@ export const manualModelMetadata = {
       {
         "name": "accuracy",
         "key": "accuracy",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3491,7 +3491,7 @@ export const manualModelMetadata = {
       {
         "name": "armor",
         "key": "armor",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3500,7 +3500,7 @@ export const manualModelMetadata = {
       {
         "name": "quality",
         "key": "quality",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3509,7 +3509,7 @@ export const manualModelMetadata = {
       {
         "name": "bonus",
         "key": "bonus",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3518,7 +3518,7 @@ export const manualModelMetadata = {
       {
         "name": "required",
         "key": "required",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3527,7 +3527,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3538,10 +3538,10 @@ export const manualModelMetadata = {
   "FactionLegacyItemLoanTarget": {
     "kind": "union",
     "variants": [
-      "u64",
-      "String",
+      "uint64",
+      "string",
       "FactionLegacyItemLoanUser",
-      "bool"
+      "boolean"
     ]
   },
   "FactionLegacyItemLoanUser": {
@@ -3550,7 +3550,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3559,7 +3559,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3568,7 +3568,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3579,9 +3579,9 @@ export const manualModelMetadata = {
   "FactionCrimeExpSelection": {
     "kind": "union",
     "variants": [
-      "BTreeMap<String, FactionCrimeExpEntry>",
-      "Vec<FactionCrimeExpEntry>",
-      "Value"
+      "Record<string, FactionCrimeExpEntry>",
+      "Array<FactionCrimeExpEntry>",
+      "JsonValue"
     ]
   },
   "FactionCrimeExpEntry": {
@@ -3590,7 +3590,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3599,7 +3599,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3608,7 +3608,7 @@ export const manualModelMetadata = {
       {
         "name": "crime_exp",
         "key": "crimeexp",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -3619,7 +3619,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3628,7 +3628,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3637,7 +3637,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3651,7 +3651,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<FactionHofValueString>",
+        "type": "Nullable<FactionHofValueString>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3660,7 +3660,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<FactionHofValue>",
+        "type": "Nullable<FactionHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3669,7 +3669,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<FactionHofValue>",
+        "type": "Nullable<FactionHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3678,7 +3678,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3692,7 +3692,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3701,7 +3701,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3710,7 +3710,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3724,7 +3724,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3733,7 +3733,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3742,7 +3742,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3756,7 +3756,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3765,7 +3765,7 @@ export const manualModelMetadata = {
       {
         "name": "is_default",
         "key": "is_default",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3774,7 +3774,7 @@ export const manualModelMetadata = {
       {
         "name": "abilities",
         "key": "abilities",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3783,7 +3783,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3797,7 +3797,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3806,7 +3806,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3815,7 +3815,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3824,7 +3824,7 @@ export const manualModelMetadata = {
       {
         "name": "members",
         "key": "members",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3833,7 +3833,7 @@ export const manualModelMetadata = {
       {
         "name": "members_max",
         "key": "members_max",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3842,7 +3842,7 @@ export const manualModelMetadata = {
       {
         "name": "leader",
         "key": "leader",
-        "type": "Option<FactionSearchLeader>",
+        "type": "Nullable<FactionSearchLeader>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3851,7 +3851,7 @@ export const manualModelMetadata = {
       {
         "name": "co_leader",
         "key": "co_leader",
-        "type": "Option<FactionSearchLeader>",
+        "type": "Nullable<FactionSearchLeader>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3860,7 +3860,7 @@ export const manualModelMetadata = {
       {
         "name": "image",
         "key": "image",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3869,7 +3869,7 @@ export const manualModelMetadata = {
       {
         "name": "tag_image",
         "key": "tag_image",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3878,7 +3878,7 @@ export const manualModelMetadata = {
       {
         "name": "tag",
         "key": "tag",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3887,7 +3887,7 @@ export const manualModelMetadata = {
       {
         "name": "is_destroyed",
         "key": "is_destroyed",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3896,7 +3896,7 @@ export const manualModelMetadata = {
       {
         "name": "is_recruiting",
         "key": "is_recruiting",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3905,7 +3905,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3919,7 +3919,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3928,7 +3928,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3937,7 +3937,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3951,7 +3951,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3960,7 +3960,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3969,7 +3969,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -3983,7 +3983,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -3992,7 +3992,7 @@ export const manualModelMetadata = {
       {
         "name": "current",
         "key": "current",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4001,7 +4001,7 @@ export const manualModelMetadata = {
       {
         "name": "max",
         "key": "max",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4010,7 +4010,7 @@ export const manualModelMetadata = {
       {
         "name": "timeout",
         "key": "timeout",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4019,7 +4019,7 @@ export const manualModelMetadata = {
       {
         "name": "modifier",
         "key": "modifier",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4028,7 +4028,7 @@ export const manualModelMetadata = {
       {
         "name": "cooldown",
         "key": "cooldown",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4037,7 +4037,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4046,7 +4046,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4055,7 +4055,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4069,7 +4069,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4078,7 +4078,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4087,7 +4087,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4096,7 +4096,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4105,7 +4105,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4114,7 +4114,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4128,7 +4128,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4137,7 +4137,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4146,7 +4146,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4155,7 +4155,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4164,7 +4164,7 @@ export const manualModelMetadata = {
       {
         "name": "details",
         "key": "details",
-        "type": "Option<FactionChainReportDetailsSummary>",
+        "type": "Nullable<FactionChainReportDetailsSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4173,7 +4173,7 @@ export const manualModelMetadata = {
       {
         "name": "bonuses",
         "key": "bonuses",
-        "type": "Vec<FactionChainReportBonusSummary>",
+        "type": "Array<FactionChainReportBonusSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4182,7 +4182,7 @@ export const manualModelMetadata = {
       {
         "name": "attackers",
         "key": "attackers",
-        "type": "Vec<FactionChainReportAttackerSummary>",
+        "type": "Array<FactionChainReportAttackerSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4191,7 +4191,7 @@ export const manualModelMetadata = {
       {
         "name": "non_attackers",
         "key": "non_attackers",
-        "type": "Vec<u64>",
+        "type": "Array<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4200,7 +4200,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4214,7 +4214,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4223,7 +4223,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4232,7 +4232,7 @@ export const manualModelMetadata = {
       {
         "name": "members",
         "key": "members",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4241,7 +4241,7 @@ export const manualModelMetadata = {
       {
         "name": "targets",
         "key": "targets",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4250,7 +4250,7 @@ export const manualModelMetadata = {
       {
         "name": "war",
         "key": "war",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4259,7 +4259,7 @@ export const manualModelMetadata = {
       {
         "name": "best",
         "key": "best",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4268,7 +4268,7 @@ export const manualModelMetadata = {
       {
         "name": "leave",
         "key": "leave",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4277,7 +4277,7 @@ export const manualModelMetadata = {
       {
         "name": "mug",
         "key": "mug",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4286,7 +4286,7 @@ export const manualModelMetadata = {
       {
         "name": "hospitalize",
         "key": "hospitalize",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4295,7 +4295,7 @@ export const manualModelMetadata = {
       {
         "name": "assists",
         "key": "assists",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4304,7 +4304,7 @@ export const manualModelMetadata = {
       {
         "name": "retaliations",
         "key": "retaliations",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4313,7 +4313,7 @@ export const manualModelMetadata = {
       {
         "name": "overseas",
         "key": "overseas",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4322,7 +4322,7 @@ export const manualModelMetadata = {
       {
         "name": "draws",
         "key": "draws",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4331,7 +4331,7 @@ export const manualModelMetadata = {
       {
         "name": "escapes",
         "key": "escapes",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4340,7 +4340,7 @@ export const manualModelMetadata = {
       {
         "name": "losses",
         "key": "losses",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4349,7 +4349,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4363,7 +4363,7 @@ export const manualModelMetadata = {
       {
         "name": "attacker_id",
         "key": "attacker_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4372,7 +4372,7 @@ export const manualModelMetadata = {
       {
         "name": "defender_id",
         "key": "defender_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4381,7 +4381,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4390,7 +4390,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4399,7 +4399,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4413,7 +4413,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4422,7 +4422,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<FactionChainReportAttackerRespectSummary>",
+        "type": "Nullable<FactionChainReportAttackerRespectSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4431,7 +4431,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Option<FactionChainReportAttacksSummary>",
+        "type": "Nullable<FactionChainReportAttacksSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4440,7 +4440,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4454,7 +4454,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4463,7 +4463,7 @@ export const manualModelMetadata = {
       {
         "name": "average",
         "key": "average",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4472,7 +4472,7 @@ export const manualModelMetadata = {
       {
         "name": "best",
         "key": "best",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4481,7 +4481,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4495,7 +4495,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4504,7 +4504,7 @@ export const manualModelMetadata = {
       {
         "name": "leave",
         "key": "leave",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4513,7 +4513,7 @@ export const manualModelMetadata = {
       {
         "name": "mug",
         "key": "mug",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4522,7 +4522,7 @@ export const manualModelMetadata = {
       {
         "name": "hospitalize",
         "key": "hospitalize",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4531,7 +4531,7 @@ export const manualModelMetadata = {
       {
         "name": "assists",
         "key": "assists",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4540,7 +4540,7 @@ export const manualModelMetadata = {
       {
         "name": "retaliations",
         "key": "retaliations",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4549,7 +4549,7 @@ export const manualModelMetadata = {
       {
         "name": "overseas",
         "key": "overseas",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4558,7 +4558,7 @@ export const manualModelMetadata = {
       {
         "name": "draws",
         "key": "draws",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4567,7 +4567,7 @@ export const manualModelMetadata = {
       {
         "name": "escapes",
         "key": "escapes",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -4578,7 +4578,7 @@ export const manualModelMetadata = {
       {
         "name": "losses",
         "key": "losses",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4587,7 +4587,7 @@ export const manualModelMetadata = {
       {
         "name": "war",
         "key": "war",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4596,7 +4596,7 @@ export const manualModelMetadata = {
       {
         "name": "bonuses",
         "key": "bonuses",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4605,7 +4605,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4619,7 +4619,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4628,7 +4628,7 @@ export const manualModelMetadata = {
       {
         "name": "previous_crime_id",
         "key": "previous_crime_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4637,7 +4637,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4646,7 +4646,7 @@ export const manualModelMetadata = {
       {
         "name": "difficulty",
         "key": "difficulty",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4655,7 +4655,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4664,7 +4664,7 @@ export const manualModelMetadata = {
       {
         "name": "created_at",
         "key": "created_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4673,7 +4673,7 @@ export const manualModelMetadata = {
       {
         "name": "planning_at",
         "key": "planning_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4682,7 +4682,7 @@ export const manualModelMetadata = {
       {
         "name": "ready_at",
         "key": "ready_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4691,7 +4691,7 @@ export const manualModelMetadata = {
       {
         "name": "expired_at",
         "key": "expired_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4700,7 +4700,7 @@ export const manualModelMetadata = {
       {
         "name": "executed_at",
         "key": "executed_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4709,7 +4709,7 @@ export const manualModelMetadata = {
       {
         "name": "slots",
         "key": "slots",
-        "type": "Vec<FactionCrimeSlot>",
+        "type": "Array<FactionCrimeSlot>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4718,7 +4718,7 @@ export const manualModelMetadata = {
       {
         "name": "rewards",
         "key": "rewards",
-        "type": "Option<FactionCrimeReward>",
+        "type": "Nullable<FactionCrimeReward>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4727,7 +4727,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4741,7 +4741,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4750,7 +4750,7 @@ export const manualModelMetadata = {
       {
         "name": "position_info",
         "key": "position_info",
-        "type": "Option<FactionCrimePositionInfo>",
+        "type": "Nullable<FactionCrimePositionInfo>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4759,7 +4759,7 @@ export const manualModelMetadata = {
       {
         "name": "item_requirement",
         "key": "item_requirement",
-        "type": "Option<FactionCrimeItemRequirement>",
+        "type": "Nullable<FactionCrimeItemRequirement>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4768,7 +4768,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Option<FactionCrimeUser>",
+        "type": "Nullable<FactionCrimeUser>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4777,7 +4777,7 @@ export const manualModelMetadata = {
       {
         "name": "checkpoint_pass_rate",
         "key": "checkpoint_pass_rate",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4786,7 +4786,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4800,7 +4800,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4809,7 +4809,7 @@ export const manualModelMetadata = {
       {
         "name": "label",
         "key": "label",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4818,7 +4818,7 @@ export const manualModelMetadata = {
       {
         "name": "number",
         "key": "number",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4827,7 +4827,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4841,7 +4841,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4850,7 +4850,7 @@ export const manualModelMetadata = {
       {
         "name": "is_reusable",
         "key": "is_reusable",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4859,7 +4859,7 @@ export const manualModelMetadata = {
       {
         "name": "is_available",
         "key": "is_available",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4868,7 +4868,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4882,7 +4882,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4891,7 +4891,7 @@ export const manualModelMetadata = {
       {
         "name": "outcome",
         "key": "outcome",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4900,7 +4900,7 @@ export const manualModelMetadata = {
       {
         "name": "outcome_duration",
         "key": "outcome_duration",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4909,7 +4909,7 @@ export const manualModelMetadata = {
       {
         "name": "item_outcome",
         "key": "item_outcome",
-        "type": "Option<FactionCrimeUserItemOutcome>",
+        "type": "Nullable<FactionCrimeUserItemOutcome>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4918,7 +4918,7 @@ export const manualModelMetadata = {
       {
         "name": "joined_at",
         "key": "joined_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4927,7 +4927,7 @@ export const manualModelMetadata = {
       {
         "name": "progress",
         "key": "progress",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4936,7 +4936,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -4950,7 +4950,7 @@ export const manualModelMetadata = {
       {
         "name": "owned_by",
         "key": "owned_by",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4959,7 +4959,7 @@ export const manualModelMetadata = {
       {
         "name": "item_id",
         "key": "item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4968,7 +4968,7 @@ export const manualModelMetadata = {
       {
         "name": "item_uid",
         "key": "item_uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4977,7 +4977,7 @@ export const manualModelMetadata = {
       {
         "name": "outcome",
         "key": "outcome",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -4986,7 +4986,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5000,7 +5000,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5009,7 +5009,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<FactionCrimeRewardItem>",
+        "type": "Array<FactionCrimeRewardItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5018,7 +5018,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5027,7 +5027,7 @@ export const manualModelMetadata = {
       {
         "name": "scope",
         "key": "scope",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5036,7 +5036,7 @@ export const manualModelMetadata = {
       {
         "name": "payout",
         "key": "payout",
-        "type": "Option<FactionCrimeRewardPayout>",
+        "type": "Nullable<FactionCrimeRewardPayout>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5045,7 +5045,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5059,7 +5059,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5068,7 +5068,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5077,7 +5077,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5091,7 +5091,7 @@ export const manualModelMetadata = {
       {
         "name": "payout_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5100,7 +5100,7 @@ export const manualModelMetadata = {
       {
         "name": "percentage",
         "key": "percentage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5109,7 +5109,7 @@ export const manualModelMetadata = {
       {
         "name": "paid_by",
         "key": "paid_by",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5118,7 +5118,7 @@ export const manualModelMetadata = {
       {
         "name": "paid_at",
         "key": "paid_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5127,7 +5127,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5141,7 +5141,7 @@ export const manualModelMetadata = {
       {
         "name": "territory",
         "key": "territory",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5150,7 +5150,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5159,7 +5159,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5168,7 +5168,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5177,7 +5177,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5186,7 +5186,7 @@ export const manualModelMetadata = {
       {
         "name": "reward",
         "key": "reward",
-        "type": "Option<FactionRacketRewardSummary>",
+        "type": "Nullable<FactionRacketRewardSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5195,7 +5195,7 @@ export const manualModelMetadata = {
       {
         "name": "created_at",
         "key": "created_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5204,7 +5204,7 @@ export const manualModelMetadata = {
       {
         "name": "changed_at",
         "key": "changed_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5213,7 +5213,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5227,7 +5227,7 @@ export const manualModelMetadata = {
       {
         "name": "reward_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5236,7 +5236,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5245,7 +5245,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5254,7 +5254,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5268,7 +5268,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5277,7 +5277,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5286,7 +5286,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5295,7 +5295,7 @@ export const manualModelMetadata = {
       {
         "name": "aggressor",
         "key": "aggressor",
-        "type": "Option<FactionWarfareFactionSummary>",
+        "type": "Nullable<FactionWarfareFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5304,7 +5304,7 @@ export const manualModelMetadata = {
       {
         "name": "defender",
         "key": "defender",
-        "type": "Option<FactionWarfareFactionSummary>",
+        "type": "Nullable<FactionWarfareFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5313,7 +5313,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5327,7 +5327,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5336,7 +5336,7 @@ export const manualModelMetadata = {
       {
         "name": "acquired_at",
         "key": "acquired_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5345,7 +5345,7 @@ export const manualModelMetadata = {
       {
         "name": "sector",
         "key": "sector",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5354,7 +5354,7 @@ export const manualModelMetadata = {
       {
         "name": "size",
         "key": "size",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5363,7 +5363,7 @@ export const manualModelMetadata = {
       {
         "name": "density",
         "key": "density",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5372,7 +5372,7 @@ export const manualModelMetadata = {
       {
         "name": "slots",
         "key": "slots",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5381,7 +5381,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5390,7 +5390,7 @@ export const manualModelMetadata = {
       {
         "name": "coordinates",
         "key": "coordinates",
-        "type": "Option<FactionTerritoryCoordinatesSummary>",
+        "type": "Nullable<FactionTerritoryCoordinatesSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5399,7 +5399,7 @@ export const manualModelMetadata = {
       {
         "name": "racket",
         "key": "racket",
-        "type": "Option<FactionRacketSummary>",
+        "type": "Nullable<FactionRacketSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5408,7 +5408,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5422,7 +5422,7 @@ export const manualModelMetadata = {
       {
         "name": "x",
         "key": "x",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5431,7 +5431,7 @@ export const manualModelMetadata = {
       {
         "name": "y",
         "key": "y",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5440,7 +5440,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5454,7 +5454,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5463,7 +5463,7 @@ export const manualModelMetadata = {
       {
         "name": "irradiated",
         "key": "irradiated",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5472,7 +5472,7 @@ export const manualModelMetadata = {
       {
         "name": "owned_by",
         "key": "owned_by",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5481,7 +5481,7 @@ export const manualModelMetadata = {
       {
         "name": "acquired_at",
         "key": "acquired_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5490,7 +5490,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5504,7 +5504,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5513,7 +5513,7 @@ export const manualModelMetadata = {
       {
         "name": "war_id",
         "key": "war_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5522,7 +5522,7 @@ export const manualModelMetadata = {
       {
         "name": "territory",
         "key": "territory",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5531,7 +5531,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5540,7 +5540,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5549,7 +5549,7 @@ export const manualModelMetadata = {
       {
         "name": "target",
         "key": "target",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5558,7 +5558,7 @@ export const manualModelMetadata = {
       {
         "name": "result",
         "key": "result",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5567,7 +5567,7 @@ export const manualModelMetadata = {
       {
         "name": "factions",
         "key": "factions",
-        "type": "Vec<FactionTerritoryWarParticipantSummary>",
+        "type": "Array<FactionTerritoryWarParticipantSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5576,7 +5576,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5590,7 +5590,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5599,7 +5599,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5608,7 +5608,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5617,7 +5617,7 @@ export const manualModelMetadata = {
       {
         "name": "is_aggressor",
         "key": "is_aggressor",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5626,7 +5626,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5640,7 +5640,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5649,7 +5649,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5658,7 +5658,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5667,7 +5667,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5676,7 +5676,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5685,7 +5685,7 @@ export const manualModelMetadata = {
       {
         "name": "faction",
         "key": "faction",
-        "type": "Option<FactionWarfareFactionSummary>",
+        "type": "Nullable<FactionWarfareFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5694,7 +5694,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5708,7 +5708,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5717,7 +5717,7 @@ export const manualModelMetadata = {
       {
         "name": "territory",
         "key": "territory",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5726,7 +5726,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5735,7 +5735,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5744,7 +5744,7 @@ export const manualModelMetadata = {
       {
         "name": "target",
         "key": "target",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5753,7 +5753,7 @@ export const manualModelMetadata = {
       {
         "name": "result",
         "key": "result",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5762,7 +5762,7 @@ export const manualModelMetadata = {
       {
         "name": "aggressor",
         "key": "aggressor",
-        "type": "Option<FactionWarfareFactionSummary>",
+        "type": "Nullable<FactionWarfareFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5771,7 +5771,7 @@ export const manualModelMetadata = {
       {
         "name": "defender",
         "key": "defender",
-        "type": "Option<FactionWarfareFactionSummary>",
+        "type": "Nullable<FactionWarfareFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5780,7 +5780,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5804,7 +5804,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -5818,7 +5818,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5827,7 +5827,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5836,7 +5836,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5845,7 +5845,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5854,7 +5854,7 @@ export const manualModelMetadata = {
       {
         "name": "is_aggressor",
         "key": "is_aggressor",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5863,7 +5863,7 @@ export const manualModelMetadata = {
       {
         "name": "respect_lost",
         "key": "respect_lost",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5872,7 +5872,7 @@ export const manualModelMetadata = {
       {
         "name": "players_on_wall",
         "key": "players_on_wall",
-        "type": "Vec<FactionWarfareWallPlayerSummary>",
+        "type": "Array<FactionWarfareWallPlayerSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5881,7 +5881,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5895,7 +5895,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5904,7 +5904,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5913,7 +5913,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5927,7 +5927,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5936,7 +5936,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5945,7 +5945,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -5959,7 +5959,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5968,7 +5968,7 @@ export const manualModelMetadata = {
       {
         "name": "text",
         "key": "text",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5977,7 +5977,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -5986,7 +5986,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6000,7 +6000,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6009,7 +6009,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6018,7 +6018,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6027,7 +6027,7 @@ export const manualModelMetadata = {
       {
         "name": "aggressor",
         "key": "aggressor",
-        "type": "Option<FactionRaidReportSideSummary>",
+        "type": "Nullable<FactionRaidReportSideSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6036,7 +6036,7 @@ export const manualModelMetadata = {
       {
         "name": "defender",
         "key": "defender",
-        "type": "Option<FactionRaidReportSideSummary>",
+        "type": "Nullable<FactionRaidReportSideSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6045,7 +6045,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6059,7 +6059,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6068,7 +6068,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6077,7 +6077,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6086,7 +6086,7 @@ export const manualModelMetadata = {
       {
         "name": "attackers",
         "key": "attackers",
-        "type": "Vec<FactionRaidReportAttackerSummary>",
+        "type": "Array<FactionRaidReportAttackerSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6095,7 +6095,7 @@ export const manualModelMetadata = {
       {
         "name": "non_attackers",
         "key": "non_attackers",
-        "type": "Vec<FactionRaidReportUserSummary>",
+        "type": "Array<FactionRaidReportUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6104,7 +6104,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6118,7 +6118,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Option<FactionRaidReportUserSummary>",
+        "type": "Nullable<FactionRaidReportUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6127,7 +6127,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6136,7 +6136,7 @@ export const manualModelMetadata = {
       {
         "name": "damage",
         "key": "damage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6145,7 +6145,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6159,7 +6159,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6168,7 +6168,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6177,7 +6177,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6191,7 +6191,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6200,7 +6200,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6209,7 +6209,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6218,7 +6218,7 @@ export const manualModelMetadata = {
       {
         "name": "winner",
         "key": "winner",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6227,7 +6227,7 @@ export const manualModelMetadata = {
       {
         "name": "forfeit",
         "key": "forfeit",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6236,7 +6236,7 @@ export const manualModelMetadata = {
       {
         "name": "factions",
         "key": "factions",
-        "type": "Vec<FactionRankedWarReportFactionSummary>",
+        "type": "Array<FactionRankedWarReportFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6245,7 +6245,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6259,7 +6259,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6268,7 +6268,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6277,7 +6277,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6286,7 +6286,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6295,7 +6295,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<FactionRankedWarReportRankSummary>",
+        "type": "Nullable<FactionRankedWarReportRankSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6304,7 +6304,7 @@ export const manualModelMetadata = {
       {
         "name": "rewards",
         "key": "rewards",
-        "type": "Option<FactionRankedWarReportRewardsSummary>",
+        "type": "Nullable<FactionRankedWarReportRewardsSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6313,7 +6313,7 @@ export const manualModelMetadata = {
       {
         "name": "members",
         "key": "members",
-        "type": "Vec<FactionRankedWarReportMemberSummary>",
+        "type": "Array<FactionRankedWarReportMemberSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6322,7 +6322,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6336,7 +6336,7 @@ export const manualModelMetadata = {
       {
         "name": "before",
         "key": "before",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6345,7 +6345,7 @@ export const manualModelMetadata = {
       {
         "name": "after",
         "key": "after",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6354,7 +6354,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6368,7 +6368,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6377,7 +6377,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6386,7 +6386,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<FactionRankedWarReportRewardItemSummary>",
+        "type": "Array<FactionRankedWarReportRewardItemSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6395,7 +6395,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6409,7 +6409,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6418,7 +6418,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6427,7 +6427,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6436,7 +6436,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6450,7 +6450,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6459,7 +6459,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6468,7 +6468,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6477,7 +6477,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6486,7 +6486,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6495,7 +6495,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6509,7 +6509,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6518,7 +6518,7 @@ export const manualModelMetadata = {
       {
         "name": "territory",
         "key": "territory",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6527,7 +6527,7 @@ export const manualModelMetadata = {
       {
         "name": "started_at",
         "key": "started_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6536,7 +6536,7 @@ export const manualModelMetadata = {
       {
         "name": "ended_at",
         "key": "ended_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6545,7 +6545,7 @@ export const manualModelMetadata = {
       {
         "name": "winner",
         "key": "winner",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6554,7 +6554,7 @@ export const manualModelMetadata = {
       {
         "name": "result",
         "key": "result",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6563,7 +6563,7 @@ export const manualModelMetadata = {
       {
         "name": "factions",
         "key": "factions",
-        "type": "Vec<FactionTerritoryWarReportFactionSummary>",
+        "type": "Array<FactionTerritoryWarReportFactionSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6572,7 +6572,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6586,7 +6586,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6595,7 +6595,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6604,7 +6604,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6613,7 +6613,7 @@ export const manualModelMetadata = {
       {
         "name": "is_aggressor",
         "key": "is_aggressor",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6622,7 +6622,7 @@ export const manualModelMetadata = {
       {
         "name": "clears",
         "key": "clears",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6631,7 +6631,7 @@ export const manualModelMetadata = {
       {
         "name": "joins",
         "key": "joins",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6640,7 +6640,7 @@ export const manualModelMetadata = {
       {
         "name": "members",
         "key": "members",
-        "type": "Vec<FactionTerritoryWarReportMemberSummary>",
+        "type": "Array<FactionTerritoryWarReportMemberSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6649,7 +6649,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6663,7 +6663,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6672,7 +6672,7 @@ export const manualModelMetadata = {
       {
         "name": "username",
         "key": "username",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6681,7 +6681,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6690,7 +6690,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6699,7 +6699,7 @@ export const manualModelMetadata = {
       {
         "name": "joins",
         "key": "joins",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6708,7 +6708,7 @@ export const manualModelMetadata = {
       {
         "name": "clears",
         "key": "clears",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6717,7 +6717,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6731,7 +6731,7 @@ export const manualModelMetadata = {
       {
         "name": "core",
         "key": "core",
-        "type": "Option<FactionUpgradeCore>",
+        "type": "Nullable<FactionUpgradeCore>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6740,7 +6740,7 @@ export const manualModelMetadata = {
       {
         "name": "peace",
         "key": "peace",
-        "type": "Vec<FactionUpgradeBranch>",
+        "type": "Array<FactionUpgradeBranch>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6749,7 +6749,7 @@ export const manualModelMetadata = {
       {
         "name": "war",
         "key": "war",
-        "type": "Vec<FactionUpgradeBranch>",
+        "type": "Array<FactionUpgradeBranch>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6758,7 +6758,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6772,7 +6772,7 @@ export const manualModelMetadata = {
       {
         "name": "upgrades",
         "key": "upgrades",
-        "type": "Vec<FactionUpgradeDetails>",
+        "type": "Array<FactionUpgradeDetails>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6781,7 +6781,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6795,7 +6795,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6804,7 +6804,7 @@ export const manualModelMetadata = {
       {
         "name": "order",
         "key": "order",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6813,7 +6813,7 @@ export const manualModelMetadata = {
       {
         "name": "multiplier",
         "key": "multiplier",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6822,7 +6822,7 @@ export const manualModelMetadata = {
       {
         "name": "upgrades",
         "key": "upgrades",
-        "type": "Vec<FactionUpgradeDetails>",
+        "type": "Array<FactionUpgradeDetails>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6831,7 +6831,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6845,7 +6845,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6854,7 +6854,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6863,7 +6863,7 @@ export const manualModelMetadata = {
       {
         "name": "ability",
         "key": "ability",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6872,7 +6872,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6881,7 +6881,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6890,7 +6890,7 @@ export const manualModelMetadata = {
       {
         "name": "unlocked_at",
         "key": "unlocked_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6899,7 +6899,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -6913,7 +6913,7 @@ export const manualModelMetadata = {
       {
         "name": "categories",
         "key": "categories",
-        "type": "Vec<ForumCategory>",
+        "type": "Array<ForumCategory>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6927,7 +6927,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6941,7 +6941,7 @@ export const manualModelMetadata = {
       {
         "name": "threads",
         "key": "threads",
-        "type": "Vec<ForumThread>",
+        "type": "Array<ForumThread>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6950,7 +6950,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6978,7 +6978,7 @@ export const manualModelMetadata = {
       {
         "name": "posts",
         "key": "posts",
-        "type": "Vec<ForumPost>",
+        "type": "Array<ForumPost>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -6987,7 +6987,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7001,7 +7001,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7015,7 +7015,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7024,7 +7024,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7033,7 +7033,7 @@ export const manualModelMetadata = {
       {
         "name": "acronym",
         "key": "acronym",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7042,7 +7042,7 @@ export const manualModelMetadata = {
       {
         "name": "threads",
         "key": "threads",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7051,7 +7051,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7065,7 +7065,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7074,7 +7074,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7083,7 +7083,7 @@ export const manualModelMetadata = {
       {
         "name": "forum_id",
         "key": "forum_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7092,7 +7092,7 @@ export const manualModelMetadata = {
       {
         "name": "posts",
         "key": "posts",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7101,7 +7101,7 @@ export const manualModelMetadata = {
       {
         "name": "views",
         "key": "views",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7110,7 +7110,7 @@ export const manualModelMetadata = {
       {
         "name": "rating",
         "key": "rating",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7119,7 +7119,7 @@ export const manualModelMetadata = {
       {
         "name": "is_locked",
         "key": "is_locked",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7128,7 +7128,7 @@ export const manualModelMetadata = {
       {
         "name": "is_sticky",
         "key": "is_sticky",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7137,7 +7137,7 @@ export const manualModelMetadata = {
       {
         "name": "has_poll",
         "key": "has_poll",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7146,7 +7146,7 @@ export const manualModelMetadata = {
       {
         "name": "first_post_time",
         "key": "first_post_time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7155,7 +7155,7 @@ export const manualModelMetadata = {
       {
         "name": "last_post_time",
         "key": "last_post_time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7164,7 +7164,7 @@ export const manualModelMetadata = {
       {
         "name": "content",
         "key": "content",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7173,7 +7173,7 @@ export const manualModelMetadata = {
       {
         "name": "content_raw",
         "key": "content_raw",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7182,7 +7182,7 @@ export const manualModelMetadata = {
       {
         "name": "poll",
         "key": "poll",
-        "type": "Option<ForumPoll>",
+        "type": "Nullable<ForumPoll>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7191,7 +7191,7 @@ export const manualModelMetadata = {
       {
         "name": "author",
         "key": "author",
-        "type": "Option<ForumUserSummary>",
+        "type": "Nullable<ForumUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7200,7 +7200,7 @@ export const manualModelMetadata = {
       {
         "name": "last_poster",
         "key": "last_poster",
-        "type": "Option<ForumUserSummary>",
+        "type": "Nullable<ForumUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7209,7 +7209,7 @@ export const manualModelMetadata = {
       {
         "name": "new_posts",
         "key": "new_posts",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7218,7 +7218,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7232,7 +7232,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7241,7 +7241,7 @@ export const manualModelMetadata = {
       {
         "name": "thread_id",
         "key": "thread_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7250,7 +7250,7 @@ export const manualModelMetadata = {
       {
         "name": "author",
         "key": "author",
-        "type": "Option<ForumUserSummary>",
+        "type": "Nullable<ForumUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7259,7 +7259,7 @@ export const manualModelMetadata = {
       {
         "name": "is_legacy",
         "key": "is_legacy",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7268,7 +7268,7 @@ export const manualModelMetadata = {
       {
         "name": "is_topic",
         "key": "is_topic",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7277,7 +7277,7 @@ export const manualModelMetadata = {
       {
         "name": "is_edited",
         "key": "is_edited",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7286,7 +7286,7 @@ export const manualModelMetadata = {
       {
         "name": "is_pinned",
         "key": "is_pinned",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7295,7 +7295,7 @@ export const manualModelMetadata = {
       {
         "name": "created_time",
         "key": "created_time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7304,7 +7304,7 @@ export const manualModelMetadata = {
       {
         "name": "edited_by",
         "key": "edited_by",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7313,7 +7313,7 @@ export const manualModelMetadata = {
       {
         "name": "has_quote",
         "key": "has_quote",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7322,7 +7322,7 @@ export const manualModelMetadata = {
       {
         "name": "quoted_post_id",
         "key": "quoted_post_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7331,7 +7331,7 @@ export const manualModelMetadata = {
       {
         "name": "content",
         "key": "content",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7340,7 +7340,7 @@ export const manualModelMetadata = {
       {
         "name": "likes",
         "key": "likes",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7349,7 +7349,7 @@ export const manualModelMetadata = {
       {
         "name": "dislikes",
         "key": "dislikes",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7358,7 +7358,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7372,7 +7372,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7381,7 +7381,7 @@ export const manualModelMetadata = {
       {
         "name": "username",
         "key": "username",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7390,7 +7390,7 @@ export const manualModelMetadata = {
       {
         "name": "karma",
         "key": "karma",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7399,7 +7399,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7413,7 +7413,7 @@ export const manualModelMetadata = {
       {
         "name": "question",
         "key": "question",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7422,7 +7422,7 @@ export const manualModelMetadata = {
       {
         "name": "answers_count",
         "key": "answers_count",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7431,7 +7431,7 @@ export const manualModelMetadata = {
       {
         "name": "answers",
         "key": "answers",
-        "type": "Vec<ForumPollAnswer>",
+        "type": "Array<ForumPollAnswer>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7440,7 +7440,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7454,7 +7454,7 @@ export const manualModelMetadata = {
       {
         "name": "answer",
         "key": "answer",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7463,7 +7463,7 @@ export const manualModelMetadata = {
       {
         "name": "votes",
         "key": "votes",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7472,7 +7472,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7486,7 +7486,7 @@ export const manualModelMetadata = {
       {
         "name": "log",
         "key": "log",
-        "type": "Vec<KeyLogEntry>",
+        "type": "Array<KeyLogEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7514,7 +7514,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7523,7 +7523,7 @@ export const manualModelMetadata = {
       {
         "name": "entry_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7532,7 +7532,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7541,7 +7541,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<KeyLogTargetId>",
+        "type": "Nullable<KeyLogTargetId>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7550,7 +7550,7 @@ export const manualModelMetadata = {
       {
         "name": "comment",
         "key": "comment",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7559,7 +7559,7 @@ export const manualModelMetadata = {
       {
         "name": "ip",
         "key": "ip",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7568,7 +7568,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7579,8 +7579,8 @@ export const manualModelMetadata = {
   "KeyLogTargetId": {
     "kind": "union",
     "variants": [
-      "u64",
-      "String"
+      "uint64",
+      "string"
     ]
   },
   "KeyInfo": {
@@ -7589,7 +7589,7 @@ export const manualModelMetadata = {
       {
         "name": "access",
         "key": "access",
-        "type": "Option<KeyAccess>",
+        "type": "Nullable<KeyAccess>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7598,7 +7598,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Option<KeySelections>",
+        "type": "Nullable<KeySelections>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7607,7 +7607,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7621,7 +7621,7 @@ export const manualModelMetadata = {
       {
         "name": "access_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7630,7 +7630,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7639,7 +7639,7 @@ export const manualModelMetadata = {
       {
         "name": "company",
         "key": "company",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7648,7 +7648,7 @@ export const manualModelMetadata = {
       {
         "name": "faction",
         "key": "faction",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7657,7 +7657,7 @@ export const manualModelMetadata = {
       {
         "name": "log",
         "key": "log",
-        "type": "Option<KeyLogAccess>",
+        "type": "Nullable<KeyLogAccess>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7666,7 +7666,7 @@ export const manualModelMetadata = {
       {
         "name": "custom_permissions",
         "key": "custom_permissions",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7675,7 +7675,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7689,7 +7689,7 @@ export const manualModelMetadata = {
       {
         "name": "available",
         "key": "available",
-        "type": "Vec<KeyLogCategoryAccess>",
+        "type": "Array<KeyLogCategoryAccess>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7698,7 +7698,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7712,7 +7712,7 @@ export const manualModelMetadata = {
       {
         "name": "category_id",
         "key": "category_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7721,7 +7721,7 @@ export const manualModelMetadata = {
       {
         "name": "log_ids",
         "key": "log_ids",
-        "type": "Vec<u64>",
+        "type": "Array<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7730,7 +7730,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7744,7 +7744,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7753,7 +7753,7 @@ export const manualModelMetadata = {
       {
         "name": "faction",
         "key": "faction",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7762,7 +7762,7 @@ export const manualModelMetadata = {
       {
         "name": "forum",
         "key": "forum",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7771,7 +7771,7 @@ export const manualModelMetadata = {
       {
         "name": "key",
         "key": "key",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7780,7 +7780,7 @@ export const manualModelMetadata = {
       {
         "name": "market",
         "key": "market",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7789,7 +7789,7 @@ export const manualModelMetadata = {
       {
         "name": "property",
         "key": "property",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7798,7 +7798,7 @@ export const manualModelMetadata = {
       {
         "name": "racing",
         "key": "racing",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7807,7 +7807,7 @@ export const manualModelMetadata = {
       {
         "name": "torn",
         "key": "torn",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7816,7 +7816,7 @@ export const manualModelMetadata = {
       {
         "name": "company",
         "key": "company",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7825,7 +7825,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7839,7 +7839,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7848,7 +7848,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7862,7 +7862,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7871,7 +7871,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7885,7 +7885,7 @@ export const manualModelMetadata = {
       {
         "name": "pointsmarket",
         "key": "pointsmarket",
-        "type": "BTreeMap<String, MarketPointsMarketListing>",
+        "type": "Record<string, MarketPointsMarketListing>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7894,7 +7894,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7908,7 +7908,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7917,7 +7917,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7926,7 +7926,7 @@ export const manualModelMetadata = {
       {
         "name": "total_cost",
         "key": "total_cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7935,7 +7935,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -7972,7 +7972,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<MarketMetadata>",
+        "type": "Nullable<MarketMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -7995,7 +7995,7 @@ export const manualModelMetadata = {
       {
         "name": "properties_timestamp",
         "key": "properties_timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8004,7 +8004,7 @@ export const manualModelMetadata = {
       {
         "name": "properties_delay",
         "key": "properties_delay",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8013,7 +8013,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<MarketMetadata>",
+        "type": "Nullable<MarketMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8036,7 +8036,7 @@ export const manualModelMetadata = {
       {
         "name": "rentals_timestamp",
         "key": "rentals_timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8045,7 +8045,7 @@ export const manualModelMetadata = {
       {
         "name": "rentals_delay",
         "key": "rentals_delay",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8054,7 +8054,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<MarketMetadata>",
+        "type": "Nullable<MarketMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8068,7 +8068,7 @@ export const manualModelMetadata = {
       {
         "name": "auctionhouse",
         "key": "auctionhouse",
-        "type": "Vec<MarketAuctionHouseListing>",
+        "type": "Array<MarketAuctionHouseListing>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8077,7 +8077,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<MarketMetadata>",
+        "type": "Nullable<MarketMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8105,7 +8105,7 @@ export const manualModelMetadata = {
       {
         "name": "advanced_item",
         "key": "advanced_item",
-        "type": "Vec<MarketBazaarSellerSummary>",
+        "type": "Array<MarketBazaarSellerSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8114,7 +8114,7 @@ export const manualModelMetadata = {
       {
         "name": "bargain",
         "key": "bargain",
-        "type": "Vec<MarketBazaarSellerSummary>",
+        "type": "Array<MarketBazaarSellerSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8123,7 +8123,7 @@ export const manualModelMetadata = {
       {
         "name": "bulk",
         "key": "bulk",
-        "type": "Vec<MarketBazaarSellerSummary>",
+        "type": "Array<MarketBazaarSellerSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8132,7 +8132,7 @@ export const manualModelMetadata = {
       {
         "name": "busiest",
         "key": "busiest",
-        "type": "Vec<MarketBazaarSellerSummary>",
+        "type": "Array<MarketBazaarSellerSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8141,7 +8141,7 @@ export const manualModelMetadata = {
       {
         "name": "dollar_sale",
         "key": "dollar_sale",
-        "type": "Vec<MarketBazaarSellerSummary>",
+        "type": "Array<MarketBazaarSellerSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8150,7 +8150,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8164,7 +8164,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8173,7 +8173,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8182,7 +8182,7 @@ export const manualModelMetadata = {
       {
         "name": "is_open",
         "key": "is_open",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8191,7 +8191,7 @@ export const manualModelMetadata = {
       {
         "name": "weekly_customers",
         "key": "weekly_customers",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8200,7 +8200,7 @@ export const manualModelMetadata = {
       {
         "name": "advanced_item_sales",
         "key": "advanced_item_sales",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8209,7 +8209,7 @@ export const manualModelMetadata = {
       {
         "name": "bargain_sales",
         "key": "bargain_sales",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8218,7 +8218,7 @@ export const manualModelMetadata = {
       {
         "name": "bulk_sales",
         "key": "bulk_sales",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8227,7 +8227,7 @@ export const manualModelMetadata = {
       {
         "name": "dollar_sales",
         "key": "dollar_sales",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8236,7 +8236,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8250,7 +8250,7 @@ export const manualModelMetadata = {
       {
         "name": "cache_timestamp",
         "key": "cache_timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8259,7 +8259,7 @@ export const manualModelMetadata = {
       {
         "name": "cache_delay",
         "key": "cache_delay",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8268,7 +8268,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8277,7 +8277,7 @@ export const manualModelMetadata = {
       {
         "name": "item",
         "key": "item",
-        "type": "Option<MarketItemSummary>",
+        "type": "Nullable<MarketItemSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8286,7 +8286,7 @@ export const manualModelMetadata = {
       {
         "name": "listings",
         "key": "listings",
-        "type": "Vec<MarketListingSummary>",
+        "type": "Array<MarketListingSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8295,7 +8295,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8309,7 +8309,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8318,7 +8318,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8327,7 +8327,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8336,7 +8336,7 @@ export const manualModelMetadata = {
       {
         "name": "average_price",
         "key": "average_price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8345,7 +8345,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8359,7 +8359,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8368,7 +8368,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8377,7 +8377,7 @@ export const manualModelMetadata = {
       {
         "name": "item_details",
         "key": "item_details",
-        "type": "Option<MarketItemDetails>",
+        "type": "Nullable<MarketItemDetails>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8386,7 +8386,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8400,7 +8400,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8409,7 +8409,7 @@ export const manualModelMetadata = {
       {
         "name": "rarity",
         "key": "rarity",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8418,7 +8418,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Option<MarketItemStats>",
+        "type": "Nullable<MarketItemStats>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8427,7 +8427,7 @@ export const manualModelMetadata = {
       {
         "name": "bonuses",
         "key": "bonuses",
-        "type": "Vec<MarketItemBonus>",
+        "type": "Array<MarketItemBonus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8436,7 +8436,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8450,7 +8450,7 @@ export const manualModelMetadata = {
       {
         "name": "damage",
         "key": "damage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8459,7 +8459,7 @@ export const manualModelMetadata = {
       {
         "name": "accuracy",
         "key": "accuracy",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8468,7 +8468,7 @@ export const manualModelMetadata = {
       {
         "name": "armor",
         "key": "armor",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8477,7 +8477,7 @@ export const manualModelMetadata = {
       {
         "name": "quality",
         "key": "quality",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8486,7 +8486,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8500,7 +8500,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8509,7 +8509,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8518,7 +8518,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8527,7 +8527,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8536,7 +8536,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8550,7 +8550,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8559,7 +8559,7 @@ export const manualModelMetadata = {
       {
         "name": "listings",
         "key": "listings",
-        "type": "Vec<MarketPropertyListing>",
+        "type": "Array<MarketPropertyListing>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8568,7 +8568,7 @@ export const manualModelMetadata = {
       {
         "name": "property",
         "key": "property",
-        "type": "Option<MarketPropertyTypeSummary>",
+        "type": "Nullable<MarketPropertyTypeSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8577,7 +8577,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8591,7 +8591,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8600,7 +8600,7 @@ export const manualModelMetadata = {
       {
         "name": "listings",
         "key": "listings",
-        "type": "Vec<MarketRentalListing>",
+        "type": "Array<MarketRentalListing>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8609,7 +8609,7 @@ export const manualModelMetadata = {
       {
         "name": "property",
         "key": "property",
-        "type": "Option<MarketPropertyTypeSummary>",
+        "type": "Nullable<MarketPropertyTypeSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8618,7 +8618,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8632,7 +8632,7 @@ export const manualModelMetadata = {
       {
         "name": "happy",
         "key": "happy",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8641,7 +8641,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8650,7 +8650,7 @@ export const manualModelMetadata = {
       {
         "name": "market_price",
         "key": "market_price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8659,7 +8659,7 @@ export const manualModelMetadata = {
       {
         "name": "upkeep",
         "key": "upkeep",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8668,7 +8668,7 @@ export const manualModelMetadata = {
       {
         "name": "modifications",
         "key": "modifications",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8677,7 +8677,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8691,7 +8691,7 @@ export const manualModelMetadata = {
       {
         "name": "happy",
         "key": "happy",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8700,7 +8700,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8709,7 +8709,7 @@ export const manualModelMetadata = {
       {
         "name": "cost_per_day",
         "key": "cost_per_day",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8718,7 +8718,7 @@ export const manualModelMetadata = {
       {
         "name": "rental_period",
         "key": "rental_period",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8727,7 +8727,7 @@ export const manualModelMetadata = {
       {
         "name": "market_price",
         "key": "market_price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8736,7 +8736,7 @@ export const manualModelMetadata = {
       {
         "name": "upkeep",
         "key": "upkeep",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8745,7 +8745,7 @@ export const manualModelMetadata = {
       {
         "name": "modifications",
         "key": "modifications",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8754,7 +8754,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8768,7 +8768,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8777,7 +8777,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8786,7 +8786,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8800,7 +8800,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8809,7 +8809,7 @@ export const manualModelMetadata = {
       {
         "name": "seller",
         "key": "seller",
-        "type": "Option<MarketUserSummary>",
+        "type": "Nullable<MarketUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8818,7 +8818,7 @@ export const manualModelMetadata = {
       {
         "name": "buyer",
         "key": "buyer",
-        "type": "Option<MarketUserSummary>",
+        "type": "Nullable<MarketUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8827,7 +8827,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8836,7 +8836,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8845,7 +8845,7 @@ export const manualModelMetadata = {
       {
         "name": "bids",
         "key": "bids",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8854,7 +8854,7 @@ export const manualModelMetadata = {
       {
         "name": "item",
         "key": "item",
-        "type": "Option<MarketAuctionItem>",
+        "type": "Nullable<MarketAuctionItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8863,7 +8863,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8877,7 +8877,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8886,7 +8886,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8895,7 +8895,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8909,7 +8909,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8918,7 +8918,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8927,7 +8927,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8936,7 +8936,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8945,7 +8945,7 @@ export const manualModelMetadata = {
       {
         "name": "sub_type",
         "key": "sub_type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8954,7 +8954,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Option<MarketItemStats>",
+        "type": "Nullable<MarketItemStats>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8963,7 +8963,7 @@ export const manualModelMetadata = {
       {
         "name": "bonuses",
         "key": "bonuses",
-        "type": "Vec<MarketItemBonus>",
+        "type": "Array<MarketItemBonus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8972,7 +8972,7 @@ export const manualModelMetadata = {
       {
         "name": "rarity",
         "key": "rarity",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -8981,7 +8981,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -8995,7 +8995,7 @@ export const manualModelMetadata = {
   },
   "MarketPaginationLinks": {
     "kind": "alias",
-    "type": "super::common::PaginatedLinks"
+    "type": "PaginatedLinks"
   },
   "PropertyLookupBundle": {
     "kind": "struct",
@@ -9003,7 +9003,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9012,7 +9012,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9040,7 +9040,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9049,7 +9049,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9063,7 +9063,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9072,7 +9072,7 @@ export const manualModelMetadata = {
       {
         "name": "happy",
         "key": "happy",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9081,7 +9081,7 @@ export const manualModelMetadata = {
       {
         "name": "market_price",
         "key": "market_price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9090,7 +9090,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9099,7 +9099,7 @@ export const manualModelMetadata = {
       {
         "name": "owner",
         "key": "owner",
-        "type": "Option<PropertyActor>",
+        "type": "Nullable<PropertyActor>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9108,7 +9108,7 @@ export const manualModelMetadata = {
       {
         "name": "rented_by",
         "key": "rented_by",
-        "type": "Option<PropertyActor>",
+        "type": "Nullable<PropertyActor>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9117,7 +9117,7 @@ export const manualModelMetadata = {
       {
         "name": "used_by",
         "key": "used_by",
-        "type": "Vec<PropertyActor>",
+        "type": "Array<PropertyActor>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9126,7 +9126,7 @@ export const manualModelMetadata = {
       {
         "name": "staff",
         "key": "staff",
-        "type": "Vec<PropertyStaffSummary>",
+        "type": "Array<PropertyStaffSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9135,7 +9135,7 @@ export const manualModelMetadata = {
       {
         "name": "property",
         "key": "property",
-        "type": "Option<PropertyTypeSummary>",
+        "type": "Nullable<PropertyTypeSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9144,7 +9144,7 @@ export const manualModelMetadata = {
       {
         "name": "upkeep",
         "key": "upkeep",
-        "type": "Option<PropertyUpkeep>",
+        "type": "Nullable<PropertyUpkeep>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9153,7 +9153,7 @@ export const manualModelMetadata = {
       {
         "name": "modifications",
         "key": "modifications",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9162,7 +9162,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9176,7 +9176,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9185,7 +9185,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9194,7 +9194,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9208,7 +9208,7 @@ export const manualModelMetadata = {
       {
         "name": "staff_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9217,7 +9217,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9226,7 +9226,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9240,7 +9240,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9249,7 +9249,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9258,7 +9258,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9272,7 +9272,7 @@ export const manualModelMetadata = {
       {
         "name": "property",
         "key": "property",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9281,7 +9281,7 @@ export const manualModelMetadata = {
       {
         "name": "staff",
         "key": "staff",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9290,7 +9290,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9304,7 +9304,7 @@ export const manualModelMetadata = {
       {
         "name": "cars",
         "key": "cars",
-        "type": "Vec<RacingCar>",
+        "type": "Array<RacingCar>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9318,7 +9318,7 @@ export const manualModelMetadata = {
       {
         "name": "carupgrades",
         "key": "carupgrades",
-        "type": "Vec<RacingCarUpgrade>",
+        "type": "Array<RacingCarUpgrade>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9332,7 +9332,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9341,7 +9341,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9369,7 +9369,7 @@ export const manualModelMetadata = {
       {
         "name": "races",
         "key": "races",
-        "type": "Vec<RacingRace>",
+        "type": "Array<RacingRace>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9378,7 +9378,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9392,7 +9392,7 @@ export const manualModelMetadata = {
       {
         "name": "records",
         "key": "records",
-        "type": "Vec<RacingRecord>",
+        "type": "Array<RacingRecord>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9406,7 +9406,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9415,7 +9415,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9429,7 +9429,7 @@ export const manualModelMetadata = {
       {
         "name": "tracks",
         "key": "tracks",
-        "type": "Vec<RacingTrack>",
+        "type": "Array<RacingTrack>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9443,7 +9443,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_id",
         "key": "car_item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9452,7 +9452,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_name",
         "key": "car_item_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9461,7 +9461,7 @@ export const manualModelMetadata = {
       {
         "name": "top_speed",
         "key": "top_speed",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9470,7 +9470,7 @@ export const manualModelMetadata = {
       {
         "name": "acceleration",
         "key": "acceleration",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9479,7 +9479,7 @@ export const manualModelMetadata = {
       {
         "name": "braking",
         "key": "braking",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9488,7 +9488,7 @@ export const manualModelMetadata = {
       {
         "name": "dirt",
         "key": "dirt",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9497,7 +9497,7 @@ export const manualModelMetadata = {
       {
         "name": "handling",
         "key": "handling",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9506,7 +9506,7 @@ export const manualModelMetadata = {
       {
         "name": "safety",
         "key": "safety",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9515,7 +9515,7 @@ export const manualModelMetadata = {
       {
         "name": "tarmac",
         "key": "tarmac",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9524,7 +9524,7 @@ export const manualModelMetadata = {
       {
         "name": "car_class",
         "key": "class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9533,7 +9533,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9547,7 +9547,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9556,7 +9556,7 @@ export const manualModelMetadata = {
       {
         "name": "class_required",
         "key": "class_required",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9565,7 +9565,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9574,7 +9574,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9583,7 +9583,7 @@ export const manualModelMetadata = {
       {
         "name": "category",
         "key": "category",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9592,7 +9592,7 @@ export const manualModelMetadata = {
       {
         "name": "subcategory",
         "key": "subcategory",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9601,7 +9601,7 @@ export const manualModelMetadata = {
       {
         "name": "effects",
         "key": "effects",
-        "type": "Option<RacingCarUpgradeEffects>",
+        "type": "Nullable<RacingCarUpgradeEffects>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9610,7 +9610,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<RacingCarUpgradeCost>",
+        "type": "Nullable<RacingCarUpgradeCost>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9619,7 +9619,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9633,7 +9633,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9642,7 +9642,7 @@ export const manualModelMetadata = {
       {
         "name": "cash",
         "key": "cash",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9651,7 +9651,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9665,7 +9665,7 @@ export const manualModelMetadata = {
       {
         "name": "top_speed",
         "key": "top_speed",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9674,7 +9674,7 @@ export const manualModelMetadata = {
       {
         "name": "acceleration",
         "key": "acceleration",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9683,7 +9683,7 @@ export const manualModelMetadata = {
       {
         "name": "braking",
         "key": "braking",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9692,7 +9692,7 @@ export const manualModelMetadata = {
       {
         "name": "handling",
         "key": "handling",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9701,7 +9701,7 @@ export const manualModelMetadata = {
       {
         "name": "safety",
         "key": "safety",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9710,7 +9710,7 @@ export const manualModelMetadata = {
       {
         "name": "dirt",
         "key": "dirt",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9719,7 +9719,7 @@ export const manualModelMetadata = {
       {
         "name": "tarmac",
         "key": "tarmac",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9728,7 +9728,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9742,7 +9742,7 @@ export const manualModelMetadata = {
       {
         "name": "minimum",
         "key": "minimum",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9751,7 +9751,7 @@ export const manualModelMetadata = {
       {
         "name": "maximum",
         "key": "maximum",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9760,7 +9760,7 @@ export const manualModelMetadata = {
       {
         "name": "current",
         "key": "current",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9769,7 +9769,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9783,7 +9783,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9792,7 +9792,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9801,7 +9801,7 @@ export const manualModelMetadata = {
       {
         "name": "track_id",
         "key": "track_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9810,7 +9810,7 @@ export const manualModelMetadata = {
       {
         "name": "creator_id",
         "key": "creator_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9819,7 +9819,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9828,7 +9828,7 @@ export const manualModelMetadata = {
       {
         "name": "is_official",
         "key": "is_official",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9837,7 +9837,7 @@ export const manualModelMetadata = {
       {
         "name": "laps",
         "key": "laps",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9846,7 +9846,7 @@ export const manualModelMetadata = {
       {
         "name": "participants",
         "key": "participants",
-        "type": "Option<RacingParticipants>",
+        "type": "Nullable<RacingParticipants>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9855,7 +9855,7 @@ export const manualModelMetadata = {
       {
         "name": "requirements",
         "key": "requirements",
-        "type": "Option<RacingRequirements>",
+        "type": "Nullable<RacingRequirements>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9864,7 +9864,7 @@ export const manualModelMetadata = {
       {
         "name": "schedule",
         "key": "schedule",
-        "type": "Option<RacingSchedule>",
+        "type": "Nullable<RacingSchedule>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9873,7 +9873,7 @@ export const manualModelMetadata = {
       {
         "name": "results",
         "key": "results",
-        "type": "Vec<RacingResult>",
+        "type": "Array<RacingResult>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9882,7 +9882,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9896,7 +9896,7 @@ export const manualModelMetadata = {
       {
         "name": "driver_id",
         "key": "driver_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9905,7 +9905,7 @@ export const manualModelMetadata = {
       {
         "name": "driver_name",
         "key": "driver_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9914,7 +9914,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_id",
         "key": "car_item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9923,7 +9923,7 @@ export const manualModelMetadata = {
       {
         "name": "lap_time",
         "key": "lap_time",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9932,7 +9932,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_name",
         "key": "car_item_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9941,7 +9941,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -9955,7 +9955,7 @@ export const manualModelMetadata = {
       {
         "name": "car_class",
         "key": "car_class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9964,7 +9964,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_id",
         "key": "car_item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9973,7 +9973,7 @@ export const manualModelMetadata = {
       {
         "name": "driver_class",
         "key": "driver_class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9982,7 +9982,7 @@ export const manualModelMetadata = {
       {
         "name": "join_fee",
         "key": "join_fee",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -9991,7 +9991,7 @@ export const manualModelMetadata = {
       {
         "name": "requires_password",
         "key": "requires_password",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10000,7 +10000,7 @@ export const manualModelMetadata = {
       {
         "name": "requires_stock_car",
         "key": "requires_stock_car",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10009,7 +10009,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -10023,7 +10023,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10032,7 +10032,7 @@ export const manualModelMetadata = {
       {
         "name": "driver_id",
         "key": "driver_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10041,7 +10041,7 @@ export const manualModelMetadata = {
       {
         "name": "car_id",
         "key": "car_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10050,7 +10050,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_id",
         "key": "car_item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10059,7 +10059,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_name",
         "key": "car_item_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10068,7 +10068,7 @@ export const manualModelMetadata = {
       {
         "name": "car_class",
         "key": "car_class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10077,7 +10077,7 @@ export const manualModelMetadata = {
       {
         "name": "race_time",
         "key": "race_time",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10086,7 +10086,7 @@ export const manualModelMetadata = {
       {
         "name": "best_lap_time",
         "key": "best_lap_time",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10095,7 +10095,7 @@ export const manualModelMetadata = {
       {
         "name": "has_crashed",
         "key": "has_crashed",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10104,7 +10104,7 @@ export const manualModelMetadata = {
       {
         "name": "time_ended",
         "key": "time_ended",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10113,7 +10113,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -10127,7 +10127,7 @@ export const manualModelMetadata = {
       {
         "name": "join_from",
         "key": "join_from",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10136,7 +10136,7 @@ export const manualModelMetadata = {
       {
         "name": "join_until",
         "key": "join_until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10145,7 +10145,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10154,7 +10154,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10163,7 +10163,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -10177,7 +10177,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10186,7 +10186,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10195,7 +10195,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10204,7 +10204,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -10232,7 +10232,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<TornItemSummary>",
+        "type": "Array<TornItemSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10246,7 +10246,7 @@ export const manualModelMetadata = {
       {
         "name": "honors",
         "key": "honors",
-        "type": "Vec<TornHonorSummary>",
+        "type": "Array<TornHonorSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10260,7 +10260,7 @@ export const manualModelMetadata = {
       {
         "name": "medals",
         "key": "medals",
-        "type": "Vec<TornMedalSummary>",
+        "type": "Array<TornMedalSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10274,7 +10274,7 @@ export const manualModelMetadata = {
       {
         "name": "logcategories",
         "key": "logcategories",
-        "type": "Vec<TornLogCategory>",
+        "type": "Array<TornLogCategory>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10288,7 +10288,7 @@ export const manualModelMetadata = {
       {
         "name": "logtypes",
         "key": "logtypes",
-        "type": "Vec<TornLogType>",
+        "type": "Array<TornLogType>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10302,7 +10302,7 @@ export const manualModelMetadata = {
       {
         "name": "merits",
         "key": "merits",
-        "type": "Vec<TornMerit>",
+        "type": "Array<TornMerit>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10316,7 +10316,7 @@ export const manualModelMetadata = {
       {
         "name": "itemammo",
         "key": "itemammo",
-        "type": "Vec<TornAmmoItem>",
+        "type": "Array<TornAmmoItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10330,7 +10330,7 @@ export const manualModelMetadata = {
       {
         "name": "itemmods",
         "key": "itemmods",
-        "type": "Vec<TornItemMod>",
+        "type": "Array<TornItemMod>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10344,7 +10344,7 @@ export const manualModelMetadata = {
       {
         "name": "properties",
         "key": "properties",
-        "type": "Vec<TornPropertyCatalogEntry>",
+        "type": "Array<TornPropertyCatalogEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10358,7 +10358,7 @@ export const manualModelMetadata = {
       {
         "name": "stocks",
         "key": "stocks",
-        "type": "Vec<TornStockSummary>",
+        "type": "Array<TornStockSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10386,7 +10386,7 @@ export const manualModelMetadata = {
       {
         "name": "bounties",
         "key": "bounties",
-        "type": "Vec<TornBounty>",
+        "type": "Array<TornBounty>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10395,7 +10395,7 @@ export const manualModelMetadata = {
       {
         "name": "bounties_timestamp",
         "key": "bounties_timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10404,7 +10404,7 @@ export const manualModelMetadata = {
       {
         "name": "bounties_delay",
         "key": "bounties_delay",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10413,7 +10413,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadataWithTotal>",
+        "type": "Nullable<PaginatedMetadataWithTotal>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10436,7 +10436,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10464,7 +10464,7 @@ export const manualModelMetadata = {
       {
         "name": "cards",
         "key": "cards",
-        "type": "BTreeMap<String, TornCard>",
+        "type": "Record<string, TornCard>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10478,7 +10478,7 @@ export const manualModelMetadata = {
       {
         "name": "cityshops",
         "key": "cityshops",
-        "type": "BTreeMap<String, TornCityShop>",
+        "type": "Record<string, TornCityShop>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10492,7 +10492,7 @@ export const manualModelMetadata = {
       {
         "name": "companies",
         "key": "companies",
-        "type": "BTreeMap<String, TornCompany>",
+        "type": "Record<string, TornCompany>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10506,7 +10506,7 @@ export const manualModelMetadata = {
       {
         "name": "gyms",
         "key": "gyms",
-        "type": "BTreeMap<String, TornGym>",
+        "type": "Record<string, TornGym>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10534,7 +10534,7 @@ export const manualModelMetadata = {
       {
         "name": "pokertables",
         "key": "pokertables",
-        "type": "BTreeMap<String, TornPokerTable>",
+        "type": "Record<string, TornPokerTable>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10548,7 +10548,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10562,7 +10562,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10576,7 +10576,7 @@ export const manualModelMetadata = {
       {
         "name": "competition",
         "key": "competition",
-        "type": "Vec<TornCompetitionEntry>",
+        "type": "Array<TornCompetitionEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10590,7 +10590,7 @@ export const manualModelMetadata = {
       {
         "name": "crimes",
         "key": "crimes",
-        "type": "Vec<TornCrime>",
+        "type": "Array<TornCrime>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10604,7 +10604,7 @@ export const manualModelMetadata = {
       {
         "name": "education",
         "key": "education",
-        "type": "Vec<TornEducationCourse>",
+        "type": "Array<TornEducationCourse>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10618,7 +10618,7 @@ export const manualModelMetadata = {
       {
         "name": "elimination",
         "key": "elimination",
-        "type": "Option<TornDynamicObject>",
+        "type": "Nullable<TornDynamicObject>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10632,7 +10632,7 @@ export const manualModelMetadata = {
       {
         "name": "eliminationteam",
         "key": "eliminationteam",
-        "type": "Vec<TornEliminationTeamEntry>",
+        "type": "Array<TornEliminationTeamEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10641,7 +10641,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10655,7 +10655,7 @@ export const manualModelMetadata = {
       {
         "name": "factionhof",
         "key": "factionhof",
-        "type": "Option<TornDynamicObject>",
+        "type": "Nullable<TornDynamicObject>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10669,7 +10669,7 @@ export const manualModelMetadata = {
       {
         "name": "factiontree",
         "key": "factiontree",
-        "type": "Option<TornDynamicObject>",
+        "type": "Nullable<TornDynamicObject>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10683,7 +10683,7 @@ export const manualModelMetadata = {
       {
         "name": "hof",
         "key": "hof",
-        "type": "Option<TornDynamicObject>",
+        "type": "Nullable<TornDynamicObject>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10697,7 +10697,7 @@ export const manualModelMetadata = {
       {
         "name": "organisedcrimes",
         "key": "organisedcrimes",
-        "type": "BTreeMap<String, TornOrganisedCrime>",
+        "type": "Record<string, TornOrganisedCrime>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10711,7 +10711,7 @@ export const manualModelMetadata = {
       {
         "name": "organizedcrimes",
         "key": "organizedcrimes",
-        "type": "Vec<TornOrganizedCrime>",
+        "type": "Array<TornOrganizedCrime>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10725,7 +10725,7 @@ export const manualModelMetadata = {
       {
         "name": "rockpaperscissors",
         "key": "rockpaperscissors",
-        "type": "Vec<TornCountEntry>",
+        "type": "Array<TornCountEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10739,7 +10739,7 @@ export const manualModelMetadata = {
       {
         "name": "searchforcash",
         "key": "searchforcash",
-        "type": "BTreeMap<String, TornPercentageEntry>",
+        "type": "Record<string, TornPercentageEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10753,7 +10753,7 @@ export const manualModelMetadata = {
       {
         "name": "shoplifting",
         "key": "shoplifting",
-        "type": "BTreeMap<String, Vec<TornShopliftingEntry>>",
+        "type": "Record<string, Array<TornShopliftingEntry>>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10767,7 +10767,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "BTreeMap<String, DynamicValue>",
+        "type": "Record<string, DynamicValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10781,7 +10781,7 @@ export const manualModelMetadata = {
       {
         "name": "subcrimes",
         "key": "subcrimes",
-        "type": "Option<TornDynamicObject>",
+        "type": "Nullable<TornDynamicObject>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10795,7 +10795,7 @@ export const manualModelMetadata = {
       {
         "name": "territory",
         "key": "territory",
-        "type": "Option<TornDynamicObject>",
+        "type": "Nullable<TornDynamicObject>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10809,7 +10809,7 @@ export const manualModelMetadata = {
       {
         "name": "itemdetails",
         "key": "itemdetails",
-        "type": "Option<TornItemDetailsSelection>",
+        "type": "Nullable<TornItemDetailsSelection>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10818,7 +10818,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10846,7 +10846,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10855,7 +10855,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10864,7 +10864,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10873,7 +10873,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10882,7 +10882,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -10896,7 +10896,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10905,7 +10905,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10914,7 +10914,7 @@ export const manualModelMetadata = {
       {
         "name": "competition_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10923,7 +10923,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10932,7 +10932,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10941,7 +10941,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10950,7 +10950,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10959,7 +10959,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -10973,7 +10973,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10982,7 +10982,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -10991,7 +10991,7 @@ export const manualModelMetadata = {
       {
         "name": "category",
         "key": "category",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11000,7 +11000,7 @@ export const manualModelMetadata = {
       {
         "name": "nerve",
         "key": "nerve",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11009,7 +11009,7 @@ export const manualModelMetadata = {
       {
         "name": "notes",
         "key": "notes",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11018,7 +11018,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11032,7 +11032,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11041,7 +11041,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11050,7 +11050,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11059,7 +11059,7 @@ export const manualModelMetadata = {
       {
         "name": "money_cost",
         "key": "money_cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11068,7 +11068,7 @@ export const manualModelMetadata = {
       {
         "name": "tier",
         "key": "tier",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11077,7 +11077,7 @@ export const manualModelMetadata = {
       {
         "name": "duration",
         "key": "duration",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11086,7 +11086,7 @@ export const manualModelMetadata = {
       {
         "name": "results",
         "key": "results",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11095,7 +11095,7 @@ export const manualModelMetadata = {
       {
         "name": "prerequisites",
         "key": "prerequisites",
-        "type": "Vec<u64>",
+        "type": "Array<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11104,7 +11104,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11118,7 +11118,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11127,7 +11127,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11136,7 +11136,7 @@ export const manualModelMetadata = {
       {
         "name": "members",
         "key": "members",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11145,7 +11145,7 @@ export const manualModelMetadata = {
       {
         "name": "time",
         "key": "time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11154,7 +11154,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11163,7 +11163,7 @@ export const manualModelMetadata = {
       {
         "name": "success_chance",
         "key": "success_chance",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11172,7 +11172,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11186,7 +11186,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11195,7 +11195,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11204,7 +11204,7 @@ export const manualModelMetadata = {
       {
         "name": "difficulty",
         "key": "difficulty",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11213,7 +11213,7 @@ export const manualModelMetadata = {
       {
         "name": "scope",
         "key": "scope",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11222,7 +11222,7 @@ export const manualModelMetadata = {
       {
         "name": "slots",
         "key": "slots",
-        "type": "Vec<TornOrganizedCrimeSlot>",
+        "type": "Array<TornOrganizedCrimeSlot>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11231,7 +11231,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11245,7 +11245,7 @@ export const manualModelMetadata = {
       {
         "name": "position_info",
         "key": "position_info",
-        "type": "Option<TornOrganizedCrimePositionInfo>",
+        "type": "Nullable<TornOrganizedCrimePositionInfo>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11254,7 +11254,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11263,7 +11263,7 @@ export const manualModelMetadata = {
       {
         "name": "item_requirement",
         "key": "item_requirement",
-        "type": "Option<DynamicValue>",
+        "type": "Nullable<DynamicValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11272,7 +11272,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11286,7 +11286,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11295,7 +11295,7 @@ export const manualModelMetadata = {
       {
         "name": "label",
         "key": "label",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11304,7 +11304,7 @@ export const manualModelMetadata = {
       {
         "name": "number",
         "key": "number",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11313,7 +11313,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11327,7 +11327,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11336,7 +11336,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11345,7 +11345,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11354,7 +11354,7 @@ export const manualModelMetadata = {
       {
         "name": "details",
         "key": "details",
-        "type": "Option<DynamicValue>",
+        "type": "Nullable<DynamicValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11363,7 +11363,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<TornItemSummary>",
+        "type": "Array<TornItemSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11372,7 +11372,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11386,7 +11386,7 @@ export const manualModelMetadata = {
       {
         "name": "competitions",
         "key": "competitions",
-        "type": "Vec<TornCalendarEntry>",
+        "type": "Array<TornCalendarEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11395,7 +11395,7 @@ export const manualModelMetadata = {
       {
         "name": "events",
         "key": "events",
-        "type": "Vec<TornCalendarEntry>",
+        "type": "Array<TornCalendarEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11404,7 +11404,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11418,7 +11418,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11427,7 +11427,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11436,7 +11436,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11445,7 +11445,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11454,7 +11454,7 @@ export const manualModelMetadata = {
       {
         "name": "fixed_start_time",
         "key": "fixed_start_time",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11463,7 +11463,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11477,7 +11477,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11486,7 +11486,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11495,7 +11495,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11504,7 +11504,7 @@ export const manualModelMetadata = {
       {
         "name": "circulation",
         "key": "circulation",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11513,7 +11513,7 @@ export const manualModelMetadata = {
       {
         "name": "is_tradable",
         "key": "is_tradable",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11522,7 +11522,7 @@ export const manualModelMetadata = {
       {
         "name": "is_found_in_city",
         "key": "is_found_in_city",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11531,7 +11531,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11540,7 +11540,7 @@ export const manualModelMetadata = {
       {
         "name": "details",
         "key": "details",
-        "type": "Option<TornItemDetails>",
+        "type": "Nullable<TornItemDetails>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11549,7 +11549,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11563,7 +11563,7 @@ export const manualModelMetadata = {
       {
         "name": "category",
         "key": "category",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11572,7 +11572,7 @@ export const manualModelMetadata = {
       {
         "name": "base_stats",
         "key": "base_stats",
-        "type": "Option<TornItemBaseStats>",
+        "type": "Nullable<TornItemBaseStats>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11581,7 +11581,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11595,7 +11595,7 @@ export const manualModelMetadata = {
       {
         "name": "damage",
         "key": "damage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11604,7 +11604,7 @@ export const manualModelMetadata = {
       {
         "name": "accuracy",
         "key": "accuracy",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11613,7 +11613,7 @@ export const manualModelMetadata = {
       {
         "name": "armor",
         "key": "armor",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11622,7 +11622,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11636,7 +11636,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11645,7 +11645,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11654,7 +11654,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11663,7 +11663,7 @@ export const manualModelMetadata = {
       {
         "name": "rarity",
         "key": "rarity",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11672,7 +11672,7 @@ export const manualModelMetadata = {
       {
         "name": "circulation",
         "key": "circulation",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11681,7 +11681,7 @@ export const manualModelMetadata = {
       {
         "name": "equipped",
         "key": "equipped",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11690,7 +11690,7 @@ export const manualModelMetadata = {
       {
         "name": "honor_type",
         "key": "type",
-        "type": "Option<TornAwardType>",
+        "type": "Nullable<TornAwardType>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11699,7 +11699,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11713,7 +11713,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11722,7 +11722,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11731,7 +11731,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11740,7 +11740,7 @@ export const manualModelMetadata = {
       {
         "name": "rarity",
         "key": "rarity",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11749,7 +11749,7 @@ export const manualModelMetadata = {
       {
         "name": "circulation",
         "key": "circulation",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11758,7 +11758,7 @@ export const manualModelMetadata = {
       {
         "name": "medal_type",
         "key": "type",
-        "type": "Option<TornAwardType>",
+        "type": "Nullable<TornAwardType>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11767,7 +11767,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11781,7 +11781,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11790,7 +11790,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11799,7 +11799,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11813,7 +11813,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11822,7 +11822,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11831,7 +11831,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11845,7 +11845,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11854,7 +11854,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11863,7 +11863,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11877,7 +11877,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11886,7 +11886,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11895,7 +11895,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11904,7 +11904,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11918,7 +11918,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11927,7 +11927,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11936,7 +11936,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11945,7 +11945,7 @@ export const manualModelMetadata = {
       {
         "name": "types",
         "key": "types",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11954,7 +11954,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -11968,7 +11968,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11977,7 +11977,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11986,7 +11986,7 @@ export const manualModelMetadata = {
       {
         "name": "image",
         "key": "image",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -11995,7 +11995,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12004,7 +12004,7 @@ export const manualModelMetadata = {
       {
         "name": "dual_fit",
         "key": "dual_fit",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12013,7 +12013,7 @@ export const manualModelMetadata = {
       {
         "name": "weapons",
         "key": "weapons",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12022,7 +12022,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12036,7 +12036,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12045,7 +12045,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12054,7 +12054,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12063,7 +12063,7 @@ export const manualModelMetadata = {
       {
         "name": "happy",
         "key": "happy",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12072,7 +12072,7 @@ export const manualModelMetadata = {
       {
         "name": "upkeep",
         "key": "upkeep",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12081,7 +12081,7 @@ export const manualModelMetadata = {
       {
         "name": "modifications",
         "key": "modifications",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -12092,7 +12092,7 @@ export const manualModelMetadata = {
       {
         "name": "staff",
         "key": "staff",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -12103,7 +12103,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12117,7 +12117,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12126,7 +12126,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12135,7 +12135,7 @@ export const manualModelMetadata = {
       {
         "name": "acronym",
         "key": "acronym",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12144,7 +12144,7 @@ export const manualModelMetadata = {
       {
         "name": "images",
         "key": "images",
-        "type": "Option<TornStockImages>",
+        "type": "Nullable<TornStockImages>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12153,7 +12153,7 @@ export const manualModelMetadata = {
       {
         "name": "market",
         "key": "market",
-        "type": "Option<TornStockMarket>",
+        "type": "Nullable<TornStockMarket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12162,7 +12162,7 @@ export const manualModelMetadata = {
       {
         "name": "bonus",
         "key": "bonus",
-        "type": "Option<TornStockBonus>",
+        "type": "Nullable<TornStockBonus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12171,7 +12171,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12185,7 +12185,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12194,7 +12194,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12203,7 +12203,7 @@ export const manualModelMetadata = {
       {
         "name": "acronym",
         "key": "acronym",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12212,7 +12212,7 @@ export const manualModelMetadata = {
       {
         "name": "images",
         "key": "images",
-        "type": "Option<TornStockImages>",
+        "type": "Nullable<TornStockImages>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12221,7 +12221,7 @@ export const manualModelMetadata = {
       {
         "name": "market",
         "key": "market",
-        "type": "Option<TornStockMarket>",
+        "type": "Nullable<TornStockMarket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12230,7 +12230,7 @@ export const manualModelMetadata = {
       {
         "name": "bonus",
         "key": "bonus",
-        "type": "Option<TornStockBonus>",
+        "type": "Nullable<TornStockBonus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12239,7 +12239,7 @@ export const manualModelMetadata = {
       {
         "name": "chart",
         "key": "chart",
-        "type": "Option<TornStockChart>",
+        "type": "Nullable<TornStockChart>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12248,7 +12248,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12262,7 +12262,7 @@ export const manualModelMetadata = {
       {
         "name": "logo",
         "key": "logo",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12271,7 +12271,7 @@ export const manualModelMetadata = {
       {
         "name": "full",
         "key": "full",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12280,7 +12280,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12294,7 +12294,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12303,7 +12303,7 @@ export const manualModelMetadata = {
       {
         "name": "cap",
         "key": "cap",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12312,7 +12312,7 @@ export const manualModelMetadata = {
       {
         "name": "shares",
         "key": "shares",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12321,7 +12321,7 @@ export const manualModelMetadata = {
       {
         "name": "investors",
         "key": "investors",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12330,7 +12330,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12344,7 +12344,7 @@ export const manualModelMetadata = {
       {
         "name": "passive",
         "key": "passive",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12353,7 +12353,7 @@ export const manualModelMetadata = {
       {
         "name": "frequency",
         "key": "frequency",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12362,7 +12362,7 @@ export const manualModelMetadata = {
       {
         "name": "requirement",
         "key": "requirement",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12371,7 +12371,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12380,7 +12380,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12394,7 +12394,7 @@ export const manualModelMetadata = {
       {
         "name": "performance",
         "key": "performance",
-        "type": "Option<TornStockPerformance>",
+        "type": "Nullable<TornStockPerformance>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12403,7 +12403,7 @@ export const manualModelMetadata = {
       {
         "name": "history",
         "key": "history",
-        "type": "Vec<TornStockHistoryEntry>",
+        "type": "Array<TornStockHistoryEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12412,7 +12412,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12426,7 +12426,7 @@ export const manualModelMetadata = {
       {
         "name": "last_hour",
         "key": "last_hour",
-        "type": "Option<TornStockPerformanceWindow>",
+        "type": "Nullable<TornStockPerformanceWindow>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12435,7 +12435,7 @@ export const manualModelMetadata = {
       {
         "name": "last_day",
         "key": "last_day",
-        "type": "Option<TornStockPerformanceWindow>",
+        "type": "Nullable<TornStockPerformanceWindow>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12444,7 +12444,7 @@ export const manualModelMetadata = {
       {
         "name": "last_week",
         "key": "last_week",
-        "type": "Option<TornStockPerformanceWindow>",
+        "type": "Nullable<TornStockPerformanceWindow>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12453,7 +12453,7 @@ export const manualModelMetadata = {
       {
         "name": "last_month",
         "key": "last_month",
-        "type": "Option<TornStockPerformanceWindow>",
+        "type": "Nullable<TornStockPerformanceWindow>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12462,7 +12462,7 @@ export const manualModelMetadata = {
       {
         "name": "last_year",
         "key": "last_year",
-        "type": "Option<TornStockPerformanceWindow>",
+        "type": "Nullable<TornStockPerformanceWindow>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12471,7 +12471,7 @@ export const manualModelMetadata = {
       {
         "name": "all_time",
         "key": "all_time",
-        "type": "Option<TornStockPerformanceWindow>",
+        "type": "Nullable<TornStockPerformanceWindow>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12480,7 +12480,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12494,7 +12494,7 @@ export const manualModelMetadata = {
       {
         "name": "change",
         "key": "change",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12503,7 +12503,7 @@ export const manualModelMetadata = {
       {
         "name": "change_percentage",
         "key": "change_percentage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12512,7 +12512,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12521,7 +12521,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12530,7 +12530,7 @@ export const manualModelMetadata = {
       {
         "name": "high",
         "key": "high",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12539,7 +12539,7 @@ export const manualModelMetadata = {
       {
         "name": "low",
         "key": "low",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12548,7 +12548,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12562,7 +12562,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12571,7 +12571,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12580,7 +12580,7 @@ export const manualModelMetadata = {
       {
         "name": "change",
         "key": "change",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12589,7 +12589,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12603,7 +12603,7 @@ export const manualModelMetadata = {
       {
         "name": "target_id",
         "key": "target_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12612,7 +12612,7 @@ export const manualModelMetadata = {
       {
         "name": "target_name",
         "key": "target_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12621,7 +12621,7 @@ export const manualModelMetadata = {
       {
         "name": "target_level",
         "key": "target_level",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12630,7 +12630,7 @@ export const manualModelMetadata = {
       {
         "name": "lister_id",
         "key": "lister_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12639,7 +12639,7 @@ export const manualModelMetadata = {
       {
         "name": "lister_name",
         "key": "lister_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12648,7 +12648,7 @@ export const manualModelMetadata = {
       {
         "name": "reward",
         "key": "reward",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12657,7 +12657,7 @@ export const manualModelMetadata = {
       {
         "name": "reason",
         "key": "reason",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12666,7 +12666,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12675,7 +12675,7 @@ export const manualModelMetadata = {
       {
         "name": "is_anonymous",
         "key": "is_anonymous",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12684,7 +12684,7 @@ export const manualModelMetadata = {
       {
         "name": "valid_until",
         "key": "valid_until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12693,7 +12693,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12707,7 +12707,7 @@ export const manualModelMetadata = {
       {
         "name": "log",
         "key": "log",
-        "type": "Vec<TornAttackLogEntry>",
+        "type": "Array<TornAttackLogEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12716,7 +12716,7 @@ export const manualModelMetadata = {
       {
         "name": "summary",
         "key": "summary",
-        "type": "Vec<TornAttackLogSummary>",
+        "type": "Array<TornAttackLogSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12725,7 +12725,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12739,7 +12739,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12748,7 +12748,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12757,7 +12757,7 @@ export const manualModelMetadata = {
       {
         "name": "hits",
         "key": "hits",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12766,7 +12766,7 @@ export const manualModelMetadata = {
       {
         "name": "misses",
         "key": "misses",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12775,7 +12775,7 @@ export const manualModelMetadata = {
       {
         "name": "damage",
         "key": "damage",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12784,7 +12784,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12798,7 +12798,7 @@ export const manualModelMetadata = {
       {
         "name": "text",
         "key": "text",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12807,7 +12807,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12816,7 +12816,7 @@ export const manualModelMetadata = {
       {
         "name": "action",
         "key": "action",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12825,7 +12825,7 @@ export const manualModelMetadata = {
       {
         "name": "icon",
         "key": "icon",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12834,7 +12834,7 @@ export const manualModelMetadata = {
       {
         "name": "attacker",
         "key": "attacker",
-        "type": "Option<TornAttackParticipant>",
+        "type": "Nullable<TornAttackParticipant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12843,7 +12843,7 @@ export const manualModelMetadata = {
       {
         "name": "defender",
         "key": "defender",
-        "type": "Option<TornAttackParticipant>",
+        "type": "Nullable<TornAttackParticipant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12852,7 +12852,7 @@ export const manualModelMetadata = {
       {
         "name": "attacker_item",
         "key": "attacker_item",
-        "type": "Option<TornAttackItem>",
+        "type": "Nullable<TornAttackItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12861,7 +12861,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12875,7 +12875,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12884,7 +12884,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12893,7 +12893,7 @@ export const manualModelMetadata = {
       {
         "name": "item",
         "key": "item",
-        "type": "Option<TornAttackItem>",
+        "type": "Nullable<TornAttackItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12902,7 +12902,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12916,7 +12916,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12925,7 +12925,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12934,7 +12934,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -12948,7 +12948,7 @@ export const manualModelMetadata = {
       {
         "name": "one_week",
         "key": "1w",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12957,7 +12957,7 @@ export const manualModelMetadata = {
       {
         "name": "two_weeks",
         "key": "2w",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12966,7 +12966,7 @@ export const manualModelMetadata = {
       {
         "name": "one_month",
         "key": "1m",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12975,7 +12975,7 @@ export const manualModelMetadata = {
       {
         "name": "two_months",
         "key": "2m",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12984,7 +12984,7 @@ export const manualModelMetadata = {
       {
         "name": "three_months",
         "key": "3m",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -12993,7 +12993,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13007,7 +13007,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13016,7 +13016,7 @@ export const manualModelMetadata = {
       {
         "name": "short",
         "key": "short",
-        "type": "Option<TornCardShort>",
+        "type": "Nullable<TornCardShort>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13025,7 +13025,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13034,7 +13034,7 @@ export const manualModelMetadata = {
       {
         "name": "css_class",
         "key": "class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13043,7 +13043,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13054,8 +13054,8 @@ export const manualModelMetadata = {
   "TornCardShort": {
     "kind": "union",
     "variants": [
-      "u64",
-      "String"
+      "uint64",
+      "string"
     ]
   },
   "TornCityShop": {
@@ -13064,7 +13064,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13073,7 +13073,7 @@ export const manualModelMetadata = {
       {
         "name": "inventory",
         "key": "inventory",
-        "type": "BTreeMap<String, TornCityShopItem>",
+        "type": "Record<string, TornCityShopItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13082,7 +13082,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13096,7 +13096,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13105,7 +13105,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13114,7 +13114,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13123,7 +13123,7 @@ export const manualModelMetadata = {
       {
         "name": "in_stock",
         "key": "in_stock",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13132,7 +13132,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13146,7 +13146,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13155,7 +13155,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13164,7 +13164,7 @@ export const manualModelMetadata = {
       {
         "name": "default_employees",
         "key": "default_employees",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13173,7 +13173,7 @@ export const manualModelMetadata = {
       {
         "name": "positions",
         "key": "positions",
-        "type": "BTreeMap<String, TornCompanyPosition>",
+        "type": "Record<string, TornCompanyPosition>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13182,7 +13182,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13196,7 +13196,7 @@ export const manualModelMetadata = {
       {
         "name": "man_required",
         "key": "man_required",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13205,7 +13205,7 @@ export const manualModelMetadata = {
       {
         "name": "int_required",
         "key": "int_required",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13214,7 +13214,7 @@ export const manualModelMetadata = {
       {
         "name": "end_required",
         "key": "end_required",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13223,7 +13223,7 @@ export const manualModelMetadata = {
       {
         "name": "man_gain",
         "key": "man_gain",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13232,7 +13232,7 @@ export const manualModelMetadata = {
       {
         "name": "int_gain",
         "key": "int_gain",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13241,7 +13241,7 @@ export const manualModelMetadata = {
       {
         "name": "end_gain",
         "key": "end_gain",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13250,7 +13250,7 @@ export const manualModelMetadata = {
       {
         "name": "special_ability",
         "key": "special_ability",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13259,7 +13259,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13268,7 +13268,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13282,7 +13282,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13291,7 +13291,7 @@ export const manualModelMetadata = {
       {
         "name": "stage",
         "key": "stage",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13300,7 +13300,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13309,7 +13309,7 @@ export const manualModelMetadata = {
       {
         "name": "energy",
         "key": "energy",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13318,7 +13318,7 @@ export const manualModelMetadata = {
       {
         "name": "strength",
         "key": "strength",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13327,7 +13327,7 @@ export const manualModelMetadata = {
       {
         "name": "speed",
         "key": "speed",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13336,7 +13336,7 @@ export const manualModelMetadata = {
       {
         "name": "defense",
         "key": "defense",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13345,7 +13345,7 @@ export const manualModelMetadata = {
       {
         "name": "dexterity",
         "key": "dexterity",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13354,7 +13354,7 @@ export const manualModelMetadata = {
       {
         "name": "note",
         "key": "note",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13363,7 +13363,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13377,7 +13377,7 @@ export const manualModelMetadata = {
       {
         "name": "points_value",
         "key": "points_value",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13386,7 +13386,7 @@ export const manualModelMetadata = {
       {
         "name": "donatorpack_value",
         "key": "donatorpack_value",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13395,7 +13395,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13409,7 +13409,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13418,7 +13418,7 @@ export const manualModelMetadata = {
       {
         "name": "big_blind",
         "key": "big_blind",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13427,7 +13427,7 @@ export const manualModelMetadata = {
       {
         "name": "small_blind",
         "key": "small_blind",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13436,7 +13436,7 @@ export const manualModelMetadata = {
       {
         "name": "speed",
         "key": "speed",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13445,7 +13445,7 @@ export const manualModelMetadata = {
       {
         "name": "current_players",
         "key": "current_players",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13454,7 +13454,7 @@ export const manualModelMetadata = {
       {
         "name": "maximum_players",
         "key": "maximum_players",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13463,7 +13463,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13477,7 +13477,7 @@ export const manualModelMetadata = {
       {
         "name": "armory_id",
         "key": "armoryID",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -13488,7 +13488,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "ID",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -13499,7 +13499,7 @@ export const manualModelMetadata = {
       {
         "name": "sell",
         "key": "sell",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13508,7 +13508,7 @@ export const manualModelMetadata = {
       {
         "name": "qty",
         "key": "Qty",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -13519,7 +13519,7 @@ export const manualModelMetadata = {
       {
         "name": "sell_total",
         "key": "SellTotal",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -13530,7 +13530,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13539,7 +13539,7 @@ export const manualModelMetadata = {
       {
         "name": "type2",
         "key": "type2",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -13550,7 +13550,7 @@ export const manualModelMetadata = {
       {
         "name": "dmg",
         "key": "dmg",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13559,7 +13559,7 @@ export const manualModelMetadata = {
       {
         "name": "damage",
         "key": "damage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13568,7 +13568,7 @@ export const manualModelMetadata = {
       {
         "name": "accuracy",
         "key": "accuracy",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13577,7 +13577,7 @@ export const manualModelMetadata = {
       {
         "name": "acc",
         "key": "acc",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13586,7 +13586,7 @@ export const manualModelMetadata = {
       {
         "name": "arm",
         "key": "arm",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13595,7 +13595,7 @@ export const manualModelMetadata = {
       {
         "name": "weptype",
         "key": "weptype",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -13606,7 +13606,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "UID",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -13617,7 +13617,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13626,7 +13626,7 @@ export const manualModelMetadata = {
       {
         "name": "original_type",
         "key": "originalType",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -13637,7 +13637,7 @@ export const manualModelMetadata = {
       {
         "name": "market_price",
         "key": "market_price",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13646,7 +13646,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Vec<DynamicValue>",
+        "type": "Array<DynamicValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13655,7 +13655,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13669,7 +13669,7 @@ export const manualModelMetadata = {
       {
         "name": "entry_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13678,7 +13678,7 @@ export const manualModelMetadata = {
       {
         "name": "count",
         "key": "count",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13687,7 +13687,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13701,7 +13701,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13710,7 +13710,7 @@ export const manualModelMetadata = {
       {
         "name": "percentage",
         "key": "percentage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13719,7 +13719,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13733,7 +13733,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13742,7 +13742,7 @@ export const manualModelMetadata = {
       {
         "name": "disabled",
         "key": "disabled",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13751,7 +13751,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13761,7 +13761,7 @@ export const manualModelMetadata = {
   },
   "TornDynamicObject": {
     "kind": "alias",
-    "type": "BTreeMap<String, DynamicValue>"
+    "type": "Record<string, DynamicValue>"
   },
   "UserProfileBundle": {
     "kind": "struct",
@@ -13881,7 +13881,7 @@ export const manualModelMetadata = {
       {
         "name": "ammo",
         "key": "ammo",
-        "type": "Vec<UserAmmoItem>",
+        "type": "Array<UserAmmoItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13909,7 +13909,7 @@ export const manualModelMetadata = {
       {
         "name": "equipment",
         "key": "equipment",
-        "type": "Vec<UserEquipmentItem>",
+        "type": "Array<UserEquipmentItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13918,7 +13918,7 @@ export const manualModelMetadata = {
       {
         "name": "clothing",
         "key": "clothing",
-        "type": "Vec<UserClothingItem>",
+        "type": "Array<UserClothingItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13932,7 +13932,7 @@ export const manualModelMetadata = {
       {
         "name": "itemmods",
         "key": "itemmods",
-        "type": "Vec<TornItemMod>",
+        "type": "Array<TornItemMod>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13960,7 +13960,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -13969,7 +13969,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -13997,7 +13997,7 @@ export const manualModelMetadata = {
       {
         "name": "icons",
         "key": "icons",
-        "type": "Vec<UserIcon>",
+        "type": "Array<UserIcon>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14011,7 +14011,7 @@ export const manualModelMetadata = {
       {
         "name": "enlistedcars",
         "key": "enlistedcars",
-        "type": "Vec<UserEnlistedCar>",
+        "type": "Array<UserEnlistedCar>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14025,7 +14025,7 @@ export const manualModelMetadata = {
       {
         "name": "job",
         "key": "job",
-        "type": "Option<UserEmployment>",
+        "type": "Nullable<UserEmployment>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14081,7 +14081,7 @@ export const manualModelMetadata = {
       {
         "name": "skills",
         "key": "skills",
-        "type": "Vec<UserSkill>",
+        "type": "Array<UserSkill>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14095,7 +14095,7 @@ export const manualModelMetadata = {
       {
         "name": "stocks",
         "key": "stocks",
-        "type": "Vec<UserStockHolding>",
+        "type": "Array<UserStockHolding>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14123,7 +14123,7 @@ export const manualModelMetadata = {
       {
         "name": "selections",
         "key": "selections",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14132,7 +14132,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -14146,7 +14146,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_balance",
         "key": "factionBalance",
-        "type": "Option<UserFactionBalance>",
+        "type": "Nullable<UserFactionBalance>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14174,7 +14174,7 @@ export const manualModelMetadata = {
       {
         "name": "competition",
         "key": "competition",
-        "type": "Option<UserCompetition>",
+        "type": "Nullable<UserCompetition>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14188,7 +14188,7 @@ export const manualModelMetadata = {
       {
         "name": "weaponexp",
         "key": "weaponexp",
-        "type": "Vec<UserWeaponExpEntry>",
+        "type": "Array<UserWeaponExpEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14202,7 +14202,7 @@ export const manualModelMetadata = {
       {
         "name": "racingrecords",
         "key": "racingrecords",
-        "type": "Vec<UserRacingRecordSummary>",
+        "type": "Array<UserRacingRecordSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14216,7 +14216,7 @@ export const manualModelMetadata = {
       {
         "name": "honors",
         "key": "honors",
-        "type": "Vec<UserAwardUnlock>",
+        "type": "Array<UserAwardUnlock>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14230,7 +14230,7 @@ export const manualModelMetadata = {
       {
         "name": "medals",
         "key": "medals",
-        "type": "Vec<UserAwardUnlock>",
+        "type": "Array<UserAwardUnlock>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14253,7 +14253,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadataWithTotal>",
+        "type": "Nullable<PaginatedMetadataWithTotal>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14267,7 +14267,7 @@ export const manualModelMetadata = {
       {
         "name": "trades",
         "key": "trades",
-        "type": "Vec<UserTrade>",
+        "type": "Array<UserTrade>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14276,7 +14276,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14318,7 +14318,7 @@ export const manualModelMetadata = {
       {
         "name": "display",
         "key": "display",
-        "type": "Vec<UserLegacyItemSummary>",
+        "type": "Array<UserLegacyItemSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14327,7 +14327,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -14341,7 +14341,7 @@ export const manualModelMetadata = {
       {
         "name": "active_gym",
         "key": "active_gym",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14350,7 +14350,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -14364,7 +14364,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_perks",
         "key": "faction_perks",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14373,7 +14373,7 @@ export const manualModelMetadata = {
       {
         "name": "job_perks",
         "key": "job_perks",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14382,7 +14382,7 @@ export const manualModelMetadata = {
       {
         "name": "property_perks",
         "key": "property_perks",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14391,7 +14391,7 @@ export const manualModelMetadata = {
       {
         "name": "education_perks",
         "key": "education_perks",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14400,7 +14400,7 @@ export const manualModelMetadata = {
       {
         "name": "enhancer_perks",
         "key": "enhancer_perks",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14409,7 +14409,7 @@ export const manualModelMetadata = {
       {
         "name": "book_perks",
         "key": "book_perks",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14418,7 +14418,7 @@ export const manualModelMetadata = {
       {
         "name": "stock_perks",
         "key": "stock_perks",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14427,7 +14427,7 @@ export const manualModelMetadata = {
       {
         "name": "merit_perks",
         "key": "merit_perks",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14436,7 +14436,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -14464,7 +14464,7 @@ export const manualModelMetadata = {
       {
         "name": "bazaar_is_open",
         "key": "bazaar_is_open",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14473,7 +14473,7 @@ export const manualModelMetadata = {
       {
         "name": "bazaar",
         "key": "bazaar",
-        "type": "Vec<UserLegacyItemSummary>",
+        "type": "Array<UserLegacyItemSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14482,7 +14482,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -14496,7 +14496,7 @@ export const manualModelMetadata = {
       {
         "name": "reports",
         "key": "reports",
-        "type": "Vec<UserReportSummary>",
+        "type": "Array<UserReportSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14505,7 +14505,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14533,7 +14533,7 @@ export const manualModelMetadata = {
       {
         "name": "list",
         "key": "list",
-        "type": "Vec<UserListEntry>",
+        "type": "Array<UserListEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14542,7 +14542,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadataWithTotal>",
+        "type": "Nullable<PaginatedMetadataWithTotal>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14556,7 +14556,7 @@ export const manualModelMetadata = {
       {
         "name": "log",
         "key": "log",
-        "type": "Vec<UserLogEntry>",
+        "type": "Array<UserLogEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14565,7 +14565,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14593,7 +14593,7 @@ export const manualModelMetadata = {
       {
         "name": "personalstats",
         "key": "personalstats",
-        "type": "Option<UserPersonalStatsSelection>",
+        "type": "Nullable<UserPersonalStatsSelection>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14607,7 +14607,7 @@ export const manualModelMetadata = {
       {
         "name": "events",
         "key": "events",
-        "type": "Vec<UserEvent>",
+        "type": "Array<UserEvent>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14616,7 +14616,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14630,7 +14630,7 @@ export const manualModelMetadata = {
       {
         "name": "events",
         "key": "events",
-        "type": "Vec<UserEvent>",
+        "type": "Array<UserEvent>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14644,7 +14644,7 @@ export const manualModelMetadata = {
       {
         "name": "messages",
         "key": "messages",
-        "type": "Vec<UserMessage>",
+        "type": "Array<UserMessage>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14653,7 +14653,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14667,7 +14667,7 @@ export const manualModelMetadata = {
       {
         "name": "messages",
         "key": "messages",
-        "type": "Vec<UserMessage>",
+        "type": "Array<UserMessage>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14681,7 +14681,7 @@ export const manualModelMetadata = {
       {
         "name": "races",
         "key": "races",
-        "type": "Vec<UserRace>",
+        "type": "Array<UserRace>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14690,7 +14690,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14704,7 +14704,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Vec<UserAttack>",
+        "type": "Array<UserAttack>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14713,7 +14713,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14727,7 +14727,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Vec<UserAttackFull>",
+        "type": "Array<UserAttackFull>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14736,7 +14736,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14750,7 +14750,7 @@ export const manualModelMetadata = {
       {
         "name": "revives",
         "key": "revives",
-        "type": "Vec<UserRevive>",
+        "type": "Array<UserRevive>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14759,7 +14759,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14773,7 +14773,7 @@ export const manualModelMetadata = {
       {
         "name": "revives",
         "key": "revives",
-        "type": "Vec<UserReviveFull>",
+        "type": "Array<UserReviveFull>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14782,7 +14782,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14810,7 +14810,7 @@ export const manualModelMetadata = {
       {
         "name": "bounties",
         "key": "bounties",
-        "type": "Vec<UserBounty>",
+        "type": "Array<UserBounty>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14819,7 +14819,7 @@ export const manualModelMetadata = {
       {
         "name": "bounties_timestamp",
         "key": "bounties_timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14828,7 +14828,7 @@ export const manualModelMetadata = {
       {
         "name": "bounties_delay",
         "key": "bounties_delay",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14842,7 +14842,7 @@ export const manualModelMetadata = {
       {
         "name": "properties",
         "key": "properties",
-        "type": "Vec<UserPropertySummary>",
+        "type": "Array<UserPropertySummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14851,7 +14851,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14879,7 +14879,7 @@ export const manualModelMetadata = {
       {
         "name": "forum_threads",
         "key": "forumThreads",
-        "type": "Vec<ForumThread>",
+        "type": "Array<ForumThread>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14888,7 +14888,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14902,7 +14902,7 @@ export const manualModelMetadata = {
       {
         "name": "forum_posts",
         "key": "forumPosts",
-        "type": "Vec<ForumPost>",
+        "type": "Array<ForumPost>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14911,7 +14911,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14925,7 +14925,7 @@ export const manualModelMetadata = {
       {
         "name": "forum_subscribed_threads",
         "key": "forumSubscribedThreads",
-        "type": "Vec<UserForumSubscribedThread>",
+        "type": "Array<UserForumSubscribedThread>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14939,7 +14939,7 @@ export const manualModelMetadata = {
       {
         "name": "forum_feed",
         "key": "forumFeed",
-        "type": "Vec<UserForumFeedEntry>",
+        "type": "Array<UserForumFeedEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14953,7 +14953,7 @@ export const manualModelMetadata = {
       {
         "name": "forum_friends",
         "key": "forumFriends",
-        "type": "Vec<UserForumFeedEntry>",
+        "type": "Array<UserForumFeedEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -14995,7 +14995,7 @@ export const manualModelMetadata = {
       {
         "name": "itemmarket",
         "key": "itemmarket",
-        "type": "Vec<UserItemMarketListing>",
+        "type": "Array<UserItemMarketListing>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15004,7 +15004,7 @@ export const manualModelMetadata = {
       {
         "name": "_metadata",
         "key": "_metadata",
-        "type": "Option<PaginatedMetadata>",
+        "type": "Nullable<PaginatedMetadata>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15018,7 +15018,7 @@ export const manualModelMetadata = {
       {
         "name": "organized_crime",
         "key": "organizedCrime",
-        "type": "Option<UserOrganizedCrimeSelection>",
+        "type": "Nullable<UserOrganizedCrimeSelection>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15032,7 +15032,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "ID",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -15043,7 +15043,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "UID",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -15054,7 +15054,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15063,7 +15063,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15072,7 +15072,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15081,7 +15081,7 @@ export const manualModelMetadata = {
       {
         "name": "circulation",
         "key": "circulation",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15090,7 +15090,7 @@ export const manualModelMetadata = {
       {
         "name": "market_price",
         "key": "market_price",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15099,7 +15099,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15108,7 +15108,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15122,7 +15122,7 @@ export const manualModelMetadata = {
       {
         "name": "vandalism",
         "key": "vandalism",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15131,7 +15131,7 @@ export const manualModelMetadata = {
       {
         "name": "theft",
         "key": "theft",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15140,7 +15140,7 @@ export const manualModelMetadata = {
       {
         "name": "counterfeiting",
         "key": "counterfeiting",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15149,7 +15149,7 @@ export const manualModelMetadata = {
       {
         "name": "fraud",
         "key": "fraud",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15158,7 +15158,7 @@ export const manualModelMetadata = {
       {
         "name": "illicitservices",
         "key": "illicitservices",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15167,7 +15167,7 @@ export const manualModelMetadata = {
       {
         "name": "cybercrime",
         "key": "cybercrime",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15176,7 +15176,7 @@ export const manualModelMetadata = {
       {
         "name": "extortion",
         "key": "extortion",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15185,7 +15185,7 @@ export const manualModelMetadata = {
       {
         "name": "illegalproduction",
         "key": "illegalproduction",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15194,7 +15194,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15203,7 +15203,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15217,7 +15217,7 @@ export const manualModelMetadata = {
       {
         "name": "report_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15226,7 +15226,7 @@ export const manualModelMetadata = {
       {
         "name": "target_id",
         "key": "target_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15235,7 +15235,7 @@ export const manualModelMetadata = {
       {
         "name": "reporter_id",
         "key": "reporter_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15244,7 +15244,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15253,7 +15253,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15271,7 +15271,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15285,7 +15285,7 @@ export const manualModelMetadata = {
       {
         "name": "nerve_spent",
         "key": "nerve_spent",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15294,7 +15294,7 @@ export const manualModelMetadata = {
       {
         "name": "skill",
         "key": "skill",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15303,7 +15303,7 @@ export const manualModelMetadata = {
       {
         "name": "progression_bonus",
         "key": "progression_bonus",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15312,7 +15312,7 @@ export const manualModelMetadata = {
       {
         "name": "rewards",
         "key": "rewards",
-        "type": "Option<UserCrimeRewards>",
+        "type": "Nullable<UserCrimeRewards>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15321,7 +15321,7 @@ export const manualModelMetadata = {
       {
         "name": "attempts",
         "key": "attempts",
-        "type": "Option<UserCrimeAttempts>",
+        "type": "Nullable<UserCrimeAttempts>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15330,7 +15330,7 @@ export const manualModelMetadata = {
       {
         "name": "uniques",
         "key": "uniques",
-        "type": "Vec<UserCrimeUnique>",
+        "type": "Array<UserCrimeUnique>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15339,7 +15339,7 @@ export const manualModelMetadata = {
       {
         "name": "miscellaneous",
         "key": "miscellaneous",
-        "type": "Option<UserCrimeMiscellaneous>",
+        "type": "Nullable<UserCrimeMiscellaneous>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15348,7 +15348,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15362,7 +15362,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15371,7 +15371,7 @@ export const manualModelMetadata = {
       {
         "name": "ammo",
         "key": "ammo",
-        "type": "Option<UserCrimeRewardAmmo>",
+        "type": "Nullable<UserCrimeRewardAmmo>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15380,7 +15380,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<UserCrimeRewardItem>",
+        "type": "Array<UserCrimeRewardItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15389,7 +15389,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15403,7 +15403,7 @@ export const manualModelMetadata = {
       {
         "name": "standard",
         "key": "standard",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15412,7 +15412,7 @@ export const manualModelMetadata = {
       {
         "name": "special",
         "key": "special",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15421,7 +15421,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15435,7 +15435,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15444,7 +15444,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -15456,7 +15456,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15470,7 +15470,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15479,7 +15479,7 @@ export const manualModelMetadata = {
       {
         "name": "success",
         "key": "success",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15488,7 +15488,7 @@ export const manualModelMetadata = {
       {
         "name": "fail",
         "key": "fail",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15497,7 +15497,7 @@ export const manualModelMetadata = {
       {
         "name": "critical_fail",
         "key": "critical_fail",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15506,7 +15506,7 @@ export const manualModelMetadata = {
       {
         "name": "subcrimes",
         "key": "subcrimes",
-        "type": "Vec<UserCrimeAttemptSubcrime>",
+        "type": "Array<UserCrimeAttemptSubcrime>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15515,7 +15515,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15529,7 +15529,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15538,7 +15538,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15547,7 +15547,7 @@ export const manualModelMetadata = {
       {
         "name": "success",
         "key": "success",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15556,7 +15556,7 @@ export const manualModelMetadata = {
       {
         "name": "fail",
         "key": "fail",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15565,7 +15565,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15579,7 +15579,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15588,7 +15588,7 @@ export const manualModelMetadata = {
       {
         "name": "rewards",
         "key": "rewards",
-        "type": "Option<UserCrimeUniqueRewards>",
+        "type": "Nullable<UserCrimeUniqueRewards>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15597,7 +15597,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15611,7 +15611,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15620,7 +15620,7 @@ export const manualModelMetadata = {
       {
         "name": "ammo",
         "key": "ammo",
-        "type": "Option<UserCrimeRewardAmmo>",
+        "type": "Nullable<UserCrimeRewardAmmo>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15629,7 +15629,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<UserCrimeRewardItem>",
+        "type": "Array<UserCrimeRewardItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15638,7 +15638,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15652,7 +15652,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15661,7 +15661,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15670,7 +15670,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15679,7 +15679,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15688,7 +15688,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<UserStatus>",
+        "type": "Nullable<UserStatus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15697,7 +15697,7 @@ export const manualModelMetadata = {
       {
         "name": "last_action",
         "key": "last_action",
-        "type": "Option<UserLastAction>",
+        "type": "Nullable<UserLastAction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15706,7 +15706,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15720,7 +15720,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15729,7 +15729,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15738,7 +15738,7 @@ export const manualModelMetadata = {
       {
         "name": "details",
         "key": "details",
-        "type": "Option<UserLogDetails>",
+        "type": "Nullable<UserLogDetails>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15765,7 +15765,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15779,7 +15779,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15788,7 +15788,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15797,7 +15797,7 @@ export const manualModelMetadata = {
       {
         "name": "category",
         "key": "category",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15806,7 +15806,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15820,7 +15820,7 @@ export const manualModelMetadata = {
       {
         "name": "fields",
         "key": "fields",
-        "type": "BTreeMap<String, DynamicValue>",
+        "type": "Record<string, DynamicValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15834,7 +15834,7 @@ export const manualModelMetadata = {
       {
         "name": "fields",
         "key": "fields",
-        "type": "BTreeMap<String, DynamicValue>",
+        "type": "Record<string, DynamicValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -15848,7 +15848,7 @@ export const manualModelMetadata = {
       {
         "name": "pending",
         "key": "pending",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15857,7 +15857,7 @@ export const manualModelMetadata = {
       {
         "name": "wallet",
         "key": "wallet",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15866,7 +15866,7 @@ export const manualModelMetadata = {
       {
         "name": "bank",
         "key": "bank",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15875,7 +15875,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15884,7 +15884,7 @@ export const manualModelMetadata = {
       {
         "name": "cayman",
         "key": "cayman",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15893,7 +15893,7 @@ export const manualModelMetadata = {
       {
         "name": "vault",
         "key": "vault",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15902,7 +15902,7 @@ export const manualModelMetadata = {
       {
         "name": "piggybank",
         "key": "piggybank",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15911,7 +15911,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15920,7 +15920,7 @@ export const manualModelMetadata = {
       {
         "name": "displaycase",
         "key": "displaycase",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15929,7 +15929,7 @@ export const manualModelMetadata = {
       {
         "name": "bazaar",
         "key": "bazaar",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15938,7 +15938,7 @@ export const manualModelMetadata = {
       {
         "name": "trade",
         "key": "trade",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15947,7 +15947,7 @@ export const manualModelMetadata = {
       {
         "name": "itemmarket",
         "key": "itemmarket",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15956,7 +15956,7 @@ export const manualModelMetadata = {
       {
         "name": "properties",
         "key": "properties",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15965,7 +15965,7 @@ export const manualModelMetadata = {
       {
         "name": "stockmarket",
         "key": "stockmarket",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15974,7 +15974,7 @@ export const manualModelMetadata = {
       {
         "name": "auctionhouse",
         "key": "auctionhouse",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15983,7 +15983,7 @@ export const manualModelMetadata = {
       {
         "name": "company",
         "key": "company",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -15992,7 +15992,7 @@ export const manualModelMetadata = {
       {
         "name": "bookie",
         "key": "bookie",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16001,7 +16001,7 @@ export const manualModelMetadata = {
       {
         "name": "enlistedcars",
         "key": "enlistedcars",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16010,7 +16010,7 @@ export const manualModelMetadata = {
       {
         "name": "loan",
         "key": "loan",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16019,7 +16019,7 @@ export const manualModelMetadata = {
       {
         "name": "unpaidfees",
         "key": "unpaidfees",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16028,7 +16028,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16037,7 +16037,7 @@ export const manualModelMetadata = {
       {
         "name": "parsetime",
         "key": "parsetime",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16046,7 +16046,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16055,7 +16055,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16066,9 +16066,9 @@ export const manualModelMetadata = {
   "UserPersonalStatsSelection": {
     "kind": "union",
     "variants": [
-      "Box<UserPersonalStatsCategory>",
-      "Vec<UserPersonalStatPoint>",
-      "Value"
+      "UserPersonalStatsCategory",
+      "Array<UserPersonalStatPoint>",
+      "JsonValue"
     ]
   },
   "UserPersonalStatsCategory": {
@@ -16077,7 +16077,7 @@ export const manualModelMetadata = {
       {
         "name": "attacking",
         "key": "attacking",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16086,7 +16086,7 @@ export const manualModelMetadata = {
       {
         "name": "jobs",
         "key": "jobs",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16095,7 +16095,7 @@ export const manualModelMetadata = {
       {
         "name": "hospital",
         "key": "hospital",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16104,7 +16104,7 @@ export const manualModelMetadata = {
       {
         "name": "crimes",
         "key": "crimes",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16113,7 +16113,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16122,7 +16122,7 @@ export const manualModelMetadata = {
       {
         "name": "travel",
         "key": "travel",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16131,7 +16131,7 @@ export const manualModelMetadata = {
       {
         "name": "drugs",
         "key": "drugs",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16140,7 +16140,7 @@ export const manualModelMetadata = {
       {
         "name": "networth",
         "key": "networth",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16149,7 +16149,7 @@ export const manualModelMetadata = {
       {
         "name": "other",
         "key": "other",
-        "type": "Option<UserPersonalStatsBucket>",
+        "type": "Nullable<UserPersonalStatsBucket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16158,7 +16158,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16172,7 +16172,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "BTreeMap<String, DynamicValue>",
+        "type": "Record<string, DynamicValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16186,7 +16186,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16195,7 +16195,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16204,7 +16204,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16213,7 +16213,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16227,7 +16227,7 @@ export const manualModelMetadata = {
       {
         "name": "donator_status",
         "key": "donator_status",
-        "type": "Option<crate::models::generated::openapi::UserDonatorStatusEnum>",
+        "type": "Nullable<Generated.UserDonatorStatusEnum>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16236,7 +16236,7 @@ export const manualModelMetadata = {
       {
         "name": "revive_setting",
         "key": "revive_setting",
-        "type": "Option<crate::models::generated::openapi::ReviveSetting>",
+        "type": "Nullable<Generated.ReviveSetting>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16245,7 +16245,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16254,7 +16254,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16263,7 +16263,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16272,7 +16272,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16281,7 +16281,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16290,7 +16290,7 @@ export const manualModelMetadata = {
       {
         "name": "age",
         "key": "age",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16299,7 +16299,7 @@ export const manualModelMetadata = {
       {
         "name": "karma",
         "key": "karma",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16308,7 +16308,7 @@ export const manualModelMetadata = {
       {
         "name": "revivable",
         "key": "revivable",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16317,7 +16317,7 @@ export const manualModelMetadata = {
       {
         "name": "life",
         "key": "life",
-        "type": "Option<UserLifeBar>",
+        "type": "Nullable<UserLifeBar>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16326,7 +16326,7 @@ export const manualModelMetadata = {
       {
         "name": "last_action",
         "key": "last_action",
-        "type": "Option<UserLastAction>",
+        "type": "Nullable<UserLastAction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16335,7 +16335,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16349,7 +16349,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16358,7 +16358,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16367,7 +16367,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16376,7 +16376,7 @@ export const manualModelMetadata = {
       {
         "name": "gender",
         "key": "gender",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16385,7 +16385,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<UserStatus>",
+        "type": "Nullable<UserStatus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16394,7 +16394,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16408,7 +16408,7 @@ export const manualModelMetadata = {
       {
         "name": "state",
         "key": "state",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16417,7 +16417,7 @@ export const manualModelMetadata = {
       {
         "name": "color",
         "key": "color",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16426,7 +16426,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16435,7 +16435,7 @@ export const manualModelMetadata = {
       {
         "name": "details",
         "key": "details",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16444,7 +16444,7 @@ export const manualModelMetadata = {
       {
         "name": "plane_image_type",
         "key": "plane_image_type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16453,7 +16453,7 @@ export const manualModelMetadata = {
       {
         "name": "until",
         "key": "until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16462,7 +16462,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16476,7 +16476,7 @@ export const manualModelMetadata = {
       {
         "name": "discord_id",
         "key": "discord_id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -16487,7 +16487,7 @@ export const manualModelMetadata = {
       {
         "name": "user_id",
         "key": "user_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16496,7 +16496,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16510,7 +16510,7 @@ export const manualModelMetadata = {
       {
         "name": "tokens",
         "key": "tokens",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16519,7 +16519,7 @@ export const manualModelMetadata = {
       {
         "name": "streak",
         "key": "streak",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16528,7 +16528,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16542,7 +16542,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16551,7 +16551,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16560,7 +16560,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16569,7 +16569,7 @@ export const manualModelMetadata = {
       {
         "name": "tag",
         "key": "tag",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16578,7 +16578,7 @@ export const manualModelMetadata = {
       {
         "name": "tag_image",
         "key": "tag_image",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16587,7 +16587,7 @@ export const manualModelMetadata = {
       {
         "name": "days_in_faction",
         "key": "days_in_faction",
-        "type": "Option<u32>",
+        "type": "Nullable<uint32>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16596,7 +16596,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16610,7 +16610,7 @@ export const manualModelMetadata = {
       {
         "name": "wallet",
         "key": "wallet",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16619,7 +16619,7 @@ export const manualModelMetadata = {
       {
         "name": "vault",
         "key": "vault",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16628,7 +16628,7 @@ export const manualModelMetadata = {
       {
         "name": "company",
         "key": "company",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16637,7 +16637,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16646,7 +16646,7 @@ export const manualModelMetadata = {
       {
         "name": "cayman_bank",
         "key": "cayman_bank",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16655,7 +16655,7 @@ export const manualModelMetadata = {
       {
         "name": "daily_networth",
         "key": "daily_networth",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16664,7 +16664,7 @@ export const manualModelMetadata = {
       {
         "name": "city_bank",
         "key": "city_bank",
-        "type": "Option<UserCityBank>",
+        "type": "Nullable<UserCityBank>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16673,7 +16673,7 @@ export const manualModelMetadata = {
       {
         "name": "faction",
         "key": "faction",
-        "type": "Option<UserFactionMoney>",
+        "type": "Nullable<UserFactionMoney>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16682,7 +16682,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16696,7 +16696,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16705,7 +16705,7 @@ export const manualModelMetadata = {
       {
         "name": "duration",
         "key": "duration",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16714,7 +16714,7 @@ export const manualModelMetadata = {
       {
         "name": "interest_rate",
         "key": "interest_rate",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16723,7 +16723,7 @@ export const manualModelMetadata = {
       {
         "name": "invested_at",
         "key": "invested_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16732,7 +16732,7 @@ export const manualModelMetadata = {
       {
         "name": "profit",
         "key": "profit",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16741,7 +16741,7 @@ export const manualModelMetadata = {
       {
         "name": "until",
         "key": "until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16750,7 +16750,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16764,7 +16764,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16773,7 +16773,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16782,7 +16782,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16796,7 +16796,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16805,7 +16805,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16814,7 +16814,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16823,7 +16823,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16832,7 +16832,7 @@ export const manualModelMetadata = {
       {
         "name": "sub_type",
         "key": "sub_type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16841,7 +16841,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Option<UserItemMarketItemStats>",
+        "type": "Nullable<UserItemMarketItemStats>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16850,7 +16850,7 @@ export const manualModelMetadata = {
       {
         "name": "bonuses",
         "key": "bonuses",
-        "type": "Vec<UserItemMarketItemBonus>",
+        "type": "Array<UserItemMarketItemBonus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16859,7 +16859,7 @@ export const manualModelMetadata = {
       {
         "name": "rarity",
         "key": "rarity",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16868,7 +16868,7 @@ export const manualModelMetadata = {
       {
         "name": "slot",
         "key": "slot",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16877,7 +16877,7 @@ export const manualModelMetadata = {
       {
         "name": "ammo",
         "key": "ammo",
-        "type": "Option<UserEquipmentAmmo>",
+        "type": "Nullable<UserEquipmentAmmo>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -16888,7 +16888,7 @@ export const manualModelMetadata = {
       {
         "name": "mods",
         "key": "mods",
-        "type": "Vec<UserEquipmentMod>",
+        "type": "Array<UserEquipmentMod>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -16899,7 +16899,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16913,7 +16913,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16922,7 +16922,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16931,7 +16931,7 @@ export const manualModelMetadata = {
       {
         "name": "ammo_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16940,7 +16940,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16949,7 +16949,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -16963,7 +16963,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16972,7 +16972,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16981,7 +16981,7 @@ export const manualModelMetadata = {
       {
         "name": "image",
         "key": "image",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16990,7 +16990,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -16999,7 +16999,7 @@ export const manualModelMetadata = {
       {
         "name": "dual_fit",
         "key": "dual_fit",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17008,7 +17008,7 @@ export const manualModelMetadata = {
       {
         "name": "weapons",
         "key": "weapons",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17017,7 +17017,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17031,7 +17031,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17040,7 +17040,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17049,7 +17049,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17058,7 +17058,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17067,7 +17067,7 @@ export const manualModelMetadata = {
       {
         "name": "sub_type",
         "key": "sub_type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17076,7 +17076,7 @@ export const manualModelMetadata = {
       {
         "name": "slot",
         "key": "slot",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17085,7 +17085,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17099,7 +17099,7 @@ export const manualModelMetadata = {
       {
         "name": "energy",
         "key": "energy",
-        "type": "Option<UserResourceBar>",
+        "type": "Nullable<UserResourceBar>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17108,7 +17108,7 @@ export const manualModelMetadata = {
       {
         "name": "happy",
         "key": "happy",
-        "type": "Option<UserResourceBar>",
+        "type": "Nullable<UserResourceBar>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17117,7 +17117,7 @@ export const manualModelMetadata = {
       {
         "name": "life",
         "key": "life",
-        "type": "Option<UserLifeBar>",
+        "type": "Nullable<UserLifeBar>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17126,7 +17126,7 @@ export const manualModelMetadata = {
       {
         "name": "nerve",
         "key": "nerve",
-        "type": "Option<UserResourceBar>",
+        "type": "Nullable<UserResourceBar>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17135,7 +17135,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<UserChainBar>",
+        "type": "Nullable<UserChainBar>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17144,7 +17144,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17158,7 +17158,7 @@ export const manualModelMetadata = {
       {
         "name": "increment",
         "key": "increment",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17167,7 +17167,7 @@ export const manualModelMetadata = {
       {
         "name": "interval",
         "key": "interval",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17176,7 +17176,7 @@ export const manualModelMetadata = {
       {
         "name": "tick_time",
         "key": "tick_time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17185,7 +17185,7 @@ export const manualModelMetadata = {
       {
         "name": "full_time",
         "key": "full_time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17194,7 +17194,7 @@ export const manualModelMetadata = {
       {
         "name": "current",
         "key": "current",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17203,7 +17203,7 @@ export const manualModelMetadata = {
       {
         "name": "maximum",
         "key": "maximum",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17212,7 +17212,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17226,7 +17226,7 @@ export const manualModelMetadata = {
       {
         "name": "increment",
         "key": "increment",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17235,7 +17235,7 @@ export const manualModelMetadata = {
       {
         "name": "interval",
         "key": "interval",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17244,7 +17244,7 @@ export const manualModelMetadata = {
       {
         "name": "tick_time",
         "key": "tick_time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17253,7 +17253,7 @@ export const manualModelMetadata = {
       {
         "name": "full_time",
         "key": "full_time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17262,7 +17262,7 @@ export const manualModelMetadata = {
       {
         "name": "current",
         "key": "current",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17271,7 +17271,7 @@ export const manualModelMetadata = {
       {
         "name": "maximum",
         "key": "maximum",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17280,7 +17280,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17294,7 +17294,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17303,7 +17303,7 @@ export const manualModelMetadata = {
       {
         "name": "current",
         "key": "current",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17312,7 +17312,7 @@ export const manualModelMetadata = {
       {
         "name": "max",
         "key": "max",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17321,7 +17321,7 @@ export const manualModelMetadata = {
       {
         "name": "modifier",
         "key": "modifier",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17330,7 +17330,7 @@ export const manualModelMetadata = {
       {
         "name": "cooldown",
         "key": "cooldown",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17339,7 +17339,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17348,7 +17348,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17357,7 +17357,7 @@ export const manualModelMetadata = {
       {
         "name": "timeout",
         "key": "timeout",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17366,7 +17366,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17380,7 +17380,7 @@ export const manualModelMetadata = {
       {
         "name": "booster",
         "key": "booster",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17389,7 +17389,7 @@ export const manualModelMetadata = {
       {
         "name": "drug",
         "key": "drug",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17398,7 +17398,7 @@ export const manualModelMetadata = {
       {
         "name": "medical",
         "key": "medical",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17407,7 +17407,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17421,7 +17421,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17430,7 +17430,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17439,7 +17439,7 @@ export const manualModelMetadata = {
       {
         "name": "types",
         "key": "types",
-        "type": "Vec<UserAmmoVariant>",
+        "type": "Array<UserAmmoVariant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17448,7 +17448,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17462,7 +17462,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17471,7 +17471,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17480,7 +17480,7 @@ export const manualModelMetadata = {
       {
         "name": "equipped",
         "key": "equipped",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17489,7 +17489,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17503,7 +17503,7 @@ export const manualModelMetadata = {
       {
         "name": "strength",
         "key": "strength",
-        "type": "Option<UserBattleStat>",
+        "type": "Nullable<UserBattleStat>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17512,7 +17512,7 @@ export const manualModelMetadata = {
       {
         "name": "defense",
         "key": "defense",
-        "type": "Option<UserBattleStat>",
+        "type": "Nullable<UserBattleStat>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17521,7 +17521,7 @@ export const manualModelMetadata = {
       {
         "name": "speed",
         "key": "speed",
-        "type": "Option<UserBattleStat>",
+        "type": "Nullable<UserBattleStat>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17530,7 +17530,7 @@ export const manualModelMetadata = {
       {
         "name": "dexterity",
         "key": "dexterity",
-        "type": "Option<UserBattleStat>",
+        "type": "Nullable<UserBattleStat>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17539,7 +17539,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17548,7 +17548,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17562,7 +17562,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17571,7 +17571,7 @@ export const manualModelMetadata = {
       {
         "name": "modifier",
         "key": "modifier",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17580,7 +17580,7 @@ export const manualModelMetadata = {
       {
         "name": "modifiers",
         "key": "modifiers",
-        "type": "Vec<UserBattleStatModifier>",
+        "type": "Array<UserBattleStatModifier>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17589,7 +17589,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17603,7 +17603,7 @@ export const manualModelMetadata = {
       {
         "name": "effect",
         "key": "effect",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17612,7 +17612,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17621,7 +17621,7 @@ export const manualModelMetadata = {
       {
         "name": "modifier_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17630,7 +17630,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17644,7 +17644,7 @@ export const manualModelMetadata = {
       {
         "name": "messages",
         "key": "messages",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17653,7 +17653,7 @@ export const manualModelMetadata = {
       {
         "name": "events",
         "key": "events",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17662,7 +17662,7 @@ export const manualModelMetadata = {
       {
         "name": "awards",
         "key": "awards",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17671,7 +17671,7 @@ export const manualModelMetadata = {
       {
         "name": "competition",
         "key": "competition",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17680,7 +17680,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17694,7 +17694,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17703,7 +17703,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17712,7 +17712,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17721,7 +17721,7 @@ export const manualModelMetadata = {
       {
         "name": "until",
         "key": "until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17730,7 +17730,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17744,7 +17744,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17753,7 +17753,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_id",
         "key": "car_item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17762,7 +17762,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_name",
         "key": "car_item_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17771,7 +17771,7 @@ export const manualModelMetadata = {
       {
         "name": "car_name",
         "key": "car_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -17782,7 +17782,7 @@ export const manualModelMetadata = {
       {
         "name": "top_speed",
         "key": "top_speed",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17791,7 +17791,7 @@ export const manualModelMetadata = {
       {
         "name": "acceleration",
         "key": "acceleration",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17800,7 +17800,7 @@ export const manualModelMetadata = {
       {
         "name": "braking",
         "key": "braking",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17809,7 +17809,7 @@ export const manualModelMetadata = {
       {
         "name": "dirt",
         "key": "dirt",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17818,7 +17818,7 @@ export const manualModelMetadata = {
       {
         "name": "handling",
         "key": "handling",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17827,7 +17827,7 @@ export const manualModelMetadata = {
       {
         "name": "safety",
         "key": "safety",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17836,7 +17836,7 @@ export const manualModelMetadata = {
       {
         "name": "tarmac",
         "key": "tarmac",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17845,7 +17845,7 @@ export const manualModelMetadata = {
       {
         "name": "car_class",
         "key": "class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17854,7 +17854,7 @@ export const manualModelMetadata = {
       {
         "name": "worth",
         "key": "worth",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17863,7 +17863,7 @@ export const manualModelMetadata = {
       {
         "name": "points_spent",
         "key": "points_spent",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17872,7 +17872,7 @@ export const manualModelMetadata = {
       {
         "name": "races_entered",
         "key": "races_entered",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17881,7 +17881,7 @@ export const manualModelMetadata = {
       {
         "name": "races_won",
         "key": "races_won",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17890,7 +17890,7 @@ export const manualModelMetadata = {
       {
         "name": "is_removed",
         "key": "is_removed",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17899,7 +17899,7 @@ export const manualModelMetadata = {
       {
         "name": "parts",
         "key": "parts",
-        "type": "Vec<u64>",
+        "type": "Array<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17908,7 +17908,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17930,7 +17930,7 @@ export const manualModelMetadata = {
       {
         "name": "job_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17939,7 +17939,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17948,7 +17948,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17957,7 +17957,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -17971,7 +17971,7 @@ export const manualModelMetadata = {
       {
         "name": "job_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17980,7 +17980,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17989,7 +17989,7 @@ export const manualModelMetadata = {
       {
         "name": "type_id",
         "key": "type_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -17998,7 +17998,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18007,7 +18007,7 @@ export const manualModelMetadata = {
       {
         "name": "rating",
         "key": "rating",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18016,7 +18016,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18025,7 +18025,7 @@ export const manualModelMetadata = {
       {
         "name": "days_in_company",
         "key": "days_in_company",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18034,7 +18034,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18048,7 +18048,7 @@ export const manualModelMetadata = {
       {
         "name": "job_type",
         "key": "job_type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -18057,7 +18057,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -18071,7 +18071,7 @@ export const manualModelMetadata = {
       {
         "name": "jobs",
         "key": "jobs",
-        "type": "Option<UserJobPointTotals>",
+        "type": "Nullable<UserJobPointTotals>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18080,7 +18080,7 @@ export const manualModelMetadata = {
       {
         "name": "companies",
         "key": "companies",
-        "type": "Vec<UserCompanyPoints>",
+        "type": "Array<UserCompanyPoints>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18089,7 +18089,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18103,7 +18103,7 @@ export const manualModelMetadata = {
       {
         "name": "army",
         "key": "army",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18112,7 +18112,7 @@ export const manualModelMetadata = {
       {
         "name": "casino",
         "key": "casino",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18121,7 +18121,7 @@ export const manualModelMetadata = {
       {
         "name": "education",
         "key": "education",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18130,7 +18130,7 @@ export const manualModelMetadata = {
       {
         "name": "grocer",
         "key": "grocer",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18139,7 +18139,7 @@ export const manualModelMetadata = {
       {
         "name": "law",
         "key": "law",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18148,7 +18148,7 @@ export const manualModelMetadata = {
       {
         "name": "medical",
         "key": "medical",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18157,7 +18157,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18171,7 +18171,7 @@ export const manualModelMetadata = {
       {
         "name": "company",
         "key": "company",
-        "type": "Option<UserCompanyPointCompany>",
+        "type": "Nullable<UserCompanyPointCompany>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18180,7 +18180,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18189,7 +18189,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18203,7 +18203,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18212,7 +18212,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18221,7 +18221,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18235,7 +18235,7 @@ export const manualModelMetadata = {
       {
         "name": "army",
         "key": "army",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18244,7 +18244,7 @@ export const manualModelMetadata = {
       {
         "name": "grocer",
         "key": "grocer",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18253,7 +18253,7 @@ export const manualModelMetadata = {
       {
         "name": "casino",
         "key": "casino",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18262,7 +18262,7 @@ export const manualModelMetadata = {
       {
         "name": "medical",
         "key": "medical",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18271,7 +18271,7 @@ export const manualModelMetadata = {
       {
         "name": "law",
         "key": "law",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18280,7 +18280,7 @@ export const manualModelMetadata = {
       {
         "name": "education",
         "key": "education",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18289,7 +18289,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18303,7 +18303,7 @@ export const manualModelMetadata = {
       {
         "name": "energy",
         "key": "energy",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18312,7 +18312,7 @@ export const manualModelMetadata = {
       {
         "name": "nerve",
         "key": "nerve",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18321,7 +18321,7 @@ export const manualModelMetadata = {
       {
         "name": "token",
         "key": "token",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18330,7 +18330,7 @@ export const manualModelMetadata = {
       {
         "name": "special_count",
         "key": "special_count",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18339,7 +18339,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18353,7 +18353,7 @@ export const manualModelMetadata = {
       {
         "name": "slug",
         "key": "slug",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18362,7 +18362,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18371,7 +18371,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18380,7 +18380,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18394,7 +18394,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18403,7 +18403,7 @@ export const manualModelMetadata = {
       {
         "name": "shares",
         "key": "shares",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18412,7 +18412,7 @@ export const manualModelMetadata = {
       {
         "name": "transactions",
         "key": "transactions",
-        "type": "Vec<UserStockTransaction>",
+        "type": "Array<UserStockTransaction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18421,7 +18421,7 @@ export const manualModelMetadata = {
       {
         "name": "bonus",
         "key": "bonus",
-        "type": "Option<UserStockBonus>",
+        "type": "Nullable<UserStockBonus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18430,7 +18430,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18444,7 +18444,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18453,7 +18453,7 @@ export const manualModelMetadata = {
       {
         "name": "shares",
         "key": "shares",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18462,7 +18462,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18471,7 +18471,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18480,7 +18480,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18494,7 +18494,7 @@ export const manualModelMetadata = {
       {
         "name": "available",
         "key": "available",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18503,7 +18503,7 @@ export const manualModelMetadata = {
       {
         "name": "increment",
         "key": "increment",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18512,7 +18512,7 @@ export const manualModelMetadata = {
       {
         "name": "progress",
         "key": "progress",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18521,7 +18521,7 @@ export const manualModelMetadata = {
       {
         "name": "frequency",
         "key": "frequency",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18530,7 +18530,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18544,7 +18544,7 @@ export const manualModelMetadata = {
       {
         "name": "start_time",
         "key": "start_time",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18553,7 +18553,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18567,7 +18567,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18576,7 +18576,7 @@ export const manualModelMetadata = {
       {
         "name": "points",
         "key": "points",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18585,7 +18585,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18599,7 +18599,7 @@ export const manualModelMetadata = {
       {
         "name": "credits",
         "key": "credits",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18608,7 +18608,7 @@ export const manualModelMetadata = {
       {
         "name": "givers",
         "key": "givers",
-        "type": "Vec<UserMissionGiver>",
+        "type": "Array<UserMissionGiver>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18617,7 +18617,7 @@ export const manualModelMetadata = {
       {
         "name": "rewards",
         "key": "rewards",
-        "type": "Vec<UserMissionReward>",
+        "type": "Array<UserMissionReward>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18626,7 +18626,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18640,7 +18640,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18649,7 +18649,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18658,7 +18658,7 @@ export const manualModelMetadata = {
       {
         "name": "contracts",
         "key": "contracts",
-        "type": "Vec<UserMissionContract>",
+        "type": "Array<UserMissionContract>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18667,7 +18667,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18681,7 +18681,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18690,7 +18690,7 @@ export const manualModelMetadata = {
       {
         "name": "difficulty",
         "key": "difficulty",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18699,7 +18699,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18708,7 +18708,7 @@ export const manualModelMetadata = {
       {
         "name": "created_at",
         "key": "created_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18717,7 +18717,7 @@ export const manualModelMetadata = {
       {
         "name": "started_at",
         "key": "started_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18726,7 +18726,7 @@ export const manualModelMetadata = {
       {
         "name": "expires_at",
         "key": "expires_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18735,7 +18735,7 @@ export const manualModelMetadata = {
       {
         "name": "completed_at",
         "key": "completed_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18744,7 +18744,7 @@ export const manualModelMetadata = {
       {
         "name": "rewards",
         "key": "rewards",
-        "type": "Option<UserMissionContractRewards>",
+        "type": "Nullable<UserMissionContractRewards>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18753,7 +18753,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18767,7 +18767,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18776,7 +18776,7 @@ export const manualModelMetadata = {
       {
         "name": "credits",
         "key": "credits",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18785,7 +18785,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18799,7 +18799,7 @@ export const manualModelMetadata = {
       {
         "name": "reward_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18808,7 +18808,7 @@ export const manualModelMetadata = {
       {
         "name": "details",
         "key": "details",
-        "type": "Option<UserMissionRewardDetails>",
+        "type": "Nullable<UserMissionRewardDetails>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18817,7 +18817,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18826,7 +18826,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18835,7 +18835,7 @@ export const manualModelMetadata = {
       {
         "name": "expires_at",
         "key": "expires_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18844,7 +18844,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18858,7 +18858,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18867,7 +18867,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18876,7 +18876,7 @@ export const manualModelMetadata = {
       {
         "name": "detail_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18885,7 +18885,7 @@ export const manualModelMetadata = {
       {
         "name": "sub_type",
         "key": "sub_type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18894,7 +18894,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18908,7 +18908,7 @@ export const manualModelMetadata = {
       {
         "name": "complete",
         "key": "complete",
-        "type": "Vec<u64>",
+        "type": "Array<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18917,7 +18917,7 @@ export const manualModelMetadata = {
       {
         "name": "current",
         "key": "current",
-        "type": "Option<UserCurrentEducation>",
+        "type": "Nullable<UserCurrentEducation>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18926,7 +18926,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18940,7 +18940,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18949,7 +18949,7 @@ export const manualModelMetadata = {
       {
         "name": "until",
         "key": "until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18958,7 +18958,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -18982,7 +18982,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -18991,7 +18991,7 @@ export const manualModelMetadata = {
       {
         "name": "treats_collected",
         "key": "treats_collected",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19000,7 +19000,7 @@ export const manualModelMetadata = {
       {
         "name": "basket",
         "key": "basket",
-        "type": "Option<UserCompetitionBasket>",
+        "type": "Nullable<UserCompetitionBasket>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19009,7 +19009,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19023,7 +19023,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19032,7 +19032,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19041,7 +19041,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19050,7 +19050,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19064,7 +19064,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19073,7 +19073,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19082,7 +19082,7 @@ export const manualModelMetadata = {
       {
         "name": "hp",
         "key": "hp",
-        "type": "Option<UserCompetitionHp>",
+        "type": "Nullable<UserCompetitionHp>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19091,7 +19091,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19105,7 +19105,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19114,7 +19114,7 @@ export const manualModelMetadata = {
       {
         "name": "score",
         "key": "score",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19123,7 +19123,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19132,7 +19132,7 @@ export const manualModelMetadata = {
       {
         "name": "team",
         "key": "team",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19141,7 +19141,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19155,7 +19155,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19164,7 +19164,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19173,7 +19173,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19187,7 +19187,7 @@ export const manualModelMetadata = {
       {
         "name": "current",
         "key": "current",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19196,7 +19196,7 @@ export const manualModelMetadata = {
       {
         "name": "maximum",
         "key": "maximum",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19205,7 +19205,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19219,7 +19219,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -19228,7 +19228,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -19242,7 +19242,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19251,7 +19251,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19260,7 +19260,7 @@ export const manualModelMetadata = {
       {
         "name": "exp",
         "key": "exp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19269,7 +19269,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19283,7 +19283,7 @@ export const manualModelMetadata = {
       {
         "name": "track",
         "key": "track",
-        "type": "Option<UserRaceTrackSummary>",
+        "type": "Nullable<UserRaceTrackSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19292,7 +19292,7 @@ export const manualModelMetadata = {
       {
         "name": "records",
         "key": "records",
-        "type": "Vec<UserRacingLapRecord>",
+        "type": "Array<UserRacingLapRecord>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19301,7 +19301,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19315,7 +19315,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19324,7 +19324,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19333,7 +19333,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19347,7 +19347,7 @@ export const manualModelMetadata = {
       {
         "name": "car_id",
         "key": "car_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19356,7 +19356,7 @@ export const manualModelMetadata = {
       {
         "name": "car_name",
         "key": "car_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19365,7 +19365,7 @@ export const manualModelMetadata = {
       {
         "name": "lap_time",
         "key": "lap_time",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19374,7 +19374,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19388,7 +19388,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19397,7 +19397,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19406,7 +19406,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19420,7 +19420,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<UserInventoryItem>",
+        "type": "Array<UserInventoryItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19429,7 +19429,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19438,7 +19438,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19452,7 +19452,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19461,7 +19461,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19470,7 +19470,7 @@ export const manualModelMetadata = {
       {
         "name": "equipped",
         "key": "equipped",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19479,7 +19479,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19488,7 +19488,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_owned",
         "key": "faction_owned",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19497,7 +19497,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19506,7 +19506,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19520,7 +19520,7 @@ export const manualModelMetadata = {
       {
         "name": "destination",
         "key": "destination",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19529,7 +19529,7 @@ export const manualModelMetadata = {
       {
         "name": "method",
         "key": "method",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19538,7 +19538,7 @@ export const manualModelMetadata = {
       {
         "name": "time_left",
         "key": "time_left",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19547,7 +19547,7 @@ export const manualModelMetadata = {
       {
         "name": "arrival_at",
         "key": "arrival_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19556,7 +19556,7 @@ export const manualModelMetadata = {
       {
         "name": "departed_at",
         "key": "departed_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19565,7 +19565,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19579,7 +19579,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19588,7 +19588,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19597,7 +19597,7 @@ export const manualModelMetadata = {
       {
         "name": "text",
         "key": "event",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19606,7 +19606,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19620,7 +19620,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19629,7 +19629,7 @@ export const manualModelMetadata = {
       {
         "name": "sender",
         "key": "sender",
-        "type": "Option<UserIdentitySummary>",
+        "type": "Nullable<UserIdentitySummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19638,7 +19638,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19647,7 +19647,7 @@ export const manualModelMetadata = {
       {
         "name": "topic",
         "key": "topic",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19656,7 +19656,7 @@ export const manualModelMetadata = {
       {
         "name": "message_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19665,7 +19665,7 @@ export const manualModelMetadata = {
       {
         "name": "seen",
         "key": "seen",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19674,7 +19674,7 @@ export const manualModelMetadata = {
       {
         "name": "read",
         "key": "read",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19683,7 +19683,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19697,7 +19697,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19706,7 +19706,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19715,7 +19715,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19729,7 +19729,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19738,7 +19738,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19747,7 +19747,7 @@ export const manualModelMetadata = {
       {
         "name": "track_id",
         "key": "track_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19756,7 +19756,7 @@ export const manualModelMetadata = {
       {
         "name": "creator_id",
         "key": "creator_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19765,7 +19765,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19774,7 +19774,7 @@ export const manualModelMetadata = {
       {
         "name": "laps",
         "key": "laps",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19783,7 +19783,7 @@ export const manualModelMetadata = {
       {
         "name": "participants",
         "key": "participants",
-        "type": "Option<UserRaceParticipants>",
+        "type": "Nullable<UserRaceParticipants>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19792,7 +19792,7 @@ export const manualModelMetadata = {
       {
         "name": "schedule",
         "key": "schedule",
-        "type": "Option<UserRaceSchedule>",
+        "type": "Nullable<UserRaceSchedule>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19801,7 +19801,7 @@ export const manualModelMetadata = {
       {
         "name": "requirements",
         "key": "requirements",
-        "type": "Option<UserRaceRequirements>",
+        "type": "Nullable<UserRaceRequirements>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19810,7 +19810,7 @@ export const manualModelMetadata = {
       {
         "name": "is_official",
         "key": "is_official",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19819,7 +19819,7 @@ export const manualModelMetadata = {
       {
         "name": "skill_gain",
         "key": "skill_gain",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19828,7 +19828,7 @@ export const manualModelMetadata = {
       {
         "name": "results",
         "key": "results",
-        "type": "Vec<UserRaceResult>",
+        "type": "Array<UserRaceResult>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19837,7 +19837,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19851,7 +19851,7 @@ export const manualModelMetadata = {
       {
         "name": "minimum",
         "key": "minimum",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19860,7 +19860,7 @@ export const manualModelMetadata = {
       {
         "name": "maximum",
         "key": "maximum",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19869,7 +19869,7 @@ export const manualModelMetadata = {
       {
         "name": "current",
         "key": "current",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19878,7 +19878,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19892,7 +19892,7 @@ export const manualModelMetadata = {
       {
         "name": "join_from",
         "key": "join_from",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19901,7 +19901,7 @@ export const manualModelMetadata = {
       {
         "name": "join_until",
         "key": "join_until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19910,7 +19910,7 @@ export const manualModelMetadata = {
       {
         "name": "start",
         "key": "start",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19919,7 +19919,7 @@ export const manualModelMetadata = {
       {
         "name": "end",
         "key": "end",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19928,7 +19928,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -19942,7 +19942,7 @@ export const manualModelMetadata = {
       {
         "name": "driver_class",
         "key": "driver_class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19951,7 +19951,7 @@ export const manualModelMetadata = {
       {
         "name": "car_class",
         "key": "car_class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19960,7 +19960,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_id",
         "key": "car_item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19969,7 +19969,7 @@ export const manualModelMetadata = {
       {
         "name": "requires_stock_car",
         "key": "requires_stock_car",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19978,7 +19978,7 @@ export const manualModelMetadata = {
       {
         "name": "requires_password",
         "key": "requires_password",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19987,7 +19987,7 @@ export const manualModelMetadata = {
       {
         "name": "join_fee",
         "key": "join_fee",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -19996,7 +19996,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20010,7 +20010,7 @@ export const manualModelMetadata = {
       {
         "name": "driver_id",
         "key": "driver_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20019,7 +20019,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20028,7 +20028,7 @@ export const manualModelMetadata = {
       {
         "name": "car_id",
         "key": "car_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20037,7 +20037,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_id",
         "key": "car_item_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20046,7 +20046,7 @@ export const manualModelMetadata = {
       {
         "name": "car_item_name",
         "key": "car_item_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20055,7 +20055,7 @@ export const manualModelMetadata = {
       {
         "name": "car_class",
         "key": "car_class",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20064,7 +20064,7 @@ export const manualModelMetadata = {
       {
         "name": "has_crashed",
         "key": "has_crashed",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20073,7 +20073,7 @@ export const manualModelMetadata = {
       {
         "name": "best_lap_time",
         "key": "best_lap_time",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20082,7 +20082,7 @@ export const manualModelMetadata = {
       {
         "name": "race_time",
         "key": "race_time",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20091,7 +20091,7 @@ export const manualModelMetadata = {
       {
         "name": "time_ended",
         "key": "time_ended",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20100,7 +20100,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20114,7 +20114,7 @@ export const manualModelMetadata = {
       {
         "name": "is_territory_war",
         "key": "is_territory_war",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20123,7 +20123,7 @@ export const manualModelMetadata = {
       {
         "name": "territory_war_id",
         "key": "territory_war_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20132,7 +20132,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20141,7 +20141,7 @@ export const manualModelMetadata = {
       {
         "name": "code",
         "key": "code",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20150,7 +20150,7 @@ export const manualModelMetadata = {
       {
         "name": "started",
         "key": "started",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20159,7 +20159,7 @@ export const manualModelMetadata = {
       {
         "name": "ended",
         "key": "ended",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20168,7 +20168,7 @@ export const manualModelMetadata = {
       {
         "name": "attacker",
         "key": "attacker",
-        "type": "Option<UserAttackCombatant>",
+        "type": "Nullable<UserAttackCombatant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20177,7 +20177,7 @@ export const manualModelMetadata = {
       {
         "name": "defender",
         "key": "defender",
-        "type": "Option<UserAttackCombatant>",
+        "type": "Nullable<UserAttackCombatant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20186,7 +20186,7 @@ export const manualModelMetadata = {
       {
         "name": "result",
         "key": "result",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20195,7 +20195,7 @@ export const manualModelMetadata = {
       {
         "name": "respect_gain",
         "key": "respect_gain",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20204,7 +20204,7 @@ export const manualModelMetadata = {
       {
         "name": "respect_loss",
         "key": "respect_loss",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20213,7 +20213,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20222,7 +20222,7 @@ export const manualModelMetadata = {
       {
         "name": "is_interrupted",
         "key": "is_interrupted",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20231,7 +20231,7 @@ export const manualModelMetadata = {
       {
         "name": "is_stealthed",
         "key": "is_stealthed",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20240,7 +20240,7 @@ export const manualModelMetadata = {
       {
         "name": "is_raid",
         "key": "is_raid",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20249,7 +20249,7 @@ export const manualModelMetadata = {
       {
         "name": "is_ranked_war",
         "key": "is_ranked_war",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20258,7 +20258,7 @@ export const manualModelMetadata = {
       {
         "name": "modifiers",
         "key": "modifiers",
-        "type": "Option<UserAttackModifiers>",
+        "type": "Nullable<UserAttackModifiers>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20267,7 +20267,7 @@ export const manualModelMetadata = {
       {
         "name": "finishing_hit_effects",
         "key": "finishing_hit_effects",
-        "type": "Vec<UserAttackFinishingHitEffect>",
+        "type": "Array<UserAttackFinishingHitEffect>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20276,7 +20276,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20290,7 +20290,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20299,7 +20299,7 @@ export const manualModelMetadata = {
       {
         "name": "code",
         "key": "code",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20308,7 +20308,7 @@ export const manualModelMetadata = {
       {
         "name": "started",
         "key": "started",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20317,7 +20317,7 @@ export const manualModelMetadata = {
       {
         "name": "ended",
         "key": "ended",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20326,7 +20326,7 @@ export const manualModelMetadata = {
       {
         "name": "attacker",
         "key": "attacker",
-        "type": "Option<UserAttackCombatant>",
+        "type": "Nullable<UserAttackCombatant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20335,7 +20335,7 @@ export const manualModelMetadata = {
       {
         "name": "defender",
         "key": "defender",
-        "type": "Option<UserAttackCombatant>",
+        "type": "Nullable<UserAttackCombatant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20344,7 +20344,7 @@ export const manualModelMetadata = {
       {
         "name": "result",
         "key": "result",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20353,7 +20353,7 @@ export const manualModelMetadata = {
       {
         "name": "respect_gain",
         "key": "respect_gain",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20362,7 +20362,7 @@ export const manualModelMetadata = {
       {
         "name": "respect_loss",
         "key": "respect_loss",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20371,7 +20371,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20385,7 +20385,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20394,7 +20394,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20403,7 +20403,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20412,7 +20412,7 @@ export const manualModelMetadata = {
       {
         "name": "faction",
         "key": "faction",
-        "type": "Option<UserAttackFaction>",
+        "type": "Nullable<UserAttackFaction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20421,7 +20421,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20430,7 +20430,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20444,7 +20444,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20453,7 +20453,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20462,7 +20462,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20476,7 +20476,7 @@ export const manualModelMetadata = {
       {
         "name": "fair_fight",
         "key": "fair_fight",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20485,7 +20485,7 @@ export const manualModelMetadata = {
       {
         "name": "war",
         "key": "war",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20494,7 +20494,7 @@ export const manualModelMetadata = {
       {
         "name": "retaliation",
         "key": "retaliation",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20503,7 +20503,7 @@ export const manualModelMetadata = {
       {
         "name": "group",
         "key": "group",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20512,7 +20512,7 @@ export const manualModelMetadata = {
       {
         "name": "overseas",
         "key": "overseas",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20521,7 +20521,7 @@ export const manualModelMetadata = {
       {
         "name": "chain",
         "key": "chain",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20530,7 +20530,7 @@ export const manualModelMetadata = {
       {
         "name": "warlord",
         "key": "warlord",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20539,7 +20539,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20553,7 +20553,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20562,7 +20562,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20571,7 +20571,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20585,7 +20585,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20594,7 +20594,7 @@ export const manualModelMetadata = {
       {
         "name": "reviver",
         "key": "reviver",
-        "type": "Option<UserReviveReviver>",
+        "type": "Nullable<UserReviveReviver>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20603,7 +20603,7 @@ export const manualModelMetadata = {
       {
         "name": "target",
         "key": "target",
-        "type": "Option<UserReviveTarget>",
+        "type": "Nullable<UserReviveTarget>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20612,7 +20612,7 @@ export const manualModelMetadata = {
       {
         "name": "success_chance",
         "key": "success_chance",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20621,7 +20621,7 @@ export const manualModelMetadata = {
       {
         "name": "result",
         "key": "result",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20630,7 +20630,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20639,7 +20639,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20653,7 +20653,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20662,7 +20662,7 @@ export const manualModelMetadata = {
       {
         "name": "reviver",
         "key": "reviver",
-        "type": "Option<UserReviveReviver>",
+        "type": "Nullable<UserReviveReviver>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20671,7 +20671,7 @@ export const manualModelMetadata = {
       {
         "name": "target",
         "key": "target",
-        "type": "Option<UserReviveTarget>",
+        "type": "Nullable<UserReviveTarget>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20680,7 +20680,7 @@ export const manualModelMetadata = {
       {
         "name": "success_chance",
         "key": "success_chance",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20689,7 +20689,7 @@ export const manualModelMetadata = {
       {
         "name": "result",
         "key": "result",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20698,7 +20698,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20707,7 +20707,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20721,7 +20721,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20730,7 +20730,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20739,7 +20739,7 @@ export const manualModelMetadata = {
       {
         "name": "faction",
         "key": "faction",
-        "type": "Option<UserAttackFaction>",
+        "type": "Nullable<UserAttackFaction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20748,7 +20748,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20757,7 +20757,7 @@ export const manualModelMetadata = {
       {
         "name": "skill",
         "key": "skill",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20766,7 +20766,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20780,7 +20780,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20789,7 +20789,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20798,7 +20798,7 @@ export const manualModelMetadata = {
       {
         "name": "faction",
         "key": "faction",
-        "type": "Option<UserAttackFaction>",
+        "type": "Nullable<UserAttackFaction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20807,7 +20807,7 @@ export const manualModelMetadata = {
       {
         "name": "faction_id",
         "key": "faction_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20816,7 +20816,7 @@ export const manualModelMetadata = {
       {
         "name": "hospital_reason",
         "key": "hospital_reason",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20825,7 +20825,7 @@ export const manualModelMetadata = {
       {
         "name": "early_discharge",
         "key": "early_discharge",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20834,7 +20834,7 @@ export const manualModelMetadata = {
       {
         "name": "last_action",
         "key": "last_action",
-        "type": "Option<UserReviveLastAction>",
+        "type": "Nullable<UserReviveLastAction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20843,7 +20843,7 @@ export const manualModelMetadata = {
       {
         "name": "online_status",
         "key": "online_status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20852,7 +20852,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -20864,8 +20864,8 @@ export const manualModelMetadata = {
     "kind": "union",
     "variants": [
       "UserLastAction",
-      "u64",
-      "Value"
+      "uint64",
+      "JsonValue"
     ]
   },
   "UserHofStats": {
@@ -20874,7 +20874,7 @@ export const manualModelMetadata = {
       {
         "name": "attacks",
         "key": "attacks",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20883,7 +20883,7 @@ export const manualModelMetadata = {
       {
         "name": "busts",
         "key": "busts",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20892,7 +20892,7 @@ export const manualModelMetadata = {
       {
         "name": "defends",
         "key": "defends",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20901,7 +20901,7 @@ export const manualModelMetadata = {
       {
         "name": "networth",
         "key": "networth",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20910,7 +20910,7 @@ export const manualModelMetadata = {
       {
         "name": "offences",
         "key": "offences",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20919,7 +20919,7 @@ export const manualModelMetadata = {
       {
         "name": "revives",
         "key": "revives",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20928,7 +20928,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20937,7 +20937,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20946,7 +20946,7 @@ export const manualModelMetadata = {
       {
         "name": "awards",
         "key": "awards",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20955,7 +20955,7 @@ export const manualModelMetadata = {
       {
         "name": "racing_skill",
         "key": "racing_skill",
-        "type": "Option<UserHofValueFloat>",
+        "type": "Nullable<UserHofValueFloat>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20964,7 +20964,7 @@ export const manualModelMetadata = {
       {
         "name": "racing_points",
         "key": "racing_points",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20973,7 +20973,7 @@ export const manualModelMetadata = {
       {
         "name": "racing_wins",
         "key": "racing_wins",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20982,7 +20982,7 @@ export const manualModelMetadata = {
       {
         "name": "travel_time",
         "key": "travel_time",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -20991,7 +20991,7 @@ export const manualModelMetadata = {
       {
         "name": "working_stats",
         "key": "working_stats",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21000,7 +21000,7 @@ export const manualModelMetadata = {
       {
         "name": "battle_stats",
         "key": "battle_stats",
-        "type": "Option<UserHofValue>",
+        "type": "Nullable<UserHofValue>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21009,7 +21009,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21023,7 +21023,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21032,7 +21032,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21041,7 +21041,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21055,7 +21055,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21064,7 +21064,7 @@ export const manualModelMetadata = {
       {
         "name": "rank",
         "key": "rank",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21073,7 +21073,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21087,7 +21087,7 @@ export const manualModelMetadata = {
       {
         "name": "target_id",
         "key": "target_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21096,7 +21096,7 @@ export const manualModelMetadata = {
       {
         "name": "target_name",
         "key": "target_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21105,7 +21105,7 @@ export const manualModelMetadata = {
       {
         "name": "target_level",
         "key": "target_level",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21114,7 +21114,7 @@ export const manualModelMetadata = {
       {
         "name": "lister_id",
         "key": "lister_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21123,7 +21123,7 @@ export const manualModelMetadata = {
       {
         "name": "lister_name",
         "key": "lister_name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21132,7 +21132,7 @@ export const manualModelMetadata = {
       {
         "name": "reward",
         "key": "reward",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21141,7 +21141,7 @@ export const manualModelMetadata = {
       {
         "name": "reason",
         "key": "reason",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21150,7 +21150,7 @@ export const manualModelMetadata = {
       {
         "name": "quantity",
         "key": "quantity",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21159,7 +21159,7 @@ export const manualModelMetadata = {
       {
         "name": "is_anonymous",
         "key": "is_anonymous",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21168,7 +21168,7 @@ export const manualModelMetadata = {
       {
         "name": "valid_until",
         "key": "valid_until",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21177,7 +21177,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21191,7 +21191,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21200,7 +21200,7 @@ export const manualModelMetadata = {
       {
         "name": "owner",
         "key": "owner",
-        "type": "Option<UserIdentitySummary>",
+        "type": "Nullable<UserIdentitySummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21209,7 +21209,7 @@ export const manualModelMetadata = {
       {
         "name": "property_info",
         "key": "property",
-        "type": "Option<UserPropertyKind>",
+        "type": "Nullable<UserPropertyKind>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21218,7 +21218,7 @@ export const manualModelMetadata = {
       {
         "name": "happy",
         "key": "happy",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21227,7 +21227,7 @@ export const manualModelMetadata = {
       {
         "name": "upkeep",
         "key": "upkeep",
-        "type": "Option<UserPropertyUpkeep>",
+        "type": "Nullable<UserPropertyUpkeep>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21236,7 +21236,7 @@ export const manualModelMetadata = {
       {
         "name": "market_price",
         "key": "market_price",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21245,7 +21245,7 @@ export const manualModelMetadata = {
       {
         "name": "modifications",
         "key": "modifications",
-        "type": "Vec<String>",
+        "type": "Array<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21254,7 +21254,7 @@ export const manualModelMetadata = {
       {
         "name": "staff",
         "key": "staff",
-        "type": "Vec<UserPropertyStaffEntry>",
+        "type": "Array<UserPropertyStaffEntry>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21263,7 +21263,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21272,7 +21272,7 @@ export const manualModelMetadata = {
       {
         "name": "used_by",
         "key": "used_by",
-        "type": "Vec<UserIdentitySummary>",
+        "type": "Array<UserIdentitySummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21281,7 +21281,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21290,7 +21290,7 @@ export const manualModelMetadata = {
       {
         "name": "cost_per_day",
         "key": "cost_per_day",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21299,7 +21299,7 @@ export const manualModelMetadata = {
       {
         "name": "rental_period",
         "key": "rental_period",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21308,7 +21308,7 @@ export const manualModelMetadata = {
       {
         "name": "rental_period_remaining",
         "key": "rental_period_remaining",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21317,7 +21317,7 @@ export const manualModelMetadata = {
       {
         "name": "rented_by",
         "key": "rented_by",
-        "type": "Option<UserIdentitySummary>",
+        "type": "Nullable<UserIdentitySummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21326,7 +21326,7 @@ export const manualModelMetadata = {
       {
         "name": "renter_asked",
         "key": "renter_asked",
-        "type": "Option<UserIdentitySummary>",
+        "type": "Nullable<UserIdentitySummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21335,7 +21335,7 @@ export const manualModelMetadata = {
       {
         "name": "lease_extension",
         "key": "lease_extension",
-        "type": "Option<UserPropertyLeaseExtension>",
+        "type": "Nullable<UserPropertyLeaseExtension>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21344,7 +21344,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21358,7 +21358,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21367,7 +21367,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21376,7 +21376,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21390,7 +21390,7 @@ export const manualModelMetadata = {
       {
         "name": "property_cost",
         "key": "property",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21399,7 +21399,7 @@ export const manualModelMetadata = {
       {
         "name": "staff",
         "key": "staff",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21408,7 +21408,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21422,7 +21422,7 @@ export const manualModelMetadata = {
       {
         "name": "staff_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21431,7 +21431,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21440,7 +21440,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21454,7 +21454,7 @@ export const manualModelMetadata = {
       {
         "name": "cost",
         "key": "cost",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21463,7 +21463,7 @@ export const manualModelMetadata = {
       {
         "name": "period",
         "key": "period",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21472,7 +21472,7 @@ export const manualModelMetadata = {
       {
         "name": "created_at",
         "key": "created_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21481,7 +21481,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21495,7 +21495,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21504,7 +21504,7 @@ export const manualModelMetadata = {
       {
         "name": "forum_id",
         "key": "forum_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21513,7 +21513,7 @@ export const manualModelMetadata = {
       {
         "name": "author",
         "key": "author",
-        "type": "Option<ForumUserSummary>",
+        "type": "Nullable<ForumUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21522,7 +21522,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21531,7 +21531,7 @@ export const manualModelMetadata = {
       {
         "name": "posts",
         "key": "posts",
-        "type": "Option<UserForumSubscribedThreadPosts>",
+        "type": "Nullable<UserForumSubscribedThreadPosts>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21540,7 +21540,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21554,7 +21554,7 @@ export const manualModelMetadata = {
       {
         "name": "new_posts",
         "key": "new",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21563,7 +21563,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21572,7 +21572,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21586,7 +21586,7 @@ export const manualModelMetadata = {
       {
         "name": "thread_id",
         "key": "thread_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21595,7 +21595,7 @@ export const manualModelMetadata = {
       {
         "name": "post_id",
         "key": "post_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21604,7 +21604,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Option<ForumUserSummary>",
+        "type": "Nullable<ForumUserSummary>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21613,7 +21613,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21622,7 +21622,7 @@ export const manualModelMetadata = {
       {
         "name": "text",
         "key": "text",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21631,7 +21631,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21640,7 +21640,7 @@ export const manualModelMetadata = {
       {
         "name": "is_seen",
         "key": "is_seen",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21649,7 +21649,7 @@ export const manualModelMetadata = {
       {
         "name": "entry_type",
         "key": "type",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21658,7 +21658,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21672,7 +21672,7 @@ export const manualModelMetadata = {
       {
         "name": "endurance",
         "key": "endurance",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21681,7 +21681,7 @@ export const manualModelMetadata = {
       {
         "name": "intelligence",
         "key": "intelligence",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21690,7 +21690,7 @@ export const manualModelMetadata = {
       {
         "name": "manual_labor",
         "key": "manual_labor",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21699,7 +21699,7 @@ export const manualModelMetadata = {
       {
         "name": "total",
         "key": "total",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21708,7 +21708,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21722,7 +21722,7 @@ export const manualModelMetadata = {
       {
         "name": "upgrades",
         "key": "upgrades",
-        "type": "Vec<UserMeritUpgrade>",
+        "type": "Array<UserMeritUpgrade>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21731,7 +21731,7 @@ export const manualModelMetadata = {
       {
         "name": "available",
         "key": "available",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21740,7 +21740,7 @@ export const manualModelMetadata = {
       {
         "name": "used",
         "key": "used",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21749,7 +21749,7 @@ export const manualModelMetadata = {
       {
         "name": "medals",
         "key": "medals",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21758,7 +21758,7 @@ export const manualModelMetadata = {
       {
         "name": "honors",
         "key": "honors",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21767,7 +21767,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21781,7 +21781,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21790,7 +21790,7 @@ export const manualModelMetadata = {
       {
         "name": "level",
         "key": "level",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21799,7 +21799,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21813,7 +21813,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21822,7 +21822,7 @@ export const manualModelMetadata = {
       {
         "name": "price",
         "key": "price",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21831,7 +21831,7 @@ export const manualModelMetadata = {
       {
         "name": "average_price",
         "key": "average_price",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21840,7 +21840,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21849,7 +21849,7 @@ export const manualModelMetadata = {
       {
         "name": "is_anonymous",
         "key": "is_anonymous",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21858,7 +21858,7 @@ export const manualModelMetadata = {
       {
         "name": "available",
         "key": "available",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21867,7 +21867,7 @@ export const manualModelMetadata = {
       {
         "name": "item",
         "key": "item",
-        "type": "Option<UserItemMarketItemDetails>",
+        "type": "Nullable<UserItemMarketItemDetails>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21876,7 +21876,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21890,7 +21890,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21899,7 +21899,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21908,7 +21908,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21917,7 +21917,7 @@ export const manualModelMetadata = {
       {
         "name": "rarity",
         "key": "rarity",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21926,7 +21926,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21935,7 +21935,7 @@ export const manualModelMetadata = {
       {
         "name": "stats",
         "key": "stats",
-        "type": "Option<UserItemMarketItemStats>",
+        "type": "Nullable<UserItemMarketItemStats>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21944,7 +21944,7 @@ export const manualModelMetadata = {
       {
         "name": "bonuses",
         "key": "bonuses",
-        "type": "Vec<UserItemMarketItemBonus>",
+        "type": "Array<UserItemMarketItemBonus>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21953,7 +21953,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -21967,7 +21967,7 @@ export const manualModelMetadata = {
       {
         "name": "damage",
         "key": "damage",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21976,7 +21976,7 @@ export const manualModelMetadata = {
       {
         "name": "accuracy",
         "key": "accuracy",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21985,7 +21985,7 @@ export const manualModelMetadata = {
       {
         "name": "armor",
         "key": "armor",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -21994,7 +21994,7 @@ export const manualModelMetadata = {
       {
         "name": "quality",
         "key": "quality",
-        "type": "Option<f64>",
+        "type": "Nullable<float64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22003,7 +22003,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22017,7 +22017,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22026,7 +22026,7 @@ export const manualModelMetadata = {
       {
         "name": "title",
         "key": "title",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22035,7 +22035,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22044,7 +22044,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22053,7 +22053,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22064,7 +22064,7 @@ export const manualModelMetadata = {
   "UserOrganizedCrimeSelection": {
     "kind": "union",
     "variants": [
-      "Box<UserOrganizedCrime>",
+      "UserOrganizedCrime",
       "UserOrganizedCrimeError"
     ]
   },
@@ -22074,7 +22074,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22083,7 +22083,7 @@ export const manualModelMetadata = {
       {
         "name": "previous_crime_id",
         "key": "previous_crime_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22092,7 +22092,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22101,7 +22101,7 @@ export const manualModelMetadata = {
       {
         "name": "difficulty",
         "key": "difficulty",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22110,7 +22110,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22119,7 +22119,7 @@ export const manualModelMetadata = {
       {
         "name": "created_at",
         "key": "created_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22128,7 +22128,7 @@ export const manualModelMetadata = {
       {
         "name": "planning_at",
         "key": "planning_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22137,7 +22137,7 @@ export const manualModelMetadata = {
       {
         "name": "ready_at",
         "key": "ready_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22146,7 +22146,7 @@ export const manualModelMetadata = {
       {
         "name": "expired_at",
         "key": "expired_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22155,7 +22155,7 @@ export const manualModelMetadata = {
       {
         "name": "executed_at",
         "key": "executed_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22164,7 +22164,7 @@ export const manualModelMetadata = {
       {
         "name": "slots",
         "key": "slots",
-        "type": "Vec<UserOrganizedCrimeSlot>",
+        "type": "Array<UserOrganizedCrimeSlot>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22173,7 +22173,7 @@ export const manualModelMetadata = {
       {
         "name": "rewards",
         "key": "rewards",
-        "type": "Option<UserOrganizedCrimeRewards>",
+        "type": "Nullable<UserOrganizedCrimeRewards>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22182,7 +22182,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22196,7 +22196,7 @@ export const manualModelMetadata = {
       {
         "name": "position",
         "key": "position",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22205,7 +22205,7 @@ export const manualModelMetadata = {
       {
         "name": "position_info",
         "key": "position_info",
-        "type": "Option<UserOrganizedCrimePositionInfo>",
+        "type": "Nullable<UserOrganizedCrimePositionInfo>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22214,7 +22214,7 @@ export const manualModelMetadata = {
       {
         "name": "item_requirement",
         "key": "item_requirement",
-        "type": "Option<UserOrganizedCrimeItemRequirement>",
+        "type": "Nullable<UserOrganizedCrimeItemRequirement>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22223,7 +22223,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Option<UserOrganizedCrimeUser>",
+        "type": "Nullable<UserOrganizedCrimeUser>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22232,7 +22232,7 @@ export const manualModelMetadata = {
       {
         "name": "checkpoint_pass_rate",
         "key": "checkpoint_pass_rate",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22241,7 +22241,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22255,7 +22255,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22264,7 +22264,7 @@ export const manualModelMetadata = {
       {
         "name": "label",
         "key": "label",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22273,7 +22273,7 @@ export const manualModelMetadata = {
       {
         "name": "number",
         "key": "number",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22282,7 +22282,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22296,7 +22296,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22305,7 +22305,7 @@ export const manualModelMetadata = {
       {
         "name": "is_reusable",
         "key": "is_reusable",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22314,7 +22314,7 @@ export const manualModelMetadata = {
       {
         "name": "is_available",
         "key": "is_available",
-        "type": "Option<bool>",
+        "type": "Nullable<boolean>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22323,7 +22323,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22337,7 +22337,7 @@ export const manualModelMetadata = {
       {
         "name": "outcome",
         "key": "outcome",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22346,7 +22346,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22355,7 +22355,7 @@ export const manualModelMetadata = {
       {
         "name": "joined_at",
         "key": "joined_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22364,7 +22364,7 @@ export const manualModelMetadata = {
       {
         "name": "progress",
         "key": "progress",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22373,7 +22373,7 @@ export const manualModelMetadata = {
       {
         "name": "item_outcome",
         "key": "item_outcome",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22382,7 +22382,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22396,7 +22396,7 @@ export const manualModelMetadata = {
       {
         "name": "money",
         "key": "money",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22405,7 +22405,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22414,7 +22414,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<UserOrganizedCrimeRewardItem>",
+        "type": "Array<UserOrganizedCrimeRewardItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22423,7 +22423,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22437,7 +22437,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22446,7 +22446,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [
@@ -22458,7 +22458,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22472,7 +22472,7 @@ export const manualModelMetadata = {
       {
         "name": "code",
         "key": "code",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22481,7 +22481,7 @@ export const manualModelMetadata = {
       {
         "name": "error",
         "key": "error",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22490,7 +22490,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22504,7 +22504,7 @@ export const manualModelMetadata = {
       {
         "name": "status",
         "key": "status",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22513,7 +22513,7 @@ export const manualModelMetadata = {
       {
         "name": "relative",
         "key": "relative",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22522,7 +22522,7 @@ export const manualModelMetadata = {
       {
         "name": "timestamp",
         "key": "timestamp",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22531,7 +22531,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22545,7 +22545,7 @@ export const manualModelMetadata = {
       {
         "name": "completed_at",
         "key": "completed_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22554,7 +22554,7 @@ export const manualModelMetadata = {
       {
         "name": "expires_at",
         "key": "expires_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22563,7 +22563,7 @@ export const manualModelMetadata = {
       {
         "name": "modified_at",
         "key": "modified_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22572,7 +22572,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22590,7 +22590,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22599,7 +22599,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Option<UserTradeParticipant>",
+        "type": "Nullable<UserTradeParticipant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22608,7 +22608,7 @@ export const manualModelMetadata = {
       {
         "name": "trader",
         "key": "trader",
-        "type": "Option<UserTradeParticipant>",
+        "type": "Nullable<UserTradeParticipant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22617,7 +22617,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22631,7 +22631,7 @@ export const manualModelMetadata = {
       {
         "name": "completed_at",
         "key": "completed_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22640,7 +22640,7 @@ export const manualModelMetadata = {
       {
         "name": "expires_at",
         "key": "expires_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22649,7 +22649,7 @@ export const manualModelMetadata = {
       {
         "name": "modified_at",
         "key": "modified_at",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22658,7 +22658,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22676,7 +22676,7 @@ export const manualModelMetadata = {
       {
         "name": "description",
         "key": "description",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22685,7 +22685,7 @@ export const manualModelMetadata = {
       {
         "name": "trade_type",
         "key": "type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22694,7 +22694,7 @@ export const manualModelMetadata = {
       {
         "name": "user",
         "key": "user",
-        "type": "Option<UserTradeParticipant>",
+        "type": "Nullable<UserTradeParticipant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22703,7 +22703,7 @@ export const manualModelMetadata = {
       {
         "name": "trader",
         "key": "trader",
-        "type": "Option<UserTradeParticipant>",
+        "type": "Nullable<UserTradeParticipant>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22712,7 +22712,7 @@ export const manualModelMetadata = {
       {
         "name": "items",
         "key": "items",
-        "type": "Vec<TradeItem>",
+        "type": "Array<TradeItem>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22721,7 +22721,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22735,7 +22735,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22744,7 +22744,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -22753,7 +22753,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, serde_json::Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -22765,9 +22765,9 @@ export const manualModelMetadata = {
     "kind": "union",
     "variants": [
       "null",
-      "u64",
-      "bool",
-      "Value"
+      "uint64",
+      "boolean",
+      "JsonValue"
     ]
   },
   "TradeItem": {
@@ -22788,7 +22788,7 @@ export const manualModelMetadata = {
       {
         "name": "user_id",
         "key": "user_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22806,7 +22806,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22820,7 +22820,7 @@ export const manualModelMetadata = {
       {
         "name": "user_id",
         "key": "user_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22838,7 +22838,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22852,7 +22852,7 @@ export const manualModelMetadata = {
       {
         "name": "user_id",
         "key": "user_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22870,7 +22870,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22884,7 +22884,7 @@ export const manualModelMetadata = {
       {
         "name": "user_id",
         "key": "user_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22902,7 +22902,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22916,7 +22916,7 @@ export const manualModelMetadata = {
       {
         "name": "user_id",
         "key": "user_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22934,7 +22934,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22948,7 +22948,7 @@ export const manualModelMetadata = {
       {
         "name": "user_id",
         "key": "user_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22966,7 +22966,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22980,7 +22980,7 @@ export const manualModelMetadata = {
       {
         "name": "user_id",
         "key": "user_id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22989,7 +22989,7 @@ export const manualModelMetadata = {
       {
         "name": "item_type",
         "key": "item_type",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -22998,7 +22998,7 @@ export const manualModelMetadata = {
       {
         "name": "details",
         "key": "details",
-        "type": "Option<DynamicValue>",
+        "type": "Nullable<DynamicValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -23007,7 +23007,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": false,
         "flatten": false,
         "aliases": [],
@@ -23021,7 +23021,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23030,7 +23030,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -23044,7 +23044,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23053,7 +23053,7 @@ export const manualModelMetadata = {
       {
         "name": "uid",
         "key": "uid",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23062,7 +23062,7 @@ export const manualModelMetadata = {
       {
         "name": "amount",
         "key": "amount",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23071,7 +23071,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -23085,7 +23085,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23094,7 +23094,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23103,7 +23103,7 @@ export const manualModelMetadata = {
       {
         "name": "respect",
         "key": "respect",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23112,7 +23112,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -23126,7 +23126,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23135,7 +23135,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23144,7 +23144,7 @@ export const manualModelMetadata = {
       {
         "name": "value",
         "key": "value",
-        "type": "Option<i64>",
+        "type": "Nullable<int64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23153,7 +23153,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -23167,7 +23167,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23176,7 +23176,7 @@ export const manualModelMetadata = {
       {
         "name": "happiness",
         "key": "happiness",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23185,7 +23185,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -23199,7 +23199,7 @@ export const manualModelMetadata = {
       {
         "name": "days",
         "key": "days",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23208,7 +23208,7 @@ export const manualModelMetadata = {
       {
         "name": "factions",
         "key": "factions",
-        "type": "Vec<TradeNapFaction>",
+        "type": "Array<TradeNapFaction>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23217,7 +23217,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
@@ -23231,7 +23231,7 @@ export const manualModelMetadata = {
       {
         "name": "id",
         "key": "id",
-        "type": "Option<u64>",
+        "type": "Nullable<uint64>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23240,7 +23240,7 @@ export const manualModelMetadata = {
       {
         "name": "name",
         "key": "name",
-        "type": "Option<String>",
+        "type": "Nullable<string>",
         "default": true,
         "flatten": false,
         "aliases": [],
@@ -23249,7 +23249,7 @@ export const manualModelMetadata = {
       {
         "name": "extra",
         "key": "extra",
-        "type": "BTreeMap<String, Value>",
+        "type": "Record<string, JsonValue>",
         "default": true,
         "flatten": true,
         "aliases": [],
