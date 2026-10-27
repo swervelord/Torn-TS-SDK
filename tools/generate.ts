@@ -44,7 +44,11 @@ function type(s:Schema):string {
  else if(s.type==='boolean') result='boolean';
  else if(s.type==='array') result='Array<'+type(s.items ?? {})+'>';
  else if(s.type==='object'||s.properties||s.additionalProperties) {
-  const fields=Object.entries(s.properties??{}).map(([k,v])=>`${q(k)}${s.required?.includes(k)?'':'?'}: ${type(v)}${s.required?.includes(k)?'':' | null'};`).join(' ');
+  // Upstream occasionally requires a property without declaring its schema (e.g. Halloween upgrade type).
+  // Keep the required key visible as JSON rather than inventing a narrower type or dropping it.
+  const properties:Record<string,Schema>={...s.properties};
+  for(const key of s.required??[])properties[key]??={};
+  const fields=Object.entries(properties).map(([k,v])=>`${q(k)}${s.required?.includes(k)?'':'?'}: ${type(v)}${s.required?.includes(k)?'':' | null'};`).join(' ');
   const additional=s.additionalProperties;
   if(!fields) result=additional===false?'Record<string, never>':`Record<string, ${typeof additional==='object'?type(additional):'JsonValue'}>`;
   else result=`{ ${fields} }`+(typeof additional==='object'?` & Record<string, ${type(additional)}>`:'');

@@ -4,7 +4,7 @@
 
 A complete TypeScript SDK for the official Torn API, powered by Bun. It provides typed endpoints, selection batching, runtime validation, and resilient request execution.
 
-The SDK covers all **234 operations and 712 component schemas in Torn API 6.13.8**, all **205 capability selections**, and all **549 handwritten facade model declarations**. Exact endpoint operations, typed selection batches, and compatibility resource helpers use the same execution engine. The original 6.13.6 model surface remains available explicitly for legacy decoding.
+The SDK covers all **236 operations and 719 component schemas in Torn API 6.14.0**, all **207 capability selections**, and all **549 handwritten facade model declarations**. Exact endpoint operations, typed selection batches, and compatibility resource helpers use the same execution engine. The original 6.13.6 model surface remains available explicitly for legacy decoding.
 
 Runtime, generators, tooling, and tests are TypeScript. Bun 1.4.4 handles package management, execution, native typechecking, HTTP, file I/O, bundling, and tests. TypeScript's compiler emits declaration files. See [Bun compatibility](docs/BUN_COMPATIBILITY.md) for the checker commands and verification.
 
@@ -131,7 +131,7 @@ bun run check
 
 Use `bun run refresh --spec path/to/openapi.json` to import a local snapshot. Refresh preserves versioned snapshots, SHA-256 provenance, and explicit routing overrides. Generation uses the pinned snapshot and never silently fetches a newer one.
 
-The regression suite includes 466 golden planner scenarios, 1,628 generated model acceptance samples, and 59 manual-model scenarios. Frozen 6.13.6 fixtures and current 6.13.8 schema migration tests are checked separately. All validation uses committed specifications and fixtures. `bun run typing-gap-report` reports compatibility typing. See [the SDK contract](./CONTRACT.md) and the [API coverage audit](docs/COVERAGE_AUDIT.md) for scope and evidence.
+The regression suite includes 466 golden planner scenarios, 1,628 generated model acceptance samples, and 59 manual-model scenarios. Frozen 6.13.6 fixtures and current 6.14.0 schema migration tests are checked separately. All validation uses committed specifications and fixtures. `bun run typing-gap-report` reports compatibility typing. See [the SDK contract](./CONTRACT.md) and the [API coverage audit](docs/COVERAGE_AUDIT.md) for scope and evidence.
 
 Live smoke tests are opt-in and read `TORN_LIVE_TEST_API_KEY` from the environment:
 

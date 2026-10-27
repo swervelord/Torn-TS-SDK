@@ -1,4 +1,5 @@
 import sourceClassification from '../spec/parity/typing-classification.json' with { type: 'json' };
+import currentClassification from '../spec/parity/typing-classification-current.json' with { type: 'json' };
 import sourceCapabilities from '../spec/versions/torn-capabilities-6.13.6.json' with { type: 'json' };
 import sourceSchemaNames from '../spec/parity/source-schema-names.json' with { type: 'json' };
 import { defaultCapabilities, capabilitiesFromPath, type CapabilitiesDocument } from './capabilities.ts';
@@ -49,10 +50,11 @@ export function classifyTyping(helper: { return_type: string } | undefined, sche
 
 /** Re-evaluates source classifications against current capabilities, helpers and schema coverage. */
 export function buildTypingGapReport(capabilities: CapabilitiesDocument = defaultCapabilities, schemaNames: Iterable<string> = componentSchemaNames): TypingGapReport {
+  const classificationMetadata = capabilities.spec?.version === '6.14.0' ? currentClassification : sourceClassification;
   const hash = (value: unknown): string => new Bun.CryptoHasher('sha256').update(JSON.stringify(value)).digest('hex');
-  if (hash(manualModelMetadata) !== sourceClassification.provenance.manual_metadata_sha256 || hash(facadeManifest) !== sourceClassification.provenance.facade_manifest_sha256) throw new Error('Typing model/helper metadata changed; refresh classification provenance');
+  if (hash(manualModelMetadata) !== sourceClassification.provenance.manual_metadata_sha256 || hash(facadeManifest) !== currentClassification.provenance.facade_manifest_sha256) throw new Error('Typing model/helper metadata changed; refresh classification provenance');
   const schemas = new Set(schemaNames);
-  const original = new Map(sourceClassification.selections.map(selection => [`${selection.resource}.${selection.selection}`, selection]));
+  const original = new Map(classificationMetadata.selections.map(selection => [`${selection.resource}.${selection.selection}`, selection]));
   const observed = new Set<string>();
   const selections: SelectionTyping[] = [];
   const resources: Record<string, ResourceTypingSummary> = {};

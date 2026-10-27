@@ -32,6 +32,7 @@ export interface SelectionModelMap {
     "forumsubscribedthreads": Manual.UserForumSubscribedThreadsBundle;
     "forumthreads": Manual.UserForumThreadsBundle;
     "gym": Generated.UserGymResponse;
+    "halloween": Generated.UserHalloweenResponse;
     "hof": Manual.UserHofBundle;
     "honors": Manual.UserHonorsBundle;
     "icons": Manual.UserIconsBundle;
@@ -198,6 +199,7 @@ export interface SelectionModelMap {
     "factionhof": Manual.TornFactionHofBundle;
     "factiontree": Manual.TornFactionTreeBundle;
     "gyms": Generated.TornGymsResponse;
+    "halloween": Generated.TornHalloweenResponse;
     "hof": Manual.TornHofBundle;
     "honors": Manual.TornHonorsBundle;
     "itemammo": Manual.TornItemAmmoBundle;
@@ -432,6 +434,13 @@ export const selectionModelDefinitions = {
       "manual": false,
       "inputRoots": [
         "gym"
+      ]
+    },
+    "halloween": {
+      "model": "UserHalloweenResponse",
+      "manual": false,
+      "inputRoots": [
+        "halloween"
       ]
     },
     "hof": {
@@ -1558,6 +1567,13 @@ export const selectionModelDefinitions = {
       "manual": false,
       "inputRoots": [
         "gyms"
+      ]
+    },
+    "halloween": {
+      "model": "TornHalloweenResponse",
+      "manual": false,
+      "inputRoots": [
+        "halloween"
       ]
     },
     "hof": {

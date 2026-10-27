@@ -2,20 +2,20 @@
 
 Torn-TS-SDK is a standalone TypeScript SDK for the official Torn API. Its runtime, models, generators, and tests are maintained in this repository. Installation, generation, and verification use Bun and the declared development dependencies.
 
-The current API contract is the official Torn **6.13.8** OpenAPI snapshot: **234 operations and 712 component schemas**. The frozen **6.13.6** snapshot remains available for explicit legacy decoding. Its SHA-256 is `DC04C6A03424DA1D0361F29E80971D830115A23DDB1C47FBE5824FB54BB46EC4`. Versioned specifications, routing metadata, and regression fixtures are committed under `spec/`.
+The current API contract is the official Torn **6.14.0** OpenAPI snapshot: **236 operations and 719 component schemas**. The frozen **6.13.6** snapshot remains available for explicit legacy decoding. Its SHA-256 is `DC04C6A03424DA1D0361F29E80971D830115A23DDB1C47FBE5824FB54BB46EC4`. Versioned specifications, routing metadata, and regression fixtures are committed under `spec/`.
 
 `legacy6136Models` and `decodeLegacyModel` decode old payloads. Current elimination-team responses require `captains`; legacy responses use `leaders`. See [the coverage audit](docs/COVERAGE_AUDIT.md) for the exact upstream changes and documentation comparison.
 
 | Surface | Inventory | Contract |
 | --- | ---: | --- |
-| Current API component schemas | 712 | Complete 6.13.8 types and runtime decoding |
+| Current API component schemas | 719 | Complete 6.14.0 types and runtime decoding |
 | Frozen API component schemas | 711 | Explicit 6.13.6 legacy decoding |
-| Exact endpoint operations | 234 | Typed parameters/responses, snake_case and camelCase methods |
+| Exact endpoint operations | 236 | Typed parameters/responses, snake_case and camelCase methods |
 | Frozen generated model acceptance samples | 1,628 | Named and inline model validation |
-| Capability selections | 205 | All nine resources |
+| Capability selections | 207 | All nine resources |
 | Manual facade model declarations | 549 | Typed declarations and metadata-driven decoders |
-| Typed facade convenience methods | 207 | Selection helpers and detail aliases |
-| Raw convenience methods | 200 | Raw selection helpers |
+| Typed facade convenience methods | 209 | Selection helpers and detail aliases |
+| Raw convenience methods | 202 | Raw selection helpers |
 | CSV operations | 3 | Text execution and string return values |
 | Planner regression scenarios | 466 | Normalized plan/error comparisons |
 | Manual model regression scenarios | 59 | Normalized decoder output comparisons |

@@ -8,8 +8,8 @@ import type { TornClient } from '../src/client.ts';
 import type { RequestPlan } from '../src/types.ts';
 
 describe('complete pinned OpenAPI surface',()=>{
- test('all 712 schemas and 234 operations are exported and both aliases exist',()=>{
-  expect(componentSchemaNames).toHaveLength(712);expect(operationIds).toHaveLength(234);
+ test('all 719 schemas and 236 operations are exported and both aliases exist',()=>{
+  expect(componentSchemaNames).toHaveLength(719);expect(operationIds).toHaveLength(236);
   for(const name of componentSchemaNames)expect(schemas[name]).toBeDefined();
   const api=new OpenApi({} as TornClient);
   for(const id of operationIds){const d=operationDefinitions[id]!;expect(typeof Reflect.get(api,d.method)).toBe('function');expect(typeof Reflect.get(api,d.camel)).toBe('function');}
@@ -27,8 +27,8 @@ describe('complete pinned OpenAPI surface',()=>{
   expect(validateSchema({allOf:[{type:'object',required:['id']},{type:'object',required:['name']}]},{id:1},{})).toHaveLength(1);
  });
  test('combined generic selection envelopes validate every selected property',()=>{
-  expect(validateModel('GetUserGenericResponse',{discord:{discord_id:'12345',user_id:1}})).toEqual([]);
-  expect(validateModel('GetUserGenericResponse',{discord:{discord_id:'12345',user_id:'bad'}}).length).toBeGreaterThan(0);
+  expect(validateModel('GetUserGenericResponse',{discord:{discord_id:'12365',user_id:1}})).toEqual([]);
+  expect(validateModel('GetUserGenericResponse',{discord:{discord_id:'12365',user_id:'bad'}}).length).toBeGreaterThan(0);
   expect(validateModel('GetUserGenericResponse',{})).toEqual([]);
  });
  test('unknown log payloads are retained and known fields still validated',()=>{

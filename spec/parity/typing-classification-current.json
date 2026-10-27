@@ -1,0 +1,4431 @@
+{
+  "provenance": {
+    "tool": "typing_gap_report",
+    "source": "Committed SDK typing-classification regression expectations, including historical textual-analysis behavior. Classifications are SDK audit contracts, not classifications supplied by the API specification.",
+    "source_report_sha256": "d98a331c0415afd193d2860700eb806824896f19f62ad3c08169e20b27492508",
+    "manual_metadata_sha256": "8ba067e9a378f5b6b70acec02eb57d16067270c028e00905a0e8c750af06a8c6",
+    "facade_manifest_sha256": "e8555abe72227e49f10f0d86a962c9275e238f99913a71cda861670243aedcd9",
+    "kind": "typing-classification-regression",
+    "source_url": "https://www.torn.com/swagger/openapi.json",
+    "apiVersion": "6.14.0"
+  },
+  "selections": [
+    {
+      "resource": "company",
+      "selection": "applications",
+      "class": "dynamic-facade",
+      "helper": "applications",
+      "return_type": "CompanyApplicationsBundle",
+      "schema_refs": [
+        "#/components/schemas/ApplicationStatusEnum",
+        "#/components/schemas/CompanyApplication",
+        "#/components/schemas/CompanyApplicationPlayer",
+        "#/components/schemas/CompanyApplicationPlayerStats",
+        "#/components/schemas/CompanyApplicationsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "company",
+      "selection": "companies",
+      "class": "dynamic-facade",
+      "helper": "companies",
+      "return_type": "CompanyCompaniesBundle",
+      "schema_refs": [
+        "#/components/schemas/CompaniesResponse",
+        "#/components/schemas/CompanyCustomers",
+        "#/components/schemas/CompanyDirector",
+        "#/components/schemas/CompanyEmployees",
+        "#/components/schemas/CompanyId",
+        "#/components/schemas/CompanyIncome",
+        "#/components/schemas/CompanyProfile",
+        "#/components/schemas/CompanyType",
+        "#/components/schemas/CompanyTypeId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndTotal",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserLastAction",
+        "#/components/schemas/UserLastActionStatusEnum",
+        "#/components/schemas/UserPlaneImageTypeEnum",
+        "#/components/schemas/UserStatus",
+        "#/components/schemas/UserStatusStateEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "company",
+      "selection": "employees",
+      "class": "dynamic-facade",
+      "helper": "employees",
+      "return_type": "CompanyEmployeesBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyEmployee",
+        "#/components/schemas/CompanyEmployeeEffectiveness",
+        "#/components/schemas/CompanyEmployeeExtended",
+        "#/components/schemas/CompanyEmployeeFull",
+        "#/components/schemas/CompanyEmployeePosition",
+        "#/components/schemas/CompanyEmployeeStats",
+        "#/components/schemas/CompanyEmployeesResponse",
+        "#/components/schemas/CompanyEmployeesResponseBasic",
+        "#/components/schemas/CompanyPositionId",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserLastAction",
+        "#/components/schemas/UserLastActionStatusEnum",
+        "#/components/schemas/UserPlaneImageTypeEnum",
+        "#/components/schemas/UserStatus",
+        "#/components/schemas/UserStatusStateEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "company",
+      "selection": "lookup",
+      "class": "dynamic-facade",
+      "helper": "lookup",
+      "return_type": "CompanyLookupBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyLookupResponse",
+        "#/components/schemas/CompanySelectionName"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "company",
+      "selection": "news",
+      "class": "dynamic-facade",
+      "helper": "news",
+      "return_type": "CompanyNewsBundle",
+      "schema_refs": [
+        "#/components/schemas/News",
+        "#/components/schemas/NewsResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "company",
+      "selection": "profile",
+      "class": "strict-typed",
+      "helper": "profile",
+      "return_type": "CompanyProfileBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyCustomers",
+        "#/components/schemas/CompanyDirector",
+        "#/components/schemas/CompanyEmployees",
+        "#/components/schemas/CompanyId",
+        "#/components/schemas/CompanyIncome",
+        "#/components/schemas/CompanyProfile",
+        "#/components/schemas/CompanyProfileExtended",
+        "#/components/schemas/CompanyProfileResponse",
+        "#/components/schemas/CompanyProfileResponseMixed",
+        "#/components/schemas/CompanyStaffRoomSizeEnum",
+        "#/components/schemas/CompanyType",
+        "#/components/schemas/CompanyTypeId",
+        "#/components/schemas/CompanyUpgrades",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserLastAction",
+        "#/components/schemas/UserLastActionStatusEnum",
+        "#/components/schemas/UserPlaneImageTypeEnum",
+        "#/components/schemas/UserStatus",
+        "#/components/schemas/UserStatusStateEnum"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "company",
+      "selection": "search",
+      "class": "dynamic-facade",
+      "helper": "search",
+      "return_type": "CompanySearchBundle",
+      "schema_refs": [
+        "#/components/schemas/CompaniesSearchResponse",
+        "#/components/schemas/CompanyCustomers",
+        "#/components/schemas/CompanyEmployees",
+        "#/components/schemas/CompanyId",
+        "#/components/schemas/CompanyIncome",
+        "#/components/schemas/CompanySearchProfile",
+        "#/components/schemas/CompanyType",
+        "#/components/schemas/CompanyTypeId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "company",
+      "selection": "snapshot",
+      "class": "missing-schema",
+      "helper": "snapshot",
+      "return_type": "String",
+      "schema_refs": [],
+      "notes": [
+        "wrapper return type was not found in manual/generated models",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": true
+    },
+    {
+      "resource": "company",
+      "selection": "stock",
+      "class": "dynamic-facade",
+      "helper": "stock",
+      "return_type": "CompanyStockBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyStockId",
+        "#/components/schemas/CompanyStockItem",
+        "#/components/schemas/CompanyStockResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "company",
+      "selection": "timestamp",
+      "class": "dynamic-facade",
+      "helper": "timestamp",
+      "return_type": "CompanyTimestampBundle",
+      "schema_refs": [
+        "#/components/schemas/TimestampResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "applications",
+      "class": "dynamic-facade",
+      "helper": "applications",
+      "return_type": "FactionApplicationsBundle",
+      "schema_refs": [
+        "#/components/schemas/ApplicationStatusEnum",
+        "#/components/schemas/FactionApplication",
+        "#/components/schemas/FactionApplicationsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "armor",
+      "class": "missing-schema",
+      "helper": "armor",
+      "return_type": "FactionArmorBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "attacks",
+      "class": "dynamic-facade",
+      "helper": "attacks",
+      "return_type": "FactionAttacksBundle",
+      "schema_refs": [
+        "#/components/schemas/Attack",
+        "#/components/schemas/AttackCode",
+        "#/components/schemas/AttackFinishingHitEffect",
+        "#/components/schemas/AttackId",
+        "#/components/schemas/AttackPlayer",
+        "#/components/schemas/AttackingFinishingHitEffects",
+        "#/components/schemas/AttacksResponse",
+        "#/components/schemas/FactionAttackResult",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TerritoryWarId",
+        "#/components/schemas/UserFactionBasic",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "attacksfull",
+      "class": "dynamic-facade",
+      "helper": "attacksfull",
+      "return_type": "FactionAttacksFullBundle",
+      "schema_refs": [
+        "#/components/schemas/AttackCode",
+        "#/components/schemas/AttackId",
+        "#/components/schemas/AttackPlayerSimplified",
+        "#/components/schemas/AttackSimplified",
+        "#/components/schemas/AttacksFullResponse",
+        "#/components/schemas/FactionAttackResult",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "balance",
+      "class": "dynamic-facade",
+      "helper": "balance",
+      "return_type": "FactionBalanceBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionBalance",
+        "#/components/schemas/FactionBalanceResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "basic",
+      "class": "strict-typed",
+      "helper": "basic",
+      "return_type": "FactionBasicBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionBasic",
+        "#/components/schemas/FactionBasicResponse",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRank",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "boosters",
+      "class": "missing-schema",
+      "helper": "boosters",
+      "return_type": "FactionBoostersBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "caches",
+      "class": "missing-schema",
+      "helper": "caches",
+      "return_type": "FactionCachesBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "cesium",
+      "class": "missing-schema",
+      "helper": "cesium",
+      "return_type": "FactionCesiumBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "chain",
+      "class": "dynamic-facade",
+      "helper": "chain",
+      "return_type": "FactionChainBundle",
+      "schema_refs": [
+        "#/components/schemas/ChainId",
+        "#/components/schemas/FactionOngoingChain",
+        "#/components/schemas/FactionOngoingChainResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "chainreport",
+      "class": "dynamic-facade",
+      "helper": "chainreport",
+      "return_type": "FactionChainReportBundle",
+      "schema_refs": [
+        "#/components/schemas/ChainId",
+        "#/components/schemas/FactionChainReport",
+        "#/components/schemas/FactionChainReportAttacker",
+        "#/components/schemas/FactionChainReportAttackerAttacks",
+        "#/components/schemas/FactionChainReportAttackerRespect",
+        "#/components/schemas/FactionChainReportBonus",
+        "#/components/schemas/FactionChainReportDetails",
+        "#/components/schemas/FactionChainReportResponse",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "chains",
+      "class": "dynamic-facade",
+      "helper": "chains",
+      "return_type": "FactionChainsBundle",
+      "schema_refs": [
+        "#/components/schemas/ChainId",
+        "#/components/schemas/FactionChain",
+        "#/components/schemas/FactionChainsResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "contributors",
+      "class": "dynamic-facade",
+      "helper": "contributors",
+      "return_type": "FactionContributorsBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionContributor",
+        "#/components/schemas/FactionContributorsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "crime",
+      "class": "strict-typed",
+      "helper": "crime",
+      "return_type": "FactionCrimeBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionCrime",
+        "#/components/schemas/FactionCrimeId",
+        "#/components/schemas/FactionCrimeItemOutcomeEnum",
+        "#/components/schemas/FactionCrimeResponse",
+        "#/components/schemas/FactionCrimeReward",
+        "#/components/schemas/FactionCrimeRewardItem",
+        "#/components/schemas/FactionCrimeRewardPayout",
+        "#/components/schemas/FactionCrimeSlot",
+        "#/components/schemas/FactionCrimeStatusEnum",
+        "#/components/schemas/FactionCrimeUser",
+        "#/components/schemas/FactionCrimeUserItemOutcome",
+        "#/components/schemas/FactionCrimeUserItemOutcomeEnum",
+        "#/components/schemas/FactionCrimeUserOutcome",
+        "#/components/schemas/FactionOrganizedCrimePayoutType",
+        "#/components/schemas/FactionSlotPositionInfo",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/OrganizedCrimeName",
+        "#/components/schemas/TornOrganizedCrimePositionId",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "crimeexp",
+      "class": "dynamic-facade",
+      "helper": "crimeexp",
+      "return_type": "FactionCrimeExpBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionCrimeExpResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "crimes",
+      "class": "dynamic-facade",
+      "helper": "crimes",
+      "return_type": "FactionCrimesBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionCrime",
+        "#/components/schemas/FactionCrimeId",
+        "#/components/schemas/FactionCrimeItemOutcomeEnum",
+        "#/components/schemas/FactionCrimeReward",
+        "#/components/schemas/FactionCrimeRewardItem",
+        "#/components/schemas/FactionCrimeRewardPayout",
+        "#/components/schemas/FactionCrimeSlot",
+        "#/components/schemas/FactionCrimeStatusEnum",
+        "#/components/schemas/FactionCrimeUser",
+        "#/components/schemas/FactionCrimeUserItemOutcome",
+        "#/components/schemas/FactionCrimeUserItemOutcomeEnum",
+        "#/components/schemas/FactionCrimeUserOutcome",
+        "#/components/schemas/FactionCrimesResponse",
+        "#/components/schemas/FactionOrganizedCrimePayoutType",
+        "#/components/schemas/FactionSlotPositionInfo",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/OrganizedCrimeName",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornOrganizedCrimePositionId",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "dirtbombs",
+      "class": "strict-typed",
+      "helper": "dirtbombs",
+      "return_type": "FactionWarfareDirtyBombsResponse",
+      "schema_refs": [
+        "#/components/schemas/DirtyBombId",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionWarfareDirtyBomb",
+        "#/components/schemas/FactionWarfareDirtyBombPlanter",
+        "#/components/schemas/FactionWarfareDirtyBombTargetFaction",
+        "#/components/schemas/FactionWarfareDirtyBombsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "dirtybombs",
+      "class": "strict-typed",
+      "helper": "dirtybombs",
+      "return_type": "FactionWarfareDirtyBombsResponse",
+      "schema_refs": [
+        "#/components/schemas/DirtyBombId",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionWarfareDirtyBomb",
+        "#/components/schemas/FactionWarfareDirtyBombPlanter",
+        "#/components/schemas/FactionWarfareDirtyBombTargetFaction",
+        "#/components/schemas/FactionWarfareDirtyBombsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "drugs",
+      "class": "missing-schema",
+      "helper": "drugs",
+      "return_type": "FactionDrugsBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "hof",
+      "class": "dynamic-facade",
+      "helper": "hof",
+      "return_type": "FactionHofBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionHofResponse",
+        "#/components/schemas/FactionHofStats",
+        "#/components/schemas/HofValue",
+        "#/components/schemas/HofValueString"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "inventory",
+      "class": "strict-typed",
+      "helper": "inventory",
+      "return_type": "FactionInventoryResponse",
+      "schema_refs": [
+        "#/components/schemas/FactionInventoryItem",
+        "#/components/schemas/FactionInventoryResponse",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/MarketSpecializedBazaarCategoryEnum",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndTotal",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "lookup",
+      "class": "dynamic-facade",
+      "helper": "lookup",
+      "return_type": "FactionLookupBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionLookupResponse",
+        "#/components/schemas/FactionSelectionName"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "medical",
+      "class": "missing-schema",
+      "helper": "medical",
+      "return_type": "FactionMedicalBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "members",
+      "class": "dynamic-facade",
+      "helper": "members",
+      "return_type": "FactionMembersBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionMember",
+        "#/components/schemas/FactionMembersResponse",
+        "#/components/schemas/ReviveSetting",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserLastAction",
+        "#/components/schemas/UserLastActionStatusEnum",
+        "#/components/schemas/UserPlaneImageTypeEnum",
+        "#/components/schemas/UserStatus",
+        "#/components/schemas/UserStatusStateEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "news",
+      "class": "dynamic-facade",
+      "helper": "news",
+      "return_type": "FactionNewsBundle",
+      "schema_refs": [
+        "#/components/schemas/News",
+        "#/components/schemas/NewsResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "positions",
+      "class": "dynamic-facade",
+      "helper": "positions",
+      "return_type": "FactionPositionsBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionPosition",
+        "#/components/schemas/FactionPositionAbilityEnum",
+        "#/components/schemas/FactionPositionsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "rackets",
+      "class": "dynamic-facade",
+      "helper": "rackets",
+      "return_type": "FactionRacketsBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionRacketsResponse",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/TornRacket",
+        "#/components/schemas/TornRacketReward",
+        "#/components/schemas/TornRacketType"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "raidreport",
+      "class": "typed-with-extra",
+      "helper": "raidreport",
+      "return_type": "FactionRaidReportBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRaidReport",
+        "#/components/schemas/FactionRaidReportAttacker",
+        "#/components/schemas/FactionRaidReportFaction",
+        "#/components/schemas/FactionRaidReportUser",
+        "#/components/schemas/FactionRaidWarReportResponse",
+        "#/components/schemas/RaidWarId",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "raids",
+      "class": "dynamic-facade",
+      "helper": "raids",
+      "return_type": "FactionRaidsBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRaidWarfare",
+        "#/components/schemas/FactionRaidWarfareFaction",
+        "#/components/schemas/FactionRaidsResponse",
+        "#/components/schemas/RaidWarId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "rankedwarreport",
+      "class": "typed-with-extra",
+      "helper": "rankedwarreport",
+      "return_type": "FactionRankedWarReportBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRankedWarReportResponse",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/RankedWarId",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "rankedwars",
+      "class": "dynamic-facade",
+      "helper": "rankedwars",
+      "return_type": "FactionRankedWarsBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRankedWarDetails",
+        "#/components/schemas/FactionRankedWarResponse",
+        "#/components/schemas/RankedWarId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "reports",
+      "class": "dynamic-facade",
+      "helper": "reports",
+      "return_type": "FactionReportsBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyId",
+        "#/components/schemas/CountryEnum",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/Report",
+        "#/components/schemas/ReportAnonymousBounties",
+        "#/components/schemas/ReportBase",
+        "#/components/schemas/ReportCompanyFinancials",
+        "#/components/schemas/ReportFriendOrFoe",
+        "#/components/schemas/ReportFriendOrFoeUser",
+        "#/components/schemas/ReportHistory",
+        "#/components/schemas/ReportHistoryCompany",
+        "#/components/schemas/ReportHistoryFaction",
+        "#/components/schemas/ReportInvestment",
+        "#/components/schemas/ReportMoney",
+        "#/components/schemas/ReportMostWanted",
+        "#/components/schemas/ReportReport",
+        "#/components/schemas/ReportStats",
+        "#/components/schemas/ReportStockAnalysis",
+        "#/components/schemas/ReportTrueLevel",
+        "#/components/schemas/ReportTypeEnum",
+        "#/components/schemas/ReportWarrantDetails",
+        "#/components/schemas/ReportsResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "revives",
+      "class": "dynamic-facade",
+      "helper": "revives",
+      "return_type": "FactionRevivesBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/Revive",
+        "#/components/schemas/ReviveId",
+        "#/components/schemas/RevivesResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "revivesfull",
+      "class": "dynamic-facade",
+      "helper": "revivesfull",
+      "return_type": "FactionRevivesFullBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/ReviveId",
+        "#/components/schemas/ReviveSimplified",
+        "#/components/schemas/RevivesFullResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "search",
+      "class": "dynamic-facade",
+      "helper": "search",
+      "return_type": "FactionSearchBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionSearch",
+        "#/components/schemas/FactionSearchLeader",
+        "#/components/schemas/FactionSearchResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "snapshot",
+      "class": "missing-schema",
+      "helper": "snapshot",
+      "return_type": "String",
+      "schema_refs": [],
+      "notes": [
+        "wrapper return type was not found in manual/generated models",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": true
+    },
+    {
+      "resource": "faction",
+      "selection": "stats",
+      "class": "dynamic-facade",
+      "helper": "stats",
+      "return_type": "FactionStatsBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionStat",
+        "#/components/schemas/FactionStatEnum",
+        "#/components/schemas/FactionStatsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "temporary",
+      "class": "missing-schema",
+      "helper": "temporary",
+      "return_type": "FactionTemporaryBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "territory",
+      "class": "dynamic-facade",
+      "helper": "territory",
+      "return_type": "FactionTerritoryBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionTerritoriesResponse",
+        "#/components/schemas/FactionTerritory",
+        "#/components/schemas/FactionTerritoryEnum",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/TornRacket",
+        "#/components/schemas/TornRacketReward",
+        "#/components/schemas/TornRacketType",
+        "#/components/schemas/TornTerritoryCoordinates"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "territoryownership",
+      "class": "dynamic-facade",
+      "helper": "territoryownership",
+      "return_type": "FactionTerritoryOwnershipBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionTerritoriesOwnershipResponse",
+        "#/components/schemas/FactionTerritoryOwnership"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "territorywarreport",
+      "class": "typed-with-extra",
+      "helper": "territorywarreport",
+      "return_type": "FactionTerritoryWarReportBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionTerritoryEnum",
+        "#/components/schemas/FactionTerritoryWarReport",
+        "#/components/schemas/FactionTerritoryWarReportFaction",
+        "#/components/schemas/FactionTerritoryWarReportMembers",
+        "#/components/schemas/FactionTerritoryWarReportResponse",
+        "#/components/schemas/TerritoryWarId",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "territorywars",
+      "class": "dynamic-facade",
+      "helper": "territorywars",
+      "return_type": "FactionTerritoryWarsBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionTerritoryEnum",
+        "#/components/schemas/FactionTerritoryWarFinished",
+        "#/components/schemas/FactionTerritoryWarFinishedFaction",
+        "#/components/schemas/FactionTerritoryWarResultEnum",
+        "#/components/schemas/FactionTerritoryWarsHistoryResponse",
+        "#/components/schemas/TerritoryWarId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "timestamp",
+      "class": "strict-typed",
+      "helper": "timestamp",
+      "return_type": "FactionTimestampBundle",
+      "schema_refs": [
+        "#/components/schemas/TimestampResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "upgrades",
+      "class": "dynamic-facade",
+      "helper": "upgrades",
+      "return_type": "FactionUpgradesBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionBranchDetails",
+        "#/components/schemas/FactionBranchId",
+        "#/components/schemas/FactionBranchStateEnum",
+        "#/components/schemas/FactionUpgradeDetails",
+        "#/components/schemas/FactionUpgrades",
+        "#/components/schemas/FactionUpgradesResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "utilities",
+      "class": "missing-schema",
+      "helper": "utilities",
+      "return_type": "FactionUtilitiesBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "warfare",
+      "class": "dynamic-facade",
+      "helper": "warfare",
+      "return_type": "FactionWarfareBundle",
+      "schema_refs": [
+        "#/components/schemas/ChainId",
+        "#/components/schemas/DirtyBombId",
+        "#/components/schemas/FactionChain",
+        "#/components/schemas/FactionChainWarfare",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRaidWarfare",
+        "#/components/schemas/FactionRaidWarfareFaction",
+        "#/components/schemas/FactionRankedWarDetails",
+        "#/components/schemas/FactionTerritoryEnum",
+        "#/components/schemas/FactionTerritoryWarFaction",
+        "#/components/schemas/FactionTerritoryWarFactionWallPlayers",
+        "#/components/schemas/FactionTerritoryWarfare",
+        "#/components/schemas/FactionWarfareDirtyBomb",
+        "#/components/schemas/FactionWarfareDirtyBombPlanter",
+        "#/components/schemas/FactionWarfareDirtyBombTargetFaction",
+        "#/components/schemas/FactionWarfareResponse",
+        "#/components/schemas/RaidWarId",
+        "#/components/schemas/RankedWarId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TerritoryWarId",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "warfarechains",
+      "class": "strict-typed",
+      "helper": "warfarechains",
+      "return_type": "FactionWarfareChainsResponse",
+      "schema_refs": [
+        "#/components/schemas/ChainId",
+        "#/components/schemas/FactionChain",
+        "#/components/schemas/FactionChainWarfare",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionWarfareChainsResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "warfareraids",
+      "class": "strict-typed",
+      "helper": "warfareraids",
+      "return_type": "FactionWarfareRaidsResponse",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRaidWarfare",
+        "#/components/schemas/FactionRaidWarfareFaction",
+        "#/components/schemas/FactionWarfareRaidsResponse",
+        "#/components/schemas/RaidWarId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "warfareranked",
+      "class": "strict-typed",
+      "helper": "warfareranked",
+      "return_type": "FactionWarfareRankedResponse",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRankedWarDetails",
+        "#/components/schemas/FactionWarfareRankedResponse",
+        "#/components/schemas/RankedWarId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "warfareterritory",
+      "class": "strict-typed",
+      "helper": "warfareterritory",
+      "return_type": "FactionWarfareTerritoryWarsResponse",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionTerritoryEnum",
+        "#/components/schemas/FactionTerritoryWarFaction",
+        "#/components/schemas/FactionTerritoryWarFactionWallPlayers",
+        "#/components/schemas/FactionTerritoryWarfare",
+        "#/components/schemas/FactionWarfareTerritoryWarsResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TerritoryWarId",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "wars",
+      "class": "dynamic-facade",
+      "helper": "wars",
+      "return_type": "FactionWarsBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionPact",
+        "#/components/schemas/FactionRaidWar",
+        "#/components/schemas/FactionRaidWarParticipant",
+        "#/components/schemas/FactionRankedWar",
+        "#/components/schemas/FactionRankedWarParticipant",
+        "#/components/schemas/FactionTerritoryWar",
+        "#/components/schemas/FactionTerritoryWarParticipant",
+        "#/components/schemas/FactionWars",
+        "#/components/schemas/FactionWarsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "faction",
+      "selection": "weapons",
+      "class": "missing-schema",
+      "helper": "weapons",
+      "return_type": "FactionWeaponsBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "forum",
+      "selection": "categories",
+      "class": "dynamic-facade",
+      "helper": "categories",
+      "return_type": "ForumCategoriesBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumCategoriesResponse",
+        "#/components/schemas/ForumId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "forum",
+      "selection": "lookup",
+      "class": "strict-typed",
+      "helper": "lookup",
+      "return_type": "ForumLookupBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumLookupResponse",
+        "#/components/schemas/ForumSelectionName"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "forum",
+      "selection": "posts",
+      "class": "dynamic-facade",
+      "helper": "posts",
+      "return_type": "ForumPostsBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumPost",
+        "#/components/schemas/ForumPostId",
+        "#/components/schemas/ForumPostsResponse",
+        "#/components/schemas/ForumThreadAuthor",
+        "#/components/schemas/ForumThreadId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "forum",
+      "selection": "thread",
+      "class": "dynamic-facade",
+      "helper": "thread",
+      "return_type": "ForumThreadBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumId",
+        "#/components/schemas/ForumPoll",
+        "#/components/schemas/ForumPollVote",
+        "#/components/schemas/ForumThreadAuthor",
+        "#/components/schemas/ForumThreadBase",
+        "#/components/schemas/ForumThreadExtended",
+        "#/components/schemas/ForumThreadId",
+        "#/components/schemas/ForumThreadResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "forum",
+      "selection": "threads",
+      "class": "dynamic-facade",
+      "helper": "threads",
+      "return_type": "ForumThreadsBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumId",
+        "#/components/schemas/ForumThreadAuthor",
+        "#/components/schemas/ForumThreadBase",
+        "#/components/schemas/ForumThreadId",
+        "#/components/schemas/ForumThreadsResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "forum",
+      "selection": "timestamp",
+      "class": "strict-typed",
+      "helper": "timestamp",
+      "return_type": "ForumTimestampBundle",
+      "schema_refs": [
+        "#/components/schemas/TimestampResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "key",
+      "selection": "info",
+      "class": "dynamic-facade",
+      "helper": "info",
+      "return_type": "KeyInfoBundle",
+      "schema_refs": [
+        "#/components/schemas/ApiKeyAccessTypeEnum",
+        "#/components/schemas/CompanyId",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/FactionSelectionName",
+        "#/components/schemas/ForumSelectionName",
+        "#/components/schemas/KeyInfoAvailableLog",
+        "#/components/schemas/KeyInfoResponse",
+        "#/components/schemas/KeySelectionName",
+        "#/components/schemas/LogCategoryId",
+        "#/components/schemas/LogId",
+        "#/components/schemas/MarketSelectionName",
+        "#/components/schemas/RacingSelectionName",
+        "#/components/schemas/TornSelectionName",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserSelectionName"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "key",
+      "selection": "log",
+      "class": "dynamic-facade",
+      "helper": "log",
+      "return_type": "KeyLogBundle",
+      "schema_refs": [
+        "#/components/schemas/KeyLogResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "auctionhouse",
+      "class": "dynamic-facade",
+      "helper": "auctionhouse",
+      "return_type": "MarketAuctionHouseBundle",
+      "schema_refs": [
+        "#/components/schemas/AuctionHouseListing",
+        "#/components/schemas/AuctionHouseResponse",
+        "#/components/schemas/AuctionHouseStackableItem",
+        "#/components/schemas/AuctionListingId",
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemDetails",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornItemDetails",
+        "#/components/schemas/TornItemTypeEnum",
+        "#/components/schemas/TornItemWeaponTypeEnum",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "auctionhouselisting",
+      "class": "dynamic-facade",
+      "helper": "auctionhouselisting",
+      "return_type": "MarketAuctionHouseListingBundle",
+      "schema_refs": [
+        "#/components/schemas/AuctionHouseListing",
+        "#/components/schemas/AuctionHouseListingResponse",
+        "#/components/schemas/AuctionHouseStackableItem",
+        "#/components/schemas/AuctionListingId",
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemDetails",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/TornItemDetails",
+        "#/components/schemas/TornItemTypeEnum",
+        "#/components/schemas/TornItemWeaponTypeEnum",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "bazaar",
+      "class": "dynamic-facade",
+      "helper": "bazaar",
+      "return_type": "MarketBazaarBundle",
+      "schema_refs": [
+        "#/components/schemas/Bazaar",
+        "#/components/schemas/BazaarAdvancedItemSales",
+        "#/components/schemas/BazaarBargainSales",
+        "#/components/schemas/BazaarBulkSales",
+        "#/components/schemas/BazaarDollarSales",
+        "#/components/schemas/BazaarRecentFavorites",
+        "#/components/schemas/BazaarResponse",
+        "#/components/schemas/BazaarResponseSpecialized",
+        "#/components/schemas/BazaarSpecialized",
+        "#/components/schemas/BazaarTotalFavorites",
+        "#/components/schemas/BazaarWeekly",
+        "#/components/schemas/BazaarWeeklyCustomers",
+        "#/components/schemas/BazaarWeeklyIncome",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "itemmarket",
+      "class": "dynamic-facade",
+      "helper": "itemmarket",
+      "return_type": "MarketItemMarketBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemMarket",
+        "#/components/schemas/ItemMarketItem",
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemDetails",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemMarketListingNonstackable",
+        "#/components/schemas/ItemMarketListingStackable",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/MarketItemMarketResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndTotal"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "lookup",
+      "class": "dynamic-facade",
+      "helper": "lookup",
+      "return_type": "MarketLookupBundle",
+      "schema_refs": [
+        "#/components/schemas/MarketLookupResponse",
+        "#/components/schemas/MarketSelectionName"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "pointsmarket",
+      "class": "strict-typed",
+      "helper": "pointsmarket",
+      "return_type": "PointsMarketResponse",
+      "schema_refs": [
+        "#/components/schemas/PointsMarketResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "properties",
+      "class": "dynamic-facade",
+      "helper": "properties",
+      "return_type": "MarketPropertiesBundle",
+      "schema_refs": [
+        "#/components/schemas/BasicProperty",
+        "#/components/schemas/MarketPropertiesResponse",
+        "#/components/schemas/MarketPropertyDetails",
+        "#/components/schemas/PropertyModificationEnum",
+        "#/components/schemas/PropertyTypeId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndTotal"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "rentals",
+      "class": "dynamic-facade",
+      "helper": "rentals",
+      "return_type": "MarketRentalsBundle",
+      "schema_refs": [
+        "#/components/schemas/BasicProperty",
+        "#/components/schemas/MarketRentalDetails",
+        "#/components/schemas/MarketRentalsResponse",
+        "#/components/schemas/PropertyModificationEnum",
+        "#/components/schemas/PropertyTypeId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndTotal"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "timestamp",
+      "class": "dynamic-facade",
+      "helper": "timestamp",
+      "return_type": "MarketTimestampBundle",
+      "schema_refs": [
+        "#/components/schemas/TimestampResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "property",
+      "selection": "lookup",
+      "class": "dynamic-facade",
+      "helper": "lookup",
+      "return_type": "PropertyLookupBundle",
+      "schema_refs": [
+        "#/components/schemas/PropertyLookupResponse",
+        "#/components/schemas/PropertySelectionName"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "property",
+      "selection": "property",
+      "class": "dynamic-facade",
+      "helper": "property",
+      "return_type": "PropertyBundle",
+      "schema_refs": [
+        "#/components/schemas/BasicProperty",
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/PropertyId",
+        "#/components/schemas/PropertyModificationEnum",
+        "#/components/schemas/PropertyPropertyResponse",
+        "#/components/schemas/PropertyStaffEnum",
+        "#/components/schemas/PropertyTypeId",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserPropertyBasicDetails",
+        "#/components/schemas/UserPropertyDetailsExtendedWithRent"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "property",
+      "selection": "timestamp",
+      "class": "dynamic-facade",
+      "helper": "timestamp",
+      "return_type": "PropertyTimestampBundle",
+      "schema_refs": [
+        "#/components/schemas/TimestampResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "racing",
+      "selection": "cars",
+      "class": "dynamic-facade",
+      "helper": "cars",
+      "return_type": "RacingCarsBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/RaceCar",
+        "#/components/schemas/RaceClassEnum",
+        "#/components/schemas/RacingCarsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "racing",
+      "selection": "carupgrades",
+      "class": "dynamic-facade",
+      "helper": "carupgrades",
+      "return_type": "RacingCarUpgradesBundle",
+      "schema_refs": [
+        "#/components/schemas/RaceCarUpgrade",
+        "#/components/schemas/RaceCarUpgradeCategory",
+        "#/components/schemas/RaceCarUpgradeId",
+        "#/components/schemas/RaceCarUpgradeSubCategory",
+        "#/components/schemas/RaceClassEnum",
+        "#/components/schemas/RacingCarUpgradesResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "racing",
+      "selection": "lookup",
+      "class": "dynamic-facade",
+      "helper": "lookup",
+      "return_type": "RacingLookupBundle",
+      "schema_refs": [
+        "#/components/schemas/RacingLookupResponse",
+        "#/components/schemas/RacingSelectionName"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "racing",
+      "selection": "race",
+      "class": "dynamic-facade",
+      "helper": "race",
+      "return_type": "RacingRaceBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/Race",
+        "#/components/schemas/RaceCarId",
+        "#/components/schemas/RaceClassEnum",
+        "#/components/schemas/RaceId",
+        "#/components/schemas/RaceStatusEnum",
+        "#/components/schemas/RaceTrackId",
+        "#/components/schemas/RacerDetails",
+        "#/components/schemas/RacingRaceDetails",
+        "#/components/schemas/RacingRaceDetailsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "racing",
+      "selection": "races",
+      "class": "dynamic-facade",
+      "helper": "races",
+      "return_type": "RacingRacesBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/Race",
+        "#/components/schemas/RaceClassEnum",
+        "#/components/schemas/RaceId",
+        "#/components/schemas/RaceStatusEnum",
+        "#/components/schemas/RaceTrackId",
+        "#/components/schemas/RacingRacesResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "racing",
+      "selection": "records",
+      "class": "dynamic-facade",
+      "helper": "records",
+      "return_type": "RacingRecordsBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/RaceRecord",
+        "#/components/schemas/RacingTrackRecordsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "racing",
+      "selection": "timestamp",
+      "class": "dynamic-facade",
+      "helper": "timestamp",
+      "return_type": "RacingTimestampBundle",
+      "schema_refs": [
+        "#/components/schemas/TimestampResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "racing",
+      "selection": "tracks",
+      "class": "dynamic-facade",
+      "helper": "tracks",
+      "return_type": "RacingTracksBundle",
+      "schema_refs": [
+        "#/components/schemas/RaceTrack",
+        "#/components/schemas/RaceTrackId",
+        "#/components/schemas/RacingTracksResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "attacklog",
+      "class": "dynamic-facade",
+      "helper": "attacklog",
+      "return_type": "TornAttackLogBundle",
+      "schema_refs": [
+        "#/components/schemas/AttackActionEnum",
+        "#/components/schemas/AttackLog",
+        "#/components/schemas/AttackLogResponse",
+        "#/components/schemas/AttackLogSummary",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "bank",
+      "class": "strict-typed",
+      "helper": "bank",
+      "return_type": "TornBankResponse",
+      "schema_refs": [
+        "#/components/schemas/TornBank",
+        "#/components/schemas/TornBankResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "bounties",
+      "class": "dynamic-facade",
+      "helper": "bounties",
+      "return_type": "TornBountiesBundle",
+      "schema_refs": [
+        "#/components/schemas/Bounty",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndTotal",
+        "#/components/schemas/TornBountiesResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "calendar",
+      "class": "dynamic-facade",
+      "helper": "calendar",
+      "return_type": "TornCalendarBundle",
+      "schema_refs": [
+        "#/components/schemas/TornCalendarActivity",
+        "#/components/schemas/TornCalendarResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "cards",
+      "class": "strict-typed",
+      "helper": "cards",
+      "return_type": "TornCardsResponse",
+      "schema_refs": [
+        "#/components/schemas/TornCard",
+        "#/components/schemas/TornCardsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "cityshops",
+      "class": "strict-typed",
+      "helper": "cityshops",
+      "return_type": "TornCityShopsResponse",
+      "schema_refs": [
+        "#/components/schemas/CityShopId",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/TornCityShop",
+        "#/components/schemas/TornCityShopItem",
+        "#/components/schemas/TornCityShopsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "companies",
+      "class": "strict-typed",
+      "helper": "companies",
+      "return_type": "TornCompaniesResponse",
+      "schema_refs": [
+        "#/components/schemas/CompanyPositionId",
+        "#/components/schemas/CompanySpecialId",
+        "#/components/schemas/CompanyStockId",
+        "#/components/schemas/CompanyTypeId",
+        "#/components/schemas/TornCompaniesResponse",
+        "#/components/schemas/TornCompany",
+        "#/components/schemas/TornCompanyPosition",
+        "#/components/schemas/TornCompanySpecial",
+        "#/components/schemas/TornCompanyStock"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "competition",
+      "class": "missing-schema",
+      "helper": "competition",
+      "return_type": "TornCompetitionBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "crimes",
+      "class": "strict-typed",
+      "helper": "crimes",
+      "return_type": "TornCrimesBundle",
+      "schema_refs": [
+        "#/components/schemas/TornCrime",
+        "#/components/schemas/TornCrimeId",
+        "#/components/schemas/TornCrimesResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "education",
+      "class": "dynamic-facade",
+      "helper": "education",
+      "return_type": "TornEducationBundle",
+      "schema_refs": [
+        "#/components/schemas/EducationId",
+        "#/components/schemas/TornEducation",
+        "#/components/schemas/TornEducationCourses",
+        "#/components/schemas/TornEducationPrerequisites",
+        "#/components/schemas/TornEducationResponse",
+        "#/components/schemas/TornEducationRewards"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "elimination",
+      "class": "dynamic-facade",
+      "helper": "elimination",
+      "return_type": "TornEliminationBundle",
+      "schema_refs": [
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/EliminationTeamId",
+        "#/components/schemas/TornEliminationTeam",
+        "#/components/schemas/TornEliminationTeamAttacksSummary",
+        "#/components/schemas/TornEliminationTeamCaptain",
+        "#/components/schemas/TornEliminationTeamsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": false,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "eliminationteam",
+      "class": "dynamic-facade",
+      "helper": "eliminationteam",
+      "return_type": "TornEliminationTeamBundle",
+      "schema_refs": [
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornEliminationTeamPlayer",
+        "#/components/schemas/TornEliminationTeamPlayersResponse",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserLastAction",
+        "#/components/schemas/UserLastActionStatusEnum",
+        "#/components/schemas/UserPlaneImageTypeEnum",
+        "#/components/schemas/UserStatus",
+        "#/components/schemas/UserStatusStateEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "factionhof",
+      "class": "dynamic-facade",
+      "helper": "factionhof",
+      "return_type": "TornFactionHofBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionHofValues",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornFactionHof",
+        "#/components/schemas/TornFactionHofResponse"
+      ],
+      "notes": [
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": false,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "factiontree",
+      "class": "dynamic-facade",
+      "helper": "factiontree",
+      "return_type": "TornFactionTreeBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionBranchId",
+        "#/components/schemas/FactionStatEnum",
+        "#/components/schemas/TornFactionTree",
+        "#/components/schemas/TornFactionTreeBranch",
+        "#/components/schemas/TornFactionTreeResponse"
+      ],
+      "notes": [
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": false,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "gyms",
+      "class": "strict-typed",
+      "helper": "gyms",
+      "return_type": "TornGymsResponse",
+      "schema_refs": [
+        "#/components/schemas/GymClassEnum",
+        "#/components/schemas/GymId",
+        "#/components/schemas/TornGym",
+        "#/components/schemas/TornGymModifiers",
+        "#/components/schemas/TornGymsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "halloween",
+      "class": "strict-typed",
+      "helper": "halloween",
+      "return_type": "TornHalloweenResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/HalloweenBasketUpgradeId",
+        "#/components/schemas/TornHalloween",
+        "#/components/schemas/TornHalloweenResponse",
+        "#/components/schemas/TornHalloweenUpgrade"
+      ]
+    },
+    {
+      "resource": "torn",
+      "selection": "hof",
+      "class": "dynamic-facade",
+      "helper": "hof",
+      "return_type": "TornHofBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornHof",
+        "#/components/schemas/TornHofBasic",
+        "#/components/schemas/TornHofResponse",
+        "#/components/schemas/TornHofWithOffenses",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserRankEnum"
+      ],
+      "notes": [
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": false,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "honors",
+      "class": "dynamic-facade",
+      "helper": "honors",
+      "return_type": "TornHonorsBundle",
+      "schema_refs": [
+        "#/components/schemas/AwardCrimesVersionEnum",
+        "#/components/schemas/HonorId",
+        "#/components/schemas/HonorRarityEnum",
+        "#/components/schemas/HonorTypeEnum",
+        "#/components/schemas/TornHonor",
+        "#/components/schemas/TornHonorsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "itemammo",
+      "class": "dynamic-facade",
+      "helper": "itemammo",
+      "return_type": "TornItemAmmoBundle",
+      "schema_refs": [
+        "#/components/schemas/AmmoId",
+        "#/components/schemas/TornItemAmmo",
+        "#/components/schemas/TornItemAmmoResponse",
+        "#/components/schemas/TornItemAmmoTypeEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "itemdetails",
+      "class": "strict-typed",
+      "helper": "itemdetails",
+      "return_type": "TornItemDetailsResponse",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemDetails",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/TornItemDetails",
+        "#/components/schemas/TornItemDetailsDeprecated",
+        "#/components/schemas/TornItemDetailsResponse",
+        "#/components/schemas/TornItemTypeEnum",
+        "#/components/schemas/TornItemWeaponTypeEnum"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "itemmods",
+      "class": "dynamic-facade",
+      "helper": "itemmods",
+      "return_type": "TornItemModsBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemModId",
+        "#/components/schemas/TornItemMods",
+        "#/components/schemas/TornItemModsResponse",
+        "#/components/schemas/TornItemWeaponTypeEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "items",
+      "class": "dynamic-facade",
+      "helper": "items",
+      "return_type": "TornItemsBundle",
+      "schema_refs": [
+        "#/components/schemas/AmmoId",
+        "#/components/schemas/CountryEnum",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemModId",
+        "#/components/schemas/ShopNameEnum",
+        "#/components/schemas/TornItem",
+        "#/components/schemas/TornItemArmorCoverage",
+        "#/components/schemas/TornItemArmorCoveragePartEnum",
+        "#/components/schemas/TornItemArmorDetails",
+        "#/components/schemas/TornItemBaseStats",
+        "#/components/schemas/TornItemShop",
+        "#/components/schemas/TornItemTypeEnum",
+        "#/components/schemas/TornItemWeaponCategoryEnum",
+        "#/components/schemas/TornItemWeaponDetails",
+        "#/components/schemas/TornItemWeaponTypeEnum",
+        "#/components/schemas/TornItemsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "itemstats",
+      "class": "strict-typed",
+      "helper": "itemstats",
+      "return_type": "TornItemStatsResponse",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemStatId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/TornItemStat",
+        "#/components/schemas/TornItemStatTitleEnum",
+        "#/components/schemas/TornItemStats",
+        "#/components/schemas/TornItemStatsResponse",
+        "#/components/schemas/TornItemTypeEnum",
+        "#/components/schemas/TornItemWeaponTypeEnum"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "logcategories",
+      "class": "strict-typed",
+      "helper": "logcategories",
+      "return_type": "TornLogCategoriesBundle",
+      "schema_refs": [
+        "#/components/schemas/LogCategoryId",
+        "#/components/schemas/TornLogCategoriesResponse",
+        "#/components/schemas/TornLogCategory"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "logtypes",
+      "class": "dynamic-facade",
+      "helper": "logtypes",
+      "return_type": "TornLogTypesBundle",
+      "schema_refs": [
+        "#/components/schemas/LogId",
+        "#/components/schemas/TornLog",
+        "#/components/schemas/TornLogTypesResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "lookup",
+      "class": "strict-typed",
+      "helper": "lookup",
+      "return_type": "TornLookupBundle",
+      "schema_refs": [
+        "#/components/schemas/TornLookupResponse",
+        "#/components/schemas/TornSelectionName"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "medals",
+      "class": "dynamic-facade",
+      "helper": "medals",
+      "return_type": "TornMedalsBundle",
+      "schema_refs": [
+        "#/components/schemas/AwardCrimesVersionEnum",
+        "#/components/schemas/HonorRarityEnum",
+        "#/components/schemas/MedalId",
+        "#/components/schemas/MedalTypeEnum",
+        "#/components/schemas/TornMedal",
+        "#/components/schemas/TornMedalsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "merits",
+      "class": "strict-typed",
+      "helper": "merits",
+      "return_type": "TornMeritsBundle",
+      "schema_refs": [
+        "#/components/schemas/MeritId",
+        "#/components/schemas/TornMerit",
+        "#/components/schemas/TornMeritsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "museum",
+      "class": "strict-typed",
+      "helper": "museum",
+      "return_type": "TornMuseumResponse",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/TornMuseumResponse",
+        "#/components/schemas/TornMuseumSet"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "organisedcrimes",
+      "class": "missing-schema",
+      "helper": "organisedcrimes",
+      "return_type": "TornOrganisedCrimesBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "organizedcrimes",
+      "class": "strict-typed",
+      "helper": "organizedcrimes",
+      "return_type": "TornOrganizedCrimesBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionSlotPositionInfo",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/OrganizedCrimeName",
+        "#/components/schemas/TornOrganizedCrime",
+        "#/components/schemas/TornOrganizedCrimePositionId",
+        "#/components/schemas/TornOrganizedCrimeRequiredItem",
+        "#/components/schemas/TornOrganizedCrimeResponse",
+        "#/components/schemas/TornOrganizedCrimeScope",
+        "#/components/schemas/TornOrganizedCrimeSlot",
+        "#/components/schemas/TornOrganizedCrimeSpawn"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "pawnshop",
+      "class": "missing-schema",
+      "helper": "pawnshop",
+      "return_type": "TornPawnshopBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "pokertables",
+      "class": "strict-typed",
+      "helper": "pokertables",
+      "return_type": "TornPokerTablesResponse",
+      "schema_refs": [
+        "#/components/schemas/PokerTableId",
+        "#/components/schemas/TornPokerTable",
+        "#/components/schemas/TornPokerTablesResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "properties",
+      "class": "dynamic-facade",
+      "helper": "properties",
+      "return_type": "TornPropertiesBundle",
+      "schema_refs": [
+        "#/components/schemas/PropertyModificationEnum",
+        "#/components/schemas/PropertyStaffEnum",
+        "#/components/schemas/PropertyTypeId",
+        "#/components/schemas/TornProperties"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "rockpaperscissors",
+      "class": "strict-typed",
+      "helper": "rockpaperscissors",
+      "return_type": "TornRockPaperScissorsResponse",
+      "schema_refs": [
+        "#/components/schemas/TornRockPaperScissorsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "searchforcash",
+      "class": "strict-typed",
+      "helper": "searchforcash",
+      "return_type": "TornSearchForCashResponse",
+      "schema_refs": [
+        "#/components/schemas/TornSearchForCash",
+        "#/components/schemas/TornSearchForCashResponse",
+        "#/components/schemas/TornSubCrimeId"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "shoplifting",
+      "class": "strict-typed",
+      "helper": "shoplifting",
+      "return_type": "TornShopliftingResponse",
+      "schema_refs": [
+        "#/components/schemas/TornShoplifting",
+        "#/components/schemas/TornShopliftingResponse",
+        "#/components/schemas/TornShopliftingSecurityStatus",
+        "#/components/schemas/TornShopliftingStatusTitleEnum",
+        "#/components/schemas/TornSubCrimeId"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "stats",
+      "class": "strict-typed",
+      "helper": "stats",
+      "return_type": "TornCityStatsResponse",
+      "schema_refs": [
+        "#/components/schemas/TornCityStatsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "stocks",
+      "class": "dynamic-facade",
+      "helper": "stocks",
+      "return_type": "TornStocksBundle",
+      "schema_refs": [
+        "#/components/schemas/StockId",
+        "#/components/schemas/TornStock",
+        "#/components/schemas/TornStockDetailed",
+        "#/components/schemas/TornStockDetailedResponse",
+        "#/components/schemas/TornStockHistory",
+        "#/components/schemas/TornStockPerformance",
+        "#/components/schemas/TornStocksResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "subcrimes",
+      "class": "dynamic-facade",
+      "helper": "subcrimes",
+      "return_type": "TornSubcrimesBundle",
+      "schema_refs": [
+        "#/components/schemas/TornSubCrimeId",
+        "#/components/schemas/TornSubcrime",
+        "#/components/schemas/TornSubcrimesResponse"
+      ],
+      "notes": [
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": false,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "territory",
+      "class": "dynamic-facade",
+      "helper": "territory",
+      "return_type": "TornTerritoryBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionTerritoryEnum",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornTerritoriesResponse",
+        "#/components/schemas/TornTerritory",
+        "#/components/schemas/TornTerritoryCoordinates"
+      ],
+      "notes": [
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": false,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "torn",
+      "selection": "timestamp",
+      "class": "strict-typed",
+      "helper": "timestamp",
+      "return_type": "TornTimestampBundle",
+      "schema_refs": [
+        "#/components/schemas/TimestampResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "ammo",
+      "class": "typed-with-extra",
+      "helper": "ammo",
+      "return_type": "UserAmmoBundle",
+      "schema_refs": [
+        "#/components/schemas/AmmoId",
+        "#/components/schemas/TornItemAmmoTypeEnum",
+        "#/components/schemas/UserAmmo",
+        "#/components/schemas/UserAmmoResponse",
+        "#/components/schemas/UserAmmoType"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "attacks",
+      "class": "dynamic-facade",
+      "helper": "attacks",
+      "return_type": "UserAttacksBundle",
+      "schema_refs": [
+        "#/components/schemas/Attack",
+        "#/components/schemas/AttackCode",
+        "#/components/schemas/AttackFinishingHitEffect",
+        "#/components/schemas/AttackId",
+        "#/components/schemas/AttackPlayer",
+        "#/components/schemas/AttackingFinishingHitEffects",
+        "#/components/schemas/AttacksResponse",
+        "#/components/schemas/FactionAttackResult",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TerritoryWarId",
+        "#/components/schemas/UserFactionBasic",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "attacksfull",
+      "class": "dynamic-facade",
+      "helper": "attacksfull",
+      "return_type": "UserAttacksFullBundle",
+      "schema_refs": [
+        "#/components/schemas/AttackCode",
+        "#/components/schemas/AttackId",
+        "#/components/schemas/AttackPlayerSimplified",
+        "#/components/schemas/AttackSimplified",
+        "#/components/schemas/AttacksFullResponse",
+        "#/components/schemas/FactionAttackResult",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "bars",
+      "class": "strict-typed",
+      "helper": "bars",
+      "return_type": "UserBarsBundle",
+      "schema_refs": [
+        "#/components/schemas/ChainId",
+        "#/components/schemas/FactionOngoingChain",
+        "#/components/schemas/UserBar",
+        "#/components/schemas/UserBars",
+        "#/components/schemas/UserBarsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "basic",
+      "class": "dynamic-facade",
+      "helper": "basic",
+      "return_type": "UserBasicBundle",
+      "schema_refs": [
+        "#/components/schemas/UserBasic",
+        "#/components/schemas/UserBasicResponse",
+        "#/components/schemas/UserGenderEnum",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserPlaneImageTypeEnum",
+        "#/components/schemas/UserStatus",
+        "#/components/schemas/UserStatusStateEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "battlestats",
+      "class": "typed-with-extra",
+      "helper": "battlestats",
+      "return_type": "UserBattleStatsBundle",
+      "schema_refs": [
+        "#/components/schemas/UserBattleStatDetail",
+        "#/components/schemas/UserBattleStatModifierDetail",
+        "#/components/schemas/UserBattleStatsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "bazaar",
+      "class": "missing-schema",
+      "helper": "bazaar",
+      "return_type": "UserBazaarBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "bounties",
+      "class": "typed-with-extra",
+      "helper": "bounties",
+      "return_type": "UserBountiesBundle",
+      "schema_refs": [
+        "#/components/schemas/Bounty",
+        "#/components/schemas/UserBountiesResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "calendar",
+      "class": "strict-typed",
+      "helper": "calendar",
+      "return_type": "UserCalendarBundle",
+      "schema_refs": [
+        "#/components/schemas/UserCalendar",
+        "#/components/schemas/UserCalendarResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "casino",
+      "class": "dynamic-facade",
+      "helper": "casino",
+      "return_type": "UserCasinoBundle",
+      "schema_refs": [
+        "#/components/schemas/UserCasinoResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "competition",
+      "class": "dynamic-facade",
+      "helper": "competition",
+      "return_type": "UserCompetitionBundle",
+      "schema_refs": [
+        "#/components/schemas/EliminationTeamId",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/UserCompetitionEasterEggs",
+        "#/components/schemas/UserCompetitionElimination",
+        "#/components/schemas/UserCompetitionHalloween",
+        "#/components/schemas/UserCompetitionResponse",
+        "#/components/schemas/UserCompetitionRps",
+        "#/components/schemas/UserRpsStatus"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "cooldowns",
+      "class": "dynamic-facade",
+      "helper": "cooldowns",
+      "return_type": "UserCooldownsBundle",
+      "schema_refs": [
+        "#/components/schemas/UserCooldownsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "crimes",
+      "class": "typed-with-extra",
+      "helper": "crimes",
+      "return_type": "UserCrimesBundle",
+      "schema_refs": [
+        "#/components/schemas/TornSubCrimeId",
+        "#/components/schemas/UserCrime",
+        "#/components/schemas/UserCrimeAttempts",
+        "#/components/schemas/UserCrimeDetailsBootlegging",
+        "#/components/schemas/UserCrimeDetailsCardSkimming",
+        "#/components/schemas/UserCrimeDetailsCracking",
+        "#/components/schemas/UserCrimeDetailsGraffiti",
+        "#/components/schemas/UserCrimeDetailsHustling",
+        "#/components/schemas/UserCrimeDetailsScamming",
+        "#/components/schemas/UserCrimeDetailsShoplifting",
+        "#/components/schemas/UserCrimeRewardAmmo",
+        "#/components/schemas/UserCrimeRewardItem",
+        "#/components/schemas/UserCrimeRewards",
+        "#/components/schemas/UserCrimeUniques",
+        "#/components/schemas/UserCrimeUniquesReward",
+        "#/components/schemas/UserCrimeUniquesRewardAmmo",
+        "#/components/schemas/UserCrimeUniquesRewardAmmoEnum",
+        "#/components/schemas/UserCrimeUniquesRewardMoney",
+        "#/components/schemas/UserCrimesResponse",
+        "#/components/schemas/UserSubcrime"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "criminalrecord",
+      "class": "missing-schema",
+      "helper": "criminalrecord",
+      "return_type": "UserCriminalRecordBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "discord",
+      "class": "dynamic-facade",
+      "helper": "discord",
+      "return_type": "UserDiscordBundle",
+      "schema_refs": [
+        "#/components/schemas/DiscordId",
+        "#/components/schemas/UserDiscordResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "display",
+      "class": "missing-schema",
+      "helper": "display",
+      "return_type": "UserDisplayBundle",
+      "schema_refs": [],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "education",
+      "class": "strict-typed",
+      "helper": "education",
+      "return_type": "UserEducationBundle",
+      "schema_refs": [
+        "#/components/schemas/EducationId",
+        "#/components/schemas/UserCurrentEducation",
+        "#/components/schemas/UserEducation",
+        "#/components/schemas/UserEducationResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "enlistedcars",
+      "class": "dynamic-facade",
+      "helper": "enlistedcars",
+      "return_type": "UserEnlistedCarsBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/RaceCar",
+        "#/components/schemas/RaceCarId",
+        "#/components/schemas/RaceCarUpgradeId",
+        "#/components/schemas/RaceClassEnum",
+        "#/components/schemas/UserEnlistedCarsResponse",
+        "#/components/schemas/UserRaceCarDetails"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "equipment",
+      "class": "typed-with-extra",
+      "helper": "equipment",
+      "return_type": "UserEquipmentBundle",
+      "schema_refs": [
+        "#/components/schemas/AmmoId",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemDetails",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemModId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/TornItemAmmoTypeEnum",
+        "#/components/schemas/TornItemDetails",
+        "#/components/schemas/TornItemTypeEnum",
+        "#/components/schemas/TornItemWeaponTypeEnum",
+        "#/components/schemas/UserClothing",
+        "#/components/schemas/UserEquipment",
+        "#/components/schemas/UserEquipmentAmmo",
+        "#/components/schemas/UserEquipmentItemMod",
+        "#/components/schemas/UserEquipmentResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "events",
+      "class": "dynamic-facade",
+      "helper": "events",
+      "return_type": "UserEventsBundle",
+      "schema_refs": [
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserEvent",
+        "#/components/schemas/UserEventId",
+        "#/components/schemas/UserEventsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "faction",
+      "class": "strict-typed",
+      "helper": "faction",
+      "return_type": "UserFactionBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/UserFaction",
+        "#/components/schemas/UserFactionResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "factionbalance",
+      "class": "missing-schema",
+      "helper": "factionbalance",
+      "return_type": "UserFactionBalanceBundle",
+      "schema_refs": [],
+      "notes": [
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "forumfeed",
+      "class": "dynamic-facade",
+      "helper": "forumfeed",
+      "return_type": "UserForumFeedBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumFeed",
+        "#/components/schemas/ForumFeedTypeEnum",
+        "#/components/schemas/ForumPostId",
+        "#/components/schemas/ForumThreadAuthor",
+        "#/components/schemas/ForumThreadId",
+        "#/components/schemas/UserForumFeedResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "forumfriends",
+      "class": "dynamic-facade",
+      "helper": "forumfriends",
+      "return_type": "UserForumFriendsBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumFeed",
+        "#/components/schemas/ForumFeedTypeEnum",
+        "#/components/schemas/ForumPostId",
+        "#/components/schemas/ForumThreadAuthor",
+        "#/components/schemas/ForumThreadId",
+        "#/components/schemas/UserForumFriendsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "forumposts",
+      "class": "dynamic-facade",
+      "helper": "forumposts",
+      "return_type": "UserForumPostsBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumPost",
+        "#/components/schemas/ForumPostId",
+        "#/components/schemas/ForumThreadAuthor",
+        "#/components/schemas/ForumThreadId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserForumPostsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "forumsubscribedthreads",
+      "class": "dynamic-facade",
+      "helper": "forumsubscribedthreads",
+      "return_type": "UserForumSubscribedThreadsBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumId",
+        "#/components/schemas/ForumSubscribedThread",
+        "#/components/schemas/ForumSubscribedThreadPostsCount",
+        "#/components/schemas/ForumThreadAuthor",
+        "#/components/schemas/ForumThreadId",
+        "#/components/schemas/UserForumSubscribedThreadsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "forumthreads",
+      "class": "dynamic-facade",
+      "helper": "forumthreads",
+      "return_type": "UserForumThreadsBundle",
+      "schema_refs": [
+        "#/components/schemas/ForumId",
+        "#/components/schemas/ForumThreadAuthor",
+        "#/components/schemas/ForumThreadBase",
+        "#/components/schemas/ForumThreadId",
+        "#/components/schemas/ForumThreadUserExtended",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserForumThreadsResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "gym",
+      "class": "strict-typed",
+      "helper": "gym",
+      "return_type": "UserGymResponse",
+      "schema_refs": [
+        "#/components/schemas/GymId",
+        "#/components/schemas/UserGymResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "halloween",
+      "class": "strict-typed",
+      "helper": "halloween",
+      "return_type": "UserHalloweenResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/HalloweenBasketUpgradeId",
+        "#/components/schemas/UserHalloween",
+        "#/components/schemas/UserHalloweenBasketUpgrade",
+        "#/components/schemas/UserHalloweenResponse"
+      ]
+    },
+    {
+      "resource": "user",
+      "selection": "hof",
+      "class": "strict-typed",
+      "helper": "hof",
+      "return_type": "UserHofBundle",
+      "schema_refs": [
+        "#/components/schemas/HofValue",
+        "#/components/schemas/HofValueFloat",
+        "#/components/schemas/UserHofResponse",
+        "#/components/schemas/UserHofStats"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "honors",
+      "class": "dynamic-facade",
+      "helper": "honors",
+      "return_type": "UserHonorsBundle",
+      "schema_refs": [
+        "#/components/schemas/HonorId",
+        "#/components/schemas/UserHonor",
+        "#/components/schemas/UserHonorsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "icons",
+      "class": "dynamic-facade",
+      "helper": "icons",
+      "return_type": "UserIconsBundle",
+      "schema_refs": [
+        "#/components/schemas/UserIconId",
+        "#/components/schemas/UserIconPrivate",
+        "#/components/schemas/UserIconPublic",
+        "#/components/schemas/UserIconsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "inventory",
+      "class": "dynamic-facade",
+      "helper": "inventory",
+      "return_type": "UserInventoryBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndTotal",
+        "#/components/schemas/UserInventory",
+        "#/components/schemas/UserInventoryItem",
+        "#/components/schemas/UserInventoryResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "itemmarket",
+      "class": "dynamic-facade",
+      "helper": "itemmarket",
+      "return_type": "UserItemMarketBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserItemMarkeListingItemDetails",
+        "#/components/schemas/UserItemMarketListing",
+        "#/components/schemas/UserItemMarketResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "itemmod",
+      "class": "dynamic-facade",
+      "helper": "itemmod",
+      "return_type": "UserItemModsBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemModId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/UserItemMod",
+        "#/components/schemas/UserItemModsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "itemmods",
+      "class": "dynamic-facade",
+      "helper": "itemmods",
+      "return_type": "UserItemModsBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemModId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/UserItemMod",
+        "#/components/schemas/UserItemModsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "job",
+      "class": "dynamic-facade",
+      "helper": "job",
+      "return_type": "UserJobBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyId",
+        "#/components/schemas/CompanyTypeId",
+        "#/components/schemas/JobPositionArmyEnum",
+        "#/components/schemas/JobPositionCasinoEnum",
+        "#/components/schemas/JobPositionEducationEnum",
+        "#/components/schemas/JobPositionGrocerEnum",
+        "#/components/schemas/JobPositionLawEnum",
+        "#/components/schemas/JobPositionMedicalEnum",
+        "#/components/schemas/JobTypeEnum",
+        "#/components/schemas/UserCompany",
+        "#/components/schemas/UserJob",
+        "#/components/schemas/UserJobResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "jobpoints",
+      "class": "dynamic-facade",
+      "helper": "jobpoints",
+      "return_type": "UserJobPointsBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyTypeId",
+        "#/components/schemas/UserCompanyPoints",
+        "#/components/schemas/UserJobPointsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "jobranks",
+      "class": "strict-typed",
+      "helper": "jobranks",
+      "return_type": "UserJobRanksBundle",
+      "schema_refs": [
+        "#/components/schemas/JobPositionArmyEnum",
+        "#/components/schemas/JobPositionCasinoEnum",
+        "#/components/schemas/JobPositionEducationEnum",
+        "#/components/schemas/JobPositionGrocerEnum",
+        "#/components/schemas/JobPositionLawEnum",
+        "#/components/schemas/JobPositionMedicalEnum",
+        "#/components/schemas/UserJobRanks",
+        "#/components/schemas/UserJobRanksResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "list",
+      "class": "dynamic-facade",
+      "helper": "list",
+      "return_type": "UserListBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserLastAction",
+        "#/components/schemas/UserLastActionStatusEnum",
+        "#/components/schemas/UserList",
+        "#/components/schemas/UserListResponse",
+        "#/components/schemas/UserPlaneImageTypeEnum",
+        "#/components/schemas/UserStatus",
+        "#/components/schemas/UserStatusStateEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "log",
+      "class": "dynamic-facade",
+      "helper": "log",
+      "return_type": "UserLogBundle",
+      "schema_refs": [
+        "#/components/schemas/LogId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndNanostamp",
+        "#/components/schemas/UserLog",
+        "#/components/schemas/UserLogId",
+        "#/components/schemas/UserLogsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "lookup",
+      "class": "dynamic-facade",
+      "helper": "lookup",
+      "return_type": "UserLookupBundle",
+      "schema_refs": [
+        "#/components/schemas/UserLookupResponse",
+        "#/components/schemas/UserSelectionName"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "medals",
+      "class": "dynamic-facade",
+      "helper": "medals",
+      "return_type": "UserMedalsBundle",
+      "schema_refs": [
+        "#/components/schemas/MedalId",
+        "#/components/schemas/UserMedal",
+        "#/components/schemas/UserMedalsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "merits",
+      "class": "strict-typed",
+      "helper": "merits",
+      "return_type": "UserMeritsBundle",
+      "schema_refs": [
+        "#/components/schemas/MeritId",
+        "#/components/schemas/UserMeritUpgrade",
+        "#/components/schemas/UserMerits",
+        "#/components/schemas/UserMeritsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "messages",
+      "class": "dynamic-facade",
+      "helper": "messages",
+      "return_type": "UserMessagesBundle",
+      "schema_refs": [
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserMessage",
+        "#/components/schemas/UserMessageId",
+        "#/components/schemas/UserMessageTypeEnum",
+        "#/components/schemas/UserMessagesResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "missions",
+      "class": "typed-with-extra",
+      "helper": "missions",
+      "return_type": "UserMissionsBundle",
+      "schema_refs": [
+        "#/components/schemas/AmmoId",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemModId",
+        "#/components/schemas/MissionDifficultyEnum",
+        "#/components/schemas/MissionRewardDetailsAmmo",
+        "#/components/schemas/MissionRewardDetailsItem",
+        "#/components/schemas/MissionRewardDetailsUpgrade",
+        "#/components/schemas/MissionRewardUpgrade",
+        "#/components/schemas/MissionStatusEnum",
+        "#/components/schemas/TornItemAmmoTypeEnum",
+        "#/components/schemas/TornItemTypeEnum",
+        "#/components/schemas/TornItemWeaponTypeEnum",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserMissionsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "money",
+      "class": "dynamic-facade",
+      "helper": "money",
+      "return_type": "UserMoneyBundle",
+      "schema_refs": [
+        "#/components/schemas/UserMoneyResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "networth",
+      "class": "strict-typed",
+      "helper": "networth",
+      "return_type": "UserNetworthResponse",
+      "schema_refs": [
+        "#/components/schemas/UserNetworthResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "newevents",
+      "class": "strict-typed",
+      "helper": "newevents",
+      "return_type": "UserNewEventsBundle",
+      "schema_refs": [
+        "#/components/schemas/UserEvent",
+        "#/components/schemas/UserEventId",
+        "#/components/schemas/UserNewEventsResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "newmessages",
+      "class": "strict-typed",
+      "helper": "newmessages",
+      "return_type": "UserNewMessagesBundle",
+      "schema_refs": [
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserMessage",
+        "#/components/schemas/UserMessageId",
+        "#/components/schemas/UserMessageTypeEnum",
+        "#/components/schemas/UserNewMessagesResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "notifications",
+      "class": "dynamic-facade",
+      "helper": "notifications",
+      "return_type": "UserNotificationsBundle",
+      "schema_refs": [
+        "#/components/schemas/UserNotificationsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "organizedcrime",
+      "class": "typed-with-extra",
+      "helper": "organizedcrime",
+      "return_type": "UserOrganizedCrimeBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionCrime",
+        "#/components/schemas/FactionCrimeId",
+        "#/components/schemas/FactionCrimeItemOutcomeEnum",
+        "#/components/schemas/FactionCrimeReward",
+        "#/components/schemas/FactionCrimeRewardItem",
+        "#/components/schemas/FactionCrimeRewardPayout",
+        "#/components/schemas/FactionCrimeSlot",
+        "#/components/schemas/FactionCrimeStatusEnum",
+        "#/components/schemas/FactionCrimeUser",
+        "#/components/schemas/FactionCrimeUserItemOutcome",
+        "#/components/schemas/FactionCrimeUserItemOutcomeEnum",
+        "#/components/schemas/FactionCrimeUserOutcome",
+        "#/components/schemas/FactionOrganizedCrimePayoutType",
+        "#/components/schemas/FactionSlotPositionInfo",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/OrganizedCrimeName",
+        "#/components/schemas/TornOrganizedCrimePositionId",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserOrganizedCrimeError",
+        "#/components/schemas/UserOrganizedCrimeResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "organizedcrimes",
+      "class": "strict-typed",
+      "helper": "organizedcrimes",
+      "return_type": "UserOrganizedCrimesResponse",
+      "schema_refs": [
+        "#/components/schemas/FactionCrime",
+        "#/components/schemas/FactionCrimeId",
+        "#/components/schemas/FactionCrimeItemOutcomeEnum",
+        "#/components/schemas/FactionCrimeReward",
+        "#/components/schemas/FactionCrimeRewardItem",
+        "#/components/schemas/FactionCrimeRewardPayout",
+        "#/components/schemas/FactionCrimeSlot",
+        "#/components/schemas/FactionCrimeStatusEnum",
+        "#/components/schemas/FactionCrimeUser",
+        "#/components/schemas/FactionCrimeUserItemOutcome",
+        "#/components/schemas/FactionCrimeUserItemOutcomeEnum",
+        "#/components/schemas/FactionCrimeUserOutcome",
+        "#/components/schemas/FactionOrganizedCrimePayoutType",
+        "#/components/schemas/FactionSlotPositionInfo",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/OrganizedCrimeName",
+        "#/components/schemas/TornOrganizedCrimePositionId",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserOrganizedCrimesResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "perks",
+      "class": "strict-typed",
+      "helper": "perks",
+      "return_type": "UserPerksResponse",
+      "schema_refs": [
+        "#/components/schemas/UserPerksResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "personalstats",
+      "class": "dynamic-facade",
+      "helper": "personalstats",
+      "return_type": "UserPersonalStatsBundle",
+      "schema_refs": [
+        "#/components/schemas/PersonalStatsAttackingExtended",
+        "#/components/schemas/PersonalStatsAttackingPopular",
+        "#/components/schemas/PersonalStatsAttackingPublic",
+        "#/components/schemas/PersonalStatsBattleStats",
+        "#/components/schemas/PersonalStatsBounties",
+        "#/components/schemas/PersonalStatsCommunication",
+        "#/components/schemas/PersonalStatsCrimes",
+        "#/components/schemas/PersonalStatsCrimesPopular",
+        "#/components/schemas/PersonalStatsCrimesV1",
+        "#/components/schemas/PersonalStatsCrimesV2",
+        "#/components/schemas/PersonalStatsDrugs",
+        "#/components/schemas/PersonalStatsFinishingHits",
+        "#/components/schemas/PersonalStatsHistoricStat",
+        "#/components/schemas/PersonalStatsHospital",
+        "#/components/schemas/PersonalStatsHospitalPopular",
+        "#/components/schemas/PersonalStatsInvestments",
+        "#/components/schemas/PersonalStatsItems",
+        "#/components/schemas/PersonalStatsItemsPopular",
+        "#/components/schemas/PersonalStatsJail",
+        "#/components/schemas/PersonalStatsJobsExtended",
+        "#/components/schemas/PersonalStatsJobsPublic",
+        "#/components/schemas/PersonalStatsMissions",
+        "#/components/schemas/PersonalStatsNetworthExtended",
+        "#/components/schemas/PersonalStatsNetworthPublic",
+        "#/components/schemas/PersonalStatsOther",
+        "#/components/schemas/PersonalStatsOtherPopular",
+        "#/components/schemas/PersonalStatsRacing",
+        "#/components/schemas/PersonalStatsTrading",
+        "#/components/schemas/PersonalStatsTravel",
+        "#/components/schemas/PersonalStatsTravelPopular",
+        "#/components/schemas/UserPersonalStatsCategory",
+        "#/components/schemas/UserPersonalStatsFull",
+        "#/components/schemas/UserPersonalStatsFullPublic",
+        "#/components/schemas/UserPersonalStatsHistoric",
+        "#/components/schemas/UserPersonalStatsPopular",
+        "#/components/schemas/UserPersonalStatsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "profile",
+      "class": "dynamic-facade",
+      "helper": "profile",
+      "return_type": "UserProfileBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/HonorId",
+        "#/components/schemas/ProfileSpouse",
+        "#/components/schemas/PropertyId",
+        "#/components/schemas/ReviveSetting",
+        "#/components/schemas/UserDonatorStatusEnum",
+        "#/components/schemas/UserGenderEnum",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserLastAction",
+        "#/components/schemas/UserLastActionStatusEnum",
+        "#/components/schemas/UserMaritalStatusEnum",
+        "#/components/schemas/UserPlaneImageTypeEnum",
+        "#/components/schemas/UserProfileResponse",
+        "#/components/schemas/UserRankEnum",
+        "#/components/schemas/UserRoleEnum",
+        "#/components/schemas/UserStatus",
+        "#/components/schemas/UserStatusStateEnum",
+        "#/components/schemas/UserTitleEnum"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "properties",
+      "class": "dynamic-facade",
+      "helper": "properties",
+      "return_type": "UserPropertiesBundle",
+      "schema_refs": [
+        "#/components/schemas/BasicProperty",
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/PropertyId",
+        "#/components/schemas/PropertyModificationEnum",
+        "#/components/schemas/PropertyStaffEnum",
+        "#/components/schemas/PropertyTypeId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserPropertiesResponse",
+        "#/components/schemas/UserPropertyBasicDetails",
+        "#/components/schemas/UserPropertyDetailsExtended",
+        "#/components/schemas/UserPropertyDetailsExtendedForRent",
+        "#/components/schemas/UserPropertyDetailsExtendedForSale",
+        "#/components/schemas/UserPropertyDetailsExtendedRented"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "property",
+      "class": "typed-with-extra",
+      "helper": "property",
+      "return_type": "UserPropertyBundle",
+      "schema_refs": [
+        "#/components/schemas/BasicProperty",
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/PropertyId",
+        "#/components/schemas/PropertyModificationEnum",
+        "#/components/schemas/PropertyStaffEnum",
+        "#/components/schemas/PropertyTypeId",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserPropertyBasicDetails",
+        "#/components/schemas/UserPropertyDetails",
+        "#/components/schemas/UserPropertyResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "races",
+      "class": "dynamic-facade",
+      "helper": "races",
+      "return_type": "UserRacesBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/Race",
+        "#/components/schemas/RaceCarId",
+        "#/components/schemas/RaceClassEnum",
+        "#/components/schemas/RaceId",
+        "#/components/schemas/RaceStatusEnum",
+        "#/components/schemas/RaceTrackId",
+        "#/components/schemas/RacerDetails",
+        "#/components/schemas/RacingRaceDetails",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserRaceDetails",
+        "#/components/schemas/UserRacesResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "racingrecords",
+      "class": "dynamic-facade",
+      "helper": "racingrecords",
+      "return_type": "UserRacingRecordsBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/RaceTrackId",
+        "#/components/schemas/UserRacingRecordsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "refills",
+      "class": "dynamic-facade",
+      "helper": "refills",
+      "return_type": "UserRefillsBundle",
+      "schema_refs": [
+        "#/components/schemas/UserRefillsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "reports",
+      "class": "dynamic-facade",
+      "helper": "reports",
+      "return_type": "UserReportsBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyId",
+        "#/components/schemas/CountryEnum",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/Report",
+        "#/components/schemas/ReportAnonymousBounties",
+        "#/components/schemas/ReportBase",
+        "#/components/schemas/ReportCompanyFinancials",
+        "#/components/schemas/ReportFriendOrFoe",
+        "#/components/schemas/ReportFriendOrFoeUser",
+        "#/components/schemas/ReportHistory",
+        "#/components/schemas/ReportHistoryCompany",
+        "#/components/schemas/ReportHistoryFaction",
+        "#/components/schemas/ReportInvestment",
+        "#/components/schemas/ReportMoney",
+        "#/components/schemas/ReportMostWanted",
+        "#/components/schemas/ReportReport",
+        "#/components/schemas/ReportStats",
+        "#/components/schemas/ReportStockAnalysis",
+        "#/components/schemas/ReportTrueLevel",
+        "#/components/schemas/ReportTypeEnum",
+        "#/components/schemas/ReportWarrantDetails",
+        "#/components/schemas/ReportsResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "revives",
+      "class": "dynamic-facade",
+      "helper": "revives",
+      "return_type": "UserRevivesBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/Revive",
+        "#/components/schemas/ReviveId",
+        "#/components/schemas/RevivesResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "revivesfull",
+      "class": "dynamic-facade",
+      "helper": "revivesfull",
+      "return_type": "UserRevivesFullBundle",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/ReviveId",
+        "#/components/schemas/ReviveSimplified",
+        "#/components/schemas/RevivesFullResponse",
+        "#/components/schemas/UserId"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "search",
+      "class": "strict-typed",
+      "helper": "search",
+      "return_type": "UserSearchResponse",
+      "schema_refs": [
+        "#/components/schemas/FactionId",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinksAndTotal",
+        "#/components/schemas/UserIconId",
+        "#/components/schemas/UserIconPublic",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserLastActionStatusEnum",
+        "#/components/schemas/UserSearch",
+        "#/components/schemas/UserSearchResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "skills",
+      "class": "dynamic-facade",
+      "helper": "skills",
+      "return_type": "UserSkillsBundle",
+      "schema_refs": [
+        "#/components/schemas/UserSkillDetail",
+        "#/components/schemas/UserSkillSlugEnum",
+        "#/components/schemas/UserSkillsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "snapshot",
+      "class": "missing-schema",
+      "helper": "snapshot",
+      "return_type": "String",
+      "schema_refs": [],
+      "notes": [
+        "wrapper return type was not found in manual/generated models",
+        "capability selection has no response schema reference"
+      ],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": true
+    },
+    {
+      "resource": "user",
+      "selection": "stocks",
+      "class": "dynamic-facade",
+      "helper": "stocks",
+      "return_type": "UserStocksBundle",
+      "schema_refs": [
+        "#/components/schemas/StockId",
+        "#/components/schemas/UserStock",
+        "#/components/schemas/UserStockTransaction",
+        "#/components/schemas/UserStocksResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "timestamp",
+      "class": "dynamic-facade",
+      "helper": "timestamp",
+      "return_type": "UserTimestampBundle",
+      "schema_refs": [
+        "#/components/schemas/TimestampResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "trade",
+      "class": "strict-typed",
+      "helper": "trade",
+      "return_type": "UserTradeBundle",
+      "schema_refs": [
+        "#/components/schemas/CompanyId",
+        "#/components/schemas/FactionId",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/PropertyId",
+        "#/components/schemas/TradeId",
+        "#/components/schemas/TradeItem",
+        "#/components/schemas/TradeItemCompany",
+        "#/components/schemas/TradeItemFaction",
+        "#/components/schemas/TradeItemItem",
+        "#/components/schemas/TradeItemMoney",
+        "#/components/schemas/TradeItemNap",
+        "#/components/schemas/TradeItemProperty",
+        "#/components/schemas/UserFactionBasic",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserTrade",
+        "#/components/schemas/UserTradeDetailed",
+        "#/components/schemas/UserTradeParticipant",
+        "#/components/schemas/UserTradeResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "trades",
+      "class": "dynamic-facade",
+      "helper": "trades",
+      "return_type": "UserTradesBundle",
+      "schema_refs": [
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TradeId",
+        "#/components/schemas/UserId",
+        "#/components/schemas/UserTrade",
+        "#/components/schemas/UserTradeParticipant",
+        "#/components/schemas/UserTradesResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "travel",
+      "class": "dynamic-facade",
+      "helper": "travel",
+      "return_type": "UserTravelBundle",
+      "schema_refs": [
+        "#/components/schemas/CountryEnum",
+        "#/components/schemas/UserFlyMethodEnum",
+        "#/components/schemas/UserTravelResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "virus",
+      "class": "strict-typed",
+      "helper": "virus",
+      "return_type": "UserVirusResponse",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/UserVirus",
+        "#/components/schemas/UserVirusResponse"
+      ],
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "weaponexp",
+      "class": "dynamic-facade",
+      "helper": "weaponexp",
+      "return_type": "UserWeaponExpBundle",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/UserWeaponExp",
+        "#/components/schemas/UserWeaponExpResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra",
+        "manual model contains dynamic JSON or open union fields"
+      ],
+      "has_extra": true,
+      "has_dynamic": true,
+      "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "workstats",
+      "class": "typed-with-extra",
+      "helper": "workstats",
+      "return_type": "UserWorkStatsBundle",
+      "schema_refs": [
+        "#/components/schemas/UserWorkStatsResponse"
+      ],
+      "notes": [
+        "manual model preserves unknown fields in extra"
+      ],
+      "has_extra": true,
+      "has_dynamic": false,
+      "missing_model": false
+    }
+  ]
+}
