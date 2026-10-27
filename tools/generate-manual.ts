@@ -8,18 +8,14 @@ function split(value:string):string[] {
   result.push(value.slice(start).trim());return result;
 }
 function typeName(value:string):string {
-  value=value.trim().replaceAll("serde_json::","").replaceAll("super::common::","").replaceAll("crate::models::generated::openapi::","Generated.");
-  if(value==="String"||value==="str")return "string";
-  if(value==="bool")return "boolean";
-  if(value==="Value")return "JsonValue";
-  if(/^[ui]\d+$/.test(value))return "Integer";
-  if(/^f\d+$/.test(value))return "number";
-  const generic=/^(Option|Vec|Box|BTreeMap)<(.*)>$/.exec(value);
+  value=value.trim();
+  if(/^u?int\d+$/.test(value))return "Integer";
+  if(/^float\d+$/.test(value))return "number";
+  const generic=/^(Nullable|Array|Record)<(.*)>$/.exec(value);
   if(!generic)return value;
   const inner=generic[2]!;
-  if(generic[1]==="Option")return `(${typeName(inner)} | null)`;
-  if(generic[1]==="Vec")return `Array<${typeName(inner)}>`;
-  if(generic[1]==="Box")return typeName(inner);
+  if(generic[1]==="Nullable")return `(${typeName(inner)} | null)`;
+  if(generic[1]==="Array")return `Array<${typeName(inner)}>`;
   const args=split(inner);return `Record<${typeName(args[0]!)}, ${typeName(args[1]!)}>`;
 }
 const declarations=Object.entries(manualModelMetadata).map(([name,model])=>{

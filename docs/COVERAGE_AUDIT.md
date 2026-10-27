@@ -1,6 +1,14 @@
 # Torn API coverage audit
 
-The SDK covers **all 234 official Torn v2 operations** and **all 712 component schemas** in the official **6.13.8** snapshot checked on 2026-10-23. All paths, operation parameters, response media types, and operation IDs are unchanged from 6.13.6. Three operations return CSV strings.
+The SDK covers **all 236 official Torn v2 operations** and **all 719 component schemas** in the official **6.14.0** snapshot checked on 2026-10-27. Three operations return CSV strings. The immutable Markdown vault comparison below remains the historical 6.13.6 baseline; current operation and shared-parameter hashes are separately recorded in `spec/parity/docs-coverage.json`.
+
+## 6.14.0 update
+
+Relative to 6.13.8, the snapshot adds `/user/halloween` and `/torn/halloween`, seven component schemas, Halloween selection enum members and generic response variants, and missing city statistics. All changes are imported from the official specification. User Halloween requires a Minimal access key. The endpoint is spelled `halloween`; the announcement's `hallween` spelling is not an API path.
+
+The upstream inventory cache durations are now 900 seconds per user category and 300 seconds for all faction inventory items. The SDK does not add a response cache. Refreshed endpoint descriptions preserve these durations and raw stability annotations.
+
+The announcement marks selections stable except elimination selections, user search, and user snapshot. The specification currently labels `/user/halloween` `Untable`; the raw snapshot preserves this typo and its stability should be treated as unconfirmed. `TornHalloweenUpgrade` also requires a `type` key without declaring its schema. The SDK exposes that required key as `JsonValue`, validates its presence, and retains the actual value. No narrower enum is inferred.
 
 The [Torn-API Markdown vault](https://github.com/swervelord/Torn-API/tree/ac4ba829bbdbdc4ef5e058b48aae5088b9d5fd22) targets **6.13.6**. Its official Torn reference contains 234 endpoint documents, 711 schema documents, and 38 shared parameter definitions. Every embedded exact JSON definition was compared with the SDK's frozen 6.13.6 snapshot: **zero differences**. All 195 selections listed in its discovery tables exist in the SDK capability catalog. The SDK also carries extra legacy selections and explicit routing overrides maintained in the SDK routing policy.
 

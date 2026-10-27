@@ -76,7 +76,8 @@ export const facadeManifest = {
       "trades",
       "travel",
       "weaponexp",
-      "workstats"
+      "workstats",
+      "halloween"
     ],
     "options": [
       "crime_id",
@@ -106,7 +107,7 @@ export const facadeManifest = {
       },
       {
         "method": "snapshot",
-        "returnType": "String",
+        "returnType": "string",
         "selection": "snapshot",
         "alias": null,
         "idArgument": false
@@ -600,6 +601,12 @@ export const facadeManifest = {
         "selection": "personalstats",
         "alias": null,
         "idArgument": false
+      },
+      {
+        "method": "halloween",
+        "returnType": "UserHalloweenResponse",
+        "selection": "halloween",
+        "alias": null
       }
     ],
     "rawMethods": [
@@ -890,6 +897,10 @@ export const facadeManifest = {
       [
         "forumfriends_raw",
         "forumfriends"
+      ],
+      [
+        "halloween_raw",
+        "halloween"
       ]
     ]
   },
@@ -973,7 +984,7 @@ export const facadeManifest = {
       },
       {
         "method": "snapshot",
-        "returnType": "String",
+        "returnType": "string",
         "selection": "snapshot",
         "alias": null,
         "idArgument": false
@@ -1133,7 +1144,7 @@ export const facadeManifest = {
       },
       {
         "method": "snapshot",
-        "returnType": "String",
+        "returnType": "string",
         "selection": "snapshot",
         "alias": null,
         "idArgument": false
@@ -2088,7 +2099,8 @@ export const facadeManifest = {
       "elimination",
       "factionhof",
       "gyms",
-      "factiontree"
+      "factiontree",
+      "halloween"
     ],
     "options": [
       "crime_id",
@@ -2390,6 +2402,12 @@ export const facadeManifest = {
         "selection": "territory",
         "alias": null,
         "idArgument": false
+      },
+      {
+        "method": "halloween",
+        "returnType": "TornHalloweenResponse",
+        "selection": "halloween",
+        "alias": null
       }
     ],
     "rawMethods": [
@@ -2556,6 +2574,10 @@ export const facadeManifest = {
       [
         "factiontree_raw",
         "factiontree"
+      ],
+      [
+        "halloween_raw",
+        "halloween"
       ]
     ]
   }

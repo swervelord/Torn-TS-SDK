@@ -103,7 +103,7 @@ describe("typed planner batches",()=>{
       if(selection.name==="snapshot")expect(mapping[selection.name]).toBeUndefined();
       else {expect(mapping[selection.name],`${resource}.${selection.name}`).toHaveProperty("model");count++;}
     }
-    expect(count).toBe(202);expect(selectionModelDefinitions.user.revivesFull.model).toBe("UserRevivesFullBundle");
+    expect(count).toBe(204);expect(selectionModelDefinitions.user.revivesFull.model).toBe("UserRevivesFullBundle");
   });
   test("batch model generator remains deterministic from committed schemas",async()=>{
     const process=Bun.spawn([Bun.which("bun")!,"tools/generate-batch.ts","--check"],{cwd:import.meta.dir+"/..",stdout:"pipe",stderr:"pipe"});

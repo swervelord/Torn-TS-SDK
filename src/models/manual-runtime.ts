@@ -25,15 +25,16 @@ function splitTypes(v:string):string[] {
 function typeParts(type:string): {name:string;args:string[]} {
   const m=/^(\w+)<(.*)>$/.exec(type);return m?{name:m[1]!,args:splitTypes(m[2]!)}:{name:type,args:[]};
 }
+/** Width-explicit numeric names: uintN, intN and floatN. */
+const NUMERIC=/^(uint|int|float)(\d+)$/;
 function defaultValue(type:string):unknown {
-  const {name,args}=typeParts(type);
-  if(name==="Option" || name==="Value" || name==="DynamicValue" || name==="null") return null;
-  if(name==="Vec")return [];
-  if(name==="BTreeMap")return {};
-  if(name==="Box")return defaultValue(args[0]!);
-  if(name==="String")return "";
-  if(name==="bool")return false;
-  if(/^[uif]\d+$/.test(name))return 0;
+  const {name}=typeParts(type);
+  if(name==="Nullable" || name==="JsonValue" || name==="DynamicValue" || name==="null") return null;
+  if(name==="Array")return [];
+  if(name==="Record")return {};
+  if(name==="string")return "";
+  if(name==="boolean")return false;
+  if(NUMERIC.test(name))return 0;
   const def=metadata[name];
   if(def?.kind==="struct")return withMethods(name,Object.fromEntries(def.fields.map(f=>[f.name,defaultValue(f.type)])));
   if(def?.kind==="alias")return defaultValue(def.type);
@@ -42,8 +43,8 @@ function defaultValue(type:string):unknown {
 function extras(v:JsonValue):Record<string,JsonValue>{return object(v)?{...v}:{raw:v};}
 function decodeTrade(v:JsonValue,path:string):unknown {
   if(!object(v))fail(path,"expected trade item object");
-  const user_id=decodeType("Option<u64>",v.user_id,path+".user_id");
-  const item_type=decodeType("Option<String>",v.type,path+".type");
+  const user_id=decodeType("Nullable<uint64>",v.user_id,path+".user_id");
+  const item_type=decodeType("Nullable<string>",v.type,path+".type");
   const extra=Object.fromEntries(Object.entries(v).filter(([k])=>!["user_id","type","details"].includes(k)));
   const names:Record<string,string>={Money:"TradeMoneyDetails",Item:"TradeInventoryItemDetails",Faction:"TradeFactionDetails",Company:"TradeCompanyDetails",Property:"TradePropertyDetails",NAP:"TradeNapDetails"};
   const detailType=typeof item_type==="string"?names[item_type]:undefined;
@@ -75,9 +76,9 @@ function decodeSpecial(name:string,v:JsonValue,path:string): {handled:true;value
   return subtype?{handled:true,value:decodeType(subtype,v,path)}:undefined;
 }
 function customValue(name:string,v:JsonValue|undefined,path:string):unknown {
-  if(name==="deserialize_optional_stringish")return typeof v==="string"||typeof v==="number"||typeof v==="bigint"?String(v):null;
-  if(name==="deserialize_optional_position_name")return typeof v==="string"?v:object(v)&&typeof v.name==="string"?v.name:null;
-  if(name==="deserialize_company_news") {
+  if(name==="optionalStringish")return typeof v==="string"||typeof v==="number"||typeof v==="bigint"?String(v):null;
+  if(name==="optionalPositionName")return typeof v==="string"?v:object(v)&&typeof v.name==="string"?v.name:null;
+  if(name==="companyNews") {
     if(v===undefined||v===null)return {};
     if(object(v))return Object.fromEntries(Object.entries(v).map(([k,item])=>[k,decodeType("CompanyNewsEntry",item,path+"."+k)]));
     if(!Array.isArray(v))fail(path,"expected company news object or array");
@@ -86,34 +87,33 @@ function customValue(name:string,v:JsonValue|undefined,path:string):unknown {
   fail(path,"unknown custom decoder "+name);
 }
 function decodeType(type:string,value:JsonValue|undefined,path:string):unknown {
-  type=type.replace("serde_json::","").replace("super::common::","");
-  if(type.startsWith("crate::models::generated::openapi::"))return decodeModel(type.slice("crate::models::generated::openapi::".length),value as JsonValue);
+  if(type.startsWith("Generated."))return decodeModel(type.slice("Generated.".length),value as JsonValue);
   const {name,args}=typeParts(type);
-  if(name==="Option")return value===undefined||value===null?null:decodeType(args[0]!,value,path);
+  if(name==="Nullable")return value===undefined||value===null?null:decodeType(args[0]!,value,path);
   if(value===undefined)fail(path,"missing required field");
-  if(name==="Value"||name==="DynamicValue")return value;
+  if(name==="JsonValue"||name==="DynamicValue")return value;
   if(name==="null"){if(value!==null)fail(path,"expected null");return null;}
-  if(name==="Box")return decodeType(args[0]!,value,path);
-  if(name==="String"){if(typeof value!=="string")fail(path,"expected string");return value;}
-  if(name==="bool"){if(typeof value!=="boolean")fail(path,"expected boolean");return value;}
-  if(/^[uif]\d+$/.test(name)){
-    if(typeof value==="bigint"&&name[0]==="f"){const converted=Number(value);if(!Number.isFinite(converted))fail(path,"expected finite number");return converted;}
-    if(typeof value==="bigint"&&name[0]!=="f"){
-      const bits=BigInt(name.slice(1)),min=name[0]==="u"?0n:-(1n<<(bits-1n)),max=name[0]==="u"?(1n<<bits)-1n:(1n<<(bits-1n))-1n;
+  if(name==="string"){if(typeof value!=="string")fail(path,"expected string");return value;}
+  if(name==="boolean"){if(typeof value!=="boolean")fail(path,"expected boolean");return value;}
+  const numeric=NUMERIC.exec(name);
+  if(numeric){
+    const kind=numeric[1]!,width=BigInt(numeric[2]!);
+    if(typeof value==="bigint"&&kind==="float"){const converted=Number(value);if(!Number.isFinite(converted))fail(path,"expected finite number");return converted;}
+    if(typeof value==="bigint"){
+      const min=kind==="uint"?0n:-(1n<<(width-1n)),max=kind==="uint"?(1n<<width)-1n:(1n<<(width-1n))-1n;
       if(value<min||value>max)fail(path,"integer out of range");return value;
     }
     if(typeof value!=="number"||!Number.isFinite(value))fail(path,"expected finite number");
-    if(name[0]!=="f"&&!Number.isInteger(value))fail(path,"expected integer");
-    if(name[0]==="u"&&value<0)fail(path,"expected unsigned integer");
-    const width=BigInt(name.slice(1));
-    if(name[0]!=="f"){
-      const exact=BigInt(value),min=name[0]==="u"?0n:-(1n<<(width-1n)),max=name[0]==="u"?(1n<<width)-1n:(1n<<(width-1n))-1n;
+    if(kind!=="float"&&!Number.isInteger(value))fail(path,"expected integer");
+    if(kind==="uint"&&value<0)fail(path,"expected unsigned integer");
+    if(kind!=="float"){
+      const exact=BigInt(value),min=kind==="uint"?0n:-(1n<<(width-1n)),max=kind==="uint"?(1n<<width)-1n:(1n<<(width-1n))-1n;
       if(exact<min||exact>max)fail(path,"integer out of range");
     }
     return value;
   }
-  if(name==="Vec") {if(!Array.isArray(value))fail(path,"expected array");return value.map((v,i)=>decodeType(args[0]!,v,`${path}[${i}]`));}
-  if(name==="BTreeMap") {if(!object(value))fail(path,"expected object");return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,decodeType(args[1]!,v,path+"."+k)]));}
+  if(name==="Array") {if(!Array.isArray(value))fail(path,"expected array");return value.map((v,i)=>decodeType(args[0]!,v,`${path}[${i}]`));}
+  if(name==="Record") {if(!object(value))fail(path,"expected object");return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,decodeType(args[1]!,v,path+"."+k)]));}
   const special=decodeSpecial(name,value,path);if(special)return special.value;
   const def=metadata[name];if(!def)fail(path,"unknown manual model "+name);
   if(def.kind==="alias")return decodeType(def.type,value,path);

@@ -26,7 +26,7 @@ for(const [resource,definition] of Object.entries(facadeManifest)){
     let op=methods.find(m=>m.method.toLowerCase()===selection.toLowerCase())??methods.find(m=>m.selection.toLowerCase()===selection.toLowerCase());
     if(!op)throw new Error(`Missing typed selection ${resource}.${selection}`);
     if(op.alias)op=methods.find(m=>m.method===op!.alias)!;
-    if(op.returnType==="String")continue;
+    if(op.returnType==="string")continue;
     const isManual=op.returnType in manual;
     const type=(isManual?"Manual.":"Generated.")+op.returnType;
     properties.push(`    ${JSON.stringify(selection)}: ${type}${resource==="torn"&&selection==="stocks"?" | Manual.TornStockBundle":""};`);

@@ -26,8 +26,8 @@ describe('Typing coverage report regression contract', () => {
     const current = buildTypingGapReport();
     const baseline = buildSourceTypingGapReport();
     expect(sourceTypingReportVersion).toBe('6.13.6');
-    expect(current.classCounts()).toEqual(baseline.classCounts());
-    expect(current.total_selections).toBe(205);
+    expect(current.classCounts()).toEqual({ ...baseline.classCounts(), 'strict typed': 51 });
+    expect(current.total_selections).toBe(207);
     expect(current.selections.find(selection => selection.resource === 'torn' && selection.selection === 'elimination')!.schema_refs).toContain('#/components/schemas/TornEliminationTeamCaptain');
     expect(baseline.selections.find(selection => selection.resource === 'torn' && selection.selection === 'elimination')!.schema_refs).toContain('#/components/schemas/TornEliminationTeamLeader');
   });
@@ -73,6 +73,6 @@ describe('Typing coverage report regression contract', () => {
     const child = Bun.spawn([process.execPath, 'tools/typing-gap-report.ts', '--json'], { cwd: fileURLToPath(new URL('..', import.meta.url)), stdout: 'pipe', stderr: 'pipe' });
     const output = await new Response(child.stdout).text();
     expect(await child.exited).toBe(0);
-    expect(JSON.parse(output).total_selections).toBe(205);
+    expect(JSON.parse(output).total_selections).toBe(207);
   });
 });

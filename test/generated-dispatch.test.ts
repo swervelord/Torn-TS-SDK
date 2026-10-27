@@ -61,7 +61,8 @@ describe('all generated model names match committed representative payload expec
   expect(validateLegacyModel(c.model,c.input).length===0).toBe(c.validation.ok);
   expect(schemas[c.model]).toBeDefined();
   // 6.13.8 changed the elimination team contract; the frozen 6.13.6 sample requires leaders.
-  expect(validateModel(c.model,c.input).length===0).toBe(c.model==='TornEliminationTeam'?false:c.validation.ok);
+  const changedStats=/^(TornCityStatsResponse(?:Stats)?|GetTornGenericResponseStats)(Attacking|Communication|Crimes|Currency|Other|Traveling)?$/.test(c.model);
+  expect(validateModel(c.model,c.input).length===0).toBe((c.model==='TornEliminationTeam'||changedStats)?false:c.validation.ok);
  });
 });
 

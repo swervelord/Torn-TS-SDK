@@ -1,7 +1,7 @@
 {
     "spec": {
         "title": "Torn API",
-        "version": "6.13.8",
+        "version": "6.14.0",
         "openapi": "3.1.0",
         "source_file": "spec/torn-openapi-current.json"
     },
@@ -15653,7 +15653,7 @@
             "selection_schema": "TornSelectionName",
             "selection_schema_ref": "#/components/schemas/TornSelectionName",
             "selections_accept_unknown_strings": true,
-            "selection_count": 41,
+            "selection_count": 42,
             "generic_supports_legacy": true,
             "generic_parameters": [
                 {
@@ -16670,6 +16670,45 @@
                     "requires_direct_endpoint_only": false
                 },
                 {
+                    "name": "halloween",
+                    "in_selection_enum": true,
+                    "standalone_only": false,
+                    "fallback_to_v1": false,
+                    "unavailable_in_v2": false,
+                    "endpoints": [
+                        "/torn/halloween"
+                    ],
+                    "query_parameters": [
+                        "comment",
+                        "key",
+                        "timestamp"
+                    ],
+                    "required_path_parameters": [],
+                    "response_schema_refs": [
+                        "#/components/schemas/HalloweenBasketUpgradeId",
+                        "#/components/schemas/TornHalloween",
+                        "#/components/schemas/TornHalloweenResponse",
+                        "#/components/schemas/TornHalloweenUpgrade"
+                    ],
+                    "response_top_level_fields": [
+                        "halloween"
+                    ],
+                    "response_field_paths": [
+                        "halloween",
+                        "halloween.basket_upgrades",
+                        "halloween.basket_upgrades[]",
+                        "halloween.basket_upgrades[].cost",
+                        "halloween.basket_upgrades[].description",
+                        "halloween.basket_upgrades[].flavor",
+                        "halloween.basket_upgrades[].id",
+                        "halloween.basket_upgrades[].name",
+                        "halloween.basket_upgrades[].requirement"
+                    ],
+                    "notes": [],
+                    "can_use_generic_endpoint": true,
+                    "requires_direct_endpoint_only": false
+                },
+                {
                     "name": "hof",
                     "in_selection_enum": true,
                     "standalone_only": false,
@@ -17594,23 +17633,45 @@
                         "stats.attacking.money_mugged",
                         "stats.attacking.respect_gained",
                         "stats.attacking.rounds_fired",
+                        "stats.attacking.wars_raid",
+                        "stats.attacking.wars_ranked",
+                        "stats.attacking.wars_territory",
                         "stats.bounties",
                         "stats.bounties.money_spent",
                         "stats.bounties.placed",
                         "stats.communication",
+                        "stats.communication.article_reads",
+                        "stats.communication.article_views",
+                        "stats.communication.articles",
+                        "stats.communication.chats",
                         "stats.communication.classified_ads_placed",
                         "stats.communication.coworkers",
+                        "stats.communication.events",
+                        "stats.communication.forum_dislikes",
+                        "stats.communication.forum_likes",
+                        "stats.communication.forum_posts",
+                        "stats.communication.forum_threads",
                         "stats.communication.friends",
+                        "stats.communication.mails_coworkers",
+                        "stats.communication.mails_faction",
+                        "stats.communication.mails_friends",
+                        "stats.communication.mails_spouses",
+                        "stats.communication.mails_total",
+                        "stats.communication.messages",
                         "stats.communication.personals_placed",
                         "stats.communication.spouses",
+                        "stats.communication.total_events",
                         "stats.communication.total_messages",
                         "stats.crimes",
                         "stats.crimes.jail_sentences",
+                        "stats.crimes.today",
                         "stats.crimes.total",
                         "stats.currency",
                         "stats.currency.money_in_bank",
                         "stats.currency.money_on_hand",
                         "stats.currency.money_on_hand_average",
+                        "stats.currency.points_average_cost",
+                        "stats.currency.points_bought",
                         "stats.currency.points_factions",
                         "stats.currency.points_market",
                         "stats.currency.points_players",
@@ -17656,9 +17717,11 @@
                         "stats.other",
                         "stats.other.company_trains",
                         "stats.other.energy_refills",
+                        "stats.other.gym_trains",
                         "stats.other.logins",
                         "stats.other.merits_bought",
                         "stats.other.stat_enhancers_used",
+                        "stats.other.users_daily",
                         "stats.other.years_played",
                         "stats.trading",
                         "stats.trading.auctions",
@@ -17670,6 +17733,7 @@
                         "stats.trading.trades",
                         "stats.traveling",
                         "stats.traveling.argentina",
+                        "stats.traveling.canada",
                         "stats.traveling.cayman_islands",
                         "stats.traveling.china",
                         "stats.traveling.hawaii",
@@ -18988,6 +19052,70 @@
                     ]
                 },
                 {
+                    "path": "/torn/halloween",
+                    "method": "get",
+                    "operation_id": "getTornHalloween",
+                    "selection_hint": "halloween",
+                    "standalone_only": false,
+                    "parameters": [
+                        {
+                            "name": "comment",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "key",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "timestamp",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "oneOf": [
+                                    {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "response_content_types": [
+                        "application/json"
+                    ],
+                    "response_schema_refs": [
+                        "#/components/schemas/HalloweenBasketUpgradeId",
+                        "#/components/schemas/TornHalloween",
+                        "#/components/schemas/TornHalloweenResponse",
+                        "#/components/schemas/TornHalloweenUpgrade"
+                    ],
+                    "response_top_level_fields": [
+                        "halloween"
+                    ],
+                    "response_field_paths": [
+                        "halloween",
+                        "halloween.basket_upgrades",
+                        "halloween.basket_upgrades[]",
+                        "halloween.basket_upgrades[].cost",
+                        "halloween.basket_upgrades[].description",
+                        "halloween.basket_upgrades[].flavor",
+                        "halloween.basket_upgrades[].id",
+                        "halloween.basket_upgrades[].name",
+                        "halloween.basket_upgrades[].requirement"
+                    ]
+                },
+                {
                     "path": "/torn/hof",
                     "method": "get",
                     "operation_id": "getTornHoF",
@@ -20276,23 +20404,45 @@
                         "stats.attacking.money_mugged",
                         "stats.attacking.respect_gained",
                         "stats.attacking.rounds_fired",
+                        "stats.attacking.wars_raid",
+                        "stats.attacking.wars_ranked",
+                        "stats.attacking.wars_territory",
                         "stats.bounties",
                         "stats.bounties.money_spent",
                         "stats.bounties.placed",
                         "stats.communication",
+                        "stats.communication.article_reads",
+                        "stats.communication.article_views",
+                        "stats.communication.articles",
+                        "stats.communication.chats",
                         "stats.communication.classified_ads_placed",
                         "stats.communication.coworkers",
+                        "stats.communication.events",
+                        "stats.communication.forum_dislikes",
+                        "stats.communication.forum_likes",
+                        "stats.communication.forum_posts",
+                        "stats.communication.forum_threads",
                         "stats.communication.friends",
+                        "stats.communication.mails_coworkers",
+                        "stats.communication.mails_faction",
+                        "stats.communication.mails_friends",
+                        "stats.communication.mails_spouses",
+                        "stats.communication.mails_total",
+                        "stats.communication.messages",
                         "stats.communication.personals_placed",
                         "stats.communication.spouses",
+                        "stats.communication.total_events",
                         "stats.communication.total_messages",
                         "stats.crimes",
                         "stats.crimes.jail_sentences",
+                        "stats.crimes.today",
                         "stats.crimes.total",
                         "stats.currency",
                         "stats.currency.money_in_bank",
                         "stats.currency.money_on_hand",
                         "stats.currency.money_on_hand_average",
+                        "stats.currency.points_average_cost",
+                        "stats.currency.points_bought",
                         "stats.currency.points_factions",
                         "stats.currency.points_market",
                         "stats.currency.points_players",
@@ -20338,9 +20488,11 @@
                         "stats.other",
                         "stats.other.company_trains",
                         "stats.other.energy_refills",
+                        "stats.other.gym_trains",
                         "stats.other.logins",
                         "stats.other.merits_bought",
                         "stats.other.stat_enhancers_used",
+                        "stats.other.users_daily",
                         "stats.other.years_played",
                         "stats.trading",
                         "stats.trading.auctions",
@@ -20352,6 +20504,7 @@
                         "stats.trading.trades",
                         "stats.traveling",
                         "stats.traveling.argentina",
+                        "stats.traveling.canada",
                         "stats.traveling.cayman_islands",
                         "stats.traveling.china",
                         "stats.traveling.hawaii",
@@ -21658,7 +21811,7 @@
             "selection_schema": "UserSelectionName",
             "selection_schema_ref": "#/components/schemas/UserSelectionName",
             "selections_accept_unknown_strings": true,
-            "selection_count": 74,
+            "selection_count": 75,
             "generic_supports_legacy": true,
             "generic_parameters": [
                 {
@@ -23352,6 +23505,44 @@
                         "gym",
                         "gym.id",
                         "gym.name"
+                    ],
+                    "notes": [],
+                    "can_use_generic_endpoint": true,
+                    "requires_direct_endpoint_only": false
+                },
+                {
+                    "name": "halloween",
+                    "in_selection_enum": true,
+                    "standalone_only": false,
+                    "fallback_to_v1": false,
+                    "unavailable_in_v2": false,
+                    "endpoints": [
+                        "/user/halloween"
+                    ],
+                    "query_parameters": [
+                        "comment",
+                        "key",
+                        "timestamp"
+                    ],
+                    "required_path_parameters": [],
+                    "response_schema_refs": [
+                        "#/components/schemas/HalloweenBasketUpgradeId",
+                        "#/components/schemas/UserHalloween",
+                        "#/components/schemas/UserHalloweenBasketUpgrade",
+                        "#/components/schemas/UserHalloweenResponse"
+                    ],
+                    "response_top_level_fields": [
+                        "halloween"
+                    ],
+                    "response_field_paths": [
+                        "halloween",
+                        "halloween.basket_upgrades",
+                        "halloween.basket_upgrades[]",
+                        "halloween.basket_upgrades[].id",
+                        "halloween.basket_upgrades[].timestamp",
+                        "halloween.treats",
+                        "halloween.treats.current",
+                        "halloween.treats.total"
                     ],
                     "notes": [],
                     "can_use_generic_endpoint": true,
@@ -28033,6 +28224,69 @@
                         "gym",
                         "gym.id",
                         "gym.name"
+                    ]
+                },
+                {
+                    "path": "/user/halloween",
+                    "method": "get",
+                    "operation_id": "getMyHalloween",
+                    "selection_hint": "halloween",
+                    "standalone_only": false,
+                    "parameters": [
+                        {
+                            "name": "comment",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "key",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "timestamp",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "oneOf": [
+                                    {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "response_content_types": [
+                        "application/json"
+                    ],
+                    "response_schema_refs": [
+                        "#/components/schemas/HalloweenBasketUpgradeId",
+                        "#/components/schemas/UserHalloween",
+                        "#/components/schemas/UserHalloweenBasketUpgrade",
+                        "#/components/schemas/UserHalloweenResponse"
+                    ],
+                    "response_top_level_fields": [
+                        "halloween"
+                    ],
+                    "response_field_paths": [
+                        "halloween",
+                        "halloween.basket_upgrades",
+                        "halloween.basket_upgrades[]",
+                        "halloween.basket_upgrades[].id",
+                        "halloween.basket_upgrades[].timestamp",
+                        "halloween.treats",
+                        "halloween.treats.current",
+                        "halloween.treats.total"
                     ]
                 },
                 {

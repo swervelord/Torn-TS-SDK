@@ -66,7 +66,7 @@ describe("exhaustive public facade dispatch",()=>{
         expect(initial.options.constructor.name).toBe(resource[0]!.toUpperCase()+resource.slice(1)+"Options");
         expect(initial.options.base.id).toBeUndefined();
         const expected=op.alias?reference.methods.find(m=>m.method===op.alias)!:op;
-        const kind=expected.returnType==="String"?"text":"typed";
+        const kind=expected.returnType==="string"?"text":"typed";
         expect(initial).toMatchObject({kind,selection:expected.selection,...(kind==="typed"?{model:expected.returnType,manual:MANUAL_MODEL_NAMES.includes(expected.returnType)}:{})});
         // Reuse resource-specific options, exercise the explicit argument branch, and preserve identity.
         const options=initial.options;

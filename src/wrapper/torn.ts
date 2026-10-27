@@ -1,3 +1,4 @@
+import type { TornHalloweenResponse } from "../generated/models.ts";
 import type { TornClient } from "../client.ts";
 import type { HttpTransport } from "../transport.ts";
 import { ResourceApi, RawSelectionBundle } from "./runtime.ts";
@@ -7,8 +8,14 @@ import type { TornBankResponse, TornCardsResponse, TornCityShopsResponse, TornCi
 export { TornOptions } from "./options.ts";
 
 export class TornApi extends ResourceApi<TornOptions, "torn"> {
-  static readonly SUPPORTED_SELECTIONS = ["museum", "merits", "medals", "organisedcrimes", "pawnshop", "organizedcrimes", "itemstats", "items", "logcategories", "lookup", "logtypes", "stocks", "stats", "subcrimes", "timestamp", "territory", "properties", "pokertables", "rockpaperscissors", "shoplifting", "searchforcash", "companies", "cityshops", "competition", "education", "crimes", "bank", "attacklog", "bounties", "cards", "calendar", "honors", "hof", "itemammo", "itemmods", "itemdetails", "eliminationteam", "elimination", "factionhof", "gyms", "factiontree"] as const;
+  static readonly SUPPORTED_SELECTIONS = ["museum", "merits", "medals", "organisedcrimes", "pawnshop", "organizedcrimes", "itemstats", "items", "logcategories", "lookup", "logtypes", "stocks", "stats", "subcrimes", "timestamp", "territory", "properties", "pokertables", "rockpaperscissors", "shoplifting", "searchforcash", "companies", "cityshops", "competition", "education", "crimes", "bank", "attacklog", "bounties", "cards", "calendar", "honors", "hof", "itemammo", "itemmods", "itemdetails", "eliminationteam", "elimination", "factionhof", "gyms", "factiontree", "halloween"] as const;
   constructor(client: TornClient<HttpTransport>) { super(client, "torn", TornApi.SUPPORTED_SELECTIONS, () => new TornOptions()); }
+  /** Halloween basket data from API v2. */
+  async halloween(options: TornOptions = new TornOptions()): Promise<TornHalloweenResponse> {
+    return this.executeTyped<TornHalloweenResponse>("halloween", options, "TornHalloweenResponse", false);
+  }
+  halloween_raw(options: TornOptions = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("halloween", options); }
+  halloweenRaw(options: TornOptions = new TornOptions()) { return this.halloween_raw(options); }
   async museum(options: TornOptions = new TornOptions()): Promise<TornMuseumResponse> {
     return this.executeTyped<TornMuseumResponse>("museum", options, "TornMuseumResponse", false);
   }

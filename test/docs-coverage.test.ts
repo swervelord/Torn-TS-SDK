@@ -6,7 +6,7 @@ import { legacySchemas } from '../src/generated/legacy-schema-data.ts';
 interface OperationEntry {path:string;method:string;operationId:string;document:string;hash:string;parameterCount:number;responseContentTypes:string[]}
 interface SchemaEntry {name:string;document:string;hash:string}
 interface Selection {name:string;combine:string;flags:string;sdkCapabilityPresent:boolean;sdkGeneric:boolean;sdkStandalone:boolean;sdkFallback:boolean}
-interface Audit {docs:{repository:string;commit:string;version:string;canonicalSha256:string;operationCount:number;schemaCount:number;sharedParameterCount:number};sdkBaseline:{version:string;semanticallyIdenticalToDocs:boolean};sdkCurrent:{version:string;canonicalSha256:string;matchesAuditedLiveSnapshot:boolean};live:{version:string;canonicalSha256:string;operationCount:number;schemaCount:number;operationChanges:string[];addedSchemas:string[];removedSchemas:string[];changedSchemas:string[]};operations:OperationEntry[];schemas:SchemaEntry[];sharedParameters:{name:string;hash:string}[];resources:{resource:string;selections:Selection[]}[];errors:string[];v1:{dedicatedSpecificationPresent:boolean;completeV1InventoryDocumented:boolean};otherServices:{service:string;endpointDocumentCount:number;sdkCovered:boolean}[]}
+interface Audit {currentOperationHashes:Record<string,string>;currentParameterHashes:Record<string,string>;docs:{repository:string;commit:string;version:string;canonicalSha256:string;operationCount:number;schemaCount:number;sharedParameterCount:number};sdkBaseline:{version:string;semanticallyIdenticalToDocs:boolean};sdkCurrent:{version:string;canonicalSha256:string;matchesAuditedLiveSnapshot:boolean};live:{version:string;canonicalSha256:string;operationCount:number;schemaCount:number;operationChanges:string[];addedSchemas:string[];removedSchemas:string[];changedSchemas:string[]};operations:OperationEntry[];schemas:SchemaEntry[];sharedParameters:{name:string;hash:string}[];resources:{resource:string;selections:Selection[]}[];errors:string[];v1:{dedicatedSpecificationPresent:boolean;completeV1InventoryDocumented:boolean};otherServices:{service:string;endpointDocumentCount:number;sdkCovered:boolean}[]}
 interface Spec {info:{version:string};paths:Record<string,Record<string,JsonValue>>;components:{schemas:Record<string,JsonValue>;parameters:Record<string,JsonValue>}}
 interface Capabilities {resources:Record<string,{selections:{name:string;can_use_generic_endpoint:boolean;standalone_only:boolean;fallback_to_v1:boolean}[]}>}
 const audit=await Bun.file(import.meta.dir+'/../spec/parity/docs-coverage.json').json() as Audit;
@@ -23,13 +23,13 @@ describe('official Torn Markdown vault coverage and freshness',()=>{
   expect(hash(baseline)).toBe(audit.docs.canonicalSha256);expect(audit.sdkBaseline.semanticallyIdenticalToDocs).toBe(true);
  });
  test('current snapshot is the separately audited live6.13.8 API, not mislabeled frozen docs',()=>{
-  expect(audit.docs.version).toBe('6.13.6');expect(current.info.version).toBe('6.13.8');expect(specificationVersion).toBe('6.13.8');
+  expect(audit.docs.version).toBe('6.13.6');expect(current.info.version).toBe('6.14.0');expect(specificationVersion).toBe('6.14.0');
   expect(hash(current)).toBe(audit.live.canonicalSha256);expect(hash(current)).toBe(audit.sdkCurrent.canonicalSha256);
-  expect(componentSchemaNames).toHaveLength(712);expect(audit.live.operationChanges).toEqual([]);
+  expect(componentSchemaNames).toHaveLength(719);expect(audit.live.operationChanges).toContain("/user/halloween");expect(audit.live.operationChanges).toContain("/torn/halloween");
  });
  for(const entry of audit.operations)test(`${entry.method.toUpperCase()} ${entry.path} includes every documented parameter and response`,()=>{
   expect(hash(baseline.paths[entry.path]?.[entry.method])).toBe(entry.hash);
-  expect(hash(current.paths[entry.path]?.[entry.method])).toBe(entry.hash);
+  expect(hash(current.paths[entry.path]?.[entry.method])).toBe(audit.currentOperationHashes[entry.path]!);
   expect(operationDefinitions[entry.operationId]?.path).toBe(entry.path);
   expect(entry.document).toStartWith('refs/endpoints/');
  });
@@ -39,14 +39,14 @@ describe('official Torn Markdown vault coverage and freshness',()=>{
  });
  for(const entry of audit.sharedParameters)test(`shared parameter ${entry.name}`,()=>{
   expect(hash(baseline.components.parameters[entry.name])).toBe(entry.hash);
-  expect(hash(current.components.parameters[entry.name])).toBe(entry.hash);
+  expect(hash(current.components.parameters[entry.name])).toBe(audit.currentParameterHashes[entry.name]!);
  });
  test('all and only live schema changes are explicitly recorded',()=>{
   const added=Object.keys(current.components.schemas).filter(n=>!baseline.components.schemas[n]);
   const removed=Object.keys(baseline.components.schemas).filter(n=>!current.components.schemas[n]);
   const changed=Object.keys(baseline.components.schemas).filter(n=>current.components.schemas[n]&&hash(current.components.schemas[n])!==hash(baseline.components.schemas[n]));
   expect(added.sort()).toEqual([...audit.live.addedSchemas].sort());expect(removed.sort()).toEqual([...audit.live.removedSchemas].sort());expect(changed.sort()).toEqual([...audit.live.changedSchemas].sort());
-  expect(added.sort()).toEqual(['ErrorNoCompetitionAvailable','TornEliminationTeamCaptain']);expect(removed).toEqual(['TornEliminationTeamLeader']);
+  expect(added).toHaveLength(9);expect(added).toContain("UserHalloweenResponse");expect(added).toContain("TornHalloweenResponse");expect(removed).toEqual(['TornEliminationTeamLeader']);
   for(const name of added)expect(schemas[name]).toBeDefined();
  });
  for(const resource of audit.resources)for(const selection of resource.selections)test(`documented selection ${resource.resource}.${selection.name} is supported`,()=>{
