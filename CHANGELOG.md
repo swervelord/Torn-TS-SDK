@@ -2,6 +2,7 @@
 
 ## 2.1.0 - 2026-10-27
 
+- `BunTransport` now sends the API key as an `Authorization: ApiKey <key>` header on v2 requests instead of the `key` query parameter, so keys no longer appear in request URLs. v1 fallback requests keep the `key` query parameter because v1 has no documented header authentication. `TransportRequest` gains an optional `apiVersion` (absent means v2), and `buildUrl` appends `key` only when a key is passed.
 - Updated the pinned official Torn OpenAPI contract from 6.13.8 to 6.14.0: 236 operations, 719 component schemas, and 207 capability selections.
 - Added fully generated user and Torn Halloween endpoint models and exact operations, resource helpers, raw aliases, and inferred selection batches. User Halloween requires a Minimal access key.
 - Added all newly declared city statistics. Refreshed selection enums, response envelopes, upstream caching descriptions, and stability annotations.

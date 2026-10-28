@@ -1,10 +1,11 @@
 import { DEFAULT_ROUTE_ID } from "./config.ts";
 import { TransportError } from "./errors.ts";
-import type { HttpMethod } from "./types.ts";
+import type { ApiVersion, HttpMethod } from "./types.ts";
 
 export interface TransportRequest {
   baseUrl:string;path:string;method:HttpMethod;query:Record<string,string>;
-  apiKey:string;timeoutMs?:number;routeId?:string;signal?:AbortSignal;
+  /** v2 (the default) sends `Authorization: ApiKey <key>`; v1 has no documented header authentication and sends the `key` query parameter. */
+  apiKey:string;apiVersion?:ApiVersion;timeoutMs?:number;routeId?:string;signal?:AbortSignal;
 }
 export interface TransportResponse {status:number;body:string}
 export interface HttpTransport {execute(request:TransportRequest):Promise<TransportResponse>}
@@ -12,12 +13,14 @@ export interface TransportRouteConfig {id:string;proxyUrl?:string}
 export function sanitizeErrorMessage(message:string):string {
   return message.replace(/key=[^&"'\s)]*/g,"key=[REDACTED]").replace(/([a-z][a-z\d+.-]*:\/\/)[^/@?#\s"')]+@/gi,"$1[REDACTED]@");
 }
-export function buildUrl(baseUrl:string,path:string,query:Record<string,string>,apiKey:string):URL {
+/** Builds the request URL; `apiKey` is appended as the `key` query parameter only when given. */
+export function buildUrl(baseUrl:string,path:string,query:Record<string,string>,apiKey?:string):URL {
   let url:URL;
   try { url=new URL(`${baseUrl.replace(/\/+$/,"")}${path.startsWith("/")?path:`/${path}`}`); }
   catch { throw new TransportError("invalid URL built from configured base and request path",{path}); }
   for(const [key,value] of Object.entries(query).sort(([a],[b])=>a.localeCompare(b))) url.searchParams.append(key,value);
-  url.searchParams.append("key",apiKey);return url;
+  if(apiKey!==undefined)url.searchParams.append("key",apiKey);
+  return url;
 }
 export class BunTransport implements HttpTransport {
   #routes=new Map<string,TransportRouteConfig>();
@@ -40,14 +43,17 @@ export class BunTransport implements HttpTransport {
       if(!route) throw new TransportError(`unknown transport route '${request.routeId}'`,{routeId:request.routeId});
       proxy=route.proxyUrl;
     }
-    const url=buildUrl(request.baseUrl,request.path,request.query,request.apiKey);
+    const v1=request.apiVersion==="v1";
+    const url=buildUrl(request.baseUrl,request.path,request.query,v1?request.apiKey:undefined);
+    const headers:Record<string,string>={"User-Agent":this.userAgent};
+    if(!v1)headers.Authorization=`ApiKey ${request.apiKey}`;
     const timeoutMs=request.timeoutMs??this.timeoutMs;
     const controller=new AbortController();
     const onAbort=()=>controller.abort(request.signal?.reason);
     request.signal?.addEventListener("abort",onAbort,{once:true});
     const timer=setTimeout(()=>controller.abort(new DOMException("HTTP request timed out","TimeoutError")),timeoutMs);
     try {
-      const response=await fetch(url,{method:request.method,headers:{"User-Agent":this.userAgent},signal:controller.signal,...(proxy?{proxy}:{} )});
+      const response=await fetch(url,{method:request.method,headers,signal:controller.signal,...(proxy?{proxy}:{} )});
       return {status:response.status,body:await response.text()};
     } catch(error) {
       if(request.signal?.aborted) throw request.signal.reason;

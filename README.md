@@ -106,7 +106,7 @@ An HTTP timeout applies to one send. `AbortSignal` provides cancellation across 
 
 Supported environment settings: `TORN_API_KEYS` / `TORN_API_KEY`, `TORN_API_BASE_URL_V2`, `TORN_API_BASE_URL_V1`, `TORN_HTTP_TIMEOUT_SECS`, `TORN_USER_AGENT`, `TORN_MAX_ATTEMPTS`, `TORN_NETWORK_RETRY_BACKOFF_MS`, `TORN_RATE_LIMIT_PER_KEY_PER_MIN`, `TORN_RATE_LIMIT_PER_IP_PER_MIN`, and `TORN_MAX_IN_FLIGHT`. Proxy routes are configured programmatically.
 
-Errors are typed: `ValidationError`, `DecodeError`, `PlannerError`, `EnvConfigError`, `TransportError`, `ExecutorError`, and `ApiError`. API errors expose status, Torn code, path, and credential used; SDK JSON/inspection output redacts credentials. Do not explicitly print credential getters. Local tracing can subscribe to executor `onRouteUsage` metrics.
+Errors are typed: `ValidationError`, `DecodeError`, `PlannerError`, `EnvConfigError`, `TransportError`, `ExecutorError`, and `ApiError`. API errors expose status, Torn code, path, and credential used; SDK JSON/inspection output redacts credentials. v2 requests send the key in an `Authorization: ApiKey <key>` header rather than the URL; v1 fallback requests use the `key` query parameter, because v1 has no documented header authentication. Custom transports receive `apiVersion` on each `TransportRequest` to make the same choice. Do not explicitly print credential getters. Local tracing can subscribe to executor `onRouteUsage` metrics.
 
 ## Integer and model fidelity
 

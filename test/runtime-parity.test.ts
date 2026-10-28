@@ -88,7 +88,8 @@ describe('Executor contract audit', () => {
     const { executor, transport } = harness([apiError('selection must fallback to API v1, cannot combine'), json({ profile: 1, discord: 2 })]);
     const report = await executor.executePlan(request);
     expect(transport.requests).toHaveLength(2);
-    expect(transport.requests[1]).toMatchObject({ baseUrl: 'https://api.torn.com', path: '/user/55', query: { selections: 'profile,discord', limit: '10' } });
+    expect(transport.requests[1]).toMatchObject({ baseUrl: 'https://api.torn.com', apiVersion: 'v1', path: '/user/55', query: { selections: 'profile,discord', limit: '10' } });
+    expect(transport.requests[0]!.apiVersion).toBe('v2');
     expect(transport.requests[1]!.query).not.toHaveProperty('comment');
     expect(transport.requests[1]!.query).not.toHaveProperty('id');
     expect(report.calls[0]).toMatchObject({ fallback: true, strategy: 'version-fallback', apiVersion: 'v1' });
@@ -299,14 +300,22 @@ describe('Bun native transport local integration', () => {
     const server = Bun.serve({ hostname: '127.0.0.1', port: 0, fetch }); servers.push(server); return `http://127.0.0.1:${server.port}`;
   }
   const request = (baseUrl: string, extra: Partial<TransportRequest> = {}): TransportRequest => ({ baseUrl, path: '/user', method: 'GET', query: { selections: 'profile', search: 'a b&c' }, apiKey: 'local-test-secret', ...extra });
-  test('sends encoded query, key, user agent and returns non-JSON bodies with status', async () => {
-    let receivedUrl = '', receivedAgent: string | null = null;
-    const baseUrl = serve(req => { receivedUrl = req.url; receivedAgent = req.headers.get('user-agent'); return new Response('plain-text', { status: 202 }); });
+  test('sends encoded query, header key, user agent and returns non-JSON bodies with status', async () => {
+    let receivedUrl = '', receivedAgent: string | null = null, receivedAuth: string | null = null;
+    const baseUrl = serve(req => { receivedUrl = req.url; receivedAgent = req.headers.get('user-agent'); receivedAuth = req.headers.get('authorization'); return new Response('plain-text', { status: 202 }); });
     const transport = new BunTransport(1000, 'sdk-local-test');
     expect(await transport.execute(request(baseUrl))).toEqual({ status: 202, body: 'plain-text' });
     const url = new URL(receivedUrl);
-    expect(url.pathname).toBe('/user'); expect(url.searchParams.get('search')).toBe('a b&c'); expect(url.searchParams.get('key')).toBe('local-test-secret');
+    expect(url.pathname).toBe('/user'); expect(url.searchParams.get('search')).toBe('a b&c'); expect(url.searchParams.has('key')).toBe(false);
+    expect(receivedAuth as string | null).toBe('ApiKey local-test-secret');
     expect(receivedAgent as string | null).toBe('sdk-local-test');
+  });
+  test('v1 requests send the key as a query parameter without an Authorization header', async () => {
+    let receivedUrl = '', receivedAuth: string | null = 'unset';
+    const baseUrl = serve(req => { receivedUrl = req.url; receivedAuth = req.headers.get('authorization'); return new Response('{}'); });
+    await new BunTransport(1000).execute(request(baseUrl, { apiVersion: 'v1' }));
+    expect(new URL(receivedUrl).searchParams.get('key')).toBe('local-test-secret');
+    expect(receivedAuth as string | null).toBeNull();
   });
   test('per-call timeout and cancellation abort network requests and permit later requests', async () => {
     const baseUrl = serve(async req => { if (new URL(req.url).pathname === '/slow') await Bun.sleep(250); return new Response('{}'); });
@@ -336,6 +345,7 @@ describe('Bun native transport local integration', () => {
   test('URL builder and sanitized errors preserve query semantics without disclosing secrets', () => {
     const url = buildUrl('http://localhost/v2///', 'user', { selections: 'profile', special: 'x y&z' }, 'secret');
     expect(url.pathname).toBe('/v2/user'); expect(url.searchParams.get('special')).toBe('x y&z'); expect(url.searchParams.get('key')).toBe('secret');
+    expect(buildUrl('http://localhost/v2', '/user', {}).searchParams.has('key')).toBe(false);
     expect(() => buildUrl('://bad', '/user', {}, 'secret')).toThrow(TransportError);
     const output = sanitizeErrorMessage('failed https://api.example/user?key=secret&x=1 via http://user:password@proxy.invalid:8080');
     expect(output).not.toContain('secret'); expect(output).not.toContain('password'); expect(output).toContain('x=1');
