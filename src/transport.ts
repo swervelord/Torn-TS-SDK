@@ -1,4 +1,4 @@
-import { DEFAULT_ROUTE_ID } from "./config.ts";
+import { DEFAULT_ROUTE_ID, DEFAULT_USER_AGENT } from "./config.ts";
 import { TransportError } from "./errors.ts";
 import type { ApiVersion, HttpMethod } from "./types.ts";
 
@@ -27,7 +27,7 @@ export class BunTransport implements HttpTransport {
   #proxyUrl?:string;
   readonly timeoutMs:number;
   readonly userAgent:string;
-  constructor(timeoutMs=30_000,userAgent="torn-sdk-typescript/2.0.0",proxyUrl?:string,routes:Iterable<TransportRouteConfig>=[]) {
+  constructor(timeoutMs=30_000,userAgent=DEFAULT_USER_AGENT,proxyUrl?:string,routes:Iterable<TransportRouteConfig>=[]) {
     this.timeoutMs=timeoutMs;this.userAgent=userAgent;this.#proxyUrl=proxyUrl;
     for(const route of routes)this.#routes.set(route.id,{...route});
   }
