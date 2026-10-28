@@ -155,7 +155,7 @@ export class RequestExecutor<T extends HttpTransport = BunTransport> {
       if(!slot){release();this.#record(requestedRoute,"wait",now);await this.#scheduler.sleep(RateLimiter.waitDurationUntilNextMinute(now),options.signal);continue;}
       const {key,routeId}=slot;this.#record(routeId,"call",now);
       try {
-        const request={baseUrl:target.apiVersion==="v2"?this.config.baseUrlV2:this.config.baseUrlV1,path:target.path,method:target.method,query:{...target.query},apiKey:key,timeoutMs:options.requestTimeoutMs,routeId,signal:options.signal};
+        const request={baseUrl:target.apiVersion==="v2"?this.config.baseUrlV2:this.config.baseUrlV1,path:target.path,method:target.method,query:{...target.query},apiKey:key,apiVersion:target.apiVersion,timeoutMs:options.requestTimeoutMs,routeId,signal:options.signal};
         const safe=()=>({...request,apiKey:"[REDACTED]"});
         Object.defineProperty(request,"toJSON",{value:safe});
         Object.defineProperty(request,Symbol.for("nodejs.util.inspect.custom"),{value:safe});
