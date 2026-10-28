@@ -3,7 +3,7 @@ import { inspect } from 'node:util';
 import { RequestExecutor, mergeJson, runtimeV1Fallback, isSelectionCombinationError } from '../src/executor.ts';
 import { ApiError, DecodeError, EnvConfigError, TransportError } from '../src/errors.ts';
 import { RateLimiter } from '../src/rate-limit.ts';
-import { RuntimeEnvConfig, defaultExecutorConfig, type ExecutorConfigInput } from '../src/config.ts';
+import { DEFAULT_USER_AGENT, RuntimeEnvConfig, SDK_VERSION, defaultExecutorConfig, type ExecutorConfigInput } from '../src/config.ts';
 import { BunTransport, buildUrl, sanitizeErrorMessage, type HttpTransport, type TransportRequest, type TransportResponse } from '../src/transport.ts';
 import { PlanRequest, RequestPlanner } from '../src/planner.ts';
 import { TornClient } from '../src/client.ts';
@@ -293,6 +293,14 @@ describe('environment and quota contracts', () => {
   });
 });
 
+describe('SDK version', () => {
+  test('default user agents carry the package version', async () => {
+    const pkg = await Bun.file(new URL('../package.json', import.meta.url)).json() as { version: string };
+    expect(SDK_VERSION).toBe(pkg.version);
+    expect(defaultExecutorConfig().userAgent).toBe(`torn-sdk-typescript/${pkg.version}`);
+    expect(new BunTransport().userAgent).toBe(DEFAULT_USER_AGENT);
+  });
+});
 describe('Bun native transport local integration', () => {
   const servers: ReturnType<typeof Bun.serve>[] = [];
   afterAll(() => { for (const server of servers) server.stop(true); });
