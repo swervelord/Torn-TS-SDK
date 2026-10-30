@@ -1,7 +1,7 @@
 {
     "spec": {
         "title": "Torn API",
-        "version": "6.14.0",
+        "version": "6.15.0",
         "openapi": "3.1.0",
         "source_file": "spec/torn-openapi-current.json"
     },
@@ -21811,7 +21811,7 @@
             "selection_schema": "UserSelectionName",
             "selection_schema_ref": "#/components/schemas/UserSelectionName",
             "selections_accept_unknown_strings": true,
-            "selection_count": 75,
+            "selection_count": 76,
             "generic_supports_legacy": true,
             "generic_parameters": [
                 {
@@ -26175,6 +26175,54 @@
                         "travel.destination",
                         "travel.method",
                         "travel.time_left"
+                    ],
+                    "notes": [],
+                    "can_use_generic_endpoint": true,
+                    "requires_direct_endpoint_only": false
+                },
+                {
+                    "name": "travelinventory",
+                    "in_selection_enum": true,
+                    "standalone_only": false,
+                    "fallback_to_v1": false,
+                    "unavailable_in_v2": false,
+                    "endpoints": [
+                        "/user/travelinventory"
+                    ],
+                    "query_parameters": [
+                        "comment",
+                        "key",
+                        "timestamp"
+                    ],
+                    "required_path_parameters": [],
+                    "response_schema_refs": [
+                        "#/components/schemas/ItemId",
+                        "#/components/schemas/ItemUid",
+                        "#/components/schemas/UserTravelInventory",
+                        "#/components/schemas/UserTravelInventoryCapacity",
+                        "#/components/schemas/UserTravelInventoryItem",
+                        "#/components/schemas/UserTravelInventoryResponse",
+                        "#/components/schemas/UserTravelInventorySlot"
+                    ],
+                    "response_top_level_fields": [
+                        "travelinventory"
+                    ],
+                    "response_field_paths": [
+                        "travelinventory",
+                        "travelinventory.capacity",
+                        "travelinventory.capacity.base",
+                        "travelinventory.capacity.special",
+                        "travelinventory.inventory",
+                        "travelinventory.inventory[]",
+                        "travelinventory.inventory[].id",
+                        "travelinventory.inventory[].item",
+                        "travelinventory.inventory[].item.id",
+                        "travelinventory.inventory[].item.is_equipped",
+                        "travelinventory.inventory[].item.is_faction_owned",
+                        "travelinventory.inventory[].item.is_permanent",
+                        "travelinventory.inventory[].item.name",
+                        "travelinventory.inventory[].item.type",
+                        "travelinventory.inventory[].item.uid"
                     ],
                     "notes": [],
                     "can_use_generic_endpoint": true,
@@ -32400,6 +32448,79 @@
                         "travel.destination",
                         "travel.method",
                         "travel.time_left"
+                    ]
+                },
+                {
+                    "path": "/user/travelinventory",
+                    "method": "get",
+                    "operation_id": "getMyTravelInventory",
+                    "selection_hint": "travelinventory",
+                    "standalone_only": false,
+                    "parameters": [
+                        {
+                            "name": "comment",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "key",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "timestamp",
+                            "in": "query",
+                            "required": false,
+                            "schema": {
+                                "oneOf": [
+                                    {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "response_content_types": [
+                        "application/json"
+                    ],
+                    "response_schema_refs": [
+                        "#/components/schemas/ItemId",
+                        "#/components/schemas/ItemUid",
+                        "#/components/schemas/UserTravelInventory",
+                        "#/components/schemas/UserTravelInventoryCapacity",
+                        "#/components/schemas/UserTravelInventoryItem",
+                        "#/components/schemas/UserTravelInventoryResponse",
+                        "#/components/schemas/UserTravelInventorySlot"
+                    ],
+                    "response_top_level_fields": [
+                        "travelinventory"
+                    ],
+                    "response_field_paths": [
+                        "travelinventory",
+                        "travelinventory.capacity",
+                        "travelinventory.capacity.base",
+                        "travelinventory.capacity.special",
+                        "travelinventory.inventory",
+                        "travelinventory.inventory[]",
+                        "travelinventory.inventory[].id",
+                        "travelinventory.inventory[].item",
+                        "travelinventory.inventory[].item.id",
+                        "travelinventory.inventory[].item.is_equipped",
+                        "travelinventory.inventory[].item.is_faction_owned",
+                        "travelinventory.inventory[].item.is_permanent",
+                        "travelinventory.inventory[].item.name",
+                        "travelinventory.inventory[].item.type",
+                        "travelinventory.inventory[].item.uid"
                     ]
                 },
                 {

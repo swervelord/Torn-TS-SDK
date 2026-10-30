@@ -14,7 +14,7 @@ function harness(initial:JsonValue={}) {
   return {sdk:new TornSdk(client),calls,setValue(next:JsonValue){value=next;}};
 }
 describe("complete facade surface",()=>{
-  test("all nine resources, 209 typed helpers, and 202 raw helpers are available",()=>{
+  test("all nine resources, 210 typed helpers, and 203 raw helpers are available",()=>{
     const {sdk}=harness();let typed=0,raw=0;
     for(const [r,manifest] of Object.entries(facadeManifest)){
       const api=Reflect.get(sdk,r).call(sdk);
@@ -25,7 +25,7 @@ describe("complete facade surface",()=>{
         expect(manifest.methods.some(m=>m.selection.toLowerCase()===selection.toLowerCase()) || manifest.rawMethods.some(m=>m[1]===selection),`${r}.${selection}`).toBe(true);
       }
     }
-    expect(typed).toBe(209);expect(raw).toBe(202);expect(MANUAL_MODEL_NAMES).toHaveLength(549);
+    expect(typed).toBe(210);expect(raw).toBe(203);expect(MANUAL_MODEL_NAMES).toHaveLength(549);
   });
   test("builders forward all filters, paths, execution overrides, and legacy selections",()=>{
     const base=new BaseOptions().withId(123).withLimit(100).withFrom(10n).withTo(20n).withOffset(1).withCat("all").withStat("strength").withFilters("online").withSort(SortOrder.Desc).withStriptags(false).withTarget("2").withName("Example").withBonus("3").withIds("4,5").withLog("6").withComment("sdk").withTimestamp("now").withCursor("cursor").withMaxAttempts(2).withRequestTimeout(2500).withRouteId("route").withLegacySelection("inventory").withExtraFilter("limit","50").withExtraPathArg("custom","value");

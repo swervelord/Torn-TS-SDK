@@ -28,7 +28,7 @@ const hash = new Bun.CryptoHasher('sha256'); hash.update(await Bun.file(goldenPa
 if (hash.digest('hex') !== manifest.provenance.goldenSha256) throw new Error('Golden hash differs from pinned provenance manifest');
 if (fixtures.length !== manifest.plannerScenarioCount) throw new Error('Golden scenario count differs from parity manifest');
 const selections = Object.values(defaultCapabilities.resources).reduce((total, caps) => total + (caps.selections?.length ?? 0), 0);
-if (selections !== manifest.selectionCount + 2) throw new Error('Capability selection coverage differs from pinned parity manifest');
+if (selections !== manifest.selectionCount + 3) throw new Error('Capability selection coverage differs from pinned parity manifest');
 const baselineSpec = await Bun.file(new URL('../spec/versions/torn-openapi-6.13.6.json', import.meta.url)).json();
 const currentSpec = await Bun.file(new URL('../spec/torn-openapi-current.json', import.meta.url)).json();
 if (Object.keys(baselineSpec.components.schemas).length !== manifest.schemaCount) throw new Error('Source baseline schema count differs from pinned parity manifest');
