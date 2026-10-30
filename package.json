@@ -1,6 +1,6 @@
 {
   "name": "torn-ts-sdk",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Typed Torn API SDK with planner-driven v2/v1 routing, resilient execution, and complete generated operations.",
   "type": "module",
   "license": "MIT",

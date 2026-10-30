@@ -2,20 +2,20 @@
 
 Torn-TS-SDK is a standalone TypeScript SDK for the official Torn API. Its runtime, models, generators, and tests are maintained in this repository. Installation, generation, and verification use Bun and the declared development dependencies.
 
-The current API contract is the official Torn **6.14.0** OpenAPI snapshot: **236 operations and 719 component schemas**. The frozen **6.13.6** snapshot remains available for explicit legacy decoding. Its SHA-256 is `DC04C6A03424DA1D0361F29E80971D830115A23DDB1C47FBE5824FB54BB46EC4`. Versioned specifications, routing metadata, and regression fixtures are committed under `spec/`.
+The current API contract is the official Torn **6.15.0** OpenAPI snapshot: **237 operations and 724 component schemas**. The frozen **6.13.6** snapshot remains available for explicit legacy decoding. Its SHA-256 is `DC04C6A03424DA1D0361F29E80971D830115A23DDB1C47FBE5824FB54BB46EC4`. Versioned specifications, routing metadata, and regression fixtures are committed under `spec/`.
 
 `legacy6136Models` and `decodeLegacyModel` decode old payloads. Current elimination-team responses require `captains`; legacy responses use `leaders`. See [the coverage audit](docs/COVERAGE_AUDIT.md) for the exact upstream changes and documentation comparison.
 
 | Surface | Inventory | Contract |
 | --- | ---: | --- |
-| Current API component schemas | 719 | Complete 6.14.0 types and runtime decoding |
+| Current API component schemas | 724 | Complete 6.15.0 types and runtime decoding |
 | Frozen API component schemas | 711 | Explicit 6.13.6 legacy decoding |
-| Exact endpoint operations | 236 | Typed parameters/responses, snake_case and camelCase methods |
+| Exact endpoint operations | 237 | Typed parameters/responses, snake_case and camelCase methods |
 | Frozen generated model acceptance samples | 1,628 | Named and inline model validation |
-| Capability selections | 207 | All nine resources |
+| Capability selections | 208 | All nine resources |
 | Manual facade model declarations | 549 | Typed declarations and metadata-driven decoders |
-| Typed facade convenience methods | 209 | Selection helpers and detail aliases |
-| Raw convenience methods | 202 | Raw selection helpers |
+| Typed facade convenience methods | 210 | Selection helpers and detail aliases |
+| Raw convenience methods | 203 | Raw selection helpers |
 | CSV operations | 3 | Text execution and string return values |
 | Planner regression scenarios | 466 | Normalized plan/error comparisons |
 | Manual model regression scenarios | 59 | Normalized decoder output comparisons |
@@ -44,7 +44,7 @@ The delivery gate is `bun run check`: native Bun typechecking, the complete offl
 
 Tests cover schema upgrades, documentation audits, exhaustive batching, inferred typed selections, endpoint/helper dispatch, local transports/proxies, cancellation, and executor behavior. Source and packed-package consumption are checked separately. Frozen fixtures are SDK regression expectations; they are not a claim that Torn supplies these fixture payloads or that every live game state has been exercised.
 
-Live smoke tests are opt-in and receive credentials only through the process environment. The bounded read-only suite passed on October 23, 2026. It does not execute every endpoint with every permission/account state. No credential or private account response is saved in fixtures.
+Live smoke tests are opt-in and receive credentials only through the process environment. The bounded read-only suite, including user travel inventory and job, passed on October 30, 2026. It does not execute every endpoint with every permission/account state. No credential or private account response is saved in fixtures.
 
 Coverage is tied to versioned specifications and the documented public surface. Future API changes can require regeneration or compatibility updates. Quotas are process-local; reports contain successful contributing calls; callers control pagination. No distributed limiter, persistent queue, cache, or automatic pagination service is included.
 

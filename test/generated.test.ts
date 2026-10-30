@@ -8,8 +8,8 @@ import type { TornClient } from '../src/client.ts';
 import type { RequestPlan } from '../src/types.ts';
 
 describe('complete pinned OpenAPI surface',()=>{
- test('all 719 schemas and 236 operations are exported and both aliases exist',()=>{
-  expect(componentSchemaNames).toHaveLength(719);expect(operationIds).toHaveLength(236);
+ test('all 724 schemas and 237 operations are exported and both aliases exist',()=>{
+  expect(componentSchemaNames).toHaveLength(724);expect(operationIds).toHaveLength(237);
   for(const name of componentSchemaNames)expect(schemas[name]).toBeDefined();
   const api=new OpenApi({} as TornClient);
   for(const id of operationIds){const d=operationDefinitions[id]!;expect(typeof Reflect.get(api,d.method)).toBe('function');expect(typeof Reflect.get(api,d.camel)).toBe('function');}

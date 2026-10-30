@@ -39,7 +39,7 @@ describe('committed SDK regression contracts', () => {
   test('source baseline schema inventory remains frozen; current generated coverage follows current spec', async () => {
     const spec = await Bun.file(new URL('../spec/torn-openapi-current.json', import.meta.url)).json();
     expect(Object.values(operationDefinitions).map(operation => operation.path).sort()).toEqual(Object.keys(spec.paths).sort());
-    expect(Object.keys(operationDefinitions)).toHaveLength(manifest.operationCount + 2);
+    expect(Object.keys(operationDefinitions)).toHaveLength(manifest.operationCount + 3);
     expect((Array.from(componentSchemaNames) as string[]).sort()).toEqual(Object.keys(spec.components.schemas).sort());
     const baseline = await Bun.file(new URL('../spec/versions/torn-openapi-6.13.6.json', import.meta.url)).json();
     expect(sourceSchemaNames).toHaveLength(manifest.schemaCount);

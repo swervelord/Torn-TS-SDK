@@ -4,7 +4,7 @@ import { EnvConfigError, ExecutorError } from "./errors.ts";
 export type ExecutorConfigInput = Partial<Omit<ExecutorConfig, "rateLimits">> & { rateLimits?: Partial<RateLimitConfig> };
 export const DEFAULT_ROUTE_ID = "default";
 /** Package version; kept equal to package.json by tests. */
-export const SDK_VERSION = "2.1.0";
+export const SDK_VERSION = "2.2.0";
 export const DEFAULT_USER_AGENT = `torn-sdk-typescript/${SDK_VERSION}`;
 export function defaultRateLimitConfig(): RateLimitConfig {
   return { perKeyPerMinute: 100, perIpPerMinute: 1000, routeIpLimits: {} };

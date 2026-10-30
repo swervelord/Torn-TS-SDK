@@ -4,10 +4,10 @@
     "source": "Committed SDK typing-classification regression expectations, including historical textual-analysis behavior. Classifications are SDK audit contracts, not classifications supplied by the API specification.",
     "source_report_sha256": "d98a331c0415afd193d2860700eb806824896f19f62ad3c08169e20b27492508",
     "manual_metadata_sha256": "6c655bc86d78dc1e8a0ca59a864aac4abfbd4414425d856bd99fc234ce32186f",
-    "facade_manifest_sha256": "18b580af52861e7c2a3a40eede12cc85b700ae0a9268f90d259099bda4448ca3",
+    "facade_manifest_sha256": "fd5d741088eab36162a66ab4a9cfa776892cdfa8893ede3a166697902d7bcd90",
     "kind": "typing-classification-regression",
     "source_url": "https://www.torn.com/swagger/openapi.json",
-    "apiVersion": "6.14.0"
+    "apiVersion": "6.15.0"
   },
   "selections": [
     {
@@ -4375,6 +4375,26 @@
       "has_extra": true,
       "has_dynamic": true,
       "missing_model": false
+    },
+    {
+      "resource": "user",
+      "selection": "travelinventory",
+      "class": "strict-typed",
+      "helper": "travelinventory",
+      "return_type": "UserTravelInventoryResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/UserTravelInventory",
+        "#/components/schemas/UserTravelInventoryCapacity",
+        "#/components/schemas/UserTravelInventoryItem",
+        "#/components/schemas/UserTravelInventoryResponse",
+        "#/components/schemas/UserTravelInventorySlot"
+      ]
     },
     {
       "resource": "user",

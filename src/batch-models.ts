@@ -75,6 +75,7 @@ export interface SelectionModelMap {
     "trade": Manual.UserTradeBundle;
     "trades": Manual.UserTradesBundle;
     "travel": Manual.UserTravelBundle;
+    "travelinventory": Generated.UserTravelInventoryResponse;
     "virus": Generated.UserVirusResponse;
     "weaponexp": Manual.UserWeaponExpBundle;
     "workstats": Manual.UserWorkStatsBundle;
@@ -747,6 +748,13 @@ export const selectionModelDefinitions = {
       "manual": true,
       "inputRoots": [
         "travel"
+      ]
+    },
+    "travelinventory": {
+      "model": "UserTravelInventoryResponse",
+      "manual": false,
+      "inputRoots": [
+        "travelinventory"
       ]
     },
     "virus": {

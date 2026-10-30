@@ -77,7 +77,8 @@ export const facadeManifest = {
       "travel",
       "weaponexp",
       "workstats",
-      "halloween"
+      "halloween",
+      "travelinventory"
     ],
     "options": [
       "crime_id",
@@ -607,6 +608,12 @@ export const facadeManifest = {
         "returnType": "UserHalloweenResponse",
         "selection": "halloween",
         "alias": null
+      },
+      {
+        "method": "travelinventory",
+        "returnType": "UserTravelInventoryResponse",
+        "selection": "travelinventory",
+        "alias": null
       }
     ],
     "rawMethods": [
@@ -901,6 +908,10 @@ export const facadeManifest = {
       [
         "halloween_raw",
         "halloween"
+      ],
+      [
+        "travelinventory_raw",
+        "travelinventory"
       ]
     ]
   },

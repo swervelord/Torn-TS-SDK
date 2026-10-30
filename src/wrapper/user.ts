@@ -1,4 +1,4 @@
-import type { UserHalloweenResponse } from "../generated/models.ts";
+import type { UserHalloweenResponse, UserTravelInventoryResponse } from "../generated/models.ts";
 import type { TornClient } from "../client.ts";
 import type { HttpTransport } from "../transport.ts";
 import { ResourceApi, RawSelectionBundle } from "./runtime.ts";
@@ -8,7 +8,7 @@ import type { UserGymResponse, UserNetworthResponse, UserOrganizedCrimesResponse
 export { UserOptions } from "./options.ts";
 
 export class UserApi extends ResourceApi<UserOptions, "user"> {
-  static readonly SUPPORTED_SELECTIONS = ["revivesFull", "search", "virus", "organizedcrimes", "snapshot", "ammo", "attacks", "attacksfull", "bars", "basic", "battlestats", "bazaar", "bounties", "calendar", "casino", "competition", "cooldowns", "crimes", "criminalrecord", "discord", "display", "education", "enlistedcars", "equipment", "events", "faction", "factionbalance", "forumfeed", "forumfriends", "forumposts", "forumsubscribedthreads", "forumthreads", "gym", "hof", "honors", "icons", "inventory", "itemmods", "itemmod", "itemmarket", "job", "jobpoints", "jobranks", "list", "log", "lookup", "medals", "merits", "messages", "missions", "money", "newevents", "networth", "newmessages", "notifications", "organizedcrime", "perks", "personalstats", "profile", "properties", "property", "races", "racingrecords", "refills", "reports", "revives", "revivesfull", "skills", "stocks", "timestamp", "trade", "trades", "travel", "weaponexp", "workstats", "halloween"] as const;
+  static readonly SUPPORTED_SELECTIONS = ["revivesFull", "search", "virus", "organizedcrimes", "snapshot", "ammo", "attacks", "attacksfull", "bars", "basic", "battlestats", "bazaar", "bounties", "calendar", "casino", "competition", "cooldowns", "crimes", "criminalrecord", "discord", "display", "education", "enlistedcars", "equipment", "events", "faction", "factionbalance", "forumfeed", "forumfriends", "forumposts", "forumsubscribedthreads", "forumthreads", "gym", "hof", "honors", "icons", "inventory", "itemmods", "itemmod", "itemmarket", "job", "jobpoints", "jobranks", "list", "log", "lookup", "medals", "merits", "messages", "missions", "money", "newevents", "networth", "newmessages", "notifications", "organizedcrime", "perks", "personalstats", "profile", "properties", "property", "races", "racingrecords", "refills", "reports", "revives", "revivesfull", "skills", "stocks", "timestamp", "trade", "trades", "travel", "weaponexp", "workstats", "halloween", "travelinventory"] as const;
   constructor(client: TornClient<HttpTransport>) { super(client, "user", UserApi.SUPPORTED_SELECTIONS, () => new UserOptions()); }
   /** Halloween basket data from API v2. Requires a Minimal access key. */
   async halloween(options: UserOptions = new UserOptions()): Promise<UserHalloweenResponse> {
@@ -16,6 +16,12 @@ export class UserApi extends ResourceApi<UserOptions, "user"> {
   }
   halloween_raw(options: UserOptions = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("halloween", options); }
   halloweenRaw(options: UserOptions = new UserOptions()) { return this.halloween_raw(options); }
+  /** Items carried abroad, or the items that would be taken if departing now, from API v2. Requires a Limited access key. */
+  async travelinventory(options: UserOptions = new UserOptions()): Promise<UserTravelInventoryResponse> {
+    return this.executeTyped<UserTravelInventoryResponse>("travelinventory", options, "UserTravelInventoryResponse", false);
+  }
+  travelinventory_raw(options: UserOptions = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("travelinventory", options); }
+  travelinventoryRaw(options: UserOptions = new UserOptions()) { return this.travelinventory_raw(options); }
   async search(options: UserOptions = new UserOptions()): Promise<UserSearchResponse> {
     return this.executeTyped<UserSearchResponse>("search", options, "UserSearchResponse", false);
   }

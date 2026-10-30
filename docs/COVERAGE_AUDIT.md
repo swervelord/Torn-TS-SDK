@@ -1,6 +1,12 @@
 # Torn API coverage audit
 
-The SDK covers **all 236 official Torn v2 operations** and **all 719 component schemas** in the official **6.14.0** snapshot checked on 2026-10-27. Three operations return CSV strings. The immutable Markdown vault comparison below remains the historical 6.13.6 baseline; current operation and shared-parameter hashes are separately recorded in `spec/parity/docs-coverage.json`.
+The SDK covers **all 237 official Torn v2 operations** and **all 724 component schemas** in the official **6.15.0** snapshot checked on 2026-10-30. Three operations return CSV strings. The immutable Markdown vault comparison below remains the historical 6.13.6 baseline; current operation and shared-parameter hashes are separately recorded in `spec/parity/docs-coverage.json`.
+
+## 6.15.0 update
+
+Relative to 6.14.0, the snapshot adds `/user/travelinventory` (`getMyTravelInventory`), the `travelinventory` user selection and generic response variant, and five component schemas: `UserTravelInventoryResponse`, `UserTravelInventory`, `UserTravelInventoryCapacity`, `UserTravelInventorySlot`, and `UserTravelInventoryItem`. The selection lists items carried abroad, or the items that would be taken when departing now, and requires a Limited access key. Each slot's `item` and each item's `uid` are required but nullable: empty slots and stackable items without a unique ID decode as `null`.
+
+`JobPositionCasinoEnum` gains `Dealer`. `FactionTerritoryWarResultEnum` gains `end_with_dirty_bomb`; that addition appears only in the specification, not in the release announcement. The announced server-side `user -> job` fix changes no schema.
 
 ## 6.14.0 update
 

@@ -23,9 +23,9 @@ describe('official Torn Markdown vault coverage and freshness',()=>{
   expect(hash(baseline)).toBe(audit.docs.canonicalSha256);expect(audit.sdkBaseline.semanticallyIdenticalToDocs).toBe(true);
  });
  test('current snapshot is the separately audited live6.13.8 API, not mislabeled frozen docs',()=>{
-  expect(audit.docs.version).toBe('6.13.6');expect(current.info.version).toBe('6.14.0');expect(specificationVersion).toBe('6.14.0');
+  expect(audit.docs.version).toBe('6.13.6');expect(current.info.version).toBe('6.15.0');expect(specificationVersion).toBe('6.15.0');
   expect(hash(current)).toBe(audit.live.canonicalSha256);expect(hash(current)).toBe(audit.sdkCurrent.canonicalSha256);
-  expect(componentSchemaNames).toHaveLength(719);expect(audit.live.operationChanges).toContain("/user/halloween");expect(audit.live.operationChanges).toContain("/torn/halloween");
+  expect(componentSchemaNames).toHaveLength(724);expect(audit.live.operationChanges).toContain("/user/travelinventory");expect(audit.live.operationChanges).toContain("/user/halloween");expect(audit.live.operationChanges).toContain("/torn/halloween");
  });
  for(const entry of audit.operations)test(`${entry.method.toUpperCase()} ${entry.path} includes every documented parameter and response`,()=>{
   expect(hash(baseline.paths[entry.path]?.[entry.method])).toBe(entry.hash);
@@ -45,8 +45,8 @@ describe('official Torn Markdown vault coverage and freshness',()=>{
   const added=Object.keys(current.components.schemas).filter(n=>!baseline.components.schemas[n]);
   const removed=Object.keys(baseline.components.schemas).filter(n=>!current.components.schemas[n]);
   const changed=Object.keys(baseline.components.schemas).filter(n=>current.components.schemas[n]&&hash(current.components.schemas[n])!==hash(baseline.components.schemas[n]));
-  expect(added.sort()).toEqual([...audit.live.addedSchemas].sort());expect(removed.sort()).toEqual([...audit.live.removedSchemas].sort());expect(changed.sort()).toEqual([...audit.live.changedSchemas].sort());
-  expect(added).toHaveLength(9);expect(added).toContain("UserHalloweenResponse");expect(added).toContain("TornHalloweenResponse");expect(removed).toEqual(['TornEliminationTeamLeader']);
+  expect(added.sort()).toEqual([...audit.live.addedSchemas].sort());expect(removed.sort()).toEqual([...audit.live.removedSchemas].sort());expect(changed.sort()).toEqual([...audit.live.changedSchemas].sort());expect(changed).toContain('JobPositionCasinoEnum');expect(changed).toContain('FactionTerritoryWarResultEnum');
+  expect(added).toHaveLength(14);expect(added).toContain("UserTravelInventoryResponse");expect(added).toContain("UserHalloweenResponse");expect(added).toContain("TornHalloweenResponse");expect(removed).toEqual(['TornEliminationTeamLeader']);
   for(const name of added)expect(schemas[name]).toBeDefined();
  });
  for(const resource of audit.resources)for(const selection of resource.selections)test(`documented selection ${resource.resource}.${selection.name} is supported`,()=>{

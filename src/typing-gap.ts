@@ -50,7 +50,7 @@ export function classifyTyping(helper: { return_type: string } | undefined, sche
 
 /** Re-evaluates source classifications against current capabilities, helpers and schema coverage. */
 export function buildTypingGapReport(capabilities: CapabilitiesDocument = defaultCapabilities, schemaNames: Iterable<string> = componentSchemaNames): TypingGapReport {
-  const classificationMetadata = capabilities.spec?.version === '6.14.0' ? currentClassification : sourceClassification;
+  const classificationMetadata = capabilities.spec?.version === currentClassification.provenance.apiVersion ? currentClassification : sourceClassification;
   const hash = (value: unknown): string => new Bun.CryptoHasher('sha256').update(JSON.stringify(value)).digest('hex');
   if (hash(manualModelMetadata) !== sourceClassification.provenance.manual_metadata_sha256 || hash(facadeManifest) !== currentClassification.provenance.facade_manifest_sha256) throw new Error('Typing model/helper metadata changed; refresh classification provenance');
   const schemas = new Set(schemaNames);

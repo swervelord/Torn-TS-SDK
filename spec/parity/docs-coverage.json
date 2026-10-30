@@ -13,19 +13,20 @@
     "semanticallyIdenticalToDocs": true
   },
   "sdkCurrent": {
-    "version": "6.14.0",
-    "canonicalSha256": "cc18136177fdff8078c37aea9f03557f25b56ff759cc4f7d25b4fc35cd5d4955",
+    "version": "6.15.0",
+    "canonicalSha256": "af9726c69adc0794fa5a801b1c41a917058fe3557ab5144e2534c6e3208a8295",
     "matchesAuditedLiveSnapshot": true
   },
   "live": {
-    "version": "6.14.0",
-    "canonicalSha256": "cc18136177fdff8078c37aea9f03557f25b56ff759cc4f7d25b4fc35cd5d4955",
-    "operationCount": 236,
-    "schemaCount": 719,
+    "version": "6.15.0",
+    "canonicalSha256": "af9726c69adc0794fa5a801b1c41a917058fe3557ab5144e2534c6e3208a8295",
+    "operationCount": 237,
+    "schemaCount": 724,
     "operationChanges": [
       "/user/halloween",
       "/user/inventory",
       "/user/networth",
+      "/user/travelinventory",
       "/user",
       "/faction/inventory",
       "/faction/snapshot",
@@ -49,6 +50,11 @@
     "addedSchemas": [
       "HalloweenBasketUpgradeId",
       "ErrorNoCompetitionAvailable",
+      "UserTravelInventoryItem",
+      "UserTravelInventorySlot",
+      "UserTravelInventoryCapacity",
+      "UserTravelInventory",
+      "UserTravelInventoryResponse",
       "UserHalloween",
       "UserHalloweenBasketUpgrade",
       "UserHalloweenResponse",
@@ -61,6 +67,8 @@
       "TornEliminationTeamLeader"
     ],
     "changedSchemas": [
+      "FactionTerritoryWarResultEnum",
+      "JobPositionCasinoEnum",
       "ApiError",
       "UserSelectionName",
       "TornCityStatsResponse",
@@ -8623,12 +8631,13 @@
     "/user/trades": "3bc004fbda9a050bcc9ed4c617661b7efcb9003cb5712daa9eced4ba77e47af9",
     "/user/{tradeId}/trade": "7ee66ac4e6ee67a3ce74d9915fb852080f70e06f8ba6411d0c5d3cb304bc396a",
     "/user/travel": "7c656aa66d17ee1afcf22002c2ab1241ea7ef84e5040933094fa8a0c40c61b9b",
+    "/user/travelinventory": "005eefc143a9c6051cbcf06b3c234dcc601cb2e27befd0ec67acfd4628f39971",
     "/user/virus": "cc902675f5fcc93762f03a1db1508ec11a734b489c6c70f510038af47d085933",
     "/user/weaponexp": "df66771f31503719667c484943e31a3288f26c604c27341304f312fcc5992316",
     "/user/workstats": "8c132fedf212f1e10949d69e6dc7a2f7152af359884c77e0ed0bfc83e009296e",
     "/user/lookup": "3e404602d0d654cdf1e7b675db905ea689e4e663391c26f69f6fce17435ea93a",
     "/user/timestamp": "2fd5a3ac98ac42e4545497e38f0b157affb1d98e5ffdae4c31555c01a59d11f9",
-    "/user": "e28346aa15d53a0799df30fbb134240bcb0129114f1822d6324bc1285e650f64",
+    "/user": "7b7686977e741be42fa5e277030c50d6140cfeb185cc3c4bc22eeb80ec70df73",
     "/faction/applications": "2a256c60e6c52d6213106a0cc1137c399d1e08f7387b7ae0c62f362aace696f2",
     "/faction/attacks": "de0971e3a2f3d232ee66b34d93412395e2ce8b49bb34ef04d79ad5a97534eae4",
     "/faction/attacksfull": "f65567bacd1dd43f7b1531bcd72feef7348598c21fcbf53e23594c74a59e14ed",
