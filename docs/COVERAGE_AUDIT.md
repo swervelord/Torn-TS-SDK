@@ -2,6 +2,15 @@
 
 The SDK covers **all 237 official Torn v2 operations** and **all 724 component schemas** in the official **6.15.0** snapshot checked on 2026-10-30. Three operations return CSV strings. The immutable Markdown vault comparison below remains the historical 6.13.6 baseline; current operation and shared-parameter hashes are separately recorded in `spec/parity/docs-coverage.json`.
 
+## 3.0.0 parity update (spec unchanged, 6.15.0)
+
+The live sweep (PARITY_SPEC P9.2) proved two spec defects, recorded in `spec/shared/spec-overrides.json` and applied by the
+generator: `TornHalloweenUpgrade.type` (required upstream, omitted by `GET /v2/torn/halloween`) and `UserTrade.items`
+(required upstream, omitted on some trades by `GET /v2/user/trades`) are optional. Strict validation still reports their
+absence. Enums are open, so values newer than the snapshot (as `Dealer` and `end_with_dirty_bomb` were for 6.14.0) decode
+instead of failing; per-operation access levels come from `spec/shared/access-levels.json`, and the spec's "Cached
+selection" notes now provide default TTLs for the optional response cache.
+
 ## 6.15.0 update
 
 Relative to 6.14.0, the snapshot adds `/user/travelinventory` (`getMyTravelInventory`), the `travelinventory` user selection and generic response variant, and five component schemas: `UserTravelInventoryResponse`, `UserTravelInventory`, `UserTravelInventoryCapacity`, `UserTravelInventorySlot`, and `UserTravelInventoryItem`. The selection lists items carried abroad, or the items that would be taken when departing now, and requires a Limited access key. Each slot's `item` and each item's `uid` are required but nullable: empty slots and stackable items without a unique ID decode as `null`.
@@ -12,9 +21,9 @@ Relative to 6.14.0, the snapshot adds `/user/travelinventory` (`getMyTravelInven
 
 Relative to 6.13.8, the snapshot adds `/user/halloween` and `/torn/halloween`, seven component schemas, Halloween selection enum members and generic response variants, and missing city statistics. All changes are imported from the official specification. User Halloween requires a Minimal access key. The endpoint is spelled `halloween`; the announcement's `hallween` spelling is not an API path.
 
-The upstream inventory cache durations are now 900 seconds per user category and 300 seconds for all faction inventory items. The SDK does not add a response cache. Refreshed endpoint descriptions preserve these durations and raw stability annotations.
+The upstream inventory cache durations are now 900 seconds per user category and 300 seconds for all faction inventory items. The SDK did not cache responses before 3.0.0; the optional 3.0.0 cache uses these durations as default TTLs. Refreshed endpoint descriptions preserve these durations and raw stability annotations.
 
-The announcement marks selections stable except elimination selections, user search, and user snapshot. The specification currently labels `/user/halloween` `Untable`; the raw snapshot preserves this typo and its stability should be treated as unconfirmed. `TornHalloweenUpgrade` also requires a `type` key without declaring its schema. The SDK exposes that required key as `JsonValue`, validates its presence, and retains the actual value. No narrower enum is inferred.
+The announcement marks selections stable except elimination selections, user search, and user snapshot. The specification currently labels `/user/halloween` `Untable`; the raw snapshot preserves this typo and its stability should be treated as unconfirmed. `TornHalloweenUpgrade` also requires a `type` key without declaring its schema. The SDK exposes that key as `JsonValue` and retains the actual value; since 3.0.0 it is optional per `spec-overrides.json` (strict mode still requires it). No narrower enum is inferred.
 
 The [Torn-API Markdown vault](https://github.com/swervelord/Torn-API/tree/ac4ba829bbdbdc4ef5e058b48aae5088b9d5fd22) targets **6.13.6**. Its official Torn reference contains 234 endpoint documents, 711 schema documents, and 38 shared parameter definitions. Every embedded exact JSON definition was compared with the SDK's frozen 6.13.6 snapshot: **zero differences**. All 195 selections listed in its discovery tables exist in the SDK capability catalog. The SDK also carries extra legacy selections and explicit routing overrides maintained in the SDK routing policy.
 

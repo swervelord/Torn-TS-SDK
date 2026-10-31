@@ -1,0 +1,32 @@
+name: Release
+# Tag vX.Y.Z (matching package.json) to attach the packed, portable tarball to a GitHub release (PARITY_SPEC P9.5).
+# When the NPM_TOKEN secret is configured the same tarball is also published to npm.
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: bun install --frozen-lockfile
+      - run: test "v$(node -p "require('./package.json').version")" = "${GITHUB_REF_NAME}"
+      - run: bun run check
+      - run: bun tools/pack-smoke.ts --runtime node,tsc
+      - run: npm pack
+      - run: gh release create "${GITHUB_REF_NAME}" torn-ts-sdk-*.tgz --title "${GITHUB_REF_NAME}" --notes "See CHANGELOG.md" --verify-tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - if: ${{ env.NODE_AUTH_TOKEN != '' }}
+        run: npm publish torn-ts-sdk-*.tgz --access public

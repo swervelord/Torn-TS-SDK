@@ -27,6 +27,7 @@ describe('P8.1 self-scoped facade calls need no id', () => {
     ['user', ['basic', 'bounties', 'discord', 'faction', 'forumposts', 'forumthreads', 'hof', 'profile', 'properties', 'property']],
     ['faction', ['basic', 'hof', 'members', 'rankedwars', 'wars']],
     ['market', ['bazaar']],
+    ['company', ['profile', 'employees', 'applications', 'news', 'stock']],
   ];
   for (const [resource, selections] of cases) for (const selection of selections) test(`${resource}().${selection}() targets the key owner`, async () => {
     const { sdk, transport } = mockSdk(() => jsonResponse({}));

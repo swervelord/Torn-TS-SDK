@@ -1,7 +1,7 @@
 import { TornSdk } from "../src/index.ts";
 
-// Bun loads TORN_API_KEY or TORN_API_KEYS from .env automatically.
+// fromEnv reads TORN_API_KEY or TORN_API_KEYS from process.env (Node, Bun) or Deno.env.
 const sdk=await TornSdk.fromEnv();
 const info=await sdk.openapi().getKeyInfo();
-const profile=await sdk.openapi().getUserProfile({id:info.info.user.id});
-console.log(profile.profile.name);
+const profile=await sdk.user().profile(); // self-scoped: the key owner
+console.log(info.info.access.type,profile.profile.name);
