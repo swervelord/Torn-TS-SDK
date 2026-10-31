@@ -18,7 +18,7 @@ The current API contract is the official Torn **6.15.0** OpenAPI snapshot: **237
 | Raw convenience methods | 203 | Raw selection helpers |
 | CSV operations | 3 | Text execution and string return values |
 | Planner regression scenarios | 466 | Normalized plan/error comparisons (`routing: "legacy"`) |
-| Shared conformance scenarios | 30 | `spec/shared/conformance/*.json` through the mock transport and virtual clock (P9.1) |
+| Shared conformance scenarios | 32 | `spec/shared/conformance/*.json` through the mock transport and virtual clock (P9.1) |
 | Manual model regression scenarios | 59 | Normalized decoder output comparisons |
 
 The baseline facade typing classification contains 49 strict typed, 12 typed with extra fields, 125 dynamic facades, and 19 missing upstream schemas. Handwritten models preserve permissive and dynamic fields where the contract requires them. Generated exact operations retain the full pinned declared schema. Unknown upstream data remains explicit JSON rather than invented static types.

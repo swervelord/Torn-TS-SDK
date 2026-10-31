@@ -102,8 +102,10 @@ Every error extends `SdkError` and has a literal, bundler-stable `name` and an `
   sleeps when no key has budget (P3.3). Code 8 blocks the route and moves to another configured route, else fails (P3.4).
 - Retries are classified by Torn code and HTTP status, never by message text (P4.1). Transient codes, HTTP
   429/500/502/503/504 and network errors back off `500 ms * 2^(n-1)` (cap 30 s) with full jitter; `Retry-After` is honored
-  (cap 120 s); `maxAttempts` (default 4) counts total sends (P4.2). Codes 22/23 re-plan the request on the other API
-  version once (P4.3). `AbortSignal` cancels quota waits, retry sleeps and in-flight requests (P4.4).
+  (cap 120 s); `maxAttempts` (default 4) counts sends on the same key; key rotations are free and bounded by the pool
+  (P4.2, P2.4a). Codes 22/23 re-plan the request on the other API version once; only Torn's listed server-side v1
+  fallbacks go to v2 first, other v1-only selections go straight to v1 (P4.3). Code 4 on a combined request splits it
+  once; a selection that still fails is reported in `report.selectionErrors` (P4.5). `AbortSignal` cancels quota waits, retry sleeps and in-flight requests (P4.4).
 - Per-route proxies: `routes: [{ id, proxyUrl, perIpPerMinute }]`. Bun and Deno proxy natively; on Node pass a proxy-capable
   `fetch` (`new FetchTransport({ fetch })`). A proxy the runtime cannot honor fails loudly instead of being bypassed.
 
@@ -151,7 +153,7 @@ import { mockSdk, jsonResponse, tornError } from "torn-ts-sdk/testing";
 const { sdk, transport } = mockSdk([tornError(17), jsonResponse({ profile: { /* ... */ } })]);
 ```
 
-The SDK's own suite runs the shared conformance scenarios in `spec/shared/conformance/` (30/30, P9.1), unit tests,
+The SDK's own suite runs the shared conformance scenarios in `spec/shared/conformance/` (32/32, P9.1), unit tests,
 golden planner fixtures and generator drift checks. Live tests are opt-in (`TORN_API_KEY`, or the legacy
 `TORN_LIVE_TEST_API_KEY`) and include a sweep of every typed operation reachable with the key owner's ids (P9.2):
 `bun test test/live.test.ts`.

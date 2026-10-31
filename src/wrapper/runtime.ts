@@ -38,6 +38,8 @@ export class ResourceApi<O extends ResourceOptions,R extends ResourceName=Resour
   /** Return inferred data together with the exact HTTP calls made by the planner/executor. */
   async selectWithReport<const S extends readonly JsonSelection<R>[]>(selections:S,options:OptionsOrId<O>=this.defaults()):Promise<SelectionBatchReport<R,S>> {
     const {requestOptions,report}=await this.#fetchBatch(selections,options);
+    const failed=Object.values(report.selectionErrors??{});
+    if(failed.length)throw failed[0]!;
     const data=decodeSelectionBatch(this.resource,selections,report.mergedJson,this.#detailStock(requestOptions),{mode:clientValidationMode(this.client)});
     return {data,report};
   }
@@ -47,8 +49,10 @@ export class ResourceApi<O extends ResourceOptions,R extends ResourceName=Resour
    */
   async selectSettled<const S extends readonly JsonSelection<R>[]>(selections:S,options:OptionsOrId<O>=this.defaults()):Promise<SelectionBatchSettled<R,S>> {
     const {requestOptions,report}=await this.#fetchBatch(selections,options);
-    const {data,errors}=decodeSelectionBatchSettled(this.resource,selections,report.mergedJson,this.#detailStock(requestOptions),{mode:clientValidationMode(this.client)});
-    return {data:data as Partial<SelectionBatch<R,S>>,errors,report};
+    const failed=report.selectionErrors??{};
+    const decodable=selections.filter(selection=>!Object.hasOwn(failed,selection)) as unknown as S;
+    const {data,errors}=decodeSelectionBatchSettled(this.resource,decodable,report.mergedJson,this.#detailStock(requestOptions),{mode:clientValidationMode(this.client)});
+    return {data:data as Partial<SelectionBatch<R,S>>,errors:{...errors,...failed} as SelectionBatchSettled<R,S>["errors"],report};
   }
   #detailStock(requestOptions:DataRequestOptions):boolean{return this.resource==="torn"&&(requestOptions.pathArgs?.stockId!==undefined||requestOptions.id!==undefined);}
   async #fetchBatch(selections:readonly string[],input:OptionsOrId<O>):Promise<{requestOptions:DataRequestOptions;report:ExecutionReport}> {

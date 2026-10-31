@@ -102,10 +102,18 @@ describe('batching at the public HTTP boundary', () => {
     expect(report.calls.every(call => call.fallback)).toBe(true);
     expect(report.mergedJson).toEqual({ profile: { success: true }, job: { success: true }, discord: { success: true } });
   });
-  test('a rejected split is terminal and does not start another combination fallback', async () => {
+  test('a rejected split is terminal: every selection is tried once, no further combination fallback (P4.5)', async () => {
     const { client, transport } = clientWith(() => response({ error: { code: 4, error: 'Selections cannot be used together' } }));
     await expect(client.getUserData(['profile', 'job'], { id: '123' })).rejects.toThrow('Selections cannot');
-    expect(transport.requests.map(request => request.query.selections)).toEqual(['profile,job', 'profile']);
+    expect(transport.requests.map(request => request.query.selections)).toEqual(['profile,job', 'profile', 'job']);
+  });
+  test('a split selection that still fails reports its own error while the others are kept (P4.5, P1.4)', async () => {
+    const { client, transport } = clientWith(request => request.query.selections === 'job' ? response({ error: { code: 4, error: 'Wrong fields' } }) : request.query.selections === 'profile' ? response({ profile: { id: 1 } }) : response({ error: { code: 4, error: 'Wrong fields' } }));
+    const report = await client.getUserData(['profile', 'job'], { id: '123' });
+    expect(transport.requests).toHaveLength(3);
+    expect(report.mergedJson).toEqual({ profile: { id: 1 } });
+    expect(Object.keys(report.selectionErrors ?? {})).toEqual(['job']);
+    expect(report.selectionErrors!.job).toMatchObject({ code: 4 });
   });
   test('unrelated application errors never expand a combined call into individual requests', async () => {
     const { client, transport } = clientWith(() => response({ error: { code: 2, error: 'Incorrect key' } }));

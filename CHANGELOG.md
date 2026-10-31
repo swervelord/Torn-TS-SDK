@@ -30,6 +30,15 @@ unchanged (6.15.0: 237 operations, 724 component schemas, 208 capability selecti
 - P4.1-P4.3: retry classification by Torn code and HTTP status only; exponential backoff with full jitter, `Retry-After`,
   defaults from `error-codes.json` (`maxAttempts` 4, base 500 ms, cap 30 s); codes 22/23 re-plan on the other API version.
 - P4.4: cancellation surfaces as `CancelledError` (the abort reason is its `cause`).
+- P2.4a: key rotations (key errors, and code 5 moving to a key that has not been rate-limited in this request) do not
+  consume `maxAttempts`; they are bounded by the key pool. `maxAttempts` counts sends on the same key.
+- P4.3: only the selections Torn's `<Resource>SelectionName` descriptions list as server-side v1 fallbacks
+  (`user.bazaar/criminalrecord/display`, `torn.competition/organisedcrimes`) go to v2 first; other v1-only selections go
+  straight to v1.
+- P4.5: code 4 on a combined request splits it once into per-selection requests; a selection that still fails is
+  reported in `report.selectionErrors` (and `selectSettled().errors`) while the others are merged. The call only throws
+  when every split request fails.
+- P4.6: `TORN_API_KEYS` takes precedence over `TORN_API_KEY`.
 - P5: generated `TornErrorCode` enum and `tornErrorCodes` policy table; `HttpError`, `NoUsableKeysError`,
   `AccessLevelError`, `CancelledError`, `TimeoutError`; `errorKind`, `errorCode`, `isRetryable`, `isKeyError`,
   `isRateLimit`, `isAccessError`, `isTransient`. Error `name`s are literal, so bundling no longer yields `ApiError2`.
@@ -48,7 +57,7 @@ unchanged (6.15.0: 237 operations, 724 component schemas, 208 capability selecti
 - Generated models carry the spec's field descriptions as TSDoc; operations document summary, description, access and path.
 
 ### Quality and packaging
-- P9.1: data-driven conformance harness (`test/conformance.test.ts`) runs every scenario in `spec/shared/conformance` (30/30).
+- P9.1: data-driven conformance harness (`test/conformance.test.ts`) runs every scenario in `spec/shared/conformance` (32/32).
 - P9.2: the opt-in live suite reads `TORN_API_KEY` (legacy `TORN_LIVE_TEST_API_KEY`) and sweeps every reachable operation.
 - P9.3: CI runs the full gate on Linux, Windows and macOS; `.gitattributes` pins LF for generated and spec files; the
   docs-audit and typing-classification refresh scripts live in `tools/` and their `--check` modes run in `bun run check`.
@@ -69,7 +78,7 @@ unchanged (6.15.0: 237 operations, 724 component schemas, 208 capability selecti
 - **Planner**: unknown selections are sent instead of throwing `PlannerError('UnknownSelection')`; unknown filters are
   forwarded instead of dropped; `user.bazaar/criminalrecord/display` and `torn.competition/organisedcrimes` go to v2 (Torn
   falls back server-side; code 22 re-plans to v1); v1 paths without an id end in `/`. `routing: "legacy"` restores 2.x plans.
-- **Retries**: `maxAttempts` defaults to 4 and counts all sends; backoff is exponential with full jitter
+- **Retries**: `maxAttempts` defaults to 4 and counts sends on the same key (key rotations are free, bounded by the pool); backoff is exponential with full jitter
   (`jitter: "none"` for deterministic tests); `networkRetryBackoffMs` defaults to 500. Rate limiting is a sliding window
   (`RateLimiter.tryAcquire(key, route, nowMs)`; the seconds-based methods are deprecated). Combined requests split on
   code 4 and re-plan on codes 22/23 instead of matching English messages; `isRateLimitError` is deprecated (`isRateLimit`).

@@ -78,9 +78,9 @@ describe('Executor contract audit', () => {
   });
   test('split errors are terminal and do not recursively migrate or split', async () => {
     const request = new RequestPlanner().plan(new PlanRequest('user', ['profile', 'discord']));
-    const { executor, transport } = harness([apiError('wrong fields', 200, 4), apiError('wrong fields', 200, 4)]);
+    const { executor, transport } = harness([apiError('wrong fields', 200, 4), apiError('wrong fields', 200, 4), apiError('wrong fields', 200, 4)]);
     await expect(executor.executePlan(request)).rejects.toBeInstanceOf(ApiError);
-    expect(transport.requests).toHaveLength(2);
+    expect(transport.requests).toHaveLength(3);
     expect(transport.requests.every(value => value.baseUrl.endsWith('/v2'))).toBe(true);
   });
   test('code 22 re-plans on v1 before splitting, forwards filters and comment, uses v1 base and path id (P4.3)', async () => {
@@ -138,10 +138,19 @@ describe('Executor contract audit', () => {
     expect(transport.requests).toHaveLength(3);
   });
   test('code 5 marks the key rate-limited even on the final attempt (P3.3)', async () => {
-    const { executor, clock } = harness([apiError('Too many requests', 200, 5)], { maxAttempts: 1 });
+    const { executor, clock } = harness([apiError('Too many requests', 200, 5)], { maxAttempts: 1 }, ['test-key-one']);
     await expect(executor.executePlan(plan(call()))).rejects.toBeInstanceOf(ApiError);
-    expect(executor.keyStates().map(state => state.state)).toEqual(['rate_limited', 'healthy']);
+    expect(executor.keyStates().map(state => state.state)).toEqual(['rate_limited']);
     expect(clock.sleeps).toEqual([]);
+  });
+  test('moving to another key after code 5 does not consume maxAttempts, once per key (P2.4a)', async () => {
+    const ok = harness([apiError('Too many requests', 200, 5), json({ ok: true })], { maxAttempts: 1 });
+    expect((await ok.executor.executePlan(plan(call()))).mergedJson).toEqual({ ok: true });
+    expect(ok.transport.requests.map(value => value.apiKey)).toEqual(['test-key-one', 'test-key-two']);
+    // Both keys rate-limited: the second code 5 has no fresh key to move to, so the attempt budget applies.
+    const limited = harness([apiError('Too many requests', 200, 5), apiError('Too many requests', 200, 5)], { maxAttempts: 1 });
+    await expect(limited.executor.executePlan(plan(call()))).rejects.toMatchObject({ code: 5 });
+    expect(limited.transport.requests).toHaveLength(2);
   });
   test('rate-limit wording on another code is not a rate limit (P4.1)', async () => {
     const { executor } = harness([apiError('Too many calls')], { maxAttempts: 3 });

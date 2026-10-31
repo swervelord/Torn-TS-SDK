@@ -142,6 +142,8 @@ export interface ExecutionReport {
   /** @deprecated Use mergedJson. */
   readonly merged_json: JsonValue;
   calls: ExecutedCall[];
+  /** Selections whose per-selection request still failed after a code-4 split (PARITY_SPEC P4.5); the rest are merged. */
+  selectionErrors?: Record<string, Error>;
   deserialize<T>(decoder?: Decoder<T>): T;
 }
 export interface TextExecutionReport { body: string; calls: ExecutedCall[] }

@@ -1,6 +1,6 @@
 import type { ExecutionReport, JsonValue } from "./types.ts";
 import type { ValidationMode } from "./schema.ts";
-import { DecodeError, ValidationError } from "./errors.ts";
+import { DecodeError, ValidationError, type SdkError } from "./errors.ts";
 import { decodeManualModel } from "./models/manual-runtime.ts";
 import { decodeModel } from "./generated/runtime.ts";
 import { selectionModelDefinitions, type SelectionModelMap } from "./batch-models.ts";
@@ -53,8 +53,8 @@ export interface BatchDecodeOptions { mode?: ValidationMode }
 export interface SelectionBatchSettled<R extends ResourceName,S extends readonly JsonSelection<R>[]> {
   /** Every selection that decoded. */
   data:Partial<SelectionBatch<R,S>>;
-  /** Selections that failed to decode, with their DecodeError (PARITY_SPEC P1.4). */
-  errors:Partial<Record<S[number],DecodeError>>;
+  /** Selections that failed: DecodeError (P1.4), or the API error of its own request after a code-4 split (P4.5). */
+  errors:Partial<Record<S[number],DecodeError|SdkError>>;
   report:ExecutionReport;
 }
 function batchSpecs(resource:string,selections:readonly string[],detailStock:boolean):Array<Definition&{selection:string}> {

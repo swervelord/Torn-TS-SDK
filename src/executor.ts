@@ -176,7 +176,7 @@ export class RequestExecutor<T extends HttpTransport = FetchTransport> {
   async executePlanWithOptions(plan:RequestPlan,options:ExecutionOptions={}):Promise<ExecutionReport> {
     return this.#cancellable(options,async()=>{
       await this.#ensureDetected(options);
-      let mergedJson:JsonValue={};const calls:ExecutedCall[]=[];
+      let mergedJson:JsonValue={};const calls:ExecutedCall[]=[];const selectionErrors:Record<string,Error>={};
       for(const request of plan.requests) {
         options.signal?.throwIfAborted();
         try {
@@ -186,11 +186,21 @@ export class RequestExecutor<T extends HttpTransport = FetchTransport> {
           // PARITY_SPEC P4.3: codes 22/23 re-plan the request once on the other API version.
           const rerouted=runtimeV1Fallback(request,error);
           if(rerouted){const single=await this.#executeJson(rerouted,options,true);mergedJson=mergeJson(mergedJson,single.value);calls.push(single.call);continue;}
+          // PARITY_SPEC P4.5: code 4 on a combined request splits it once into per-selection requests; a selection that
+          // still fails reports its own error (report.selectionErrors) while the others are kept (P1.4).
           if(!request.fallbackSplit.length||!isSelectionCombinationError(error))throw error;
-          for(const split of request.fallbackSplit){const single=await this.#executeJson(split,options,true);mergedJson=mergeJson(mergedJson,single.value);calls.push(single.call);}
+          const failures:Error[]=[];
+          for(const split of request.fallbackSplit){
+            try{const single=await this.#executeJson(split,options,true);mergedJson=mergeJson(mergedJson,single.value);calls.push(single.call);}
+            catch(splitError){
+              if(options.signal?.aborted||!(splitError instanceof ApiError))throw splitError;
+              failures.push(splitError);for(const selection of split.selections)selectionErrors[selection]=splitError;
+            }
+          }
+          if(failures.length===request.fallbackSplit.length)throw failures[0]!;
         }
       }
-      const report={mergedJson,calls};
+      const report={mergedJson,calls,...(Object.keys(selectionErrors).length?{selectionErrors}:{})};
       Object.defineProperties(report,{
         merged_json:{get:()=>report.mergedJson},
         deserialize:{value:<R>(decoder?:Decoder<R>):R=>{const cloned=structuredClone(report.mergedJson);return decoder?decoder(cloned):cloned as R;}},
@@ -259,15 +269,21 @@ export class RequestExecutor<T extends HttpTransport = FetchTransport> {
     this.#checkAccess(target,options);
     const maxAttempts=Math.max(1,count),requestedRoute=options.routeId??this.config.routes[0]?.id??DEFAULT_ROUTE_ID;
     const skipKeys=new Set<string>();
-    let sends=0,retries=0,last:Error|undefined;
+    // PARITY_SPEC P2.4a: `maxAttempts` counts sends on the same key (backoff/HTTP/network retries). A send that follows a
+    // key rotation (rotate_key, or code 5 moving to another key) is free; rotations are bounded by the pool instead.
+    let sends=0,counted=0,retries=0,last:Error|undefined,rotatedFrom:string|undefined;
+    const rateLimitedKeys=new Set<string>();
     while(true) {
       options.signal?.throwIfAborted();
       const {key,routeId,response:result,started}=await this.#send(target,options,requestedRoute,skipKeys,last);
       sends++;
+      if(rotatedFrom===undefined||rotatedFrom===key)counted++;
+      rotatedFrom=undefined;
       const now=this.#scheduler.now();
-      const retryOrThrow=async(error:Error,delayMs:number,reason:string,code?:number)=>{
+      const retryOrThrow=async(error:Error,delayMs:number,reason:string,code?:number,rotation=false)=>{
         last=error;
-        if(sends>=maxAttempts){this.#hook("onError",{...this.#event(target,key,routeId,sends),error});throw error;}
+        if(rotation)rotatedFrom=key;
+        else if(counted>=maxAttempts){this.#hook("onError",{...this.#event(target,key,routeId,sends),error});throw error;}
         this.#hook("onRetry",{...this.#event(target,key,routeId,sends),delayMs,reason,...(code!==undefined?{code}:{})});
         if(delayMs>0)await this.#scheduler.sleep(delayMs,options.signal);
       };
@@ -306,13 +322,16 @@ export class RequestExecutor<T extends HttpTransport = FetchTransport> {
             if(options.apiKey===undefined&&policy!=="none")throw new NoUsableKeysError(error);
             throw error;
           }
-          await retryOrThrow(error,0,`rotate key (code ${error.code})`,error.code);
+          await retryOrThrow(error,0,`rotate key (code ${error.code})`,error.code,true);
           continue;
         }
         case "wait_rate_window":{
           // PARITY_SPEC P3.3: the key waits for its window; another key with budget is used immediately.
           if(record)record.rateLimitedUntil=Math.max(record.rateLimitedUntil??0,this.rateLimiter.rateLimitedUntil(key,now));
-          await retryOrThrow(error,0,"rate limited (code 5)",error.code);
+          // Moving to another key is a free rotation, once per key per request (P2.4a); waiting on the same key is a counted retry.
+          rateLimitedKeys.add(key);
+          const rotation=options.apiKey===undefined&&this.#usableKeys(new Set([...skipKeys,...rateLimitedKeys]),now).length>0;
+          await retryOrThrow(error,0,"rate limited (code 5)",error.code,rotation);
           continue;
         }
         case "rotate_route":{
