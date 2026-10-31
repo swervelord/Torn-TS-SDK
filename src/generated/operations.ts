@@ -7,715 +7,952 @@ import type * as M from './models.ts';
 import { executeOperation } from './runtime.ts';
 export class OpenApi {
   constructor(private readonly client: TornClient<HttpTransport>) {}
-  /** GET /company */
-  get_company_generic(params: M.GetCompanyGenericParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyGenericResponse> { return executeOperation<M.GetCompanyGenericResponse>(this.client, "getCompanyGeneric", params, options); }
-  getCompanyGeneric(params: M.GetCompanyGenericParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyGenericResponse> { return this.get_company_generic(params, options); }
-  /** GET /company/{id}/employees */
-  get_company_employees(params: M.GetCompanyEmployeesParams, options?: ExecutionOptions): Promise<M.GetCompanyEmployeesResponse> { return executeOperation<M.GetCompanyEmployeesResponse>(this.client, "getCompanyEmployees", params, options); }
-  getCompanyEmployees(params: M.GetCompanyEmployeesParams, options?: ExecutionOptions): Promise<M.GetCompanyEmployeesResponse> { return this.get_company_employees(params, options); }
-  /** GET /company/{id}/profile */
-  get_company_profile(params: M.GetCompanyProfileParams, options?: ExecutionOptions): Promise<M.GetCompanyProfileResponse> { return executeOperation<M.GetCompanyProfileResponse>(this.client, "getCompanyProfile", params, options); }
-  getCompanyProfile(params: M.GetCompanyProfileParams, options?: ExecutionOptions): Promise<M.GetCompanyProfileResponse> { return this.get_company_profile(params, options); }
-  /** GET /company/{typeId}/companies */
-  get_companies_list(params: M.GetCompaniesListParams, options?: ExecutionOptions): Promise<M.GetCompaniesListResponse> { return executeOperation<M.GetCompaniesListResponse>(this.client, "getCompaniesList", params, options); }
-  getCompaniesList(params: M.GetCompaniesListParams, options?: ExecutionOptions): Promise<M.GetCompaniesListResponse> { return this.get_companies_list(params, options); }
-  /** GET /company/applications */
-  get_my_company_applications(params: M.GetMyCompanyApplicationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyApplicationsResponse> { return executeOperation<M.GetMyCompanyApplicationsResponse>(this.client, "getMyCompanyApplications", params, options); }
-  getMyCompanyApplications(params: M.GetMyCompanyApplicationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyApplicationsResponse> { return this.get_my_company_applications(params, options); }
-  /** GET /company/employees */
-  get_my_company_employees(params: M.GetMyCompanyEmployeesParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyEmployeesResponse> { return executeOperation<M.GetMyCompanyEmployeesResponse>(this.client, "getMyCompanyEmployees", params, options); }
-  getMyCompanyEmployees(params: M.GetMyCompanyEmployeesParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyEmployeesResponse> { return this.get_my_company_employees(params, options); }
-  /** GET /company/lookup */
-  get_company_lookup(params: M.GetCompanyLookupParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyLookupResponse> { return executeOperation<M.GetCompanyLookupResponse>(this.client, "getCompanyLookup", params, options); }
-  getCompanyLookup(params: M.GetCompanyLookupParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyLookupResponse> { return this.get_company_lookup(params, options); }
-  /** GET /company/news */
-  get_my_company_news(params: M.GetMyCompanyNewsParams, options?: ExecutionOptions): Promise<M.GetMyCompanyNewsResponse> { return executeOperation<M.GetMyCompanyNewsResponse>(this.client, "getMyCompanyNews", params, options); }
-  getMyCompanyNews(params: M.GetMyCompanyNewsParams, options?: ExecutionOptions): Promise<M.GetMyCompanyNewsResponse> { return this.get_my_company_news(params, options); }
-  /** GET /company/profile */
-  get_my_company_profile(params: M.GetMyCompanyProfileParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyProfileResponse> { return executeOperation<M.GetMyCompanyProfileResponse>(this.client, "getMyCompanyProfile", params, options); }
-  getMyCompanyProfile(params: M.GetMyCompanyProfileParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyProfileResponse> { return this.get_my_company_profile(params, options); }
-  /** GET /company/search */
-  get_companies_search(params: M.GetCompaniesSearchParams = {}, options?: ExecutionOptions): Promise<M.GetCompaniesSearchResponse> { return executeOperation<M.GetCompaniesSearchResponse>(this.client, "getCompaniesSearch", params, options); }
-  getCompaniesSearch(params: M.GetCompaniesSearchParams = {}, options?: ExecutionOptions): Promise<M.GetCompaniesSearchResponse> { return this.get_companies_search(params, options); }
-  /** GET /company/snapshot */
-  get_companies_snapshot(params: M.GetCompaniesSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetCompaniesSnapshotResponse> { return executeOperation<M.GetCompaniesSnapshotResponse>(this.client, "getCompaniesSnapshot", params, options); }
-  getCompaniesSnapshot(params: M.GetCompaniesSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetCompaniesSnapshotResponse> { return this.get_companies_snapshot(params, options); }
-  /** GET /company/stock */
-  get_my_company_stock(params: M.GetMyCompanyStockParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyStockResponse> { return executeOperation<M.GetMyCompanyStockResponse>(this.client, "getMyCompanyStock", params, options); }
-  getMyCompanyStock(params: M.GetMyCompanyStockParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyStockResponse> { return this.get_my_company_stock(params, options); }
-  /** GET /company/timestamp */
-  get_company_timestamp(params: M.GetCompanyTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyTimestampResponse> { return executeOperation<M.GetCompanyTimestampResponse>(this.client, "getCompanyTimestamp", params, options); }
-  getCompanyTimestamp(params: M.GetCompanyTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyTimestampResponse> { return this.get_company_timestamp(params, options); }
-  /** GET /faction */
-  get_faction_generic(params: M.GetFactionGenericParams = {}, options?: ExecutionOptions): Promise<M.GetFactionGenericResponse> { return executeOperation<M.GetFactionGenericResponse>(this.client, "getFactionGeneric", params, options); }
-  getFactionGeneric(params: M.GetFactionGenericParams = {}, options?: ExecutionOptions): Promise<M.GetFactionGenericResponse> { return this.get_faction_generic(params, options); }
-  /** GET /faction/{chainId}/chainreport */
-  get_chain_report(params: M.GetChainReportParams, options?: ExecutionOptions): Promise<M.GetChainReportResponse> { return executeOperation<M.GetChainReportResponse>(this.client, "getChainReport", params, options); }
-  getChainReport(params: M.GetChainReportParams, options?: ExecutionOptions): Promise<M.GetChainReportResponse> { return this.get_chain_report(params, options); }
-  /** GET /faction/{crimeId}/crime */
-  get_my_faction_organized_crime(params: M.GetMyFactionOrganizedCrimeParams, options?: ExecutionOptions): Promise<M.GetMyFactionOrganizedCrimeResponse> { return executeOperation<M.GetMyFactionOrganizedCrimeResponse>(this.client, "getMyFactionOrganizedCrime", params, options); }
-  getMyFactionOrganizedCrime(params: M.GetMyFactionOrganizedCrimeParams, options?: ExecutionOptions): Promise<M.GetMyFactionOrganizedCrimeResponse> { return this.get_my_faction_organized_crime(params, options); }
-  /** GET /faction/{id}/basic */
-  get_faction_basic_information(params: M.GetFactionBasicInformationParams, options?: ExecutionOptions): Promise<M.GetFactionBasicInformationResponse> { return executeOperation<M.GetFactionBasicInformationResponse>(this.client, "getFactionBasicInformation", params, options); }
-  getFactionBasicInformation(params: M.GetFactionBasicInformationParams, options?: ExecutionOptions): Promise<M.GetFactionBasicInformationResponse> { return this.get_faction_basic_information(params, options); }
-  /** GET /faction/{id}/chain */
-  get_faction_chain(params: M.GetFactionChainParams, options?: ExecutionOptions): Promise<M.GetFactionChainResponse> { return executeOperation<M.GetFactionChainResponse>(this.client, "getFactionChain", params, options); }
-  getFactionChain(params: M.GetFactionChainParams, options?: ExecutionOptions): Promise<M.GetFactionChainResponse> { return this.get_faction_chain(params, options); }
-  /** GET /faction/{id}/chains */
-  get_faction_completed_chains(params: M.GetFactionCompletedChainsParams, options?: ExecutionOptions): Promise<M.GetFactionCompletedChainsResponse> { return executeOperation<M.GetFactionCompletedChainsResponse>(this.client, "getFactionCompletedChains", params, options); }
-  getFactionCompletedChains(params: M.GetFactionCompletedChainsParams, options?: ExecutionOptions): Promise<M.GetFactionCompletedChainsResponse> { return this.get_faction_completed_chains(params, options); }
-  /** GET /faction/{id}/hof */
-  get_faction_ho_f(params: M.GetFactionHoFParams, options?: ExecutionOptions): Promise<M.GetFactionHoFResponse> { return executeOperation<M.GetFactionHoFResponse>(this.client, "getFactionHoF", params, options); }
-  getFactionHoF(params: M.GetFactionHoFParams, options?: ExecutionOptions): Promise<M.GetFactionHoFResponse> { return this.get_faction_ho_f(params, options); }
-  /** GET /faction/{id}/members */
-  get_faction_members(params: M.GetFactionMembersParams, options?: ExecutionOptions): Promise<M.GetFactionMembersResponse> { return executeOperation<M.GetFactionMembersResponse>(this.client, "getFactionMembers", params, options); }
-  getFactionMembers(params: M.GetFactionMembersParams, options?: ExecutionOptions): Promise<M.GetFactionMembersResponse> { return this.get_faction_members(params, options); }
-  /** GET /faction/{id}/raids */
-  get_faction_raids_history(params: M.GetFactionRaidsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionRaidsHistoryResponse> { return executeOperation<M.GetFactionRaidsHistoryResponse>(this.client, "getFactionRaidsHistory", params, options); }
-  getFactionRaidsHistory(params: M.GetFactionRaidsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionRaidsHistoryResponse> { return this.get_faction_raids_history(params, options); }
-  /** GET /faction/{id}/rankedwars */
-  get_faction_ranked_wars_history(params: M.GetFactionRankedWarsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionRankedWarsHistoryResponse> { return executeOperation<M.GetFactionRankedWarsHistoryResponse>(this.client, "getFactionRankedWarsHistory", params, options); }
-  getFactionRankedWarsHistory(params: M.GetFactionRankedWarsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionRankedWarsHistoryResponse> { return this.get_faction_ranked_wars_history(params, options); }
-  /** GET /faction/{id}/territory */
-  get_faction_territory(params: M.GetFactionTerritoryParams, options?: ExecutionOptions): Promise<M.GetFactionTerritoryResponse> { return executeOperation<M.GetFactionTerritoryResponse>(this.client, "getFactionTerritory", params, options); }
-  getFactionTerritory(params: M.GetFactionTerritoryParams, options?: ExecutionOptions): Promise<M.GetFactionTerritoryResponse> { return this.get_faction_territory(params, options); }
-  /** GET /faction/{id}/territorywars */
-  get_faction_territory_wars_history(params: M.GetFactionTerritoryWarsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionTerritoryWarsHistoryResponse> { return executeOperation<M.GetFactionTerritoryWarsHistoryResponse>(this.client, "getFactionTerritoryWarsHistory", params, options); }
-  getFactionTerritoryWarsHistory(params: M.GetFactionTerritoryWarsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionTerritoryWarsHistoryResponse> { return this.get_faction_territory_wars_history(params, options); }
-  /** GET /faction/{id}/wars */
-  get_faction_wars(params: M.GetFactionWarsParams, options?: ExecutionOptions): Promise<M.GetFactionWarsResponse> { return executeOperation<M.GetFactionWarsResponse>(this.client, "getFactionWars", params, options); }
-  getFactionWars(params: M.GetFactionWarsParams, options?: ExecutionOptions): Promise<M.GetFactionWarsResponse> { return this.get_faction_wars(params, options); }
-  /** GET /faction/{raidWarId}/raidreport */
-  get_raid_report(params: M.GetRaidReportParams, options?: ExecutionOptions): Promise<M.GetRaidReportResponse> { return executeOperation<M.GetRaidReportResponse>(this.client, "getRaidReport", params, options); }
-  getRaidReport(params: M.GetRaidReportParams, options?: ExecutionOptions): Promise<M.GetRaidReportResponse> { return this.get_raid_report(params, options); }
-  /** GET /faction/{rankedWarId}/rankedwarreport */
-  get_ranked_war_report(params: M.GetRankedWarReportParams, options?: ExecutionOptions): Promise<M.GetRankedWarReportResponse> { return executeOperation<M.GetRankedWarReportResponse>(this.client, "getRankedWarReport", params, options); }
-  getRankedWarReport(params: M.GetRankedWarReportParams, options?: ExecutionOptions): Promise<M.GetRankedWarReportResponse> { return this.get_ranked_war_report(params, options); }
-  /** GET /faction/{territoryWarId}/territorywarreport */
-  get_territory_war_report(params: M.GetTerritoryWarReportParams, options?: ExecutionOptions): Promise<M.GetTerritoryWarReportResponse> { return executeOperation<M.GetTerritoryWarReportResponse>(this.client, "getTerritoryWarReport", params, options); }
-  getTerritoryWarReport(params: M.GetTerritoryWarReportParams, options?: ExecutionOptions): Promise<M.GetTerritoryWarReportResponse> { return this.get_territory_war_report(params, options); }
-  /** GET /faction/applications */
-  get_my_faction_applications(params: M.GetMyFactionApplicationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionApplicationsResponse> { return executeOperation<M.GetMyFactionApplicationsResponse>(this.client, "getMyFactionApplications", params, options); }
-  getMyFactionApplications(params: M.GetMyFactionApplicationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionApplicationsResponse> { return this.get_my_faction_applications(params, options); }
-  /** GET /faction/attacks */
-  get_my_faction_attacks(params: M.GetMyFactionAttacksParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionAttacksResponse> { return executeOperation<M.GetMyFactionAttacksResponse>(this.client, "getMyFactionAttacks", params, options); }
-  getMyFactionAttacks(params: M.GetMyFactionAttacksParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionAttacksResponse> { return this.get_my_faction_attacks(params, options); }
-  /** GET /faction/attacksfull */
-  get_my_faction_attacks_simplified(params: M.GetMyFactionAttacksSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionAttacksSimplifiedResponse> { return executeOperation<M.GetMyFactionAttacksSimplifiedResponse>(this.client, "getMyFactionAttacksSimplified", params, options); }
-  getMyFactionAttacksSimplified(params: M.GetMyFactionAttacksSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionAttacksSimplifiedResponse> { return this.get_my_faction_attacks_simplified(params, options); }
-  /** GET /faction/balance */
-  get_my_faction_balance(params: M.GetMyFactionBalanceParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionBalanceResponse> { return executeOperation<M.GetMyFactionBalanceResponse>(this.client, "getMyFactionBalance", params, options); }
-  getMyFactionBalance(params: M.GetMyFactionBalanceParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionBalanceResponse> { return this.get_my_faction_balance(params, options); }
-  /** GET /faction/basic */
-  get_my_faction_basic_information(params: M.GetMyFactionBasicInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionBasicInformationResponse> { return executeOperation<M.GetMyFactionBasicInformationResponse>(this.client, "getMyFactionBasicInformation", params, options); }
-  getMyFactionBasicInformation(params: M.GetMyFactionBasicInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionBasicInformationResponse> { return this.get_my_faction_basic_information(params, options); }
-  /** GET /faction/chain */
-  get_my_faction_chain(params: M.GetMyFactionChainParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionChainResponse> { return executeOperation<M.GetMyFactionChainResponse>(this.client, "getMyFactionChain", params, options); }
-  getMyFactionChain(params: M.GetMyFactionChainParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionChainResponse> { return this.get_my_faction_chain(params, options); }
-  /** GET /faction/chainreport */
-  get_my_faction_latest_chain_report(params: M.GetMyFactionLatestChainReportParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionLatestChainReportResponse> { return executeOperation<M.GetMyFactionLatestChainReportResponse>(this.client, "getMyFactionLatestChainReport", params, options); }
-  getMyFactionLatestChainReport(params: M.GetMyFactionLatestChainReportParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionLatestChainReportResponse> { return this.get_my_faction_latest_chain_report(params, options); }
-  /** GET /faction/chains */
-  get_my_faction_completed_chains(params: M.GetMyFactionCompletedChainsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionCompletedChainsResponse> { return executeOperation<M.GetMyFactionCompletedChainsResponse>(this.client, "getMyFactionCompletedChains", params, options); }
-  getMyFactionCompletedChains(params: M.GetMyFactionCompletedChainsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionCompletedChainsResponse> { return this.get_my_faction_completed_chains(params, options); }
-  /** GET /faction/contributors */
-  get_my_faction_contributors(params: M.GetMyFactionContributorsParams, options?: ExecutionOptions): Promise<M.GetMyFactionContributorsResponse> { return executeOperation<M.GetMyFactionContributorsResponse>(this.client, "getMyFactionContributors", params, options); }
-  getMyFactionContributors(params: M.GetMyFactionContributorsParams, options?: ExecutionOptions): Promise<M.GetMyFactionContributorsResponse> { return this.get_my_faction_contributors(params, options); }
-  /** GET /faction/crimeexp */
-  get_my_faction_crime_exp(params: M.GetMyFactionCrimeExpParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionCrimeExpResponse> { return executeOperation<M.GetMyFactionCrimeExpResponse>(this.client, "getMyFactionCrimeExp", params, options); }
-  getMyFactionCrimeExp(params: M.GetMyFactionCrimeExpParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionCrimeExpResponse> { return this.get_my_faction_crime_exp(params, options); }
-  /** GET /faction/crimes */
-  get_my_faction_organized_crimes(params: M.GetMyFactionOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionOrganizedCrimesResponse> { return executeOperation<M.GetMyFactionOrganizedCrimesResponse>(this.client, "getMyFactionOrganizedCrimes", params, options); }
-  getMyFactionOrganizedCrimes(params: M.GetMyFactionOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionOrganizedCrimesResponse> { return this.get_my_faction_organized_crimes(params, options); }
-  /** GET /faction/dirtybombs */
-  get_warfare_dirty_bombs(params: M.GetWarfareDirtyBombsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareDirtyBombsResponse> { return executeOperation<M.GetWarfareDirtyBombsResponse>(this.client, "getWarfareDirtyBombs", params, options); }
-  getWarfareDirtyBombs(params: M.GetWarfareDirtyBombsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareDirtyBombsResponse> { return this.get_warfare_dirty_bombs(params, options); }
-  /** GET /faction/hof */
-  get_my_faction_ho_f(params: M.GetMyFactionHoFParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionHoFResponse> { return executeOperation<M.GetMyFactionHoFResponse>(this.client, "getMyFactionHoF", params, options); }
-  getMyFactionHoF(params: M.GetMyFactionHoFParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionHoFResponse> { return this.get_my_faction_ho_f(params, options); }
-  /** GET /faction/inventory */
-  get_my_faction_inventory(params: M.GetMyFactionInventoryParams, options?: ExecutionOptions): Promise<M.GetMyFactionInventoryResponse> { return executeOperation<M.GetMyFactionInventoryResponse>(this.client, "getMyFactionInventory", params, options); }
-  getMyFactionInventory(params: M.GetMyFactionInventoryParams, options?: ExecutionOptions): Promise<M.GetMyFactionInventoryResponse> { return this.get_my_faction_inventory(params, options); }
-  /** GET /faction/lookup */
-  get_faction_lookup(params: M.GetFactionLookupParams = {}, options?: ExecutionOptions): Promise<M.GetFactionLookupResponse> { return executeOperation<M.GetFactionLookupResponse>(this.client, "getFactionLookup", params, options); }
-  getFactionLookup(params: M.GetFactionLookupParams = {}, options?: ExecutionOptions): Promise<M.GetFactionLookupResponse> { return this.get_faction_lookup(params, options); }
-  /** GET /faction/members */
-  get_my_faction_members(params: M.GetMyFactionMembersParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionMembersResponse> { return executeOperation<M.GetMyFactionMembersResponse>(this.client, "getMyFactionMembers", params, options); }
-  getMyFactionMembers(params: M.GetMyFactionMembersParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionMembersResponse> { return this.get_my_faction_members(params, options); }
-  /** GET /faction/news */
-  get_my_faction_news(params: M.GetMyFactionNewsParams, options?: ExecutionOptions): Promise<M.GetMyFactionNewsResponse> { return executeOperation<M.GetMyFactionNewsResponse>(this.client, "getMyFactionNews", params, options); }
-  getMyFactionNews(params: M.GetMyFactionNewsParams, options?: ExecutionOptions): Promise<M.GetMyFactionNewsResponse> { return this.get_my_faction_news(params, options); }
-  /** GET /faction/positions */
-  get_my_faction_positions(params: M.GetMyFactionPositionsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionPositionsResponse> { return executeOperation<M.GetMyFactionPositionsResponse>(this.client, "getMyFactionPositions", params, options); }
-  getMyFactionPositions(params: M.GetMyFactionPositionsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionPositionsResponse> { return this.get_my_faction_positions(params, options); }
-  /** GET /faction/rackets */
-  get_faction_rackets(params: M.GetFactionRacketsParams = {}, options?: ExecutionOptions): Promise<M.GetFactionRacketsResponse> { return executeOperation<M.GetFactionRacketsResponse>(this.client, "getFactionRackets", params, options); }
-  getFactionRackets(params: M.GetFactionRacketsParams = {}, options?: ExecutionOptions): Promise<M.GetFactionRacketsResponse> { return this.get_faction_rackets(params, options); }
-  /** GET /faction/raids */
-  get_my_faction_raids_history(params: M.GetMyFactionRaidsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRaidsHistoryResponse> { return executeOperation<M.GetMyFactionRaidsHistoryResponse>(this.client, "getMyFactionRaidsHistory", params, options); }
-  getMyFactionRaidsHistory(params: M.GetMyFactionRaidsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRaidsHistoryResponse> { return this.get_my_faction_raids_history(params, options); }
-  /** GET /faction/rankedwars */
-  get_my_faction_ranked_wars_history(params: M.GetMyFactionRankedWarsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRankedWarsHistoryResponse> { return executeOperation<M.GetMyFactionRankedWarsHistoryResponse>(this.client, "getMyFactionRankedWarsHistory", params, options); }
-  getMyFactionRankedWarsHistory(params: M.GetMyFactionRankedWarsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRankedWarsHistoryResponse> { return this.get_my_faction_ranked_wars_history(params, options); }
-  /** GET /faction/reports */
-  get_my_faction_reports(params: M.GetMyFactionReportsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionReportsResponse> { return executeOperation<M.GetMyFactionReportsResponse>(this.client, "getMyFactionReports", params, options); }
-  getMyFactionReports(params: M.GetMyFactionReportsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionReportsResponse> { return this.get_my_faction_reports(params, options); }
-  /** GET /faction/revives */
-  get_my_faction_revives(params: M.GetMyFactionRevivesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRevivesResponse> { return executeOperation<M.GetMyFactionRevivesResponse>(this.client, "getMyFactionRevives", params, options); }
-  getMyFactionRevives(params: M.GetMyFactionRevivesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRevivesResponse> { return this.get_my_faction_revives(params, options); }
-  /** GET /faction/revivesFull */
-  get_my_faction_revives_simplified(params: M.GetMyFactionRevivesSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRevivesSimplifiedResponse> { return executeOperation<M.GetMyFactionRevivesSimplifiedResponse>(this.client, "getMyFactionRevivesSimplified", params, options); }
-  getMyFactionRevivesSimplified(params: M.GetMyFactionRevivesSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRevivesSimplifiedResponse> { return this.get_my_faction_revives_simplified(params, options); }
-  /** GET /faction/search */
-  get_faction_search(params: M.GetFactionSearchParams = {}, options?: ExecutionOptions): Promise<M.GetFactionSearchResponse> { return executeOperation<M.GetFactionSearchResponse>(this.client, "getFactionSearch", params, options); }
-  getFactionSearch(params: M.GetFactionSearchParams = {}, options?: ExecutionOptions): Promise<M.GetFactionSearchResponse> { return this.get_faction_search(params, options); }
-  /** GET /faction/snapshot */
-  get_factions_snapshot(params: M.GetFactionsSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetFactionsSnapshotResponse> { return executeOperation<M.GetFactionsSnapshotResponse>(this.client, "getFactionsSnapshot", params, options); }
-  getFactionsSnapshot(params: M.GetFactionsSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetFactionsSnapshotResponse> { return this.get_factions_snapshot(params, options); }
-  /** GET /faction/stats */
-  get_my_faction_stats(params: M.GetMyFactionStatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionStatsResponse> { return executeOperation<M.GetMyFactionStatsResponse>(this.client, "getMyFactionStats", params, options); }
-  getMyFactionStats(params: M.GetMyFactionStatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionStatsResponse> { return this.get_my_faction_stats(params, options); }
-  /** GET /faction/territory */
-  get_my_faction_territory(params: M.GetMyFactionTerritoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionTerritoryResponse> { return executeOperation<M.GetMyFactionTerritoryResponse>(this.client, "getMyFactionTerritory", params, options); }
-  getMyFactionTerritory(params: M.GetMyFactionTerritoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionTerritoryResponse> { return this.get_my_faction_territory(params, options); }
-  /** GET /faction/territoryownership */
-  get_territory_ownership(params: M.GetTerritoryOwnershipParams = {}, options?: ExecutionOptions): Promise<M.GetTerritoryOwnershipResponse> { return executeOperation<M.GetTerritoryOwnershipResponse>(this.client, "getTerritoryOwnership", params, options); }
-  getTerritoryOwnership(params: M.GetTerritoryOwnershipParams = {}, options?: ExecutionOptions): Promise<M.GetTerritoryOwnershipResponse> { return this.get_territory_ownership(params, options); }
-  /** GET /faction/territorywars */
-  get_my_faction_territory_wars_history(params: M.GetMyFactionTerritoryWarsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionTerritoryWarsHistoryResponse> { return executeOperation<M.GetMyFactionTerritoryWarsHistoryResponse>(this.client, "getMyFactionTerritoryWarsHistory", params, options); }
-  getMyFactionTerritoryWarsHistory(params: M.GetMyFactionTerritoryWarsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionTerritoryWarsHistoryResponse> { return this.get_my_faction_territory_wars_history(params, options); }
-  /** GET /faction/timestamp */
-  get_faction_timestamp(params: M.GetFactionTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetFactionTimestampResponse> { return executeOperation<M.GetFactionTimestampResponse>(this.client, "getFactionTimestamp", params, options); }
-  getFactionTimestamp(params: M.GetFactionTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetFactionTimestampResponse> { return this.get_faction_timestamp(params, options); }
-  /** GET /faction/upgrades */
-  get_my_faction_upgrades(params: M.GetMyFactionUpgradesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionUpgradesResponse> { return executeOperation<M.GetMyFactionUpgradesResponse>(this.client, "getMyFactionUpgrades", params, options); }
-  getMyFactionUpgrades(params: M.GetMyFactionUpgradesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionUpgradesResponse> { return this.get_my_faction_upgrades(params, options); }
-  /** GET /faction/warfare */
-  get_warfare(params: M.GetWarfareParams, options?: ExecutionOptions): Promise<M.GetWarfareResponse> { return executeOperation<M.GetWarfareResponse>(this.client, "getWarfare", params, options); }
-  getWarfare(params: M.GetWarfareParams, options?: ExecutionOptions): Promise<M.GetWarfareResponse> { return this.get_warfare(params, options); }
-  /** GET /faction/warfarechains */
-  get_warfare_chains(params: M.GetWarfareChainsParams, options?: ExecutionOptions): Promise<M.GetWarfareChainsResponse> { return executeOperation<M.GetWarfareChainsResponse>(this.client, "getWarfareChains", params, options); }
-  getWarfareChains(params: M.GetWarfareChainsParams, options?: ExecutionOptions): Promise<M.GetWarfareChainsResponse> { return this.get_warfare_chains(params, options); }
-  /** GET /faction/warfareraids */
-  get_warfare_raids(params: M.GetWarfareRaidsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareRaidsResponse> { return executeOperation<M.GetWarfareRaidsResponse>(this.client, "getWarfareRaids", params, options); }
-  getWarfareRaids(params: M.GetWarfareRaidsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareRaidsResponse> { return this.get_warfare_raids(params, options); }
-  /** GET /faction/warfareranked */
-  get_warfare_ranked_wars(params: M.GetWarfareRankedWarsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareRankedWarsResponse> { return executeOperation<M.GetWarfareRankedWarsResponse>(this.client, "getWarfareRankedWars", params, options); }
-  getWarfareRankedWars(params: M.GetWarfareRankedWarsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareRankedWarsResponse> { return this.get_warfare_ranked_wars(params, options); }
-  /** GET /faction/warfareterritory */
-  get_warfare_territory_wars(params: M.GetWarfareTerritoryWarsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareTerritoryWarsResponse> { return executeOperation<M.GetWarfareTerritoryWarsResponse>(this.client, "getWarfareTerritoryWars", params, options); }
-  getWarfareTerritoryWars(params: M.GetWarfareTerritoryWarsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareTerritoryWarsResponse> { return this.get_warfare_territory_wars(params, options); }
-  /** GET /faction/wars */
-  get_my_faction_wars(params: M.GetMyFactionWarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionWarsResponse> { return executeOperation<M.GetMyFactionWarsResponse>(this.client, "getMyFactionWars", params, options); }
-  getMyFactionWars(params: M.GetMyFactionWarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionWarsResponse> { return this.get_my_faction_wars(params, options); }
-  /** GET /forum */
-  get_forum_generic(params: M.GetForumGenericParams = {}, options?: ExecutionOptions): Promise<M.GetForumGenericResponse> { return executeOperation<M.GetForumGenericResponse>(this.client, "getForumGeneric", params, options); }
-  getForumGeneric(params: M.GetForumGenericParams = {}, options?: ExecutionOptions): Promise<M.GetForumGenericResponse> { return this.get_forum_generic(params, options); }
-  /** GET /forum/{categoryIds}/threads */
-  get_forum_threads(params: M.GetForumThreadsParams, options?: ExecutionOptions): Promise<M.GetForumThreadsResponse> { return executeOperation<M.GetForumThreadsResponse>(this.client, "getForumThreads", params, options); }
-  getForumThreads(params: M.GetForumThreadsParams, options?: ExecutionOptions): Promise<M.GetForumThreadsResponse> { return this.get_forum_threads(params, options); }
-  /** GET /forum/{threadId}/posts */
-  get_forum_thread_posts(params: M.GetForumThreadPostsParams, options?: ExecutionOptions): Promise<M.GetForumThreadPostsResponse> { return executeOperation<M.GetForumThreadPostsResponse>(this.client, "getForumThreadPosts", params, options); }
-  getForumThreadPosts(params: M.GetForumThreadPostsParams, options?: ExecutionOptions): Promise<M.GetForumThreadPostsResponse> { return this.get_forum_thread_posts(params, options); }
-  /** GET /forum/{threadId}/thread */
-  get_forum_thread(params: M.GetForumThreadParams, options?: ExecutionOptions): Promise<M.GetForumThreadResponse> { return executeOperation<M.GetForumThreadResponse>(this.client, "getForumThread", params, options); }
-  getForumThread(params: M.GetForumThreadParams, options?: ExecutionOptions): Promise<M.GetForumThreadResponse> { return this.get_forum_thread(params, options); }
-  /** GET /forum/categories */
-  get_forum_categories(params: M.GetForumCategoriesParams = {}, options?: ExecutionOptions): Promise<M.GetForumCategoriesResponse> { return executeOperation<M.GetForumCategoriesResponse>(this.client, "getForumCategories", params, options); }
-  getForumCategories(params: M.GetForumCategoriesParams = {}, options?: ExecutionOptions): Promise<M.GetForumCategoriesResponse> { return this.get_forum_categories(params, options); }
-  /** GET /forum/lookup */
-  get_forum_lookup(params: M.GetForumLookupParams = {}, options?: ExecutionOptions): Promise<M.GetForumLookupResponse> { return executeOperation<M.GetForumLookupResponse>(this.client, "getForumLookup", params, options); }
-  getForumLookup(params: M.GetForumLookupParams = {}, options?: ExecutionOptions): Promise<M.GetForumLookupResponse> { return this.get_forum_lookup(params, options); }
-  /** GET /forum/threads */
-  get_forum_all_threads(params: M.GetForumAllThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetForumAllThreadsResponse> { return executeOperation<M.GetForumAllThreadsResponse>(this.client, "getForumAllThreads", params, options); }
-  getForumAllThreads(params: M.GetForumAllThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetForumAllThreadsResponse> { return this.get_forum_all_threads(params, options); }
-  /** GET /forum/timestamp */
-  get_forum_timestamp(params: M.GetForumTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetForumTimestampResponse> { return executeOperation<M.GetForumTimestampResponse>(this.client, "getForumTimestamp", params, options); }
-  getForumTimestamp(params: M.GetForumTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetForumTimestampResponse> { return this.get_forum_timestamp(params, options); }
-  /** GET /key */
-  get_key_generic(params: M.GetKeyGenericParams = {}, options?: ExecutionOptions): Promise<M.GetKeyGenericResponse> { return executeOperation<M.GetKeyGenericResponse>(this.client, "getKeyGeneric", params, options); }
-  getKeyGeneric(params: M.GetKeyGenericParams = {}, options?: ExecutionOptions): Promise<M.GetKeyGenericResponse> { return this.get_key_generic(params, options); }
-  /** GET /key/info */
-  get_key_info(params: M.GetKeyInfoParams = {}, options?: ExecutionOptions): Promise<M.GetKeyInfoResponse> { return executeOperation<M.GetKeyInfoResponse>(this.client, "getKeyInfo", params, options); }
-  getKeyInfo(params: M.GetKeyInfoParams = {}, options?: ExecutionOptions): Promise<M.GetKeyInfoResponse> { return this.get_key_info(params, options); }
-  /** GET /key/log */
-  get_key_log(params: M.GetKeyLogParams = {}, options?: ExecutionOptions): Promise<M.GetKeyLogResponse> { return executeOperation<M.GetKeyLogResponse>(this.client, "getKeyLog", params, options); }
-  getKeyLog(params: M.GetKeyLogParams = {}, options?: ExecutionOptions): Promise<M.GetKeyLogResponse> { return this.get_key_log(params, options); }
-  /** GET /market */
-  get_market_generic(params: M.GetMarketGenericParams = {}, options?: ExecutionOptions): Promise<M.GetMarketGenericResponse> { return executeOperation<M.GetMarketGenericResponse>(this.client, "getMarketGeneric", params, options); }
-  getMarketGeneric(params: M.GetMarketGenericParams = {}, options?: ExecutionOptions): Promise<M.GetMarketGenericResponse> { return this.get_market_generic(params, options); }
-  /** GET /market/{id}/auctionhouse */
-  get_market_auction_house_item(params: M.GetMarketAuctionHouseItemParams, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseItemResponse> { return executeOperation<M.GetMarketAuctionHouseItemResponse>(this.client, "getMarketAuctionHouseItem", params, options); }
-  getMarketAuctionHouseItem(params: M.GetMarketAuctionHouseItemParams, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseItemResponse> { return this.get_market_auction_house_item(params, options); }
-  /** GET /market/{id}/auctionhouselisting */
-  get_market_auction_house_listing(params: M.GetMarketAuctionHouseListingParams, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseListingResponse> { return executeOperation<M.GetMarketAuctionHouseListingResponse>(this.client, "getMarketAuctionHouseListing", params, options); }
-  getMarketAuctionHouseListing(params: M.GetMarketAuctionHouseListingParams, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseListingResponse> { return this.get_market_auction_house_listing(params, options); }
-  /** GET /market/{id}/bazaar */
-  get_market_bazaar_item(params: M.GetMarketBazaarItemParams, options?: ExecutionOptions): Promise<M.GetMarketBazaarItemResponse> { return executeOperation<M.GetMarketBazaarItemResponse>(this.client, "getMarketBazaarItem", params, options); }
-  getMarketBazaarItem(params: M.GetMarketBazaarItemParams, options?: ExecutionOptions): Promise<M.GetMarketBazaarItemResponse> { return this.get_market_bazaar_item(params, options); }
-  /** GET /market/{id}/itemmarket */
-  get_market_item_market_item(params: M.GetMarketItemMarketItemParams, options?: ExecutionOptions): Promise<M.GetMarketItemMarketItemResponse> { return executeOperation<M.GetMarketItemMarketItemResponse>(this.client, "getMarketItemMarketItem", params, options); }
-  getMarketItemMarketItem(params: M.GetMarketItemMarketItemParams, options?: ExecutionOptions): Promise<M.GetMarketItemMarketItemResponse> { return this.get_market_item_market_item(params, options); }
-  /** GET /market/{propertyTypeId}/properties */
-  get_market_properties(params: M.GetMarketPropertiesParams, options?: ExecutionOptions): Promise<M.GetMarketPropertiesResponse> { return executeOperation<M.GetMarketPropertiesResponse>(this.client, "getMarketProperties", params, options); }
-  getMarketProperties(params: M.GetMarketPropertiesParams, options?: ExecutionOptions): Promise<M.GetMarketPropertiesResponse> { return this.get_market_properties(params, options); }
-  /** GET /market/{propertyTypeId}/rentals */
-  get_market_properties_rental(params: M.GetMarketPropertiesRentalParams, options?: ExecutionOptions): Promise<M.GetMarketPropertiesRentalResponse> { return executeOperation<M.GetMarketPropertiesRentalResponse>(this.client, "getMarketPropertiesRental", params, options); }
-  getMarketPropertiesRental(params: M.GetMarketPropertiesRentalParams, options?: ExecutionOptions): Promise<M.GetMarketPropertiesRentalResponse> { return this.get_market_properties_rental(params, options); }
-  /** GET /market/auctionhouse */
-  get_market_auction_house(params: M.GetMarketAuctionHouseParams = {}, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseResponse> { return executeOperation<M.GetMarketAuctionHouseResponse>(this.client, "getMarketAuctionHouse", params, options); }
-  getMarketAuctionHouse(params: M.GetMarketAuctionHouseParams = {}, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseResponse> { return this.get_market_auction_house(params, options); }
-  /** GET /market/bazaar */
-  get_market_bazaar(params: M.GetMarketBazaarParams = {}, options?: ExecutionOptions): Promise<M.GetMarketBazaarResponse> { return executeOperation<M.GetMarketBazaarResponse>(this.client, "getMarketBazaar", params, options); }
-  getMarketBazaar(params: M.GetMarketBazaarParams = {}, options?: ExecutionOptions): Promise<M.GetMarketBazaarResponse> { return this.get_market_bazaar(params, options); }
-  /** GET /market/lookup */
-  get_market_lookup(params: M.GetMarketLookupParams = {}, options?: ExecutionOptions): Promise<M.GetMarketLookupResponse> { return executeOperation<M.GetMarketLookupResponse>(this.client, "getMarketLookup", params, options); }
-  getMarketLookup(params: M.GetMarketLookupParams = {}, options?: ExecutionOptions): Promise<M.GetMarketLookupResponse> { return this.get_market_lookup(params, options); }
-  /** GET /market/pointsmarket */
-  get_market_points(params: M.GetMarketPointsParams = {}, options?: ExecutionOptions): Promise<M.GetMarketPointsResponse> { return executeOperation<M.GetMarketPointsResponse>(this.client, "getMarketPoints", params, options); }
-  getMarketPoints(params: M.GetMarketPointsParams = {}, options?: ExecutionOptions): Promise<M.GetMarketPointsResponse> { return this.get_market_points(params, options); }
-  /** GET /market/timestamp */
-  get_market_timestamp(params: M.GetMarketTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetMarketTimestampResponse> { return executeOperation<M.GetMarketTimestampResponse>(this.client, "getMarketTimestamp", params, options); }
-  getMarketTimestamp(params: M.GetMarketTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetMarketTimestampResponse> { return this.get_market_timestamp(params, options); }
-  /** GET /property */
-  get_property_generic(params: M.GetPropertyGenericParams, options?: ExecutionOptions): Promise<M.GetPropertyGenericResponse> { return executeOperation<M.GetPropertyGenericResponse>(this.client, "getPropertyGeneric", params, options); }
-  getPropertyGeneric(params: M.GetPropertyGenericParams, options?: ExecutionOptions): Promise<M.GetPropertyGenericResponse> { return this.get_property_generic(params, options); }
-  /** GET /property/{id}/property */
-  get_property(params: M.GetPropertyParams, options?: ExecutionOptions): Promise<M.GetPropertyResponse> { return executeOperation<M.GetPropertyResponse>(this.client, "getProperty", params, options); }
-  getProperty(params: M.GetPropertyParams, options?: ExecutionOptions): Promise<M.GetPropertyResponse> { return this.get_property(params, options); }
-  /** GET /property/lookup */
-  get_property_lookup(params: M.GetPropertyLookupParams = {}, options?: ExecutionOptions): Promise<M.GetPropertyLookupResponse> { return executeOperation<M.GetPropertyLookupResponse>(this.client, "getPropertyLookup", params, options); }
-  getPropertyLookup(params: M.GetPropertyLookupParams = {}, options?: ExecutionOptions): Promise<M.GetPropertyLookupResponse> { return this.get_property_lookup(params, options); }
-  /** GET /property/timestamp */
-  get_property_timestamp(params: M.GetPropertyTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetPropertyTimestampResponse> { return executeOperation<M.GetPropertyTimestampResponse>(this.client, "getPropertyTimestamp", params, options); }
-  getPropertyTimestamp(params: M.GetPropertyTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetPropertyTimestampResponse> { return this.get_property_timestamp(params, options); }
-  /** GET /racing */
-  get_racing_generic(params: M.GetRacingGenericParams = {}, options?: ExecutionOptions): Promise<M.GetRacingGenericResponse> { return executeOperation<M.GetRacingGenericResponse>(this.client, "getRacingGeneric", params, options); }
-  getRacingGeneric(params: M.GetRacingGenericParams = {}, options?: ExecutionOptions): Promise<M.GetRacingGenericResponse> { return this.get_racing_generic(params, options); }
-  /** GET /racing/{raceId}/race */
-  get_racing_race_details(params: M.GetRacingRaceDetailsParams, options?: ExecutionOptions): Promise<M.GetRacingRaceDetailsResponse> { return executeOperation<M.GetRacingRaceDetailsResponse>(this.client, "getRacingRaceDetails", params, options); }
-  getRacingRaceDetails(params: M.GetRacingRaceDetailsParams, options?: ExecutionOptions): Promise<M.GetRacingRaceDetailsResponse> { return this.get_racing_race_details(params, options); }
-  /** GET /racing/{trackId}/records */
-  get_racing_track_records(params: M.GetRacingTrackRecordsParams, options?: ExecutionOptions): Promise<M.GetRacingTrackRecordsResponse> { return executeOperation<M.GetRacingTrackRecordsResponse>(this.client, "getRacingTrackRecords", params, options); }
-  getRacingTrackRecords(params: M.GetRacingTrackRecordsParams, options?: ExecutionOptions): Promise<M.GetRacingTrackRecordsResponse> { return this.get_racing_track_records(params, options); }
-  /** GET /racing/cars */
-  get_racing_cars(params: M.GetRacingCarsParams = {}, options?: ExecutionOptions): Promise<M.GetRacingCarsResponse> { return executeOperation<M.GetRacingCarsResponse>(this.client, "getRacingCars", params, options); }
-  getRacingCars(params: M.GetRacingCarsParams = {}, options?: ExecutionOptions): Promise<M.GetRacingCarsResponse> { return this.get_racing_cars(params, options); }
-  /** GET /racing/carupgrades */
-  get_racing_car_upgrades(params: M.GetRacingCarUpgradesParams = {}, options?: ExecutionOptions): Promise<M.GetRacingCarUpgradesResponse> { return executeOperation<M.GetRacingCarUpgradesResponse>(this.client, "getRacingCarUpgrades", params, options); }
-  getRacingCarUpgrades(params: M.GetRacingCarUpgradesParams = {}, options?: ExecutionOptions): Promise<M.GetRacingCarUpgradesResponse> { return this.get_racing_car_upgrades(params, options); }
-  /** GET /racing/lookup */
-  get_racing_lookup(params: M.GetRacingLookupParams = {}, options?: ExecutionOptions): Promise<M.GetRacingLookupResponse> { return executeOperation<M.GetRacingLookupResponse>(this.client, "getRacingLookup", params, options); }
-  getRacingLookup(params: M.GetRacingLookupParams = {}, options?: ExecutionOptions): Promise<M.GetRacingLookupResponse> { return this.get_racing_lookup(params, options); }
-  /** GET /racing/races */
-  get_racing_races(params: M.GetRacingRacesParams = {}, options?: ExecutionOptions): Promise<M.GetRacingRacesResponse> { return executeOperation<M.GetRacingRacesResponse>(this.client, "getRacingRaces", params, options); }
-  getRacingRaces(params: M.GetRacingRacesParams = {}, options?: ExecutionOptions): Promise<M.GetRacingRacesResponse> { return this.get_racing_races(params, options); }
-  /** GET /racing/timestamp */
-  get_racing_timestamp(params: M.GetRacingTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetRacingTimestampResponse> { return executeOperation<M.GetRacingTimestampResponse>(this.client, "getRacingTimestamp", params, options); }
-  getRacingTimestamp(params: M.GetRacingTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetRacingTimestampResponse> { return this.get_racing_timestamp(params, options); }
-  /** GET /racing/tracks */
-  get_racing_tracks(params: M.GetRacingTracksParams = {}, options?: ExecutionOptions): Promise<M.GetRacingTracksResponse> { return executeOperation<M.GetRacingTracksResponse>(this.client, "getRacingTracks", params, options); }
-  getRacingTracks(params: M.GetRacingTracksParams = {}, options?: ExecutionOptions): Promise<M.GetRacingTracksResponse> { return this.get_racing_tracks(params, options); }
-  /** GET /torn */
-  get_torn_generic(params: M.GetTornGenericParams = {}, options?: ExecutionOptions): Promise<M.GetTornGenericResponse> { return executeOperation<M.GetTornGenericResponse>(this.client, "getTornGeneric", params, options); }
-  getTornGeneric(params: M.GetTornGenericParams = {}, options?: ExecutionOptions): Promise<M.GetTornGenericResponse> { return this.get_torn_generic(params, options); }
-  /** GET /torn/{crimeId}/subcrimes */
-  get_torn_subcrimes(params: M.GetTornSubcrimesParams, options?: ExecutionOptions): Promise<M.GetTornSubcrimesResponse> { return executeOperation<M.GetTornSubcrimesResponse>(this.client, "getTornSubcrimes", params, options); }
-  getTornSubcrimes(params: M.GetTornSubcrimesParams, options?: ExecutionOptions): Promise<M.GetTornSubcrimesResponse> { return this.get_torn_subcrimes(params, options); }
-  /** GET /torn/{id}/eliminationteam */
-  get_torn_elimination_team(params: M.GetTornEliminationTeamParams, options?: ExecutionOptions): Promise<M.GetTornEliminationTeamResponse> { return executeOperation<M.GetTornEliminationTeamResponse>(this.client, "getTornEliminationTeam", params, options); }
-  getTornEliminationTeam(params: M.GetTornEliminationTeamParams, options?: ExecutionOptions): Promise<M.GetTornEliminationTeamResponse> { return this.get_torn_elimination_team(params, options); }
-  /** GET /torn/{ids}/honors */
-  get_torn_honors_specific(params: M.GetTornHonorsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornHonorsSpecificResponse> { return executeOperation<M.GetTornHonorsSpecificResponse>(this.client, "getTornHonorsSpecific", params, options); }
-  getTornHonorsSpecific(params: M.GetTornHonorsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornHonorsSpecificResponse> { return this.get_torn_honors_specific(params, options); }
-  /** GET /torn/{ids}/itemdetails */
-  get_torn_item_details(params: M.GetTornItemDetailsParams, options?: ExecutionOptions): Promise<M.GetTornItemDetailsResponse> { return executeOperation<M.GetTornItemDetailsResponse>(this.client, "getTornItemDetails", params, options); }
-  getTornItemDetails(params: M.GetTornItemDetailsParams, options?: ExecutionOptions): Promise<M.GetTornItemDetailsResponse> { return this.get_torn_item_details(params, options); }
-  /** GET /torn/{ids}/items */
-  get_torn_items_specific(params: M.GetTornItemsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornItemsSpecificResponse> { return executeOperation<M.GetTornItemsSpecificResponse>(this.client, "getTornItemsSpecific", params, options); }
-  getTornItemsSpecific(params: M.GetTornItemsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornItemsSpecificResponse> { return this.get_torn_items_specific(params, options); }
-  /** GET /torn/{ids}/itemstats */
-  get_torn_item_stats(params: M.GetTornItemStatsParams, options?: ExecutionOptions): Promise<M.GetTornItemStatsResponse> { return executeOperation<M.GetTornItemStatsResponse>(this.client, "getTornItemStats", params, options); }
-  getTornItemStats(params: M.GetTornItemStatsParams, options?: ExecutionOptions): Promise<M.GetTornItemStatsResponse> { return this.get_torn_item_stats(params, options); }
-  /** GET /torn/{ids}/medals */
-  get_torn_medals_specific(params: M.GetTornMedalsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornMedalsSpecificResponse> { return executeOperation<M.GetTornMedalsSpecificResponse>(this.client, "getTornMedalsSpecific", params, options); }
-  getTornMedalsSpecific(params: M.GetTornMedalsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornMedalsSpecificResponse> { return this.get_torn_medals_specific(params, options); }
-  /** GET /torn/{logCategoryId}/logtypes */
-  get_torn_log_types_specific(params: M.GetTornLogTypesSpecificParams, options?: ExecutionOptions): Promise<M.GetTornLogTypesSpecificResponse> { return executeOperation<M.GetTornLogTypesSpecificResponse>(this.client, "getTornLogTypesSpecific", params, options); }
-  getTornLogTypesSpecific(params: M.GetTornLogTypesSpecificParams, options?: ExecutionOptions): Promise<M.GetTornLogTypesSpecificResponse> { return this.get_torn_log_types_specific(params, options); }
-  /** GET /torn/{shopId}/cityshops */
-  get_torn_city_shop_specific(params: M.GetTornCityShopSpecificParams, options?: ExecutionOptions): Promise<M.GetTornCityShopSpecificResponse> { return executeOperation<M.GetTornCityShopSpecificResponse>(this.client, "getTornCityShopSpecific", params, options); }
-  getTornCityShopSpecific(params: M.GetTornCityShopSpecificParams, options?: ExecutionOptions): Promise<M.GetTornCityShopSpecificResponse> { return this.get_torn_city_shop_specific(params, options); }
-  /** GET /torn/{stockId}/stocks */
-  get_specific_torn_stock(params: M.GetSpecificTornStockParams, options?: ExecutionOptions): Promise<M.GetSpecificTornStockResponse> { return executeOperation<M.GetSpecificTornStockResponse>(this.client, "getSpecificTornStock", params, options); }
-  getSpecificTornStock(params: M.GetSpecificTornStockParams, options?: ExecutionOptions): Promise<M.GetSpecificTornStockResponse> { return this.get_specific_torn_stock(params, options); }
-  /** GET /torn/{typeId}/companies */
-  get_torn_companies_specific(params: M.GetTornCompaniesSpecificParams, options?: ExecutionOptions): Promise<M.GetTornCompaniesSpecificResponse> { return executeOperation<M.GetTornCompaniesSpecificResponse>(this.client, "getTornCompaniesSpecific", params, options); }
-  getTornCompaniesSpecific(params: M.GetTornCompaniesSpecificParams, options?: ExecutionOptions): Promise<M.GetTornCompaniesSpecificResponse> { return this.get_torn_companies_specific(params, options); }
-  /** GET /torn/attacklog */
-  get_torn_attack_log(params: M.GetTornAttackLogParams, options?: ExecutionOptions): Promise<M.GetTornAttackLogResponse> { return executeOperation<M.GetTornAttackLogResponse>(this.client, "getTornAttackLog", params, options); }
-  getTornAttackLog(params: M.GetTornAttackLogParams, options?: ExecutionOptions): Promise<M.GetTornAttackLogResponse> { return this.get_torn_attack_log(params, options); }
-  /** GET /torn/bank */
-  get_torn_bank(params: M.GetTornBankParams = {}, options?: ExecutionOptions): Promise<M.GetTornBankResponse> { return executeOperation<M.GetTornBankResponse>(this.client, "getTornBank", params, options); }
-  getTornBank(params: M.GetTornBankParams = {}, options?: ExecutionOptions): Promise<M.GetTornBankResponse> { return this.get_torn_bank(params, options); }
-  /** GET /torn/bounties */
-  get_torn_bounties(params: M.GetTornBountiesParams = {}, options?: ExecutionOptions): Promise<M.GetTornBountiesResponse> { return executeOperation<M.GetTornBountiesResponse>(this.client, "getTornBounties", params, options); }
-  getTornBounties(params: M.GetTornBountiesParams = {}, options?: ExecutionOptions): Promise<M.GetTornBountiesResponse> { return this.get_torn_bounties(params, options); }
-  /** GET /torn/calendar */
-  get_torn_calendar(params: M.GetTornCalendarParams = {}, options?: ExecutionOptions): Promise<M.GetTornCalendarResponse> { return executeOperation<M.GetTornCalendarResponse>(this.client, "getTornCalendar", params, options); }
-  getTornCalendar(params: M.GetTornCalendarParams = {}, options?: ExecutionOptions): Promise<M.GetTornCalendarResponse> { return this.get_torn_calendar(params, options); }
-  /** GET /torn/cards */
-  get_torn_cards(params: M.GetTornCardsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCardsResponse> { return executeOperation<M.GetTornCardsResponse>(this.client, "getTornCards", params, options); }
-  getTornCards(params: M.GetTornCardsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCardsResponse> { return this.get_torn_cards(params, options); }
-  /** GET /torn/cityshops */
-  get_torn_city_shops(params: M.GetTornCityShopsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCityShopsResponse> { return executeOperation<M.GetTornCityShopsResponse>(this.client, "getTornCityShops", params, options); }
-  getTornCityShops(params: M.GetTornCityShopsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCityShopsResponse> { return this.get_torn_city_shops(params, options); }
-  /** GET /torn/companies */
-  get_torn_companies(params: M.GetTornCompaniesParams = {}, options?: ExecutionOptions): Promise<M.GetTornCompaniesResponse> { return executeOperation<M.GetTornCompaniesResponse>(this.client, "getTornCompanies", params, options); }
-  getTornCompanies(params: M.GetTornCompaniesParams = {}, options?: ExecutionOptions): Promise<M.GetTornCompaniesResponse> { return this.get_torn_companies(params, options); }
-  /** GET /torn/crimes */
-  get_torn_crimes(params: M.GetTornCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetTornCrimesResponse> { return executeOperation<M.GetTornCrimesResponse>(this.client, "getTornCrimes", params, options); }
-  getTornCrimes(params: M.GetTornCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetTornCrimesResponse> { return this.get_torn_crimes(params, options); }
-  /** GET /torn/education */
-  get_torn_education(params: M.GetTornEducationParams = {}, options?: ExecutionOptions): Promise<M.GetTornEducationResponse> { return executeOperation<M.GetTornEducationResponse>(this.client, "getTornEducation", params, options); }
-  getTornEducation(params: M.GetTornEducationParams = {}, options?: ExecutionOptions): Promise<M.GetTornEducationResponse> { return this.get_torn_education(params, options); }
-  /** GET /torn/elimination */
-  get_torn_elimination(params: M.GetTornEliminationParams = {}, options?: ExecutionOptions): Promise<M.GetTornEliminationResponse> { return executeOperation<M.GetTornEliminationResponse>(this.client, "getTornElimination", params, options); }
-  getTornElimination(params: M.GetTornEliminationParams = {}, options?: ExecutionOptions): Promise<M.GetTornEliminationResponse> { return this.get_torn_elimination(params, options); }
-  /** GET /torn/factionhof */
-  get_torn_faction_ho_f(params: M.GetTornFactionHoFParams, options?: ExecutionOptions): Promise<M.GetTornFactionHoFResponse> { return executeOperation<M.GetTornFactionHoFResponse>(this.client, "getTornFactionHoF", params, options); }
-  getTornFactionHoF(params: M.GetTornFactionHoFParams, options?: ExecutionOptions): Promise<M.GetTornFactionHoFResponse> { return this.get_torn_faction_ho_f(params, options); }
-  /** GET /torn/factiontree */
-  get_torn_faction_tree(params: M.GetTornFactionTreeParams = {}, options?: ExecutionOptions): Promise<M.GetTornFactionTreeResponse> { return executeOperation<M.GetTornFactionTreeResponse>(this.client, "getTornFactionTree", params, options); }
-  getTornFactionTree(params: M.GetTornFactionTreeParams = {}, options?: ExecutionOptions): Promise<M.GetTornFactionTreeResponse> { return this.get_torn_faction_tree(params, options); }
-  /** GET /torn/gyms */
-  get_torn_gyms(params: M.GetTornGymsParams = {}, options?: ExecutionOptions): Promise<M.GetTornGymsResponse> { return executeOperation<M.GetTornGymsResponse>(this.client, "getTornGyms", params, options); }
-  getTornGyms(params: M.GetTornGymsParams = {}, options?: ExecutionOptions): Promise<M.GetTornGymsResponse> { return this.get_torn_gyms(params, options); }
-  /** GET /torn/halloween */
-  get_torn_halloween(params: M.GetTornHalloweenParams = {}, options?: ExecutionOptions): Promise<M.GetTornHalloweenResponse> { return executeOperation<M.GetTornHalloweenResponse>(this.client, "getTornHalloween", params, options); }
-  getTornHalloween(params: M.GetTornHalloweenParams = {}, options?: ExecutionOptions): Promise<M.GetTornHalloweenResponse> { return this.get_torn_halloween(params, options); }
-  /** GET /torn/hof */
-  get_torn_ho_f(params: M.GetTornHoFParams, options?: ExecutionOptions): Promise<M.GetTornHoFResponse> { return executeOperation<M.GetTornHoFResponse>(this.client, "getTornHoF", params, options); }
-  getTornHoF(params: M.GetTornHoFParams, options?: ExecutionOptions): Promise<M.GetTornHoFResponse> { return this.get_torn_ho_f(params, options); }
-  /** GET /torn/honors */
-  get_torn_honors(params: M.GetTornHonorsParams = {}, options?: ExecutionOptions): Promise<M.GetTornHonorsResponse> { return executeOperation<M.GetTornHonorsResponse>(this.client, "getTornHonors", params, options); }
-  getTornHonors(params: M.GetTornHonorsParams = {}, options?: ExecutionOptions): Promise<M.GetTornHonorsResponse> { return this.get_torn_honors(params, options); }
-  /** GET /torn/itemammo */
-  get_torn_item_ammo(params: M.GetTornItemAmmoParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemAmmoResponse> { return executeOperation<M.GetTornItemAmmoResponse>(this.client, "getTornItemAmmo", params, options); }
-  getTornItemAmmo(params: M.GetTornItemAmmoParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemAmmoResponse> { return this.get_torn_item_ammo(params, options); }
-  /** GET /torn/itemmods */
-  get_torn_item_mods(params: M.GetTornItemModsParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemModsResponse> { return executeOperation<M.GetTornItemModsResponse>(this.client, "getTornItemMods", params, options); }
-  getTornItemMods(params: M.GetTornItemModsParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemModsResponse> { return this.get_torn_item_mods(params, options); }
-  /** GET /torn/items */
-  get_torn_items(params: M.GetTornItemsParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemsResponse> { return executeOperation<M.GetTornItemsResponse>(this.client, "getTornItems", params, options); }
-  getTornItems(params: M.GetTornItemsParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemsResponse> { return this.get_torn_items(params, options); }
-  /** GET /torn/logcategories */
-  get_torn_log_categories(params: M.GetTornLogCategoriesParams = {}, options?: ExecutionOptions): Promise<M.GetTornLogCategoriesResponse> { return executeOperation<M.GetTornLogCategoriesResponse>(this.client, "getTornLogCategories", params, options); }
-  getTornLogCategories(params: M.GetTornLogCategoriesParams = {}, options?: ExecutionOptions): Promise<M.GetTornLogCategoriesResponse> { return this.get_torn_log_categories(params, options); }
-  /** GET /torn/logtypes */
-  get_torn_log_types(params: M.GetTornLogTypesParams = {}, options?: ExecutionOptions): Promise<M.GetTornLogTypesResponse> { return executeOperation<M.GetTornLogTypesResponse>(this.client, "getTornLogTypes", params, options); }
-  getTornLogTypes(params: M.GetTornLogTypesParams = {}, options?: ExecutionOptions): Promise<M.GetTornLogTypesResponse> { return this.get_torn_log_types(params, options); }
-  /** GET /torn/lookup */
-  get_torn_lookup(params: M.GetTornLookupParams = {}, options?: ExecutionOptions): Promise<M.GetTornLookupResponse> { return executeOperation<M.GetTornLookupResponse>(this.client, "getTornLookup", params, options); }
-  getTornLookup(params: M.GetTornLookupParams = {}, options?: ExecutionOptions): Promise<M.GetTornLookupResponse> { return this.get_torn_lookup(params, options); }
-  /** GET /torn/medals */
-  get_torn_medals(params: M.GetTornMedalsParams = {}, options?: ExecutionOptions): Promise<M.GetTornMedalsResponse> { return executeOperation<M.GetTornMedalsResponse>(this.client, "getTornMedals", params, options); }
-  getTornMedals(params: M.GetTornMedalsParams = {}, options?: ExecutionOptions): Promise<M.GetTornMedalsResponse> { return this.get_torn_medals(params, options); }
-  /** GET /torn/merits */
-  get_torn_merits(params: M.GetTornMeritsParams = {}, options?: ExecutionOptions): Promise<M.GetTornMeritsResponse> { return executeOperation<M.GetTornMeritsResponse>(this.client, "getTornMerits", params, options); }
-  getTornMerits(params: M.GetTornMeritsParams = {}, options?: ExecutionOptions): Promise<M.GetTornMeritsResponse> { return this.get_torn_merits(params, options); }
-  /** GET /torn/museum */
-  get_torn_museum(params: M.GetTornMuseumParams = {}, options?: ExecutionOptions): Promise<M.GetTornMuseumResponse> { return executeOperation<M.GetTornMuseumResponse>(this.client, "getTornMuseum", params, options); }
-  getTornMuseum(params: M.GetTornMuseumParams = {}, options?: ExecutionOptions): Promise<M.GetTornMuseumResponse> { return this.get_torn_museum(params, options); }
-  /** GET /torn/organizedcrimes */
-  get_torn_organized_crimes(params: M.GetTornOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetTornOrganizedCrimesResponse> { return executeOperation<M.GetTornOrganizedCrimesResponse>(this.client, "getTornOrganizedCrimes", params, options); }
-  getTornOrganizedCrimes(params: M.GetTornOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetTornOrganizedCrimesResponse> { return this.get_torn_organized_crimes(params, options); }
-  /** GET /torn/pokertables */
-  get_torn_poker_tables(params: M.GetTornPokerTablesParams = {}, options?: ExecutionOptions): Promise<M.GetTornPokerTablesResponse> { return executeOperation<M.GetTornPokerTablesResponse>(this.client, "getTornPokerTables", params, options); }
-  getTornPokerTables(params: M.GetTornPokerTablesParams = {}, options?: ExecutionOptions): Promise<M.GetTornPokerTablesResponse> { return this.get_torn_poker_tables(params, options); }
-  /** GET /torn/properties */
-  get_torn_properties(params: M.GetTornPropertiesParams = {}, options?: ExecutionOptions): Promise<M.GetTornPropertiesResponse> { return executeOperation<M.GetTornPropertiesResponse>(this.client, "getTornProperties", params, options); }
-  getTornProperties(params: M.GetTornPropertiesParams = {}, options?: ExecutionOptions): Promise<M.GetTornPropertiesResponse> { return this.get_torn_properties(params, options); }
-  /** GET /torn/rockpaperscissors */
-  get_torn_rps(params: M.GetTornRpsParams = {}, options?: ExecutionOptions): Promise<M.GetTornRpsResponse> { return executeOperation<M.GetTornRpsResponse>(this.client, "getTornRps", params, options); }
-  getTornRps(params: M.GetTornRpsParams = {}, options?: ExecutionOptions): Promise<M.GetTornRpsResponse> { return this.get_torn_rps(params, options); }
-  /** GET /torn/searchforcash */
-  get_torn_search_for_cash(params: M.GetTornSearchForCashParams = {}, options?: ExecutionOptions): Promise<M.GetTornSearchForCashResponse> { return executeOperation<M.GetTornSearchForCashResponse>(this.client, "getTornSearchForCash", params, options); }
-  getTornSearchForCash(params: M.GetTornSearchForCashParams = {}, options?: ExecutionOptions): Promise<M.GetTornSearchForCashResponse> { return this.get_torn_search_for_cash(params, options); }
-  /** GET /torn/shoplifting */
-  get_torn_shoplifting(params: M.GetTornShopliftingParams = {}, options?: ExecutionOptions): Promise<M.GetTornShopliftingResponse> { return executeOperation<M.GetTornShopliftingResponse>(this.client, "getTornShoplifting", params, options); }
-  getTornShoplifting(params: M.GetTornShopliftingParams = {}, options?: ExecutionOptions): Promise<M.GetTornShopliftingResponse> { return this.get_torn_shoplifting(params, options); }
-  /** GET /torn/stats */
-  get_torn_city_stats(params: M.GetTornCityStatsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCityStatsResponse> { return executeOperation<M.GetTornCityStatsResponse>(this.client, "getTornCityStats", params, options); }
-  getTornCityStats(params: M.GetTornCityStatsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCityStatsResponse> { return this.get_torn_city_stats(params, options); }
-  /** GET /torn/stocks */
-  get_torn_stocks(params: M.GetTornStocksParams = {}, options?: ExecutionOptions): Promise<M.GetTornStocksResponse> { return executeOperation<M.GetTornStocksResponse>(this.client, "getTornStocks", params, options); }
-  getTornStocks(params: M.GetTornStocksParams = {}, options?: ExecutionOptions): Promise<M.GetTornStocksResponse> { return this.get_torn_stocks(params, options); }
-  /** GET /torn/territory */
-  get_torn_territory(params: M.GetTornTerritoryParams = {}, options?: ExecutionOptions): Promise<M.GetTornTerritoryResponse> { return executeOperation<M.GetTornTerritoryResponse>(this.client, "getTornTerritory", params, options); }
-  getTornTerritory(params: M.GetTornTerritoryParams = {}, options?: ExecutionOptions): Promise<M.GetTornTerritoryResponse> { return this.get_torn_territory(params, options); }
-  /** GET /torn/timestamp */
-  get_torn_timestamp(params: M.GetTornTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetTornTimestampResponse> { return executeOperation<M.GetTornTimestampResponse>(this.client, "getTornTimestamp", params, options); }
-  getTornTimestamp(params: M.GetTornTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetTornTimestampResponse> { return this.get_torn_timestamp(params, options); }
-  /** GET /user */
-  get_user_generic(params: M.GetUserGenericParams = {}, options?: ExecutionOptions): Promise<M.GetUserGenericResponse> { return executeOperation<M.GetUserGenericResponse>(this.client, "getUserGeneric", params, options); }
-  getUserGeneric(params: M.GetUserGenericParams = {}, options?: ExecutionOptions): Promise<M.GetUserGenericResponse> { return this.get_user_generic(params, options); }
-  /** GET /user/{crimeId}/crimes */
-  get_my_crimes(params: M.GetMyCrimesParams, options?: ExecutionOptions): Promise<M.GetMyCrimesResponse> { return executeOperation<M.GetMyCrimesResponse>(this.client, "getMyCrimes", params, options); }
-  getMyCrimes(params: M.GetMyCrimesParams, options?: ExecutionOptions): Promise<M.GetMyCrimesResponse> { return this.get_my_crimes(params, options); }
-  /** GET /user/{id}/basic */
-  get_user_basic_information(params: M.GetUserBasicInformationParams, options?: ExecutionOptions): Promise<M.GetUserBasicInformationResponse> { return executeOperation<M.GetUserBasicInformationResponse>(this.client, "getUserBasicInformation", params, options); }
-  getUserBasicInformation(params: M.GetUserBasicInformationParams, options?: ExecutionOptions): Promise<M.GetUserBasicInformationResponse> { return this.get_user_basic_information(params, options); }
-  /** GET /user/{id}/bounties */
-  get_user_bounties(params: M.GetUserBountiesParams, options?: ExecutionOptions): Promise<M.GetUserBountiesResponse> { return executeOperation<M.GetUserBountiesResponse>(this.client, "getUserBounties", params, options); }
-  getUserBounties(params: M.GetUserBountiesParams, options?: ExecutionOptions): Promise<M.GetUserBountiesResponse> { return this.get_user_bounties(params, options); }
-  /** GET /user/{id}/competition */
-  get_user_competition_info(params: M.GetUserCompetitionInfoParams, options?: ExecutionOptions): Promise<M.GetUserCompetitionInfoResponse> { return executeOperation<M.GetUserCompetitionInfoResponse>(this.client, "getUserCompetitionInfo", params, options); }
-  getUserCompetitionInfo(params: M.GetUserCompetitionInfoParams, options?: ExecutionOptions): Promise<M.GetUserCompetitionInfoResponse> { return this.get_user_competition_info(params, options); }
-  /** GET /user/{id}/discord */
-  get_user_discord(params: M.GetUserDiscordParams, options?: ExecutionOptions): Promise<M.GetUserDiscordResponse> { return executeOperation<M.GetUserDiscordResponse>(this.client, "getUserDiscord", params, options); }
-  getUserDiscord(params: M.GetUserDiscordParams, options?: ExecutionOptions): Promise<M.GetUserDiscordResponse> { return this.get_user_discord(params, options); }
-  /** GET /user/{id}/faction */
-  get_user_faction(params: M.GetUserFactionParams, options?: ExecutionOptions): Promise<M.GetUserFactionResponse> { return executeOperation<M.GetUserFactionResponse>(this.client, "getUserFaction", params, options); }
-  getUserFaction(params: M.GetUserFactionParams, options?: ExecutionOptions): Promise<M.GetUserFactionResponse> { return this.get_user_faction(params, options); }
-  /** GET /user/{id}/forumposts */
-  get_user_forum_posts(params: M.GetUserForumPostsParams, options?: ExecutionOptions): Promise<M.GetUserForumPostsResponse> { return executeOperation<M.GetUserForumPostsResponse>(this.client, "getUserForumPosts", params, options); }
-  getUserForumPosts(params: M.GetUserForumPostsParams, options?: ExecutionOptions): Promise<M.GetUserForumPostsResponse> { return this.get_user_forum_posts(params, options); }
-  /** GET /user/{id}/forumthreads */
-  get_user_forum_threads(params: M.GetUserForumThreadsParams, options?: ExecutionOptions): Promise<M.GetUserForumThreadsResponse> { return executeOperation<M.GetUserForumThreadsResponse>(this.client, "getUserForumThreads", params, options); }
-  getUserForumThreads(params: M.GetUserForumThreadsParams, options?: ExecutionOptions): Promise<M.GetUserForumThreadsResponse> { return this.get_user_forum_threads(params, options); }
-  /** GET /user/{id}/hof */
-  get_user_ho_f(params: M.GetUserHoFParams, options?: ExecutionOptions): Promise<M.GetUserHoFResponse> { return executeOperation<M.GetUserHoFResponse>(this.client, "getUserHoF", params, options); }
-  getUserHoF(params: M.GetUserHoFParams, options?: ExecutionOptions): Promise<M.GetUserHoFResponse> { return this.get_user_ho_f(params, options); }
-  /** GET /user/{id}/icons */
-  get_user_icons(params: M.GetUserIconsParams, options?: ExecutionOptions): Promise<M.GetUserIconsResponse> { return executeOperation<M.GetUserIconsResponse>(this.client, "getUserIcons", params, options); }
-  getUserIcons(params: M.GetUserIconsParams, options?: ExecutionOptions): Promise<M.GetUserIconsResponse> { return this.get_user_icons(params, options); }
-  /** GET /user/{id}/job */
-  get_user_job(params: M.GetUserJobParams, options?: ExecutionOptions): Promise<M.GetUserJobResponse> { return executeOperation<M.GetUserJobResponse>(this.client, "getUserJob", params, options); }
-  getUserJob(params: M.GetUserJobParams, options?: ExecutionOptions): Promise<M.GetUserJobResponse> { return this.get_user_job(params, options); }
-  /** GET /user/{id}/medals */
-  get_user_medals(params: M.GetUserMedalsParams, options?: ExecutionOptions): Promise<M.GetUserMedalsResponse> { return executeOperation<M.GetUserMedalsResponse>(this.client, "getUserMedals", params, options); }
-  getUserMedals(params: M.GetUserMedalsParams, options?: ExecutionOptions): Promise<M.GetUserMedalsResponse> { return this.get_user_medals(params, options); }
-  /** GET /user/{id}/personalstats */
-  get_user_personal_stats(params: M.GetUserPersonalStatsParams, options?: ExecutionOptions): Promise<M.GetUserPersonalStatsResponse> { return executeOperation<M.GetUserPersonalStatsResponse>(this.client, "getUserPersonalStats", params, options); }
-  getUserPersonalStats(params: M.GetUserPersonalStatsParams, options?: ExecutionOptions): Promise<M.GetUserPersonalStatsResponse> { return this.get_user_personal_stats(params, options); }
-  /** GET /user/{id}/profile */
-  get_user_profile(params: M.GetUserProfileParams, options?: ExecutionOptions): Promise<M.GetUserProfileResponse> { return executeOperation<M.GetUserProfileResponse>(this.client, "getUserProfile", params, options); }
-  getUserProfile(params: M.GetUserProfileParams, options?: ExecutionOptions): Promise<M.GetUserProfileResponse> { return this.get_user_profile(params, options); }
-  /** GET /user/{id}/properties */
-  get_user_properties(params: M.GetUserPropertiesParams, options?: ExecutionOptions): Promise<M.GetUserPropertiesResponse> { return executeOperation<M.GetUserPropertiesResponse>(this.client, "getUserProperties", params, options); }
-  getUserProperties(params: M.GetUserPropertiesParams, options?: ExecutionOptions): Promise<M.GetUserPropertiesResponse> { return this.get_user_properties(params, options); }
-  /** GET /user/{id}/property */
-  get_user_property(params: M.GetUserPropertyParams, options?: ExecutionOptions): Promise<M.GetUserPropertyResponse> { return executeOperation<M.GetUserPropertyResponse>(this.client, "getUserProperty", params, options); }
-  getUserProperty(params: M.GetUserPropertyParams, options?: ExecutionOptions): Promise<M.GetUserPropertyResponse> { return this.get_user_property(params, options); }
-  /** GET /user/{tradeId}/trade */
-  get_my_detailed_trade(params: M.GetMyDetailedTradeParams, options?: ExecutionOptions): Promise<M.GetMyDetailedTradeResponse> { return executeOperation<M.GetMyDetailedTradeResponse>(this.client, "getMyDetailedTrade", params, options); }
-  getMyDetailedTrade(params: M.GetMyDetailedTradeParams, options?: ExecutionOptions): Promise<M.GetMyDetailedTradeResponse> { return this.get_my_detailed_trade(params, options); }
-  /** GET /user/ammo */
-  get_my_ammo(params: M.GetMyAmmoParams = {}, options?: ExecutionOptions): Promise<M.GetMyAmmoResponse> { return executeOperation<M.GetMyAmmoResponse>(this.client, "getMyAmmo", params, options); }
-  getMyAmmo(params: M.GetMyAmmoParams = {}, options?: ExecutionOptions): Promise<M.GetMyAmmoResponse> { return this.get_my_ammo(params, options); }
-  /** GET /user/attacks */
-  get_my_attacks(params: M.GetMyAttacksParams = {}, options?: ExecutionOptions): Promise<M.GetMyAttacksResponse> { return executeOperation<M.GetMyAttacksResponse>(this.client, "getMyAttacks", params, options); }
-  getMyAttacks(params: M.GetMyAttacksParams = {}, options?: ExecutionOptions): Promise<M.GetMyAttacksResponse> { return this.get_my_attacks(params, options); }
-  /** GET /user/attacksfull */
-  get_my_attacks_simplified(params: M.GetMyAttacksSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyAttacksSimplifiedResponse> { return executeOperation<M.GetMyAttacksSimplifiedResponse>(this.client, "getMyAttacksSimplified", params, options); }
-  getMyAttacksSimplified(params: M.GetMyAttacksSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyAttacksSimplifiedResponse> { return this.get_my_attacks_simplified(params, options); }
-  /** GET /user/bars */
-  get_my_bars(params: M.GetMyBarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyBarsResponse> { return executeOperation<M.GetMyBarsResponse>(this.client, "getMyBars", params, options); }
-  getMyBars(params: M.GetMyBarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyBarsResponse> { return this.get_my_bars(params, options); }
-  /** GET /user/basic */
-  get_my_basic_information(params: M.GetMyBasicInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyBasicInformationResponse> { return executeOperation<M.GetMyBasicInformationResponse>(this.client, "getMyBasicInformation", params, options); }
-  getMyBasicInformation(params: M.GetMyBasicInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyBasicInformationResponse> { return this.get_my_basic_information(params, options); }
-  /** GET /user/battlestats */
-  get_my_battlestats(params: M.GetMyBattlestatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyBattlestatsResponse> { return executeOperation<M.GetMyBattlestatsResponse>(this.client, "getMyBattlestats", params, options); }
-  getMyBattlestats(params: M.GetMyBattlestatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyBattlestatsResponse> { return this.get_my_battlestats(params, options); }
-  /** GET /user/bounties */
-  get_my_bounties(params: M.GetMyBountiesParams = {}, options?: ExecutionOptions): Promise<M.GetMyBountiesResponse> { return executeOperation<M.GetMyBountiesResponse>(this.client, "getMyBounties", params, options); }
-  getMyBounties(params: M.GetMyBountiesParams = {}, options?: ExecutionOptions): Promise<M.GetMyBountiesResponse> { return this.get_my_bounties(params, options); }
-  /** GET /user/calendar */
-  get_my_calendar_time(params: M.GetMyCalendarTimeParams = {}, options?: ExecutionOptions): Promise<M.GetMyCalendarTimeResponse> { return executeOperation<M.GetMyCalendarTimeResponse>(this.client, "getMyCalendarTime", params, options); }
-  getMyCalendarTime(params: M.GetMyCalendarTimeParams = {}, options?: ExecutionOptions): Promise<M.GetMyCalendarTimeResponse> { return this.get_my_calendar_time(params, options); }
-  /** GET /user/casino */
-  get_my_casino_streak(params: M.GetMyCasinoStreakParams = {}, options?: ExecutionOptions): Promise<M.GetMyCasinoStreakResponse> { return executeOperation<M.GetMyCasinoStreakResponse>(this.client, "getMyCasinoStreak", params, options); }
-  getMyCasinoStreak(params: M.GetMyCasinoStreakParams = {}, options?: ExecutionOptions): Promise<M.GetMyCasinoStreakResponse> { return this.get_my_casino_streak(params, options); }
-  /** GET /user/competition */
-  get_my_competition_info(params: M.GetMyCompetitionInfoParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompetitionInfoResponse> { return executeOperation<M.GetMyCompetitionInfoResponse>(this.client, "getMyCompetitionInfo", params, options); }
-  getMyCompetitionInfo(params: M.GetMyCompetitionInfoParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompetitionInfoResponse> { return this.get_my_competition_info(params, options); }
-  /** GET /user/cooldowns */
-  get_my_cooldowns(params: M.GetMyCooldownsParams = {}, options?: ExecutionOptions): Promise<M.GetMyCooldownsResponse> { return executeOperation<M.GetMyCooldownsResponse>(this.client, "getMyCooldowns", params, options); }
-  getMyCooldowns(params: M.GetMyCooldownsParams = {}, options?: ExecutionOptions): Promise<M.GetMyCooldownsResponse> { return this.get_my_cooldowns(params, options); }
-  /** GET /user/discord */
-  get_my_discord(params: M.GetMyDiscordParams = {}, options?: ExecutionOptions): Promise<M.GetMyDiscordResponse> { return executeOperation<M.GetMyDiscordResponse>(this.client, "getMyDiscord", params, options); }
-  getMyDiscord(params: M.GetMyDiscordParams = {}, options?: ExecutionOptions): Promise<M.GetMyDiscordResponse> { return this.get_my_discord(params, options); }
-  /** GET /user/education */
-  get_my_education(params: M.GetMyEducationParams = {}, options?: ExecutionOptions): Promise<M.GetMyEducationResponse> { return executeOperation<M.GetMyEducationResponse>(this.client, "getMyEducation", params, options); }
-  getMyEducation(params: M.GetMyEducationParams = {}, options?: ExecutionOptions): Promise<M.GetMyEducationResponse> { return this.get_my_education(params, options); }
-  /** GET /user/enlistedcars */
-  get_my_enlisted_cars(params: M.GetMyEnlistedCarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyEnlistedCarsResponse> { return executeOperation<M.GetMyEnlistedCarsResponse>(this.client, "getMyEnlistedCars", params, options); }
-  getMyEnlistedCars(params: M.GetMyEnlistedCarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyEnlistedCarsResponse> { return this.get_my_enlisted_cars(params, options); }
-  /** GET /user/equipment */
-  get_my_equipment(params: M.GetMyEquipmentParams = {}, options?: ExecutionOptions): Promise<M.GetMyEquipmentResponse> { return executeOperation<M.GetMyEquipmentResponse>(this.client, "getMyEquipment", params, options); }
-  getMyEquipment(params: M.GetMyEquipmentParams = {}, options?: ExecutionOptions): Promise<M.GetMyEquipmentResponse> { return this.get_my_equipment(params, options); }
-  /** GET /user/events */
-  get_my_events(params: M.GetMyEventsParams = {}, options?: ExecutionOptions): Promise<M.GetMyEventsResponse> { return executeOperation<M.GetMyEventsResponse>(this.client, "getMyEvents", params, options); }
-  getMyEvents(params: M.GetMyEventsParams = {}, options?: ExecutionOptions): Promise<M.GetMyEventsResponse> { return this.get_my_events(params, options); }
-  /** GET /user/faction */
-  get_my_faction(params: M.GetMyFactionParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionResponse> { return executeOperation<M.GetMyFactionResponse>(this.client, "getMyFaction", params, options); }
-  getMyFaction(params: M.GetMyFactionParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionResponse> { return this.get_my_faction(params, options); }
-  /** GET /user/forumfeed */
-  get_my_forum_feed(params: M.GetMyForumFeedParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumFeedResponse> { return executeOperation<M.GetMyForumFeedResponse>(this.client, "getMyForumFeed", params, options); }
-  getMyForumFeed(params: M.GetMyForumFeedParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumFeedResponse> { return this.get_my_forum_feed(params, options); }
-  /** GET /user/forumfriends */
-  get_my_forum_friends_updates(params: M.GetMyForumFriendsUpdatesParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumFriendsUpdatesResponse> { return executeOperation<M.GetMyForumFriendsUpdatesResponse>(this.client, "getMyForumFriendsUpdates", params, options); }
-  getMyForumFriendsUpdates(params: M.GetMyForumFriendsUpdatesParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumFriendsUpdatesResponse> { return this.get_my_forum_friends_updates(params, options); }
-  /** GET /user/forumposts */
-  get_my_forum_posts(params: M.GetMyForumPostsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumPostsResponse> { return executeOperation<M.GetMyForumPostsResponse>(this.client, "getMyForumPosts", params, options); }
-  getMyForumPosts(params: M.GetMyForumPostsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumPostsResponse> { return this.get_my_forum_posts(params, options); }
-  /** GET /user/forumsubscribedthreads */
-  get_my_forum_subscribed_threads(params: M.GetMyForumSubscribedThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumSubscribedThreadsResponse> { return executeOperation<M.GetMyForumSubscribedThreadsResponse>(this.client, "getMyForumSubscribedThreads", params, options); }
-  getMyForumSubscribedThreads(params: M.GetMyForumSubscribedThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumSubscribedThreadsResponse> { return this.get_my_forum_subscribed_threads(params, options); }
-  /** GET /user/forumthreads */
-  get_my_forum_threads(params: M.GetMyForumThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumThreadsResponse> { return executeOperation<M.GetMyForumThreadsResponse>(this.client, "getMyForumThreads", params, options); }
-  getMyForumThreads(params: M.GetMyForumThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumThreadsResponse> { return this.get_my_forum_threads(params, options); }
-  /** GET /user/gym */
-  get_my_gym(params: M.GetMyGymParams = {}, options?: ExecutionOptions): Promise<M.GetMyGymResponse> { return executeOperation<M.GetMyGymResponse>(this.client, "getMyGym", params, options); }
-  getMyGym(params: M.GetMyGymParams = {}, options?: ExecutionOptions): Promise<M.GetMyGymResponse> { return this.get_my_gym(params, options); }
-  /** GET /user/halloween */
-  get_my_halloween(params: M.GetMyHalloweenParams = {}, options?: ExecutionOptions): Promise<M.GetMyHalloweenResponse> { return executeOperation<M.GetMyHalloweenResponse>(this.client, "getMyHalloween", params, options); }
-  getMyHalloween(params: M.GetMyHalloweenParams = {}, options?: ExecutionOptions): Promise<M.GetMyHalloweenResponse> { return this.get_my_halloween(params, options); }
-  /** GET /user/hof */
-  get_my_ho_f(params: M.GetMyHoFParams = {}, options?: ExecutionOptions): Promise<M.GetMyHoFResponse> { return executeOperation<M.GetMyHoFResponse>(this.client, "getMyHoF", params, options); }
-  getMyHoF(params: M.GetMyHoFParams = {}, options?: ExecutionOptions): Promise<M.GetMyHoFResponse> { return this.get_my_ho_f(params, options); }
-  /** GET /user/honors */
-  get_my_honors(params: M.GetMyHonorsParams = {}, options?: ExecutionOptions): Promise<M.GetMyHonorsResponse> { return executeOperation<M.GetMyHonorsResponse>(this.client, "getMyHonors", params, options); }
-  getMyHonors(params: M.GetMyHonorsParams = {}, options?: ExecutionOptions): Promise<M.GetMyHonorsResponse> { return this.get_my_honors(params, options); }
-  /** GET /user/icons */
-  get_my_icons(params: M.GetMyIconsParams = {}, options?: ExecutionOptions): Promise<M.GetMyIconsResponse> { return executeOperation<M.GetMyIconsResponse>(this.client, "getMyIcons", params, options); }
-  getMyIcons(params: M.GetMyIconsParams = {}, options?: ExecutionOptions): Promise<M.GetMyIconsResponse> { return this.get_my_icons(params, options); }
-  /** GET /user/inventory */
-  get_my_inventory(params: M.GetMyInventoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyInventoryResponse> { return executeOperation<M.GetMyInventoryResponse>(this.client, "getMyInventory", params, options); }
-  getMyInventory(params: M.GetMyInventoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyInventoryResponse> { return this.get_my_inventory(params, options); }
-  /** GET /user/itemmarket */
-  get_my_item_market_listings(params: M.GetMyItemMarketListingsParams = {}, options?: ExecutionOptions): Promise<M.GetMyItemMarketListingsResponse> { return executeOperation<M.GetMyItemMarketListingsResponse>(this.client, "getMyItemMarketListings", params, options); }
-  getMyItemMarketListings(params: M.GetMyItemMarketListingsParams = {}, options?: ExecutionOptions): Promise<M.GetMyItemMarketListingsResponse> { return this.get_my_item_market_listings(params, options); }
-  /** GET /user/itemmods */
-  get_my_item_mods_information(params: M.GetMyItemModsInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyItemModsInformationResponse> { return executeOperation<M.GetMyItemModsInformationResponse>(this.client, "getMyItemModsInformation", params, options); }
-  getMyItemModsInformation(params: M.GetMyItemModsInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyItemModsInformationResponse> { return this.get_my_item_mods_information(params, options); }
-  /** GET /user/job */
-  get_my_job(params: M.GetMyJobParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobResponse> { return executeOperation<M.GetMyJobResponse>(this.client, "getMyJob", params, options); }
-  getMyJob(params: M.GetMyJobParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobResponse> { return this.get_my_job(params, options); }
-  /** GET /user/jobpoints */
-  get_my_job_points(params: M.GetMyJobPointsParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobPointsResponse> { return executeOperation<M.GetMyJobPointsResponse>(this.client, "getMyJobPoints", params, options); }
-  getMyJobPoints(params: M.GetMyJobPointsParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobPointsResponse> { return this.get_my_job_points(params, options); }
-  /** GET /user/jobranks */
-  get_my_job_ranks(params: M.GetMyJobRanksParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobRanksResponse> { return executeOperation<M.GetMyJobRanksResponse>(this.client, "getMyJobRanks", params, options); }
-  getMyJobRanks(params: M.GetMyJobRanksParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobRanksResponse> { return this.get_my_job_ranks(params, options); }
-  /** GET /user/list */
-  get_my_contacts_list(params: M.GetMyContactsListParams, options?: ExecutionOptions): Promise<M.GetMyContactsListResponse> { return executeOperation<M.GetMyContactsListResponse>(this.client, "getMyContactsList", params, options); }
-  getMyContactsList(params: M.GetMyContactsListParams, options?: ExecutionOptions): Promise<M.GetMyContactsListResponse> { return this.get_my_contacts_list(params, options); }
-  /** GET /user/log */
-  get_my_logs(params: M.GetMyLogsParams = {}, options?: ExecutionOptions): Promise<M.GetMyLogsResponse> { return executeOperation<M.GetMyLogsResponse>(this.client, "getMyLogs", params, options); }
-  getMyLogs(params: M.GetMyLogsParams = {}, options?: ExecutionOptions): Promise<M.GetMyLogsResponse> { return this.get_my_logs(params, options); }
-  /** GET /user/lookup */
-  get_user_lookup(params: M.GetUserLookupParams = {}, options?: ExecutionOptions): Promise<M.GetUserLookupResponse> { return executeOperation<M.GetUserLookupResponse>(this.client, "getUserLookup", params, options); }
-  getUserLookup(params: M.GetUserLookupParams = {}, options?: ExecutionOptions): Promise<M.GetUserLookupResponse> { return this.get_user_lookup(params, options); }
-  /** GET /user/medals */
-  get_my_medals(params: M.GetMyMedalsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMedalsResponse> { return executeOperation<M.GetMyMedalsResponse>(this.client, "getMyMedals", params, options); }
-  getMyMedals(params: M.GetMyMedalsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMedalsResponse> { return this.get_my_medals(params, options); }
-  /** GET /user/merits */
-  get_my_merits(params: M.GetMyMeritsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMeritsResponse> { return executeOperation<M.GetMyMeritsResponse>(this.client, "getMyMerits", params, options); }
-  getMyMerits(params: M.GetMyMeritsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMeritsResponse> { return this.get_my_merits(params, options); }
-  /** GET /user/messages */
-  get_my_messages(params: M.GetMyMessagesParams = {}, options?: ExecutionOptions): Promise<M.GetMyMessagesResponse> { return executeOperation<M.GetMyMessagesResponse>(this.client, "getMyMessages", params, options); }
-  getMyMessages(params: M.GetMyMessagesParams = {}, options?: ExecutionOptions): Promise<M.GetMyMessagesResponse> { return this.get_my_messages(params, options); }
-  /** GET /user/missions */
-  get_my_missions(params: M.GetMyMissionsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMissionsResponse> { return executeOperation<M.GetMyMissionsResponse>(this.client, "getMyMissions", params, options); }
-  getMyMissions(params: M.GetMyMissionsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMissionsResponse> { return this.get_my_missions(params, options); }
-  /** GET /user/money */
-  get_my_money(params: M.GetMyMoneyParams = {}, options?: ExecutionOptions): Promise<M.GetMyMoneyResponse> { return executeOperation<M.GetMyMoneyResponse>(this.client, "getMyMoney", params, options); }
-  getMyMoney(params: M.GetMyMoneyParams = {}, options?: ExecutionOptions): Promise<M.GetMyMoneyResponse> { return this.get_my_money(params, options); }
-  /** GET /user/networth */
-  get_my_networth(params: M.GetMyNetworthParams = {}, options?: ExecutionOptions): Promise<M.GetMyNetworthResponse> { return executeOperation<M.GetMyNetworthResponse>(this.client, "getMyNetworth", params, options); }
-  getMyNetworth(params: M.GetMyNetworthParams = {}, options?: ExecutionOptions): Promise<M.GetMyNetworthResponse> { return this.get_my_networth(params, options); }
-  /** GET /user/newevents */
-  get_my_new_events(params: M.GetMyNewEventsParams = {}, options?: ExecutionOptions): Promise<M.GetMyNewEventsResponse> { return executeOperation<M.GetMyNewEventsResponse>(this.client, "getMyNewEvents", params, options); }
-  getMyNewEvents(params: M.GetMyNewEventsParams = {}, options?: ExecutionOptions): Promise<M.GetMyNewEventsResponse> { return this.get_my_new_events(params, options); }
-  /** GET /user/newmessages */
-  get_my_new_messages(params: M.GetMyNewMessagesParams = {}, options?: ExecutionOptions): Promise<M.GetMyNewMessagesResponse> { return executeOperation<M.GetMyNewMessagesResponse>(this.client, "getMyNewMessages", params, options); }
-  getMyNewMessages(params: M.GetMyNewMessagesParams = {}, options?: ExecutionOptions): Promise<M.GetMyNewMessagesResponse> { return this.get_my_new_messages(params, options); }
-  /** GET /user/notifications */
-  get_my_notifications(params: M.GetMyNotificationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyNotificationsResponse> { return executeOperation<M.GetMyNotificationsResponse>(this.client, "getMyNotifications", params, options); }
-  getMyNotifications(params: M.GetMyNotificationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyNotificationsResponse> { return this.get_my_notifications(params, options); }
-  /** GET /user/organizedcrime */
-  get_my_organized_crime(params: M.GetMyOrganizedCrimeParams = {}, options?: ExecutionOptions): Promise<M.GetMyOrganizedCrimeResponse> { return executeOperation<M.GetMyOrganizedCrimeResponse>(this.client, "getMyOrganizedCrime", params, options); }
-  getMyOrganizedCrime(params: M.GetMyOrganizedCrimeParams = {}, options?: ExecutionOptions): Promise<M.GetMyOrganizedCrimeResponse> { return this.get_my_organized_crime(params, options); }
-  /** GET /user/organizedcrimes */
-  get_my_available_organized_crimes(params: M.GetMyAvailableOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetMyAvailableOrganizedCrimesResponse> { return executeOperation<M.GetMyAvailableOrganizedCrimesResponse>(this.client, "getMyAvailableOrganizedCrimes", params, options); }
-  getMyAvailableOrganizedCrimes(params: M.GetMyAvailableOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetMyAvailableOrganizedCrimesResponse> { return this.get_my_available_organized_crimes(params, options); }
-  /** GET /user/perks */
-  get_my_perks(params: M.GetMyPerksParams = {}, options?: ExecutionOptions): Promise<M.GetMyPerksResponse> { return executeOperation<M.GetMyPerksResponse>(this.client, "getMyPerks", params, options); }
-  getMyPerks(params: M.GetMyPerksParams = {}, options?: ExecutionOptions): Promise<M.GetMyPerksResponse> { return this.get_my_perks(params, options); }
-  /** GET /user/personalstats */
-  get_my_personal_stats(params: M.GetMyPersonalStatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyPersonalStatsResponse> { return executeOperation<M.GetMyPersonalStatsResponse>(this.client, "getMyPersonalStats", params, options); }
-  getMyPersonalStats(params: M.GetMyPersonalStatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyPersonalStatsResponse> { return this.get_my_personal_stats(params, options); }
-  /** GET /user/profile */
-  get_my_profile(params: M.GetMyProfileParams = {}, options?: ExecutionOptions): Promise<M.GetMyProfileResponse> { return executeOperation<M.GetMyProfileResponse>(this.client, "getMyProfile", params, options); }
-  getMyProfile(params: M.GetMyProfileParams = {}, options?: ExecutionOptions): Promise<M.GetMyProfileResponse> { return this.get_my_profile(params, options); }
-  /** GET /user/properties */
-  get_my_properties(params: M.GetMyPropertiesParams = {}, options?: ExecutionOptions): Promise<M.GetMyPropertiesResponse> { return executeOperation<M.GetMyPropertiesResponse>(this.client, "getMyProperties", params, options); }
-  getMyProperties(params: M.GetMyPropertiesParams = {}, options?: ExecutionOptions): Promise<M.GetMyPropertiesResponse> { return this.get_my_properties(params, options); }
-  /** GET /user/property */
-  get_my_property(params: M.GetMyPropertyParams = {}, options?: ExecutionOptions): Promise<M.GetMyPropertyResponse> { return executeOperation<M.GetMyPropertyResponse>(this.client, "getMyProperty", params, options); }
-  getMyProperty(params: M.GetMyPropertyParams = {}, options?: ExecutionOptions): Promise<M.GetMyPropertyResponse> { return this.get_my_property(params, options); }
-  /** GET /user/races */
-  get_my_races(params: M.GetMyRacesParams = {}, options?: ExecutionOptions): Promise<M.GetMyRacesResponse> { return executeOperation<M.GetMyRacesResponse>(this.client, "getMyRaces", params, options); }
-  getMyRaces(params: M.GetMyRacesParams = {}, options?: ExecutionOptions): Promise<M.GetMyRacesResponse> { return this.get_my_races(params, options); }
-  /** GET /user/racingrecords */
-  get_my_racing_records(params: M.GetMyRacingRecordsParams = {}, options?: ExecutionOptions): Promise<M.GetMyRacingRecordsResponse> { return executeOperation<M.GetMyRacingRecordsResponse>(this.client, "getMyRacingRecords", params, options); }
-  getMyRacingRecords(params: M.GetMyRacingRecordsParams = {}, options?: ExecutionOptions): Promise<M.GetMyRacingRecordsResponse> { return this.get_my_racing_records(params, options); }
-  /** GET /user/refills */
-  get_my_refills(params: M.GetMyRefillsParams = {}, options?: ExecutionOptions): Promise<M.GetMyRefillsResponse> { return executeOperation<M.GetMyRefillsResponse>(this.client, "getMyRefills", params, options); }
-  getMyRefills(params: M.GetMyRefillsParams = {}, options?: ExecutionOptions): Promise<M.GetMyRefillsResponse> { return this.get_my_refills(params, options); }
-  /** GET /user/reports */
-  get_my_reports(params: M.GetMyReportsParams = {}, options?: ExecutionOptions): Promise<M.GetMyReportsResponse> { return executeOperation<M.GetMyReportsResponse>(this.client, "getMyReports", params, options); }
-  getMyReports(params: M.GetMyReportsParams = {}, options?: ExecutionOptions): Promise<M.GetMyReportsResponse> { return this.get_my_reports(params, options); }
-  /** GET /user/revives */
-  get_my_revives(params: M.GetMyRevivesParams = {}, options?: ExecutionOptions): Promise<M.GetMyRevivesResponse> { return executeOperation<M.GetMyRevivesResponse>(this.client, "getMyRevives", params, options); }
-  getMyRevives(params: M.GetMyRevivesParams = {}, options?: ExecutionOptions): Promise<M.GetMyRevivesResponse> { return this.get_my_revives(params, options); }
-  /** GET /user/revivesFull */
-  get_my_revives_simplified(params: M.GetMyRevivesSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyRevivesSimplifiedResponse> { return executeOperation<M.GetMyRevivesSimplifiedResponse>(this.client, "getMyRevivesSimplified", params, options); }
-  getMyRevivesSimplified(params: M.GetMyRevivesSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyRevivesSimplifiedResponse> { return this.get_my_revives_simplified(params, options); }
-  /** GET /user/search */
-  get_users_search(params: M.GetUsersSearchParams = {}, options?: ExecutionOptions): Promise<M.GetUsersSearchResponse> { return executeOperation<M.GetUsersSearchResponse>(this.client, "getUsersSearch", params, options); }
-  getUsersSearch(params: M.GetUsersSearchParams = {}, options?: ExecutionOptions): Promise<M.GetUsersSearchResponse> { return this.get_users_search(params, options); }
-  /** GET /user/skills */
-  get_my_skills(params: M.GetMySkillsParams = {}, options?: ExecutionOptions): Promise<M.GetMySkillsResponse> { return executeOperation<M.GetMySkillsResponse>(this.client, "getMySkills", params, options); }
-  getMySkills(params: M.GetMySkillsParams = {}, options?: ExecutionOptions): Promise<M.GetMySkillsResponse> { return this.get_my_skills(params, options); }
-  /** GET /user/snapshot */
-  get_users_snapshot(params: M.GetUsersSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetUsersSnapshotResponse> { return executeOperation<M.GetUsersSnapshotResponse>(this.client, "getUsersSnapshot", params, options); }
-  getUsersSnapshot(params: M.GetUsersSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetUsersSnapshotResponse> { return this.get_users_snapshot(params, options); }
-  /** GET /user/stocks */
-  get_my_stocks(params: M.GetMyStocksParams = {}, options?: ExecutionOptions): Promise<M.GetMyStocksResponse> { return executeOperation<M.GetMyStocksResponse>(this.client, "getMyStocks", params, options); }
-  getMyStocks(params: M.GetMyStocksParams = {}, options?: ExecutionOptions): Promise<M.GetMyStocksResponse> { return this.get_my_stocks(params, options); }
-  /** GET /user/timestamp */
-  get_user_timestamp(params: M.GetUserTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetUserTimestampResponse> { return executeOperation<M.GetUserTimestampResponse>(this.client, "getUserTimestamp", params, options); }
-  getUserTimestamp(params: M.GetUserTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetUserTimestampResponse> { return this.get_user_timestamp(params, options); }
-  /** GET /user/trades */
-  get_my_trades(params: M.GetMyTradesParams = {}, options?: ExecutionOptions): Promise<M.GetMyTradesResponse> { return executeOperation<M.GetMyTradesResponse>(this.client, "getMyTrades", params, options); }
-  getMyTrades(params: M.GetMyTradesParams = {}, options?: ExecutionOptions): Promise<M.GetMyTradesResponse> { return this.get_my_trades(params, options); }
-  /** GET /user/travel */
-  get_my_travel_information(params: M.GetMyTravelInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyTravelInformationResponse> { return executeOperation<M.GetMyTravelInformationResponse>(this.client, "getMyTravelInformation", params, options); }
-  getMyTravelInformation(params: M.GetMyTravelInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyTravelInformationResponse> { return this.get_my_travel_information(params, options); }
-  /** GET /user/travelinventory */
-  get_my_travel_inventory(params: M.GetMyTravelInventoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyTravelInventoryResponse> { return executeOperation<M.GetMyTravelInventoryResponse>(this.client, "getMyTravelInventory", params, options); }
-  getMyTravelInventory(params: M.GetMyTravelInventoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyTravelInventoryResponse> { return this.get_my_travel_inventory(params, options); }
-  /** GET /user/virus */
-  get_my_virus_coding_information(params: M.GetMyVirusCodingInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyVirusCodingInformationResponse> { return executeOperation<M.GetMyVirusCodingInformationResponse>(this.client, "getMyVirusCodingInformation", params, options); }
-  getMyVirusCodingInformation(params: M.GetMyVirusCodingInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyVirusCodingInformationResponse> { return this.get_my_virus_coding_information(params, options); }
-  /** GET /user/weaponexp */
-  get_my_weapon_exp(params: M.GetMyWeaponExpParams = {}, options?: ExecutionOptions): Promise<M.GetMyWeaponExpResponse> { return executeOperation<M.GetMyWeaponExpResponse>(this.client, "getMyWeaponExp", params, options); }
-  getMyWeaponExp(params: M.GetMyWeaponExpParams = {}, options?: ExecutionOptions): Promise<M.GetMyWeaponExpResponse> { return this.get_my_weapon_exp(params, options); }
-  /** GET /user/workstats */
-  get_my_workstats(params: M.GetMyWorkstatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyWorkstatsResponse> { return executeOperation<M.GetMyWorkstatsResponse>(this.client, "getMyWorkstats", params, options); }
-  getMyWorkstats(params: M.GetMyWorkstatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyWorkstatsResponse> { return this.get_my_workstats(params, options); }
+  /** Get any Company selection. Key access level depends on the required selections. Choose one or more selections (comma separated). Required key access: public. `GET /company` */
+  getCompanyGeneric(params: M.GetCompanyGenericParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyGenericResponse> { return executeOperation<M.GetCompanyGenericResponse>(this.client, "getCompanyGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getCompanyGeneric}; snake_case aliases are removed in a future major version. */
+  get_company_generic(params: M.GetCompanyGenericParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyGenericResponse> { return this.getCompanyGeneric(params, options); }
+  /** Get a company's employees. Requires public access key. Required key access: public. `GET /company/{id}/employees` */
+  getCompanyEmployees(params: M.GetCompanyEmployeesParams, options?: ExecutionOptions): Promise<M.GetCompanyEmployeesResponse> { return executeOperation<M.GetCompanyEmployeesResponse>(this.client, "getCompanyEmployees", params, options); }
+  /** @deprecated Use {@link OpenApi.getCompanyEmployees}; snake_case aliases are removed in a future major version. */
+  get_company_employees(params: M.GetCompanyEmployeesParams, options?: ExecutionOptions): Promise<M.GetCompanyEmployeesResponse> { return this.getCompanyEmployees(params, options); }
+  /** Get a company's profile. Requires public access key. Required key access: public. `GET /company/{id}/profile` */
+  getCompanyProfile(params: M.GetCompanyProfileParams, options?: ExecutionOptions): Promise<M.GetCompanyProfileResponse> { return executeOperation<M.GetCompanyProfileResponse>(this.client, "getCompanyProfile", params, options); }
+  /** @deprecated Use {@link OpenApi.getCompanyProfile}; snake_case aliases are removed in a future major version. */
+  get_company_profile(params: M.GetCompanyProfileParams, options?: ExecutionOptions): Promise<M.GetCompanyProfileResponse> { return this.getCompanyProfile(params, options); }
+  /** Get a list of companies for a specific company type. Requires public access key. Required key access: public. `GET /company/{typeId}/companies` */
+  getCompaniesList(params: M.GetCompaniesListParams, options?: ExecutionOptions): Promise<M.GetCompaniesListResponse> { return executeOperation<M.GetCompaniesListResponse>(this.client, "getCompaniesList", params, options); }
+  /** @deprecated Use {@link OpenApi.getCompaniesList}; snake_case aliases are removed in a future major version. */
+  get_companies_list(params: M.GetCompaniesListParams, options?: ExecutionOptions): Promise<M.GetCompaniesListResponse> { return this.getCompaniesList(params, options); }
+  /** Get your company's applications. Requires limited access key. Required key access: limited. `GET /company/applications` */
+  getMyCompanyApplications(params: M.GetMyCompanyApplicationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyApplicationsResponse> { return executeOperation<M.GetMyCompanyApplicationsResponse>(this.client, "getMyCompanyApplications", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCompanyApplications}; snake_case aliases are removed in a future major version. */
+  get_my_company_applications(params: M.GetMyCompanyApplicationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyApplicationsResponse> { return this.getMyCompanyApplications(params, options); }
+  /** Get my company's employees. Requires public access key. When using Limited, Custom or Full access API keys, the response will be: * for director: CompanyEmployeeFull * for employee: CompanyEmployeeExtended * anyone else: CompanyEmployee. Required key access: public. `GET /company/employees` */
+  getMyCompanyEmployees(params: M.GetMyCompanyEmployeesParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyEmployeesResponse> { return executeOperation<M.GetMyCompanyEmployeesResponse>(this.client, "getMyCompanyEmployees", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCompanyEmployees}; snake_case aliases are removed in a future major version. */
+  get_my_company_employees(params: M.GetMyCompanyEmployeesParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyEmployeesResponse> { return this.getMyCompanyEmployees(params, options); }
+  /** Requires public access key. Required key access: public. `GET /company/lookup` */
+  getCompanyLookup(params: M.GetCompanyLookupParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyLookupResponse> { return executeOperation<M.GetCompanyLookupResponse>(this.client, "getCompanyLookup", params, options); }
+  /** @deprecated Use {@link OpenApi.getCompanyLookup}; snake_case aliases are removed in a future major version. */
+  get_company_lookup(params: M.GetCompanyLookupParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyLookupResponse> { return this.getCompanyLookup(params, options); }
+  /** Get your company's news details. Requires limited access key. Required key access: limited. `GET /company/news` */
+  getMyCompanyNews(params: M.GetMyCompanyNewsParams, options?: ExecutionOptions): Promise<M.GetMyCompanyNewsResponse> { return executeOperation<M.GetMyCompanyNewsResponse>(this.client, "getMyCompanyNews", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCompanyNews}; snake_case aliases are removed in a future major version. */
+  get_my_company_news(params: M.GetMyCompanyNewsParams, options?: ExecutionOptions): Promise<M.GetMyCompanyNewsResponse> { return this.getMyCompanyNews(params, options); }
+  /** Get my company's profile. Requires public access key. When using Limited, Custom or Full access API keys, the response will be of type CompanyProfileExtended, otherwise it will be CompanyProfile. Required key access: public. `GET /company/profile` */
+  getMyCompanyProfile(params: M.GetMyCompanyProfileParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyProfileResponse> { return executeOperation<M.GetMyCompanyProfileResponse>(this.client, "getMyCompanyProfile", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCompanyProfile}; snake_case aliases are removed in a future major version. */
+  get_my_company_profile(params: M.GetMyCompanyProfileParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyProfileResponse> { return this.getMyCompanyProfile(params, options); }
+  /** Search companies by name or other criteria. Requires public access key. This selection is standalone and cannot be used together with other selections. Required key access: public. `GET /company/search` */
+  getCompaniesSearch(params: M.GetCompaniesSearchParams = {}, options?: ExecutionOptions): Promise<M.GetCompaniesSearchResponse> { return executeOperation<M.GetCompaniesSearchResponse>(this.client, "getCompaniesSearch", params, options); }
+  /** @deprecated Use {@link OpenApi.getCompaniesSearch}; snake_case aliases are removed in a future major version. */
+  get_companies_search(params: M.GetCompaniesSearchParams = {}, options?: ExecutionOptions): Promise<M.GetCompaniesSearchResponse> { return this.getCompaniesSearch(params, options); }
+  /** Get daily companies snapshot CSV. Requires public access key. Returns a CSV daily snapshot of companies. This selection is standalone and cannot be used together with other selections. CSV columns: id, name, created_at, days_old, image, type, rating, director_id, employees_hired, employees_capacity, daily_income, daily_customers, weekly_income, weekly_customers, applications_allowed Required key access: public. `GET /company/snapshot` */
+  getCompaniesSnapshot(params: M.GetCompaniesSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetCompaniesSnapshotResponse> { return executeOperation<M.GetCompaniesSnapshotResponse>(this.client, "getCompaniesSnapshot", params, options); }
+  /** @deprecated Use {@link OpenApi.getCompaniesSnapshot}; snake_case aliases are removed in a future major version. */
+  get_companies_snapshot(params: M.GetCompaniesSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetCompaniesSnapshotResponse> { return this.getCompaniesSnapshot(params, options); }
+  /** Get your company's stock. Requires limited access key. Required key access: limited. `GET /company/stock` */
+  getMyCompanyStock(params: M.GetMyCompanyStockParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyStockResponse> { return executeOperation<M.GetMyCompanyStockResponse>(this.client, "getMyCompanyStock", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCompanyStock}; snake_case aliases are removed in a future major version. */
+  get_my_company_stock(params: M.GetMyCompanyStockParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompanyStockResponse> { return this.getMyCompanyStock(params, options); }
+  /** Get current server time. Requires public access key. Required key access: public. `GET /company/timestamp` */
+  getCompanyTimestamp(params: M.GetCompanyTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyTimestampResponse> { return executeOperation<M.GetCompanyTimestampResponse>(this.client, "getCompanyTimestamp", params, options); }
+  /** @deprecated Use {@link OpenApi.getCompanyTimestamp}; snake_case aliases are removed in a future major version. */
+  get_company_timestamp(params: M.GetCompanyTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetCompanyTimestampResponse> { return this.getCompanyTimestamp(params, options); }
+  /** Get any Faction selection. Key access level depends on the required selections. Choose one or more selections (comma separated). Required key access: public. `GET /faction` */
+  getFactionGeneric(params: M.GetFactionGenericParams = {}, options?: ExecutionOptions): Promise<M.GetFactionGenericResponse> { return executeOperation<M.GetFactionGenericResponse>(this.client, "getFactionGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionGeneric}; snake_case aliases are removed in a future major version. */
+  get_faction_generic(params: M.GetFactionGenericParams = {}, options?: ExecutionOptions): Promise<M.GetFactionGenericResponse> { return this.getFactionGeneric(params, options); }
+  /** Get a chain report. Requires public access key. Chain reports for ongoing chains are available only for your own faction. Required key access: public. `GET /faction/{chainId}/chainreport` */
+  getChainReport(params: M.GetChainReportParams, options?: ExecutionOptions): Promise<M.GetChainReportResponse> { return executeOperation<M.GetChainReportResponse>(this.client, "getChainReport", params, options); }
+  /** @deprecated Use {@link OpenApi.getChainReport}; snake_case aliases are removed in a future major version. */
+  get_chain_report(params: M.GetChainReportParams, options?: ExecutionOptions): Promise<M.GetChainReportResponse> { return this.getChainReport(params, options); }
+  /** Get a specific organized crime. Requires minimal access key with faction API access permissions. Required key access: minimal. `GET /faction/{crimeId}/crime` */
+  getMyFactionOrganizedCrime(params: M.GetMyFactionOrganizedCrimeParams, options?: ExecutionOptions): Promise<M.GetMyFactionOrganizedCrimeResponse> { return executeOperation<M.GetMyFactionOrganizedCrimeResponse>(this.client, "getMyFactionOrganizedCrime", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionOrganizedCrime}; snake_case aliases are removed in a future major version. */
+  get_my_faction_organized_crime(params: M.GetMyFactionOrganizedCrimeParams, options?: ExecutionOptions): Promise<M.GetMyFactionOrganizedCrimeResponse> { return this.getMyFactionOrganizedCrime(params, options); }
+  /** Get a faction's basic details. Requires public access key. The 'is_enlisted' value will be populated if you're requesting data for your faction and have faction permissions (with custom, limited or full access keys), otherwise it will be set as null. Required key access: public. `GET /faction/{id}/basic` */
+  getFactionBasicInformation(params: M.GetFactionBasicInformationParams, options?: ExecutionOptions): Promise<M.GetFactionBasicInformationResponse> { return executeOperation<M.GetFactionBasicInformationResponse>(this.client, "getFactionBasicInformation", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionBasicInformation}; snake_case aliases are removed in a future major version. */
+  get_faction_basic_information(params: M.GetFactionBasicInformationParams, options?: ExecutionOptions): Promise<M.GetFactionBasicInformationResponse> { return this.getFactionBasicInformation(params, options); }
+  /** Get a faction's current chain. Requires public access key. Required key access: public. `GET /faction/{id}/chain` */
+  getFactionChain(params: M.GetFactionChainParams, options?: ExecutionOptions): Promise<M.GetFactionChainResponse> { return executeOperation<M.GetFactionChainResponse>(this.client, "getFactionChain", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionChain}; snake_case aliases are removed in a future major version. */
+  get_faction_chain(params: M.GetFactionChainParams, options?: ExecutionOptions): Promise<M.GetFactionChainResponse> { return this.getFactionChain(params, options); }
+  /** Get a list of a faction's completed chains. Requires public access key. Required key access: public. `GET /faction/{id}/chains` */
+  getFactionCompletedChains(params: M.GetFactionCompletedChainsParams, options?: ExecutionOptions): Promise<M.GetFactionCompletedChainsResponse> { return executeOperation<M.GetFactionCompletedChainsResponse>(this.client, "getFactionCompletedChains", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionCompletedChains}; snake_case aliases are removed in a future major version. */
+  get_faction_completed_chains(params: M.GetFactionCompletedChainsParams, options?: ExecutionOptions): Promise<M.GetFactionCompletedChainsResponse> { return this.getFactionCompletedChains(params, options); }
+  /** Get a faction's hall of fame rankings. Requires public access key. Required key access: public. `GET /faction/{id}/hof` */
+  getFactionHoF(params: M.GetFactionHoFParams, options?: ExecutionOptions): Promise<M.GetFactionHoFResponse> { return executeOperation<M.GetFactionHoFResponse>(this.client, "getFactionHoF", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionHoF}; snake_case aliases are removed in a future major version. */
+  get_faction_ho_f(params: M.GetFactionHoFParams, options?: ExecutionOptions): Promise<M.GetFactionHoFResponse> { return this.getFactionHoF(params, options); }
+  /** Get a list of a faction's members. Requires public access key. The 'revive_setting' value will be populated (not Unknown) if you're requesting data for your own faction and have faction permissions (with custom, limited or full access keys), otherwise it will be set as 'Unknown'. Required key access: public. `GET /faction/{id}/members` */
+  getFactionMembers(params: M.GetFactionMembersParams, options?: ExecutionOptions): Promise<M.GetFactionMembersResponse> { return executeOperation<M.GetFactionMembersResponse>(this.client, "getFactionMembers", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionMembers}; snake_case aliases are removed in a future major version. */
+  get_faction_members(params: M.GetFactionMembersParams, options?: ExecutionOptions): Promise<M.GetFactionMembersResponse> { return this.getFactionMembers(params, options); }
+  /** Get a faction's raids history. Requires public access key. Required key access: public. `GET /faction/{id}/raids` */
+  getFactionRaidsHistory(params: M.GetFactionRaidsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionRaidsHistoryResponse> { return executeOperation<M.GetFactionRaidsHistoryResponse>(this.client, "getFactionRaidsHistory", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionRaidsHistory}; snake_case aliases are removed in a future major version. */
+  get_faction_raids_history(params: M.GetFactionRaidsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionRaidsHistoryResponse> { return this.getFactionRaidsHistory(params, options); }
+  /** Get a faction's ranked wars history. Requires public access key. Use offset to get older results which are always ordered descending. Required key access: public. `GET /faction/{id}/rankedwars` */
+  getFactionRankedWarsHistory(params: M.GetFactionRankedWarsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionRankedWarsHistoryResponse> { return executeOperation<M.GetFactionRankedWarsHistoryResponse>(this.client, "getFactionRankedWarsHistory", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionRankedWarsHistory}; snake_case aliases are removed in a future major version. */
+  get_faction_ranked_wars_history(params: M.GetFactionRankedWarsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionRankedWarsHistoryResponse> { return this.getFactionRankedWarsHistory(params, options); }
+  /** Get a list of a faction's territories. Requires public access key. Required key access: public. `GET /faction/{id}/territory` */
+  getFactionTerritory(params: M.GetFactionTerritoryParams, options?: ExecutionOptions): Promise<M.GetFactionTerritoryResponse> { return executeOperation<M.GetFactionTerritoryResponse>(this.client, "getFactionTerritory", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionTerritory}; snake_case aliases are removed in a future major version. */
+  get_faction_territory(params: M.GetFactionTerritoryParams, options?: ExecutionOptions): Promise<M.GetFactionTerritoryResponse> { return this.getFactionTerritory(params, options); }
+  /** Get a faction's territory wars history. Requires public access key. Required key access: public. `GET /faction/{id}/territorywars` */
+  getFactionTerritoryWarsHistory(params: M.GetFactionTerritoryWarsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionTerritoryWarsHistoryResponse> { return executeOperation<M.GetFactionTerritoryWarsHistoryResponse>(this.client, "getFactionTerritoryWarsHistory", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionTerritoryWarsHistory}; snake_case aliases are removed in a future major version. */
+  get_faction_territory_wars_history(params: M.GetFactionTerritoryWarsHistoryParams, options?: ExecutionOptions): Promise<M.GetFactionTerritoryWarsHistoryResponse> { return this.getFactionTerritoryWarsHistory(params, options); }
+  /** Get a faction's wars & pacts details. Requires public access key. Required key access: public. `GET /faction/{id}/wars` */
+  getFactionWars(params: M.GetFactionWarsParams, options?: ExecutionOptions): Promise<M.GetFactionWarsResponse> { return executeOperation<M.GetFactionWarsResponse>(this.client, "getFactionWars", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionWars}; snake_case aliases are removed in a future major version. */
+  get_faction_wars(params: M.GetFactionWarsParams, options?: ExecutionOptions): Promise<M.GetFactionWarsResponse> { return this.getFactionWars(params, options); }
+  /** Get raid war details. Requires public access key. Required key access: public. `GET /faction/{raidWarId}/raidreport` */
+  getRaidReport(params: M.GetRaidReportParams, options?: ExecutionOptions): Promise<M.GetRaidReportResponse> { return executeOperation<M.GetRaidReportResponse>(this.client, "getRaidReport", params, options); }
+  /** @deprecated Use {@link OpenApi.getRaidReport}; snake_case aliases are removed in a future major version. */
+  get_raid_report(params: M.GetRaidReportParams, options?: ExecutionOptions): Promise<M.GetRaidReportResponse> { return this.getRaidReport(params, options); }
+  /** Get ranked war details. Requires public access key. Required key access: public. `GET /faction/{rankedWarId}/rankedwarreport` */
+  getRankedWarReport(params: M.GetRankedWarReportParams, options?: ExecutionOptions): Promise<M.GetRankedWarReportResponse> { return executeOperation<M.GetRankedWarReportResponse>(this.client, "getRankedWarReport", params, options); }
+  /** @deprecated Use {@link OpenApi.getRankedWarReport}; snake_case aliases are removed in a future major version. */
+  get_ranked_war_report(params: M.GetRankedWarReportParams, options?: ExecutionOptions): Promise<M.GetRankedWarReportResponse> { return this.getRankedWarReport(params, options); }
+  /** Get territory war details. Requires public access key. Required key access: public. `GET /faction/{territoryWarId}/territorywarreport` */
+  getTerritoryWarReport(params: M.GetTerritoryWarReportParams, options?: ExecutionOptions): Promise<M.GetTerritoryWarReportResponse> { return executeOperation<M.GetTerritoryWarReportResponse>(this.client, "getTerritoryWarReport", params, options); }
+  /** @deprecated Use {@link OpenApi.getTerritoryWarReport}; snake_case aliases are removed in a future major version. */
+  get_territory_war_report(params: M.GetTerritoryWarReportParams, options?: ExecutionOptions): Promise<M.GetTerritoryWarReportResponse> { return this.getTerritoryWarReport(params, options); }
+  /** Get your faction's applications. Requires minimal access key with faction API access permissions. Required key access: minimal. `GET /faction/applications` */
+  getMyFactionApplications(params: M.GetMyFactionApplicationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionApplicationsResponse> { return executeOperation<M.GetMyFactionApplicationsResponse>(this.client, "getMyFactionApplications", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionApplications}; snake_case aliases are removed in a future major version. */
+  get_my_faction_applications(params: M.GetMyFactionApplicationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionApplicationsResponse> { return this.getMyFactionApplications(params, options); }
+  /** Get your faction's detailed attacks. Requires limited access key with faction API access permissions. Required key access: limited. `GET /faction/attacks` */
+  getMyFactionAttacks(params: M.GetMyFactionAttacksParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionAttacksResponse> { return executeOperation<M.GetMyFactionAttacksResponse>(this.client, "getMyFactionAttacks", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionAttacks}; snake_case aliases are removed in a future major version. */
+  get_my_faction_attacks(params: M.GetMyFactionAttacksParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionAttacksResponse> { return this.getMyFactionAttacks(params, options); }
+  /** Get your faction's simplified attacks. Requires limited access key with faction API access permissions. Required key access: limited. `GET /faction/attacksfull` */
+  getMyFactionAttacksSimplified(params: M.GetMyFactionAttacksSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionAttacksSimplifiedResponse> { return executeOperation<M.GetMyFactionAttacksSimplifiedResponse>(this.client, "getMyFactionAttacksSimplified", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionAttacksSimplified}; snake_case aliases are removed in a future major version. */
+  get_my_faction_attacks_simplified(params: M.GetMyFactionAttacksSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionAttacksSimplifiedResponse> { return this.getMyFactionAttacksSimplified(params, options); }
+  /** Get your faction's & member's balance details. Requires limited access key with faction API access permissions. Required key access: limited. `GET /faction/balance` */
+  getMyFactionBalance(params: M.GetMyFactionBalanceParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionBalanceResponse> { return executeOperation<M.GetMyFactionBalanceResponse>(this.client, "getMyFactionBalance", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionBalance}; snake_case aliases are removed in a future major version. */
+  get_my_faction_balance(params: M.GetMyFactionBalanceParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionBalanceResponse> { return this.getMyFactionBalance(params, options); }
+  /** Get your faction's basic details. Requires public access key. The 'is_enlisted' value will be populated if you have API faction permissions (with custom, limited or full access keys), otherwise it will be set as null. Required key access: public. `GET /faction/basic` */
+  getMyFactionBasicInformation(params: M.GetMyFactionBasicInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionBasicInformationResponse> { return executeOperation<M.GetMyFactionBasicInformationResponse>(this.client, "getMyFactionBasicInformation", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionBasicInformation}; snake_case aliases are removed in a future major version. */
+  get_my_faction_basic_information(params: M.GetMyFactionBasicInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionBasicInformationResponse> { return this.getMyFactionBasicInformation(params, options); }
+  /** Get your faction's current chain. Requires public access key. Required key access: public. `GET /faction/chain` */
+  getMyFactionChain(params: M.GetMyFactionChainParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionChainResponse> { return executeOperation<M.GetMyFactionChainResponse>(this.client, "getMyFactionChain", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionChain}; snake_case aliases are removed in a future major version. */
+  get_my_faction_chain(params: M.GetMyFactionChainParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionChainResponse> { return this.getMyFactionChain(params, options); }
+  /** Get your faction's latest chain report. Requires public access key. This includes currently ongoing chains. Required key access: public. `GET /faction/chainreport` */
+  getMyFactionLatestChainReport(params: M.GetMyFactionLatestChainReportParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionLatestChainReportResponse> { return executeOperation<M.GetMyFactionLatestChainReportResponse>(this.client, "getMyFactionLatestChainReport", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionLatestChainReport}; snake_case aliases are removed in a future major version. */
+  get_my_faction_latest_chain_report(params: M.GetMyFactionLatestChainReportParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionLatestChainReportResponse> { return this.getMyFactionLatestChainReport(params, options); }
+  /** Get a list of your faction's completed chains. Requires public access key. Required key access: public. `GET /faction/chains` */
+  getMyFactionCompletedChains(params: M.GetMyFactionCompletedChainsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionCompletedChainsResponse> { return executeOperation<M.GetMyFactionCompletedChainsResponse>(this.client, "getMyFactionCompletedChains", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionCompletedChains}; snake_case aliases are removed in a future major version. */
+  get_my_faction_completed_chains(params: M.GetMyFactionCompletedChainsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionCompletedChainsResponse> { return this.getMyFactionCompletedChains(params, options); }
+  /** Get your faction's challenge contributors. Requires limiteed access key with faction API access permissions. Required key access: limited. `GET /faction/contributors` */
+  getMyFactionContributors(params: M.GetMyFactionContributorsParams, options?: ExecutionOptions): Promise<M.GetMyFactionContributorsResponse> { return executeOperation<M.GetMyFactionContributorsResponse>(this.client, "getMyFactionContributors", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionContributors}; snake_case aliases are removed in a future major version. */
+  get_my_faction_contributors(params: M.GetMyFactionContributorsParams, options?: ExecutionOptions): Promise<M.GetMyFactionContributorsResponse> { return this.getMyFactionContributors(params, options); }
+  /** Get your faction members crime experience. Requires minimal access key. Members are ordered descending, from highest crime experience to lowest. Required key access: minimal. `GET /faction/crimeexp` */
+  getMyFactionCrimeExp(params: M.GetMyFactionCrimeExpParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionCrimeExpResponse> { return executeOperation<M.GetMyFactionCrimeExpResponse>(this.client, "getMyFactionCrimeExp", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionCrimeExp}; snake_case aliases are removed in a future major version. */
+  get_my_faction_crime_exp(params: M.GetMyFactionCrimeExpParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionCrimeExpResponse> { return this.getMyFactionCrimeExp(params, options); }
+  /** Get your faction's organized crimes. Requires minimal access key with faction API access permissions. It's possible to get older entries either by timestamp range (from, to) or with offset. Crimes are ordered depending on the category chosen: * For categories 'all' & 'available', the ordering field is 'created_at'. * For categories 'successful', 'failed' & 'completed', the ordering field is 'executed_at'. * For categories 'recruiting' & 'expired', the ordering field is 'expired_at'. * For category 'planning', the ordering field is 'ready_at'. Required key access: minimal. `GET /faction/crimes` */
+  getMyFactionOrganizedCrimes(params: M.GetMyFactionOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionOrganizedCrimesResponse> { return executeOperation<M.GetMyFactionOrganizedCrimesResponse>(this.client, "getMyFactionOrganizedCrimes", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionOrganizedCrimes}; snake_case aliases are removed in a future major version. */
+  get_my_faction_organized_crimes(params: M.GetMyFactionOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionOrganizedCrimesResponse> { return this.getMyFactionOrganizedCrimes(params, options); }
+  /** Get all dirty bombs. Requires public access key. Required key access: public. `GET /faction/dirtybombs` */
+  getWarfareDirtyBombs(params: M.GetWarfareDirtyBombsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareDirtyBombsResponse> { return executeOperation<M.GetWarfareDirtyBombsResponse>(this.client, "getWarfareDirtyBombs", params, options); }
+  /** @deprecated Use {@link OpenApi.getWarfareDirtyBombs}; snake_case aliases are removed in a future major version. */
+  get_warfare_dirty_bombs(params: M.GetWarfareDirtyBombsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareDirtyBombsResponse> { return this.getWarfareDirtyBombs(params, options); }
+  /** Get your faction's hall of fame rankings. Requires public access key. Required key access: public. `GET /faction/hof` */
+  getMyFactionHoF(params: M.GetMyFactionHoFParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionHoFResponse> { return executeOperation<M.GetMyFactionHoFResponse>(this.client, "getMyFactionHoF", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionHoF}; snake_case aliases are removed in a future major version. */
+  get_my_faction_ho_f(params: M.GetMyFactionHoFParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionHoFResponse> { return this.getMyFactionHoF(params, options); }
+  /** Get your faction's inventory items. Cached selection (5 minutes, all items cached at once). Requires limited access key. Required key access: limited. `GET /faction/inventory` */
+  getMyFactionInventory(params: M.GetMyFactionInventoryParams, options?: ExecutionOptions): Promise<M.GetMyFactionInventoryResponse> { return executeOperation<M.GetMyFactionInventoryResponse>(this.client, "getMyFactionInventory", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionInventory}; snake_case aliases are removed in a future major version. */
+  get_my_faction_inventory(params: M.GetMyFactionInventoryParams, options?: ExecutionOptions): Promise<M.GetMyFactionInventoryResponse> { return this.getMyFactionInventory(params, options); }
+  /** Requires public access key. Required key access: public. `GET /faction/lookup` */
+  getFactionLookup(params: M.GetFactionLookupParams = {}, options?: ExecutionOptions): Promise<M.GetFactionLookupResponse> { return executeOperation<M.GetFactionLookupResponse>(this.client, "getFactionLookup", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionLookup}; snake_case aliases are removed in a future major version. */
+  get_faction_lookup(params: M.GetFactionLookupParams = {}, options?: ExecutionOptions): Promise<M.GetFactionLookupResponse> { return this.getFactionLookup(params, options); }
+  /** Get a list of your faction's members. Requires public access key. The 'revive_setting' value will be populated (not Unknown) if you have faction permissions (with custom, limited or full access keys), otherwise it will be set as 'Unknown'. Required key access: public. `GET /faction/members` */
+  getMyFactionMembers(params: M.GetMyFactionMembersParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionMembersResponse> { return executeOperation<M.GetMyFactionMembersResponse>(this.client, "getMyFactionMembers", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionMembers}; snake_case aliases are removed in a future major version. */
+  get_my_faction_members(params: M.GetMyFactionMembersParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionMembersResponse> { return this.getMyFactionMembers(params, options); }
+  /** Get your faction's news details. Requires minimal access key with faction API access permissions. It is possible to pass up to 10 categories at the time (comma separated). Categories 'attack', 'depositFunds' and 'giveFunds' are only available with 'Custom', 'Limited' or 'Full' access keys. Required key access: minimal. `GET /faction/news` */
+  getMyFactionNews(params: M.GetMyFactionNewsParams, options?: ExecutionOptions): Promise<M.GetMyFactionNewsResponse> { return executeOperation<M.GetMyFactionNewsResponse>(this.client, "getMyFactionNews", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionNews}; snake_case aliases are removed in a future major version. */
+  get_my_faction_news(params: M.GetMyFactionNewsParams, options?: ExecutionOptions): Promise<M.GetMyFactionNewsResponse> { return this.getMyFactionNews(params, options); }
+  /** Get your faction's positions details. Requires minimal access key with faction API access permissions. Required key access: minimal. `GET /faction/positions` */
+  getMyFactionPositions(params: M.GetMyFactionPositionsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionPositionsResponse> { return executeOperation<M.GetMyFactionPositionsResponse>(this.client, "getMyFactionPositions", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionPositions}; snake_case aliases are removed in a future major version. */
+  get_my_faction_positions(params: M.GetMyFactionPositionsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionPositionsResponse> { return this.getMyFactionPositions(params, options); }
+  /** Get a list of current rackets. Requires public access key. Required key access: public. `GET /faction/rackets` */
+  getFactionRackets(params: M.GetFactionRacketsParams = {}, options?: ExecutionOptions): Promise<M.GetFactionRacketsResponse> { return executeOperation<M.GetFactionRacketsResponse>(this.client, "getFactionRackets", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionRackets}; snake_case aliases are removed in a future major version. */
+  get_faction_rackets(params: M.GetFactionRacketsParams = {}, options?: ExecutionOptions): Promise<M.GetFactionRacketsResponse> { return this.getFactionRackets(params, options); }
+  /** Get raids history for your faction. Requires public access key. Required key access: public. `GET /faction/raids` */
+  getMyFactionRaidsHistory(params: M.GetMyFactionRaidsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRaidsHistoryResponse> { return executeOperation<M.GetMyFactionRaidsHistoryResponse>(this.client, "getMyFactionRaidsHistory", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionRaidsHistory}; snake_case aliases are removed in a future major version. */
+  get_my_faction_raids_history(params: M.GetMyFactionRaidsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRaidsHistoryResponse> { return this.getMyFactionRaidsHistory(params, options); }
+  /** Get ranked wars history for your faction. Requires public access key. Use offset to get older results which are always ordered descending. Required key access: public. `GET /faction/rankedwars` */
+  getMyFactionRankedWarsHistory(params: M.GetMyFactionRankedWarsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRankedWarsHistoryResponse> { return executeOperation<M.GetMyFactionRankedWarsHistoryResponse>(this.client, "getMyFactionRankedWarsHistory", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionRankedWarsHistory}; snake_case aliases are removed in a future major version. */
+  get_my_faction_ranked_wars_history(params: M.GetMyFactionRankedWarsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRankedWarsHistoryResponse> { return this.getMyFactionRankedWarsHistory(params, options); }
+  /** Get faction reports. Requires limited access key. The limit is set to 25 when requesting any category other than 'stats'. When requesting the 'stats' category, limit can be increased up to 100. Required key access: limited. `GET /faction/reports` */
+  getMyFactionReports(params: M.GetMyFactionReportsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionReportsResponse> { return executeOperation<M.GetMyFactionReportsResponse>(this.client, "getMyFactionReports", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionReports}; snake_case aliases are removed in a future major version. */
+  get_my_faction_reports(params: M.GetMyFactionReportsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionReportsResponse> { return this.getMyFactionReports(params, options); }
+  /** Get your faction's detailed revives. Requires limited access key with faction API access permissions. Required key access: limited. `GET /faction/revives` */
+  getMyFactionRevives(params: M.GetMyFactionRevivesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRevivesResponse> { return executeOperation<M.GetMyFactionRevivesResponse>(this.client, "getMyFactionRevives", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionRevives}; snake_case aliases are removed in a future major version. */
+  get_my_faction_revives(params: M.GetMyFactionRevivesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRevivesResponse> { return this.getMyFactionRevives(params, options); }
+  /** Get your faction's simplified revives. Requires limited access key with faction API access permissions. Required key access: limited. `GET /faction/revivesFull` */
+  getMyFactionRevivesSimplified(params: M.GetMyFactionRevivesSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRevivesSimplifiedResponse> { return executeOperation<M.GetMyFactionRevivesSimplifiedResponse>(this.client, "getMyFactionRevivesSimplified", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionRevivesSimplified}; snake_case aliases are removed in a future major version. */
+  get_my_faction_revives_simplified(params: M.GetMyFactionRevivesSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionRevivesSimplifiedResponse> { return this.getMyFactionRevivesSimplified(params, options); }
+  /** Search factions by name or other criteria. Requires public access key. This selection is standalone and cannot be used together with other selections. Required key access: public. `GET /faction/search` */
+  getFactionSearch(params: M.GetFactionSearchParams = {}, options?: ExecutionOptions): Promise<M.GetFactionSearchResponse> { return executeOperation<M.GetFactionSearchResponse>(this.client, "getFactionSearch", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionSearch}; snake_case aliases are removed in a future major version. */
+  get_faction_search(params: M.GetFactionSearchParams = {}, options?: ExecutionOptions): Promise<M.GetFactionSearchResponse> { return this.getFactionSearch(params, options); }
+  /** Get daily factions snapshot CSV. Requires public access key. Returns a CSV daily snapshot of factions. This selection is standalone and cannot be used together with other selections. CSV columns: id, name, tag, tag_image, banner_image, leader_id, co_leader_id, respect, days_old, rank, members, members_max, member_list, recruiting, destroyed_timestamp Required key access: public. `GET /faction/snapshot` */
+  getFactionsSnapshot(params: M.GetFactionsSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetFactionsSnapshotResponse> { return executeOperation<M.GetFactionsSnapshotResponse>(this.client, "getFactionsSnapshot", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionsSnapshot}; snake_case aliases are removed in a future major version. */
+  get_factions_snapshot(params: M.GetFactionsSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetFactionsSnapshotResponse> { return this.getFactionsSnapshot(params, options); }
+  /** Get your faction's challenges stats. Requires minimal access key with faction API access permissions. Required key access: minimal. `GET /faction/stats` */
+  getMyFactionStats(params: M.GetMyFactionStatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionStatsResponse> { return executeOperation<M.GetMyFactionStatsResponse>(this.client, "getMyFactionStats", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionStats}; snake_case aliases are removed in a future major version. */
+  get_my_faction_stats(params: M.GetMyFactionStatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionStatsResponse> { return this.getMyFactionStats(params, options); }
+  /** Get a list of your faction's territories. Requires public access key. Required key access: public. `GET /faction/territory` */
+  getMyFactionTerritory(params: M.GetMyFactionTerritoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionTerritoryResponse> { return executeOperation<M.GetMyFactionTerritoryResponse>(this.client, "getMyFactionTerritory", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionTerritory}; snake_case aliases are removed in a future major version. */
+  get_my_faction_territory(params: M.GetMyFactionTerritoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionTerritoryResponse> { return this.getMyFactionTerritory(params, options); }
+  /** Get a list territory ownership. Requires public access key. Required key access: public. `GET /faction/territoryownership` */
+  getTerritoryOwnership(params: M.GetTerritoryOwnershipParams = {}, options?: ExecutionOptions): Promise<M.GetTerritoryOwnershipResponse> { return executeOperation<M.GetTerritoryOwnershipResponse>(this.client, "getTerritoryOwnership", params, options); }
+  /** @deprecated Use {@link OpenApi.getTerritoryOwnership}; snake_case aliases are removed in a future major version. */
+  get_territory_ownership(params: M.GetTerritoryOwnershipParams = {}, options?: ExecutionOptions): Promise<M.GetTerritoryOwnershipResponse> { return this.getTerritoryOwnership(params, options); }
+  /** Get territory wars history for your faction. Requires public access key. Required key access: public. `GET /faction/territorywars` */
+  getMyFactionTerritoryWarsHistory(params: M.GetMyFactionTerritoryWarsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionTerritoryWarsHistoryResponse> { return executeOperation<M.GetMyFactionTerritoryWarsHistoryResponse>(this.client, "getMyFactionTerritoryWarsHistory", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionTerritoryWarsHistory}; snake_case aliases are removed in a future major version. */
+  get_my_faction_territory_wars_history(params: M.GetMyFactionTerritoryWarsHistoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionTerritoryWarsHistoryResponse> { return this.getMyFactionTerritoryWarsHistory(params, options); }
+  /** Get current server time. Requires public access key. Required key access: public. `GET /faction/timestamp` */
+  getFactionTimestamp(params: M.GetFactionTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetFactionTimestampResponse> { return executeOperation<M.GetFactionTimestampResponse>(this.client, "getFactionTimestamp", params, options); }
+  /** @deprecated Use {@link OpenApi.getFactionTimestamp}; snake_case aliases are removed in a future major version. */
+  get_faction_timestamp(params: M.GetFactionTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetFactionTimestampResponse> { return this.getFactionTimestamp(params, options); }
+  /** Get your faction's upgrades. Requires minimal access key with faction API access permissions. Required key access: minimal. `GET /faction/upgrades` */
+  getMyFactionUpgrades(params: M.GetMyFactionUpgradesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionUpgradesResponse> { return executeOperation<M.GetMyFactionUpgradesResponse>(this.client, "getMyFactionUpgrades", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionUpgrades}; snake_case aliases are removed in a future major version. */
+  get_my_faction_upgrades(params: M.GetMyFactionUpgradesParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionUpgradesResponse> { return this.getMyFactionUpgrades(params, options); }
+  /** Get faction warfare. This selection is replaced by other warfare selections and 'faction' -> 'dirtybombs'. This will be removed on 1st January 2027. Requires public access key. The response depends on the selected category. Required key access: public. `GET /faction/warfare` */
+  getWarfare(params: M.GetWarfareParams, options?: ExecutionOptions): Promise<M.GetWarfareResponse> { return executeOperation<M.GetWarfareResponse>(this.client, "getWarfare", params, options); }
+  /** @deprecated Use {@link OpenApi.getWarfare}; snake_case aliases are removed in a future major version. */
+  get_warfare(params: M.GetWarfareParams, options?: ExecutionOptions): Promise<M.GetWarfareResponse> { return this.getWarfare(params, options); }
+  /** Get all chains. Requires public access key. By default, active chains are returned. Required key access: public. `GET /faction/warfarechains` */
+  getWarfareChains(params: M.GetWarfareChainsParams, options?: ExecutionOptions): Promise<M.GetWarfareChainsResponse> { return executeOperation<M.GetWarfareChainsResponse>(this.client, "getWarfareChains", params, options); }
+  /** @deprecated Use {@link OpenApi.getWarfareChains}; snake_case aliases are removed in a future major version. */
+  get_warfare_chains(params: M.GetWarfareChainsParams, options?: ExecutionOptions): Promise<M.GetWarfareChainsResponse> { return this.getWarfareChains(params, options); }
+  /** Get all raids. Requires public access key. Required key access: public. `GET /faction/warfareraids` */
+  getWarfareRaids(params: M.GetWarfareRaidsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareRaidsResponse> { return executeOperation<M.GetWarfareRaidsResponse>(this.client, "getWarfareRaids", params, options); }
+  /** @deprecated Use {@link OpenApi.getWarfareRaids}; snake_case aliases are removed in a future major version. */
+  get_warfare_raids(params: M.GetWarfareRaidsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareRaidsResponse> { return this.getWarfareRaids(params, options); }
+  /** Get all ranked wars. Requires public access key. Required key access: public. `GET /faction/warfareranked` */
+  getWarfareRankedWars(params: M.GetWarfareRankedWarsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareRankedWarsResponse> { return executeOperation<M.GetWarfareRankedWarsResponse>(this.client, "getWarfareRankedWars", params, options); }
+  /** @deprecated Use {@link OpenApi.getWarfareRankedWars}; snake_case aliases are removed in a future major version. */
+  get_warfare_ranked_wars(params: M.GetWarfareRankedWarsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareRankedWarsResponse> { return this.getWarfareRankedWars(params, options); }
+  /** Get all territory wars. Requires public access key. Required key access: public. `GET /faction/warfareterritory` */
+  getWarfareTerritoryWars(params: M.GetWarfareTerritoryWarsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareTerritoryWarsResponse> { return executeOperation<M.GetWarfareTerritoryWarsResponse>(this.client, "getWarfareTerritoryWars", params, options); }
+  /** @deprecated Use {@link OpenApi.getWarfareTerritoryWars}; snake_case aliases are removed in a future major version. */
+  get_warfare_territory_wars(params: M.GetWarfareTerritoryWarsParams = {}, options?: ExecutionOptions): Promise<M.GetWarfareTerritoryWarsResponse> { return this.getWarfareTerritoryWars(params, options); }
+  /** Get your faction's wars & pacts details. Requires public access key. Required key access: public. `GET /faction/wars` */
+  getMyFactionWars(params: M.GetMyFactionWarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionWarsResponse> { return executeOperation<M.GetMyFactionWarsResponse>(this.client, "getMyFactionWars", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFactionWars}; snake_case aliases are removed in a future major version. */
+  get_my_faction_wars(params: M.GetMyFactionWarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionWarsResponse> { return this.getMyFactionWars(params, options); }
+  /** Get any Forum selection. Requires public access key. Choose one or more selections (comma separated). Required key access: public. `GET /forum` */
+  getForumGeneric(params: M.GetForumGenericParams = {}, options?: ExecutionOptions): Promise<M.GetForumGenericResponse> { return executeOperation<M.GetForumGenericResponse>(this.client, "getForumGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getForumGeneric}; snake_case aliases are removed in a future major version. */
+  get_forum_generic(params: M.GetForumGenericParams = {}, options?: ExecutionOptions): Promise<M.GetForumGenericResponse> { return this.getForumGeneric(params, options); }
+  /** Get threads for specific public forum category or categories. Requires public access key. Required key access: public. `GET /forum/{categoryIds}/threads` */
+  getForumThreads(params: M.GetForumThreadsParams, options?: ExecutionOptions): Promise<M.GetForumThreadsResponse> { return executeOperation<M.GetForumThreadsResponse>(this.client, "getForumThreads", params, options); }
+  /** @deprecated Use {@link OpenApi.getForumThreads}; snake_case aliases are removed in a future major version. */
+  get_forum_threads(params: M.GetForumThreadsParams, options?: ExecutionOptions): Promise<M.GetForumThreadsResponse> { return this.getForumThreads(params, options); }
+  /** Get specific forum thread posts. Requires public access key. Returns 20 posts per page for a specific thread. By default, it uses 'offset', but it's possible to filter posts with 'from' & 'to' parameters. Required key access: public. `GET /forum/{threadId}/posts` */
+  getForumThreadPosts(params: M.GetForumThreadPostsParams, options?: ExecutionOptions): Promise<M.GetForumThreadPostsResponse> { return executeOperation<M.GetForumThreadPostsResponse>(this.client, "getForumThreadPosts", params, options); }
+  /** @deprecated Use {@link OpenApi.getForumThreadPosts}; snake_case aliases are removed in a future major version. */
+  get_forum_thread_posts(params: M.GetForumThreadPostsParams, options?: ExecutionOptions): Promise<M.GetForumThreadPostsResponse> { return this.getForumThreadPosts(params, options); }
+  /** Get specific thread details. Requires public access key. Contains details of a thread including topic content and poll (if any). Required key access: public. `GET /forum/{threadId}/thread` */
+  getForumThread(params: M.GetForumThreadParams, options?: ExecutionOptions): Promise<M.GetForumThreadResponse> { return executeOperation<M.GetForumThreadResponse>(this.client, "getForumThread", params, options); }
+  /** @deprecated Use {@link OpenApi.getForumThread}; snake_case aliases are removed in a future major version. */
+  get_forum_thread(params: M.GetForumThreadParams, options?: ExecutionOptions): Promise<M.GetForumThreadResponse> { return this.getForumThread(params, options); }
+  /** Get publicly available forum categories. Requires public access key. Required key access: public. `GET /forum/categories` */
+  getForumCategories(params: M.GetForumCategoriesParams = {}, options?: ExecutionOptions): Promise<M.GetForumCategoriesResponse> { return executeOperation<M.GetForumCategoriesResponse>(this.client, "getForumCategories", params, options); }
+  /** @deprecated Use {@link OpenApi.getForumCategories}; snake_case aliases are removed in a future major version. */
+  get_forum_categories(params: M.GetForumCategoriesParams = {}, options?: ExecutionOptions): Promise<M.GetForumCategoriesResponse> { return this.getForumCategories(params, options); }
+  /** Get all available forum selections. Requires public access key. Required key access: public. `GET /forum/lookup` */
+  getForumLookup(params: M.GetForumLookupParams = {}, options?: ExecutionOptions): Promise<M.GetForumLookupResponse> { return executeOperation<M.GetForumLookupResponse>(this.client, "getForumLookup", params, options); }
+  /** @deprecated Use {@link OpenApi.getForumLookup}; snake_case aliases are removed in a future major version. */
+  get_forum_lookup(params: M.GetForumLookupParams = {}, options?: ExecutionOptions): Promise<M.GetForumLookupResponse> { return this.getForumLookup(params, options); }
+  /** Get threads across all forum categories. Requires public access key. Required key access: public. `GET /forum/threads` */
+  getForumAllThreads(params: M.GetForumAllThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetForumAllThreadsResponse> { return executeOperation<M.GetForumAllThreadsResponse>(this.client, "getForumAllThreads", params, options); }
+  /** @deprecated Use {@link OpenApi.getForumAllThreads}; snake_case aliases are removed in a future major version. */
+  get_forum_all_threads(params: M.GetForumAllThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetForumAllThreadsResponse> { return this.getForumAllThreads(params, options); }
+  /** Get current server time. Requires public access key. Required key access: public. `GET /forum/timestamp` */
+  getForumTimestamp(params: M.GetForumTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetForumTimestampResponse> { return executeOperation<M.GetForumTimestampResponse>(this.client, "getForumTimestamp", params, options); }
+  /** @deprecated Use {@link OpenApi.getForumTimestamp}; snake_case aliases are removed in a future major version. */
+  get_forum_timestamp(params: M.GetForumTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetForumTimestampResponse> { return this.getForumTimestamp(params, options); }
+  /** Get any Key selection. Required key access: public. `GET /key` */
+  getKeyGeneric(params: M.GetKeyGenericParams = {}, options?: ExecutionOptions): Promise<M.GetKeyGenericResponse> { return executeOperation<M.GetKeyGenericResponse>(this.client, "getKeyGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getKeyGeneric}; snake_case aliases are removed in a future major version. */
+  get_key_generic(params: M.GetKeyGenericParams = {}, options?: ExecutionOptions): Promise<M.GetKeyGenericResponse> { return this.getKeyGeneric(params, options); }
+  /** Get current key info. Available for any key. Required key access: public. `GET /key/info` */
+  getKeyInfo(params: M.GetKeyInfoParams = {}, options?: ExecutionOptions): Promise<M.GetKeyInfoResponse> { return executeOperation<M.GetKeyInfoResponse>(this.client, "getKeyInfo", params, options); }
+  /** @deprecated Use {@link OpenApi.getKeyInfo}; snake_case aliases are removed in a future major version. */
+  get_key_info(params: M.GetKeyInfoParams = {}, options?: ExecutionOptions): Promise<M.GetKeyInfoResponse> { return this.getKeyInfo(params, options); }
+  /** Get current key log history. Available for any key. * This selection contains up to last 250 request logs. Required key access: public. `GET /key/log` */
+  getKeyLog(params: M.GetKeyLogParams = {}, options?: ExecutionOptions): Promise<M.GetKeyLogResponse> { return executeOperation<M.GetKeyLogResponse>(this.client, "getKeyLog", params, options); }
+  /** @deprecated Use {@link OpenApi.getKeyLog}; snake_case aliases are removed in a future major version. */
+  get_key_log(params: M.GetKeyLogParams = {}, options?: ExecutionOptions): Promise<M.GetKeyLogResponse> { return this.getKeyLog(params, options); }
+  /** Get any Market selection. Requires public access key. Choose one or more selections (comma separated). Required key access: public. `GET /market` */
+  getMarketGeneric(params: M.GetMarketGenericParams = {}, options?: ExecutionOptions): Promise<M.GetMarketGenericResponse> { return executeOperation<M.GetMarketGenericResponse>(this.client, "getMarketGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketGeneric}; snake_case aliases are removed in a future major version. */
+  get_market_generic(params: M.GetMarketGenericParams = {}, options?: ExecutionOptions): Promise<M.GetMarketGenericResponse> { return this.getMarketGeneric(params, options); }
+  /** Get specific item auction house listings. Requires public access key. Required key access: public. `GET /market/{id}/auctionhouse` */
+  getMarketAuctionHouseItem(params: M.GetMarketAuctionHouseItemParams, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseItemResponse> { return executeOperation<M.GetMarketAuctionHouseItemResponse>(this.client, "getMarketAuctionHouseItem", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketAuctionHouseItem}; snake_case aliases are removed in a future major version. */
+  get_market_auction_house_item(params: M.GetMarketAuctionHouseItemParams, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseItemResponse> { return this.getMarketAuctionHouseItem(params, options); }
+  /** Get specific item auction house listings. Requires public access key. Required key access: public. `GET /market/{id}/auctionhouselisting` */
+  getMarketAuctionHouseListing(params: M.GetMarketAuctionHouseListingParams, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseListingResponse> { return executeOperation<M.GetMarketAuctionHouseListingResponse>(this.client, "getMarketAuctionHouseListing", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketAuctionHouseListing}; snake_case aliases are removed in a future major version. */
+  get_market_auction_house_listing(params: M.GetMarketAuctionHouseListingParams, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseListingResponse> { return this.getMarketAuctionHouseListing(params, options); }
+  /** Get item specialized bazaar directory. Requires public access key. Required key access: public. `GET /market/{id}/bazaar` */
+  getMarketBazaarItem(params: M.GetMarketBazaarItemParams, options?: ExecutionOptions): Promise<M.GetMarketBazaarItemResponse> { return executeOperation<M.GetMarketBazaarItemResponse>(this.client, "getMarketBazaarItem", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketBazaarItem}; snake_case aliases are removed in a future major version. */
+  get_market_bazaar_item(params: M.GetMarketBazaarItemParams, options?: ExecutionOptions): Promise<M.GetMarketBazaarItemResponse> { return this.getMarketBazaarItem(params, options); }
+  /** Get item market listings. Globally cached selection. Requires public access key. Required key access: public. `GET /market/{id}/itemmarket` */
+  getMarketItemMarketItem(params: M.GetMarketItemMarketItemParams, options?: ExecutionOptions): Promise<M.GetMarketItemMarketItemResponse> { return executeOperation<M.GetMarketItemMarketItemResponse>(this.client, "getMarketItemMarketItem", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketItemMarketItem}; snake_case aliases are removed in a future major version. */
+  get_market_item_market_item(params: M.GetMarketItemMarketItemParams, options?: ExecutionOptions): Promise<M.GetMarketItemMarketItemResponse> { return this.getMarketItemMarketItem(params, options); }
+  /** Get properties market listings. Globally cached selection. Requires public access key. Required key access: public. `GET /market/{propertyTypeId}/properties` */
+  getMarketProperties(params: M.GetMarketPropertiesParams, options?: ExecutionOptions): Promise<M.GetMarketPropertiesResponse> { return executeOperation<M.GetMarketPropertiesResponse>(this.client, "getMarketProperties", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketProperties}; snake_case aliases are removed in a future major version. */
+  get_market_properties(params: M.GetMarketPropertiesParams, options?: ExecutionOptions): Promise<M.GetMarketPropertiesResponse> { return this.getMarketProperties(params, options); }
+  /** Get properties rental listings. Globally cached selection. Requires public access key. Required key access: public. `GET /market/{propertyTypeId}/rentals` */
+  getMarketPropertiesRental(params: M.GetMarketPropertiesRentalParams, options?: ExecutionOptions): Promise<M.GetMarketPropertiesRentalResponse> { return executeOperation<M.GetMarketPropertiesRentalResponse>(this.client, "getMarketPropertiesRental", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketPropertiesRental}; snake_case aliases are removed in a future major version. */
+  get_market_properties_rental(params: M.GetMarketPropertiesRentalParams, options?: ExecutionOptions): Promise<M.GetMarketPropertiesRentalResponse> { return this.getMarketPropertiesRental(params, options); }
+  /** Get auction house listings. Requires public access key. Required key access: public. `GET /market/auctionhouse` */
+  getMarketAuctionHouse(params: M.GetMarketAuctionHouseParams = {}, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseResponse> { return executeOperation<M.GetMarketAuctionHouseResponse>(this.client, "getMarketAuctionHouse", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketAuctionHouse}; snake_case aliases are removed in a future major version. */
+  get_market_auction_house(params: M.GetMarketAuctionHouseParams = {}, options?: ExecutionOptions): Promise<M.GetMarketAuctionHouseResponse> { return this.getMarketAuctionHouse(params, options); }
+  /** Get bazaar directory. Requires public access key. The default response is of type 'BazaarWeekly', but if a category is chosen, the response will be of type 'BazaarSpecialized'. Required key access: public. `GET /market/bazaar` */
+  getMarketBazaar(params: M.GetMarketBazaarParams = {}, options?: ExecutionOptions): Promise<M.GetMarketBazaarResponse> { return executeOperation<M.GetMarketBazaarResponse>(this.client, "getMarketBazaar", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketBazaar}; snake_case aliases are removed in a future major version. */
+  get_market_bazaar(params: M.GetMarketBazaarParams = {}, options?: ExecutionOptions): Promise<M.GetMarketBazaarResponse> { return this.getMarketBazaar(params, options); }
+  /** Get all available market selections. Requires public access key. Required key access: public. `GET /market/lookup` */
+  getMarketLookup(params: M.GetMarketLookupParams = {}, options?: ExecutionOptions): Promise<M.GetMarketLookupResponse> { return executeOperation<M.GetMarketLookupResponse>(this.client, "getMarketLookup", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketLookup}; snake_case aliases are removed in a future major version. */
+  get_market_lookup(params: M.GetMarketLookupParams = {}, options?: ExecutionOptions): Promise<M.GetMarketLookupResponse> { return this.getMarketLookup(params, options); }
+  /** Get points market listings. Requires public access key. Required key access: public. `GET /market/pointsmarket` */
+  getMarketPoints(params: M.GetMarketPointsParams = {}, options?: ExecutionOptions): Promise<M.GetMarketPointsResponse> { return executeOperation<M.GetMarketPointsResponse>(this.client, "getMarketPoints", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketPoints}; snake_case aliases are removed in a future major version. */
+  get_market_points(params: M.GetMarketPointsParams = {}, options?: ExecutionOptions): Promise<M.GetMarketPointsResponse> { return this.getMarketPoints(params, options); }
+  /** Get current server time. Requires public access key. Required key access: public. `GET /market/timestamp` */
+  getMarketTimestamp(params: M.GetMarketTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetMarketTimestampResponse> { return executeOperation<M.GetMarketTimestampResponse>(this.client, "getMarketTimestamp", params, options); }
+  /** @deprecated Use {@link OpenApi.getMarketTimestamp}; snake_case aliases are removed in a future major version. */
+  get_market_timestamp(params: M.GetMarketTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetMarketTimestampResponse> { return this.getMarketTimestamp(params, options); }
+  /** Get any property selection. Requires public access key. Choose one or more selections (comma separated). Required key access: public. `GET /property` */
+  getPropertyGeneric(params: M.GetPropertyGenericParams, options?: ExecutionOptions): Promise<M.GetPropertyGenericResponse> { return executeOperation<M.GetPropertyGenericResponse>(this.client, "getPropertyGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getPropertyGeneric}; snake_case aliases are removed in a future major version. */
+  get_property_generic(params: M.GetPropertyGenericParams, options?: ExecutionOptions): Promise<M.GetPropertyGenericResponse> { return this.getPropertyGeneric(params, options); }
+  /** Get a specific property. Requires public access key. Required key access: public. `GET /property/{id}/property` */
+  getProperty(params: M.GetPropertyParams, options?: ExecutionOptions): Promise<M.GetPropertyResponse> { return executeOperation<M.GetPropertyResponse>(this.client, "getProperty", params, options); }
+  /** @deprecated Use {@link OpenApi.getProperty}; snake_case aliases are removed in a future major version. */
+  get_property(params: M.GetPropertyParams, options?: ExecutionOptions): Promise<M.GetPropertyResponse> { return this.getProperty(params, options); }
+  /** Get all available property selections. Requires public access key. Required key access: public. `GET /property/lookup` */
+  getPropertyLookup(params: M.GetPropertyLookupParams = {}, options?: ExecutionOptions): Promise<M.GetPropertyLookupResponse> { return executeOperation<M.GetPropertyLookupResponse>(this.client, "getPropertyLookup", params, options); }
+  /** @deprecated Use {@link OpenApi.getPropertyLookup}; snake_case aliases are removed in a future major version. */
+  get_property_lookup(params: M.GetPropertyLookupParams = {}, options?: ExecutionOptions): Promise<M.GetPropertyLookupResponse> { return this.getPropertyLookup(params, options); }
+  /** Get current server time. Requires public access key. Required key access: public. `GET /property/timestamp` */
+  getPropertyTimestamp(params: M.GetPropertyTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetPropertyTimestampResponse> { return executeOperation<M.GetPropertyTimestampResponse>(this.client, "getPropertyTimestamp", params, options); }
+  /** @deprecated Use {@link OpenApi.getPropertyTimestamp}; snake_case aliases are removed in a future major version. */
+  get_property_timestamp(params: M.GetPropertyTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetPropertyTimestampResponse> { return this.getPropertyTimestamp(params, options); }
+  /** Get any Racing selection. Requires public access key. Choose one or more selections (comma separated). Required key access: public. `GET /racing` */
+  getRacingGeneric(params: M.GetRacingGenericParams = {}, options?: ExecutionOptions): Promise<M.GetRacingGenericResponse> { return executeOperation<M.GetRacingGenericResponse>(this.client, "getRacingGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingGeneric}; snake_case aliases are removed in a future major version. */
+  get_racing_generic(params: M.GetRacingGenericParams = {}, options?: ExecutionOptions): Promise<M.GetRacingGenericResponse> { return this.getRacingGeneric(params, options); }
+  /** Get specific race details. Requires public access key. Returns the details of a race. Required key access: public. `GET /racing/{raceId}/race` */
+  getRacingRaceDetails(params: M.GetRacingRaceDetailsParams, options?: ExecutionOptions): Promise<M.GetRacingRaceDetailsResponse> { return executeOperation<M.GetRacingRaceDetailsResponse>(this.client, "getRacingRaceDetails", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingRaceDetails}; snake_case aliases are removed in a future major version. */
+  get_racing_race_details(params: M.GetRacingRaceDetailsParams, options?: ExecutionOptions): Promise<M.GetRacingRaceDetailsResponse> { return this.getRacingRaceDetails(params, options); }
+  /** Get track records. Requires public access key. Returns a list of 5 best lap records for the chosen track and car class. Required key access: public. `GET /racing/{trackId}/records` */
+  getRacingTrackRecords(params: M.GetRacingTrackRecordsParams, options?: ExecutionOptions): Promise<M.GetRacingTrackRecordsResponse> { return executeOperation<M.GetRacingTrackRecordsResponse>(this.client, "getRacingTrackRecords", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingTrackRecords}; snake_case aliases are removed in a future major version. */
+  get_racing_track_records(params: M.GetRacingTrackRecordsParams, options?: ExecutionOptions): Promise<M.GetRacingTrackRecordsResponse> { return this.getRacingTrackRecords(params, options); }
+  /** Get cars and their racing stats. Requires public access key. Returns the stat details about racing cars. Required key access: public. `GET /racing/cars` */
+  getRacingCars(params: M.GetRacingCarsParams = {}, options?: ExecutionOptions): Promise<M.GetRacingCarsResponse> { return executeOperation<M.GetRacingCarsResponse>(this.client, "getRacingCars", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingCars}; snake_case aliases are removed in a future major version. */
+  get_racing_cars(params: M.GetRacingCarsParams = {}, options?: ExecutionOptions): Promise<M.GetRacingCarsResponse> { return this.getRacingCars(params, options); }
+  /** Get all possible car upgrades. Requires public access key. Returns the details about all possible car upgrades. Required key access: public. `GET /racing/carupgrades` */
+  getRacingCarUpgrades(params: M.GetRacingCarUpgradesParams = {}, options?: ExecutionOptions): Promise<M.GetRacingCarUpgradesResponse> { return executeOperation<M.GetRacingCarUpgradesResponse>(this.client, "getRacingCarUpgrades", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingCarUpgrades}; snake_case aliases are removed in a future major version. */
+  get_racing_car_upgrades(params: M.GetRacingCarUpgradesParams = {}, options?: ExecutionOptions): Promise<M.GetRacingCarUpgradesResponse> { return this.getRacingCarUpgrades(params, options); }
+  /** Get all available racing selections. Requires public access key. Required key access: public. `GET /racing/lookup` */
+  getRacingLookup(params: M.GetRacingLookupParams = {}, options?: ExecutionOptions): Promise<M.GetRacingLookupResponse> { return executeOperation<M.GetRacingLookupResponse>(this.client, "getRacingLookup", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingLookup}; snake_case aliases are removed in a future major version. */
+  get_racing_lookup(params: M.GetRacingLookupParams = {}, options?: ExecutionOptions): Promise<M.GetRacingLookupResponse> { return this.getRacingLookup(params, options); }
+  /** Get races. Requires public access key. Returns a list of races, ordered by race start timestamp. Required key access: public. `GET /racing/races` */
+  getRacingRaces(params: M.GetRacingRacesParams = {}, options?: ExecutionOptions): Promise<M.GetRacingRacesResponse> { return executeOperation<M.GetRacingRacesResponse>(this.client, "getRacingRaces", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingRaces}; snake_case aliases are removed in a future major version. */
+  get_racing_races(params: M.GetRacingRacesParams = {}, options?: ExecutionOptions): Promise<M.GetRacingRacesResponse> { return this.getRacingRaces(params, options); }
+  /** Get current server time. Requires public access key. Required key access: public. `GET /racing/timestamp` */
+  getRacingTimestamp(params: M.GetRacingTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetRacingTimestampResponse> { return executeOperation<M.GetRacingTimestampResponse>(this.client, "getRacingTimestamp", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingTimestamp}; snake_case aliases are removed in a future major version. */
+  get_racing_timestamp(params: M.GetRacingTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetRacingTimestampResponse> { return this.getRacingTimestamp(params, options); }
+  /** Get race tracks and descriptions. Requires public access key. Returns the details about racing tracks. Required key access: public. `GET /racing/tracks` */
+  getRacingTracks(params: M.GetRacingTracksParams = {}, options?: ExecutionOptions): Promise<M.GetRacingTracksResponse> { return executeOperation<M.GetRacingTracksResponse>(this.client, "getRacingTracks", params, options); }
+  /** @deprecated Use {@link OpenApi.getRacingTracks}; snake_case aliases are removed in a future major version. */
+  get_racing_tracks(params: M.GetRacingTracksParams = {}, options?: ExecutionOptions): Promise<M.GetRacingTracksResponse> { return this.getRacingTracks(params, options); }
+  /** Get any Torn selection. Requires public access key. Choose one or more selections (comma separated). Required key access: public. `GET /torn` */
+  getTornGeneric(params: M.GetTornGenericParams = {}, options?: ExecutionOptions): Promise<M.GetTornGenericResponse> { return executeOperation<M.GetTornGenericResponse>(this.client, "getTornGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornGeneric}; snake_case aliases are removed in a future major version. */
+  get_torn_generic(params: M.GetTornGenericParams = {}, options?: ExecutionOptions): Promise<M.GetTornGenericResponse> { return this.getTornGeneric(params, options); }
+  /** Get Subcrimes information. Requires public access key. Return the details about possible actions for a specific crime. Required key access: public. `GET /torn/{crimeId}/subcrimes` */
+  getTornSubcrimes(params: M.GetTornSubcrimesParams, options?: ExecutionOptions): Promise<M.GetTornSubcrimesResponse> { return executeOperation<M.GetTornSubcrimesResponse>(this.client, "getTornSubcrimes", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornSubcrimes}; snake_case aliases are removed in a future major version. */
+  get_torn_subcrimes(params: M.GetTornSubcrimesParams, options?: ExecutionOptions): Promise<M.GetTornSubcrimesResponse> { return this.getTornSubcrimes(params, options); }
+  /** Get players in a specific elimination team. Requires public key. Required key access: public. `GET /torn/{id}/eliminationteam` */
+  getTornEliminationTeam(params: M.GetTornEliminationTeamParams, options?: ExecutionOptions): Promise<M.GetTornEliminationTeamResponse> { return executeOperation<M.GetTornEliminationTeamResponse>(this.client, "getTornEliminationTeam", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornEliminationTeam}; snake_case aliases are removed in a future major version. */
+  get_torn_elimination_team(params: M.GetTornEliminationTeamParams, options?: ExecutionOptions): Promise<M.GetTornEliminationTeamResponse> { return this.getTornEliminationTeam(params, options); }
+  /** Get specific honors. Requires public access key. Required key access: public. `GET /torn/{ids}/honors` */
+  getTornHonorsSpecific(params: M.GetTornHonorsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornHonorsSpecificResponse> { return executeOperation<M.GetTornHonorsSpecificResponse>(this.client, "getTornHonorsSpecific", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornHonorsSpecific}; snake_case aliases are removed in a future major version. */
+  get_torn_honors_specific(params: M.GetTornHonorsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornHonorsSpecificResponse> { return this.getTornHonorsSpecific(params, options); }
+  /** Get details for specific item(s). Requires public key. Required key access: public. `GET /torn/{ids}/itemdetails` */
+  getTornItemDetails(params: M.GetTornItemDetailsParams, options?: ExecutionOptions): Promise<M.GetTornItemDetailsResponse> { return executeOperation<M.GetTornItemDetailsResponse>(this.client, "getTornItemDetails", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornItemDetails}; snake_case aliases are removed in a future major version. */
+  get_torn_item_details(params: M.GetTornItemDetailsParams, options?: ExecutionOptions): Promise<M.GetTornItemDetailsResponse> { return this.getTornItemDetails(params, options); }
+  /** Get information about items. Requires public key. Details are always populated when available. Required key access: public. `GET /torn/{ids}/items` */
+  getTornItemsSpecific(params: M.GetTornItemsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornItemsSpecificResponse> { return executeOperation<M.GetTornItemsSpecificResponse>(this.client, "getTornItemsSpecific", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornItemsSpecific}; snake_case aliases are removed in a future major version. */
+  get_torn_items_specific(params: M.GetTornItemsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornItemsSpecificResponse> { return this.getTornItemsSpecific(params, options); }
+  /** Get specific item(s) stats. Requires public key. Required key access: public. `GET /torn/{ids}/itemstats` */
+  getTornItemStats(params: M.GetTornItemStatsParams, options?: ExecutionOptions): Promise<M.GetTornItemStatsResponse> { return executeOperation<M.GetTornItemStatsResponse>(this.client, "getTornItemStats", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornItemStats}; snake_case aliases are removed in a future major version. */
+  get_torn_item_stats(params: M.GetTornItemStatsParams, options?: ExecutionOptions): Promise<M.GetTornItemStatsResponse> { return this.getTornItemStats(params, options); }
+  /** Get specific medals. Requires public access key. Required key access: public. `GET /torn/{ids}/medals` */
+  getTornMedalsSpecific(params: M.GetTornMedalsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornMedalsSpecificResponse> { return executeOperation<M.GetTornMedalsSpecificResponse>(this.client, "getTornMedalsSpecific", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornMedalsSpecific}; snake_case aliases are removed in a future major version. */
+  get_torn_medals_specific(params: M.GetTornMedalsSpecificParams, options?: ExecutionOptions): Promise<M.GetTornMedalsSpecificResponse> { return this.getTornMedalsSpecific(params, options); }
+  /** Get available log ids for a specific log category. Requires public key. Required key access: public. `GET /torn/{logCategoryId}/logtypes` */
+  getTornLogTypesSpecific(params: M.GetTornLogTypesSpecificParams, options?: ExecutionOptions): Promise<M.GetTornLogTypesSpecificResponse> { return executeOperation<M.GetTornLogTypesSpecificResponse>(this.client, "getTornLogTypesSpecific", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornLogTypesSpecific}; snake_case aliases are removed in a future major version. */
+  get_torn_log_types_specific(params: M.GetTornLogTypesSpecificParams, options?: ExecutionOptions): Promise<M.GetTornLogTypesSpecificResponse> { return this.getTornLogTypesSpecific(params, options); }
+  /** Get stock information for a specific shop. Requires public access key. Required key access: public. `GET /torn/{shopId}/cityshops` */
+  getTornCityShopSpecific(params: M.GetTornCityShopSpecificParams, options?: ExecutionOptions): Promise<M.GetTornCityShopSpecificResponse> { return executeOperation<M.GetTornCityShopSpecificResponse>(this.client, "getTornCityShopSpecific", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornCityShopSpecific}; snake_case aliases are removed in a future major version. */
+  get_torn_city_shop_specific(params: M.GetTornCityShopSpecificParams, options?: ExecutionOptions): Promise<M.GetTornCityShopSpecificResponse> { return this.getTornCityShopSpecific(params, options); }
+  /** Get specific stock with chart history. Requires public access key. Required key access: public. `GET /torn/{stockId}/stocks` */
+  getSpecificTornStock(params: M.GetSpecificTornStockParams, options?: ExecutionOptions): Promise<M.GetSpecificTornStockResponse> { return executeOperation<M.GetSpecificTornStockResponse>(this.client, "getSpecificTornStock", params, options); }
+  /** @deprecated Use {@link OpenApi.getSpecificTornStock}; snake_case aliases are removed in a future major version. */
+  get_specific_torn_stock(params: M.GetSpecificTornStockParams, options?: ExecutionOptions): Promise<M.GetSpecificTornStockResponse> { return this.getSpecificTornStock(params, options); }
+  /** Get specific company details. Requires public access key. Required key access: public. `GET /torn/{typeId}/companies` */
+  getTornCompaniesSpecific(params: M.GetTornCompaniesSpecificParams, options?: ExecutionOptions): Promise<M.GetTornCompaniesSpecificResponse> { return executeOperation<M.GetTornCompaniesSpecificResponse>(this.client, "getTornCompaniesSpecific", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornCompaniesSpecific}; snake_case aliases are removed in a future major version. */
+  get_torn_companies_specific(params: M.GetTornCompaniesSpecificParams, options?: ExecutionOptions): Promise<M.GetTornCompaniesSpecificResponse> { return this.getTornCompaniesSpecific(params, options); }
+  /** Get attack log details. Requires public key. Required key access: public. `GET /torn/attacklog` */
+  getTornAttackLog(params: M.GetTornAttackLogParams, options?: ExecutionOptions): Promise<M.GetTornAttackLogResponse> { return executeOperation<M.GetTornAttackLogResponse>(this.client, "getTornAttackLog", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornAttackLog}; snake_case aliases are removed in a future major version. */
+  get_torn_attack_log(params: M.GetTornAttackLogParams, options?: ExecutionOptions): Promise<M.GetTornAttackLogResponse> { return this.getTornAttackLog(params, options); }
+  /** Get current bank rates. Requires public access key. Required key access: public. `GET /torn/bank` */
+  getTornBank(params: M.GetTornBankParams = {}, options?: ExecutionOptions): Promise<M.GetTornBankResponse> { return executeOperation<M.GetTornBankResponse>(this.client, "getTornBank", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornBank}; snake_case aliases are removed in a future major version. */
+  get_torn_bank(params: M.GetTornBankParams = {}, options?: ExecutionOptions): Promise<M.GetTornBankResponse> { return this.getTornBank(params, options); }
+  /** Get bounties. Globally cached selection. Requires public key. Required key access: public. `GET /torn/bounties` */
+  getTornBounties(params: M.GetTornBountiesParams = {}, options?: ExecutionOptions): Promise<M.GetTornBountiesResponse> { return executeOperation<M.GetTornBountiesResponse>(this.client, "getTornBounties", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornBounties}; snake_case aliases are removed in a future major version. */
+  get_torn_bounties(params: M.GetTornBountiesParams = {}, options?: ExecutionOptions): Promise<M.GetTornBountiesResponse> { return this.getTornBounties(params, options); }
+  /** Get calendar information. Requires public access key. Get the details about competitions & events in the running year. Required key access: public. `GET /torn/calendar` */
+  getTornCalendar(params: M.GetTornCalendarParams = {}, options?: ExecutionOptions): Promise<M.GetTornCalendarResponse> { return executeOperation<M.GetTornCalendarResponse>(this.client, "getTornCalendar", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornCalendar}; snake_case aliases are removed in a future major version. */
+  get_torn_calendar(params: M.GetTornCalendarParams = {}, options?: ExecutionOptions): Promise<M.GetTornCalendarResponse> { return this.getTornCalendar(params, options); }
+  /** Get casino playing cards. Requires public access key. Required key access: public. `GET /torn/cards` */
+  getTornCards(params: M.GetTornCardsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCardsResponse> { return executeOperation<M.GetTornCardsResponse>(this.client, "getTornCards", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornCards}; snake_case aliases are removed in a future major version. */
+  get_torn_cards(params: M.GetTornCardsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCardsResponse> { return this.getTornCards(params, options); }
+  /** Get city shops stock information. Requires public access key. Required key access: public. `GET /torn/cityshops` */
+  getTornCityShops(params: M.GetTornCityShopsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCityShopsResponse> { return executeOperation<M.GetTornCityShopsResponse>(this.client, "getTornCityShops", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornCityShops}; snake_case aliases are removed in a future major version. */
+  get_torn_city_shops(params: M.GetTornCityShopsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCityShopsResponse> { return this.getTornCityShops(params, options); }
+  /** Get all companies details. Requires public access key. Required key access: public. `GET /torn/companies` */
+  getTornCompanies(params: M.GetTornCompaniesParams = {}, options?: ExecutionOptions): Promise<M.GetTornCompaniesResponse> { return executeOperation<M.GetTornCompaniesResponse>(this.client, "getTornCompanies", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornCompanies}; snake_case aliases are removed in a future major version. */
+  get_torn_companies(params: M.GetTornCompaniesParams = {}, options?: ExecutionOptions): Promise<M.GetTornCompaniesResponse> { return this.getTornCompanies(params, options); }
+  /** Get crimes information. Requires public access key. Return the details about released crimes. Required key access: public. `GET /torn/crimes` */
+  getTornCrimes(params: M.GetTornCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetTornCrimesResponse> { return executeOperation<M.GetTornCrimesResponse>(this.client, "getTornCrimes", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornCrimes}; snake_case aliases are removed in a future major version. */
+  get_torn_crimes(params: M.GetTornCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetTornCrimesResponse> { return this.getTornCrimes(params, options); }
+  /** Get education information. Requires public access key. Required key access: public. `GET /torn/education` */
+  getTornEducation(params: M.GetTornEducationParams = {}, options?: ExecutionOptions): Promise<M.GetTornEducationResponse> { return executeOperation<M.GetTornEducationResponse>(this.client, "getTornEducation", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornEducation}; snake_case aliases are removed in a future major version. */
+  get_torn_education(params: M.GetTornEducationParams = {}, options?: ExecutionOptions): Promise<M.GetTornEducationResponse> { return this.getTornEducation(params, options); }
+  /** Get current standings for all elimination teams. Requires public key. Required key access: public. `GET /torn/elimination` */
+  getTornElimination(params: M.GetTornEliminationParams = {}, options?: ExecutionOptions): Promise<M.GetTornEliminationResponse> { return executeOperation<M.GetTornEliminationResponse>(this.client, "getTornElimination", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornElimination}; snake_case aliases are removed in a future major version. */
+  get_torn_elimination(params: M.GetTornEliminationParams = {}, options?: ExecutionOptions): Promise<M.GetTornEliminationResponse> { return this.getTornElimination(params, options); }
+  /** Get faction hall of fame positions for a specific category. Requires public access key. Required key access: public. `GET /torn/factionhof` */
+  getTornFactionHoF(params: M.GetTornFactionHoFParams, options?: ExecutionOptions): Promise<M.GetTornFactionHoFResponse> { return executeOperation<M.GetTornFactionHoFResponse>(this.client, "getTornFactionHoF", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornFactionHoF}; snake_case aliases are removed in a future major version. */
+  get_torn_faction_ho_f(params: M.GetTornFactionHoFParams, options?: ExecutionOptions): Promise<M.GetTornFactionHoFResponse> { return this.getTornFactionHoF(params, options); }
+  /** Get full faction tree. Requires public access key. Required key access: public. `GET /torn/factiontree` */
+  getTornFactionTree(params: M.GetTornFactionTreeParams = {}, options?: ExecutionOptions): Promise<M.GetTornFactionTreeResponse> { return executeOperation<M.GetTornFactionTreeResponse>(this.client, "getTornFactionTree", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornFactionTree}; snake_case aliases are removed in a future major version. */
+  get_torn_faction_tree(params: M.GetTornFactionTreeParams = {}, options?: ExecutionOptions): Promise<M.GetTornFactionTreeResponse> { return this.getTornFactionTree(params, options); }
+  /** Get all gyms. Requires public access key. Required key access: public. `GET /torn/gyms` */
+  getTornGyms(params: M.GetTornGymsParams = {}, options?: ExecutionOptions): Promise<M.GetTornGymsResponse> { return executeOperation<M.GetTornGymsResponse>(this.client, "getTornGyms", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornGyms}; snake_case aliases are removed in a future major version. */
+  get_torn_gyms(params: M.GetTornGymsParams = {}, options?: ExecutionOptions): Promise<M.GetTornGymsResponse> { return this.getTornGyms(params, options); }
+  /** Get Halloween basket upgrades. Requires minimal access key. Returns the list of available Halloween basket upgrades with their benefits, treats cost and unlock requirement. Required key access: minimal. `GET /torn/halloween` */
+  getTornHalloween(params: M.GetTornHalloweenParams = {}, options?: ExecutionOptions): Promise<M.GetTornHalloweenResponse> { return executeOperation<M.GetTornHalloweenResponse>(this.client, "getTornHalloween", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornHalloween}; snake_case aliases are removed in a future major version. */
+  get_torn_halloween(params: M.GetTornHalloweenParams = {}, options?: ExecutionOptions): Promise<M.GetTornHalloweenResponse> { return this.getTornHalloween(params, options); }
+  /** Get player hall of fame positions for a specific category. Requires public key. Required key access: public. `GET /torn/hof` */
+  getTornHoF(params: M.GetTornHoFParams, options?: ExecutionOptions): Promise<M.GetTornHoFResponse> { return executeOperation<M.GetTornHoFResponse>(this.client, "getTornHoF", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornHoF}; snake_case aliases are removed in a future major version. */
+  get_torn_ho_f(params: M.GetTornHoFParams, options?: ExecutionOptions): Promise<M.GetTornHoFResponse> { return this.getTornHoF(params, options); }
+  /** Get all honors. Requires public access key. Required key access: public. `GET /torn/honors` */
+  getTornHonors(params: M.GetTornHonorsParams = {}, options?: ExecutionOptions): Promise<M.GetTornHonorsResponse> { return executeOperation<M.GetTornHonorsResponse>(this.client, "getTornHonors", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornHonors}; snake_case aliases are removed in a future major version. */
+  get_torn_honors(params: M.GetTornHonorsParams = {}, options?: ExecutionOptions): Promise<M.GetTornHonorsResponse> { return this.getTornHonors(params, options); }
+  /** Get information about ammo. Requires public key. Required key access: public. `GET /torn/itemammo` */
+  getTornItemAmmo(params: M.GetTornItemAmmoParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemAmmoResponse> { return executeOperation<M.GetTornItemAmmoResponse>(this.client, "getTornItemAmmo", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornItemAmmo}; snake_case aliases are removed in a future major version. */
+  get_torn_item_ammo(params: M.GetTornItemAmmoParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemAmmoResponse> { return this.getTornItemAmmo(params, options); }
+  /** Get information about weapon upgrades. Requires public key. Required key access: public. `GET /torn/itemmods` */
+  getTornItemMods(params: M.GetTornItemModsParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemModsResponse> { return executeOperation<M.GetTornItemModsResponse>(this.client, "getTornItemMods", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornItemMods}; snake_case aliases are removed in a future major version. */
+  get_torn_item_mods(params: M.GetTornItemModsParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemModsResponse> { return this.getTornItemMods(params, options); }
+  /** Get information about items. Requires public key. Default category is 'All'. Details are not populated when requesting the category 'All'. Required key access: public. `GET /torn/items` */
+  getTornItems(params: M.GetTornItemsParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemsResponse> { return executeOperation<M.GetTornItemsResponse>(this.client, "getTornItems", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornItems}; snake_case aliases are removed in a future major version. */
+  get_torn_items(params: M.GetTornItemsParams = {}, options?: ExecutionOptions): Promise<M.GetTornItemsResponse> { return this.getTornItems(params, options); }
+  /** Get available log categories. Requires public key. Required key access: public. `GET /torn/logcategories` */
+  getTornLogCategories(params: M.GetTornLogCategoriesParams = {}, options?: ExecutionOptions): Promise<M.GetTornLogCategoriesResponse> { return executeOperation<M.GetTornLogCategoriesResponse>(this.client, "getTornLogCategories", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornLogCategories}; snake_case aliases are removed in a future major version. */
+  get_torn_log_categories(params: M.GetTornLogCategoriesParams = {}, options?: ExecutionOptions): Promise<M.GetTornLogCategoriesResponse> { return this.getTornLogCategories(params, options); }
+  /** Get all available log ids. Requires public key. Required key access: public. `GET /torn/logtypes` */
+  getTornLogTypes(params: M.GetTornLogTypesParams = {}, options?: ExecutionOptions): Promise<M.GetTornLogTypesResponse> { return executeOperation<M.GetTornLogTypesResponse>(this.client, "getTornLogTypes", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornLogTypes}; snake_case aliases are removed in a future major version. */
+  get_torn_log_types(params: M.GetTornLogTypesParams = {}, options?: ExecutionOptions): Promise<M.GetTornLogTypesResponse> { return this.getTornLogTypes(params, options); }
+  /** Get all available torn selections. Requires public key. Required key access: public. `GET /torn/lookup` */
+  getTornLookup(params: M.GetTornLookupParams = {}, options?: ExecutionOptions): Promise<M.GetTornLookupResponse> { return executeOperation<M.GetTornLookupResponse>(this.client, "getTornLookup", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornLookup}; snake_case aliases are removed in a future major version. */
+  get_torn_lookup(params: M.GetTornLookupParams = {}, options?: ExecutionOptions): Promise<M.GetTornLookupResponse> { return this.getTornLookup(params, options); }
+  /** Get all medals. Requires public access key. Required key access: public. `GET /torn/medals` */
+  getTornMedals(params: M.GetTornMedalsParams = {}, options?: ExecutionOptions): Promise<M.GetTornMedalsResponse> { return executeOperation<M.GetTornMedalsResponse>(this.client, "getTornMedals", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornMedals}; snake_case aliases are removed in a future major version. */
+  get_torn_medals(params: M.GetTornMedalsParams = {}, options?: ExecutionOptions): Promise<M.GetTornMedalsResponse> { return this.getTornMedals(params, options); }
+  /** Get all merits. Requires public access key. Required key access: public. `GET /torn/merits` */
+  getTornMerits(params: M.GetTornMeritsParams = {}, options?: ExecutionOptions): Promise<M.GetTornMeritsResponse> { return executeOperation<M.GetTornMeritsResponse>(this.client, "getTornMerits", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornMerits}; snake_case aliases are removed in a future major version. */
+  get_torn_merits(params: M.GetTornMeritsParams = {}, options?: ExecutionOptions): Promise<M.GetTornMeritsResponse> { return this.getTornMerits(params, options); }
+  /** Get all museum sets. Requires public access key. Required key access: public. `GET /torn/museum` */
+  getTornMuseum(params: M.GetTornMuseumParams = {}, options?: ExecutionOptions): Promise<M.GetTornMuseumResponse> { return executeOperation<M.GetTornMuseumResponse>(this.client, "getTornMuseum", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornMuseum}; snake_case aliases are removed in a future major version. */
+  get_torn_museum(params: M.GetTornMuseumParams = {}, options?: ExecutionOptions): Promise<M.GetTornMuseumResponse> { return this.getTornMuseum(params, options); }
+  /** Get organized crimes information. Requires public access key. Return the details about released faction organized crimes. Required key access: public. `GET /torn/organizedcrimes` */
+  getTornOrganizedCrimes(params: M.GetTornOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetTornOrganizedCrimesResponse> { return executeOperation<M.GetTornOrganizedCrimesResponse>(this.client, "getTornOrganizedCrimes", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornOrganizedCrimes}; snake_case aliases are removed in a future major version. */
+  get_torn_organized_crimes(params: M.GetTornOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetTornOrganizedCrimesResponse> { return this.getTornOrganizedCrimes(params, options); }
+  /** Get active poker tables. Requires public access key. Required key access: public. `GET /torn/pokertables` */
+  getTornPokerTables(params: M.GetTornPokerTablesParams = {}, options?: ExecutionOptions): Promise<M.GetTornPokerTablesResponse> { return executeOperation<M.GetTornPokerTablesResponse>(this.client, "getTornPokerTables", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornPokerTables}; snake_case aliases are removed in a future major version. */
+  get_torn_poker_tables(params: M.GetTornPokerTablesParams = {}, options?: ExecutionOptions): Promise<M.GetTornPokerTablesResponse> { return this.getTornPokerTables(params, options); }
+  /** Get properties details. Requires public access key. Required key access: public. `GET /torn/properties` */
+  getTornProperties(params: M.GetTornPropertiesParams = {}, options?: ExecutionOptions): Promise<M.GetTornPropertiesResponse> { return executeOperation<M.GetTornPropertiesResponse>(this.client, "getTornProperties", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornProperties}; snake_case aliases are removed in a future major version. */
+  get_torn_properties(params: M.GetTornPropertiesParams = {}, options?: ExecutionOptions): Promise<M.GetTornPropertiesResponse> { return this.getTornProperties(params, options); }
+  /** Get rock paper scissors competition stats. Requires public key. Required key access: public. `GET /torn/rockpaperscissors` */
+  getTornRps(params: M.GetTornRpsParams = {}, options?: ExecutionOptions): Promise<M.GetTornRpsResponse> { return executeOperation<M.GetTornRpsResponse>(this.client, "getTornRps", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornRps}; snake_case aliases are removed in a future major version. */
+  get_torn_rps(params: M.GetTornRpsParams = {}, options?: ExecutionOptions): Promise<M.GetTornRpsResponse> { return this.getTornRps(params, options); }
+  /** Get search for cash crime statuses. Requires public access key. Required key access: public. `GET /torn/searchforcash` */
+  getTornSearchForCash(params: M.GetTornSearchForCashParams = {}, options?: ExecutionOptions): Promise<M.GetTornSearchForCashResponse> { return executeOperation<M.GetTornSearchForCashResponse>(this.client, "getTornSearchForCash", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornSearchForCash}; snake_case aliases are removed in a future major version. */
+  get_torn_search_for_cash(params: M.GetTornSearchForCashParams = {}, options?: ExecutionOptions): Promise<M.GetTornSearchForCashResponse> { return this.getTornSearchForCash(params, options); }
+  /** Get shoplifting crime statuses. Requires public access key. Required key access: public. `GET /torn/shoplifting` */
+  getTornShoplifting(params: M.GetTornShopliftingParams = {}, options?: ExecutionOptions): Promise<M.GetTornShopliftingResponse> { return executeOperation<M.GetTornShopliftingResponse>(this.client, "getTornShoplifting", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornShoplifting}; snake_case aliases are removed in a future major version. */
+  get_torn_shoplifting(params: M.GetTornShopliftingParams = {}, options?: ExecutionOptions): Promise<M.GetTornShopliftingResponse> { return this.getTornShoplifting(params, options); }
+  /** Get daily city stats. Requires public key. Required key access: public. `GET /torn/stats` */
+  getTornCityStats(params: M.GetTornCityStatsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCityStatsResponse> { return executeOperation<M.GetTornCityStatsResponse>(this.client, "getTornCityStats", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornCityStats}; snake_case aliases are removed in a future major version. */
+  get_torn_city_stats(params: M.GetTornCityStatsParams = {}, options?: ExecutionOptions): Promise<M.GetTornCityStatsResponse> { return this.getTornCityStats(params, options); }
+  /** Get all stocks. Requires public access key. Required key access: public. `GET /torn/stocks` */
+  getTornStocks(params: M.GetTornStocksParams = {}, options?: ExecutionOptions): Promise<M.GetTornStocksResponse> { return executeOperation<M.GetTornStocksResponse>(this.client, "getTornStocks", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornStocks}; snake_case aliases are removed in a future major version. */
+  get_torn_stocks(params: M.GetTornStocksParams = {}, options?: ExecutionOptions): Promise<M.GetTornStocksResponse> { return this.getTornStocks(params, options); }
+  /** Get territory details. Requires public access key. Required key access: public. `GET /torn/territory` */
+  getTornTerritory(params: M.GetTornTerritoryParams = {}, options?: ExecutionOptions): Promise<M.GetTornTerritoryResponse> { return executeOperation<M.GetTornTerritoryResponse>(this.client, "getTornTerritory", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornTerritory}; snake_case aliases are removed in a future major version. */
+  get_torn_territory(params: M.GetTornTerritoryParams = {}, options?: ExecutionOptions): Promise<M.GetTornTerritoryResponse> { return this.getTornTerritory(params, options); }
+  /** Get current server time. Requires public key. Required key access: public. `GET /torn/timestamp` */
+  getTornTimestamp(params: M.GetTornTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetTornTimestampResponse> { return executeOperation<M.GetTornTimestampResponse>(this.client, "getTornTimestamp", params, options); }
+  /** @deprecated Use {@link OpenApi.getTornTimestamp}; snake_case aliases are removed in a future major version. */
+  get_torn_timestamp(params: M.GetTornTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetTornTimestampResponse> { return this.getTornTimestamp(params, options); }
+  /** Get any User selection. Key access level depends on the required selections. Choose one or more selections (comma separated). Required key access: public. `GET /user` */
+  getUserGeneric(params: M.GetUserGenericParams = {}, options?: ExecutionOptions): Promise<M.GetUserGenericResponse> { return executeOperation<M.GetUserGenericResponse>(this.client, "getUserGeneric", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserGeneric}; snake_case aliases are removed in a future major version. */
+  get_user_generic(params: M.GetUserGenericParams = {}, options?: ExecutionOptions): Promise<M.GetUserGenericResponse> { return this.getUserGeneric(params, options); }
+  /** Get your crime statistics. Requires minimal access key. Return the details and statistics about for a specific crime. Required key access: minimal. `GET /user/{crimeId}/crimes` */
+  getMyCrimes(params: M.GetMyCrimesParams, options?: ExecutionOptions): Promise<M.GetMyCrimesResponse> { return executeOperation<M.GetMyCrimesResponse>(this.client, "getMyCrimes", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCrimes}; snake_case aliases are removed in a future major version. */
+  get_my_crimes(params: M.GetMyCrimesParams, options?: ExecutionOptions): Promise<M.GetMyCrimesResponse> { return this.getMyCrimes(params, options); }
+  /** Get basic profile information for a specific user. Requires public access key. Required key access: public. `GET /user/{id}/basic` */
+  getUserBasicInformation(params: M.GetUserBasicInformationParams, options?: ExecutionOptions): Promise<M.GetUserBasicInformationResponse> { return executeOperation<M.GetUserBasicInformationResponse>(this.client, "getUserBasicInformation", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserBasicInformation}; snake_case aliases are removed in a future major version. */
+  get_user_basic_information(params: M.GetUserBasicInformationParams, options?: ExecutionOptions): Promise<M.GetUserBasicInformationResponse> { return this.getUserBasicInformation(params, options); }
+  /** Get bounties placed on a specific user. Requires public access key. Required key access: public. `GET /user/{id}/bounties` */
+  getUserBounties(params: M.GetUserBountiesParams, options?: ExecutionOptions): Promise<M.GetUserBountiesResponse> { return executeOperation<M.GetUserBountiesResponse>(this.client, "getUserBounties", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserBounties}; snake_case aliases are removed in a future major version. */
+  get_user_bounties(params: M.GetUserBountiesParams, options?: ExecutionOptions): Promise<M.GetUserBountiesResponse> { return this.getUserBounties(params, options); }
+  /** Get competition information for a specific player. Requires public access key. Required key access: public. `GET /user/{id}/competition` */
+  getUserCompetitionInfo(params: M.GetUserCompetitionInfoParams, options?: ExecutionOptions): Promise<M.GetUserCompetitionInfoResponse> { return executeOperation<M.GetUserCompetitionInfoResponse>(this.client, "getUserCompetitionInfo", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserCompetitionInfo}; snake_case aliases are removed in a future major version. */
+  get_user_competition_info(params: M.GetUserCompetitionInfoParams, options?: ExecutionOptions): Promise<M.GetUserCompetitionInfoResponse> { return this.getUserCompetitionInfo(params, options); }
+  /** Get discord information for a specific user. Requires public access key. Required key access: public. `GET /user/{id}/discord` */
+  getUserDiscord(params: M.GetUserDiscordParams, options?: ExecutionOptions): Promise<M.GetUserDiscordResponse> { return executeOperation<M.GetUserDiscordResponse>(this.client, "getUserDiscord", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserDiscord}; snake_case aliases are removed in a future major version. */
+  get_user_discord(params: M.GetUserDiscordParams, options?: ExecutionOptions): Promise<M.GetUserDiscordResponse> { return this.getUserDiscord(params, options); }
+  /** Get faction information for a specific player. Requires public access key. Required key access: public. `GET /user/{id}/faction` */
+  getUserFaction(params: M.GetUserFactionParams, options?: ExecutionOptions): Promise<M.GetUserFactionResponse> { return executeOperation<M.GetUserFactionResponse>(this.client, "getUserFaction", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserFaction}; snake_case aliases are removed in a future major version. */
+  get_user_faction(params: M.GetUserFactionParams, options?: ExecutionOptions): Promise<M.GetUserFactionResponse> { return this.getUserFaction(params, options); }
+  /** Get posts for a specific player. Requires public access key. Returns 20 posts per page for a specific player. Required key access: public. `GET /user/{id}/forumposts` */
+  getUserForumPosts(params: M.GetUserForumPostsParams, options?: ExecutionOptions): Promise<M.GetUserForumPostsResponse> { return executeOperation<M.GetUserForumPostsResponse>(this.client, "getUserForumPosts", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserForumPosts}; snake_case aliases are removed in a future major version. */
+  get_user_forum_posts(params: M.GetUserForumPostsParams, options?: ExecutionOptions): Promise<M.GetUserForumPostsResponse> { return this.getUserForumPosts(params, options); }
+  /** Get threads for a specific player. Requires public access key. Returns 100 threads per page for a specific player. When requesting data for the key owner, a field 'new_posts' is also available, indicating the amount of unread posts. Minimum API key is required for that. Required key access: public. `GET /user/{id}/forumthreads` */
+  getUserForumThreads(params: M.GetUserForumThreadsParams, options?: ExecutionOptions): Promise<M.GetUserForumThreadsResponse> { return executeOperation<M.GetUserForumThreadsResponse>(this.client, "getUserForumThreads", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserForumThreads}; snake_case aliases are removed in a future major version. */
+  get_user_forum_threads(params: M.GetUserForumThreadsParams, options?: ExecutionOptions): Promise<M.GetUserForumThreadsResponse> { return this.getUserForumThreads(params, options); }
+  /** Get hall of fame rankings for a specific player. Requires public access key. The battle_stats selection will be populated only when requesting selection with Limited, Full or Custom key and for yourself. Required key access: public. `GET /user/{id}/hof` */
+  getUserHoF(params: M.GetUserHoFParams, options?: ExecutionOptions): Promise<M.GetUserHoFResponse> { return executeOperation<M.GetUserHoFResponse>(this.client, "getUserHoF", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserHoF}; snake_case aliases are removed in a future major version. */
+  get_user_ho_f(params: M.GetUserHoFParams, options?: ExecutionOptions): Promise<M.GetUserHoFResponse> { return this.getUserHoF(params, options); }
+  /** Get icons information for a specific player. Requires public access key. When requesting data for yourself with 'Custom', 'Limited' or 'Full' access keys, the response will be of type UserIconPrivate, otherwise UserIconPublic. Required key access: public. `GET /user/{id}/icons` */
+  getUserIcons(params: M.GetUserIconsParams, options?: ExecutionOptions): Promise<M.GetUserIconsResponse> { return executeOperation<M.GetUserIconsResponse>(this.client, "getUserIcons", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserIcons}; snake_case aliases are removed in a future major version. */
+  get_user_icons(params: M.GetUserIconsParams, options?: ExecutionOptions): Promise<M.GetUserIconsResponse> { return this.getUserIcons(params, options); }
+  /** Get job information for a specific player. Requires public access key. Required key access: public. `GET /user/{id}/job` */
+  getUserJob(params: M.GetUserJobParams, options?: ExecutionOptions): Promise<M.GetUserJobResponse> { return executeOperation<M.GetUserJobResponse>(this.client, "getUserJob", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserJob}; snake_case aliases are removed in a future major version. */
+  get_user_job(params: M.GetUserJobParams, options?: ExecutionOptions): Promise<M.GetUserJobResponse> { return this.getUserJob(params, options); }
+  /** Get medals achieved by a specific player. Requires public access key. Returns only highest medal in each category (just like profiles on site). Required key access: public. `GET /user/{id}/medals` */
+  getUserMedals(params: M.GetUserMedalsParams, options?: ExecutionOptions): Promise<M.GetUserMedalsResponse> { return executeOperation<M.GetUserMedalsResponse>(this.client, "getUserMedals", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserMedals}; snake_case aliases are removed in a future major version. */
+  get_user_medals(params: M.GetUserMedalsParams, options?: ExecutionOptions): Promise<M.GetUserMedalsResponse> { return this.getUserMedals(params, options); }
+  /** Get a player's personal stats. Requires public access key. * UserPersonalStatsFull is returned only when this selection is requested for the key owner with Limited, Full or Custom key. * UserPersonalStatsFullPublic is returned when the requested category is 'all'. * UserPersonalStatsPopular is returned when the requested category is 'popular'. Please try to use UserPersonalStatsPopular over UserPersonalStatsFullPublic wherever possible in order to reduce the server load. * Otherwise, UserPersonalStatsCategory is returned for the matched category. * It's possible to request specific stats via 'stat' parameter. In this case the response will vary depending on the stats requested. Private stats are still available only to the key owner (with Limited or higher key). * Additionally, historical stats can also be fetched via 'stat' query parameter, but 'timestamp' parameter must be provided as well. It's only possible to pass up to 10 historical stats at once (the rest is trimmed). When requesting historical stats the response will be of type UserPersonalStatsHistoric. Required key access: public. `GET /user/{id}/personalstats` */
+  getUserPersonalStats(params: M.GetUserPersonalStatsParams, options?: ExecutionOptions): Promise<M.GetUserPersonalStatsResponse> { return executeOperation<M.GetUserPersonalStatsResponse>(this.client, "getUserPersonalStats", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserPersonalStats}; snake_case aliases are removed in a future major version. */
+  get_user_personal_stats(params: M.GetUserPersonalStatsParams, options?: ExecutionOptions): Promise<M.GetUserPersonalStatsResponse> { return this.getUserPersonalStats(params, options); }
+  /** Get profile information for a specific player. Requires public access key. Required key access: public. `GET /user/{id}/profile` */
+  getUserProfile(params: M.GetUserProfileParams, options?: ExecutionOptions): Promise<M.GetUserProfileResponse> { return executeOperation<M.GetUserProfileResponse>(this.client, "getUserProfile", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserProfile}; snake_case aliases are removed in a future major version. */
+  get_user_profile(params: M.GetUserProfileParams, options?: ExecutionOptions): Promise<M.GetUserProfileResponse> { return this.getUserProfile(params, options); }
+  /** Get specific user's properties. Requires public access key. Extended responses are available when requesting the data with Limited or higher access keys for yourself or your spouse. Required key access: public. `GET /user/{id}/properties` */
+  getUserProperties(params: M.GetUserPropertiesParams, options?: ExecutionOptions): Promise<M.GetUserPropertiesResponse> { return executeOperation<M.GetUserPropertiesResponse>(this.client, "getUserProperties", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserProperties}; snake_case aliases are removed in a future major version. */
+  get_user_properties(params: M.GetUserPropertiesParams, options?: ExecutionOptions): Promise<M.GetUserPropertiesResponse> { return this.getUserProperties(params, options); }
+  /** Get specific user's property. Requires public access key. Required key access: public. `GET /user/{id}/property` */
+  getUserProperty(params: M.GetUserPropertyParams, options?: ExecutionOptions): Promise<M.GetUserPropertyResponse> { return executeOperation<M.GetUserPropertyResponse>(this.client, "getUserProperty", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserProperty}; snake_case aliases are removed in a future major version. */
+  get_user_property(params: M.GetUserPropertyParams, options?: ExecutionOptions): Promise<M.GetUserPropertyResponse> { return this.getUserProperty(params, options); }
+  /** Get your detailed trade. Requires limited access key. Only possible to get trades you participated in. Required key access: limited. `GET /user/{tradeId}/trade` */
+  getMyDetailedTrade(params: M.GetMyDetailedTradeParams, options?: ExecutionOptions): Promise<M.GetMyDetailedTradeResponse> { return executeOperation<M.GetMyDetailedTradeResponse>(this.client, "getMyDetailedTrade", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyDetailedTrade}; snake_case aliases are removed in a future major version. */
+  get_my_detailed_trade(params: M.GetMyDetailedTradeParams, options?: ExecutionOptions): Promise<M.GetMyDetailedTradeResponse> { return this.getMyDetailedTrade(params, options); }
+  /** Get your ammo information. Requires minimal key. Required key access: minimal. `GET /user/ammo` */
+  getMyAmmo(params: M.GetMyAmmoParams = {}, options?: ExecutionOptions): Promise<M.GetMyAmmoResponse> { return executeOperation<M.GetMyAmmoResponse>(this.client, "getMyAmmo", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyAmmo}; snake_case aliases are removed in a future major version. */
+  get_my_ammo(params: M.GetMyAmmoParams = {}, options?: ExecutionOptions): Promise<M.GetMyAmmoResponse> { return this.getMyAmmo(params, options); }
+  /** Get your detailed attacks. Requires limited access key. Required key access: limited. `GET /user/attacks` */
+  getMyAttacks(params: M.GetMyAttacksParams = {}, options?: ExecutionOptions): Promise<M.GetMyAttacksResponse> { return executeOperation<M.GetMyAttacksResponse>(this.client, "getMyAttacks", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyAttacks}; snake_case aliases are removed in a future major version. */
+  get_my_attacks(params: M.GetMyAttacksParams = {}, options?: ExecutionOptions): Promise<M.GetMyAttacksResponse> { return this.getMyAttacks(params, options); }
+  /** Get your simplified attacks. Requires limited access key. Returns up to 1,000 rows. Required key access: limited. `GET /user/attacksfull` */
+  getMyAttacksSimplified(params: M.GetMyAttacksSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyAttacksSimplifiedResponse> { return executeOperation<M.GetMyAttacksSimplifiedResponse>(this.client, "getMyAttacksSimplified", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyAttacksSimplified}; snake_case aliases are removed in a future major version. */
+  get_my_attacks_simplified(params: M.GetMyAttacksSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyAttacksSimplifiedResponse> { return this.getMyAttacksSimplified(params, options); }
+  /** Get your bars information. Requires minimal access key. Required key access: minimal. `GET /user/bars` */
+  getMyBars(params: M.GetMyBarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyBarsResponse> { return executeOperation<M.GetMyBarsResponse>(this.client, "getMyBars", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyBars}; snake_case aliases are removed in a future major version. */
+  get_my_bars(params: M.GetMyBarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyBarsResponse> { return this.getMyBars(params, options); }
+  /** Get your basic profile information. Requires public access key. Required key access: public. `GET /user/basic` */
+  getMyBasicInformation(params: M.GetMyBasicInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyBasicInformationResponse> { return executeOperation<M.GetMyBasicInformationResponse>(this.client, "getMyBasicInformation", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyBasicInformation}; snake_case aliases are removed in a future major version. */
+  get_my_basic_information(params: M.GetMyBasicInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyBasicInformationResponse> { return this.getMyBasicInformation(params, options); }
+  /** Get your battlestats. Requires limited access key. Required key access: limited. `GET /user/battlestats` */
+  getMyBattlestats(params: M.GetMyBattlestatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyBattlestatsResponse> { return executeOperation<M.GetMyBattlestatsResponse>(this.client, "getMyBattlestats", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyBattlestats}; snake_case aliases are removed in a future major version. */
+  get_my_battlestats(params: M.GetMyBattlestatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyBattlestatsResponse> { return this.getMyBattlestats(params, options); }
+  /** Get bounties placed on you. Globally cached selection. Requires public access key. Required key access: public. `GET /user/bounties` */
+  getMyBounties(params: M.GetMyBountiesParams = {}, options?: ExecutionOptions): Promise<M.GetMyBountiesResponse> { return executeOperation<M.GetMyBountiesResponse>(this.client, "getMyBounties", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyBounties}; snake_case aliases are removed in a future major version. */
+  get_my_bounties(params: M.GetMyBountiesParams = {}, options?: ExecutionOptions): Promise<M.GetMyBountiesResponse> { return this.getMyBounties(params, options); }
+  /** Get your calendar events start time. Requires minimal access key. Only available to yourself. Required key access: minimal. `GET /user/calendar` */
+  getMyCalendarTime(params: M.GetMyCalendarTimeParams = {}, options?: ExecutionOptions): Promise<M.GetMyCalendarTimeResponse> { return executeOperation<M.GetMyCalendarTimeResponse>(this.client, "getMyCalendarTime", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCalendarTime}; snake_case aliases are removed in a future major version. */
+  get_my_calendar_time(params: M.GetMyCalendarTimeParams = {}, options?: ExecutionOptions): Promise<M.GetMyCalendarTimeResponse> { return this.getMyCalendarTime(params, options); }
+  /** Get your casino streak & tokens. Requires limited access key. Only available to yourself. Required key access: limited. `GET /user/casino` */
+  getMyCasinoStreak(params: M.GetMyCasinoStreakParams = {}, options?: ExecutionOptions): Promise<M.GetMyCasinoStreakResponse> { return executeOperation<M.GetMyCasinoStreakResponse>(this.client, "getMyCasinoStreak", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCasinoStreak}; snake_case aliases are removed in a future major version. */
+  get_my_casino_streak(params: M.GetMyCasinoStreakParams = {}, options?: ExecutionOptions): Promise<M.GetMyCasinoStreakResponse> { return this.getMyCasinoStreak(params, options); }
+  /** Get your competition information. Requires public access key. Required key access: public. `GET /user/competition` */
+  getMyCompetitionInfo(params: M.GetMyCompetitionInfoParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompetitionInfoResponse> { return executeOperation<M.GetMyCompetitionInfoResponse>(this.client, "getMyCompetitionInfo", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCompetitionInfo}; snake_case aliases are removed in a future major version. */
+  get_my_competition_info(params: M.GetMyCompetitionInfoParams = {}, options?: ExecutionOptions): Promise<M.GetMyCompetitionInfoResponse> { return this.getMyCompetitionInfo(params, options); }
+  /** Get your cooldowns information. Requires minimal access key. Required key access: minimal. `GET /user/cooldowns` */
+  getMyCooldowns(params: M.GetMyCooldownsParams = {}, options?: ExecutionOptions): Promise<M.GetMyCooldownsResponse> { return executeOperation<M.GetMyCooldownsResponse>(this.client, "getMyCooldowns", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyCooldowns}; snake_case aliases are removed in a future major version. */
+  get_my_cooldowns(params: M.GetMyCooldownsParams = {}, options?: ExecutionOptions): Promise<M.GetMyCooldownsResponse> { return this.getMyCooldowns(params, options); }
+  /** Get your discord information. Requires public key. Required key access: public. `GET /user/discord` */
+  getMyDiscord(params: M.GetMyDiscordParams = {}, options?: ExecutionOptions): Promise<M.GetMyDiscordResponse> { return executeOperation<M.GetMyDiscordResponse>(this.client, "getMyDiscord", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyDiscord}; snake_case aliases are removed in a future major version. */
+  get_my_discord(params: M.GetMyDiscordParams = {}, options?: ExecutionOptions): Promise<M.GetMyDiscordResponse> { return this.getMyDiscord(params, options); }
+  /** Get your education information. Requires minimal access key. The response contains a list of complete eduactions and of a current education (if any). Required key access: minimal. `GET /user/education` */
+  getMyEducation(params: M.GetMyEducationParams = {}, options?: ExecutionOptions): Promise<M.GetMyEducationResponse> { return executeOperation<M.GetMyEducationResponse>(this.client, "getMyEducation", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyEducation}; snake_case aliases are removed in a future major version. */
+  get_my_education(params: M.GetMyEducationParams = {}, options?: ExecutionOptions): Promise<M.GetMyEducationResponse> { return this.getMyEducation(params, options); }
+  /** Get your enlisted cars. Requires minimal access key. Returns a list of all user enlisted cars. Required key access: minimal. `GET /user/enlistedcars` */
+  getMyEnlistedCars(params: M.GetMyEnlistedCarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyEnlistedCarsResponse> { return executeOperation<M.GetMyEnlistedCarsResponse>(this.client, "getMyEnlistedCars", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyEnlistedCars}; snake_case aliases are removed in a future major version. */
+  get_my_enlisted_cars(params: M.GetMyEnlistedCarsParams = {}, options?: ExecutionOptions): Promise<M.GetMyEnlistedCarsResponse> { return this.getMyEnlistedCars(params, options); }
+  /** Get your equipment & clothing. Requires minimal access key. Required key access: minimal. `GET /user/equipment` */
+  getMyEquipment(params: M.GetMyEquipmentParams = {}, options?: ExecutionOptions): Promise<M.GetMyEquipmentResponse> { return executeOperation<M.GetMyEquipmentResponse>(this.client, "getMyEquipment", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyEquipment}; snake_case aliases are removed in a future major version. */
+  get_my_equipment(params: M.GetMyEquipmentParams = {}, options?: ExecutionOptions): Promise<M.GetMyEquipmentResponse> { return this.getMyEquipment(params, options); }
+  /** Get your events. Requires limited access key. Unfortunately, the 'sort' parameter is not available for this selection. Required key access: limited. `GET /user/events` */
+  getMyEvents(params: M.GetMyEventsParams = {}, options?: ExecutionOptions): Promise<M.GetMyEventsResponse> { return executeOperation<M.GetMyEventsResponse>(this.client, "getMyEvents", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyEvents}; snake_case aliases are removed in a future major version. */
+  get_my_events(params: M.GetMyEventsParams = {}, options?: ExecutionOptions): Promise<M.GetMyEventsResponse> { return this.getMyEvents(params, options); }
+  /** Get your faction information. Requires public access key. Required key access: public. `GET /user/faction` */
+  getMyFaction(params: M.GetMyFactionParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionResponse> { return executeOperation<M.GetMyFactionResponse>(this.client, "getMyFaction", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyFaction}; snake_case aliases are removed in a future major version. */
+  get_my_faction(params: M.GetMyFactionParams = {}, options?: ExecutionOptions): Promise<M.GetMyFactionResponse> { return this.getMyFaction(params, options); }
+  /** Get updates on your threads and posts. Requires minimal access key. This selection returns data visible in 'Feed' section on forum page. Feed is sorted by timestamp descending. Only a maximum of 100 rows are returned. Required key access: minimal. `GET /user/forumfeed` */
+  getMyForumFeed(params: M.GetMyForumFeedParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumFeedResponse> { return executeOperation<M.GetMyForumFeedResponse>(this.client, "getMyForumFeed", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyForumFeed}; snake_case aliases are removed in a future major version. */
+  get_my_forum_feed(params: M.GetMyForumFeedParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumFeedResponse> { return this.getMyForumFeed(params, options); }
+  /** Get updates on your friends' activity. Requires minimal access key. This selection returns data visible in 'Friends' section on forum page. Feed is sorted by timestamp descending. Only a maximum of 100 rows are returned. Required key access: minimal. `GET /user/forumfriends` */
+  getMyForumFriendsUpdates(params: M.GetMyForumFriendsUpdatesParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumFriendsUpdatesResponse> { return executeOperation<M.GetMyForumFriendsUpdatesResponse>(this.client, "getMyForumFriendsUpdates", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyForumFriendsUpdates}; snake_case aliases are removed in a future major version. */
+  get_my_forum_friends_updates(params: M.GetMyForumFriendsUpdatesParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumFriendsUpdatesResponse> { return this.getMyForumFriendsUpdates(params, options); }
+  /** Get your posts. Requires public access key. Returns 20 posts per page. Required key access: public. `GET /user/forumposts` */
+  getMyForumPosts(params: M.GetMyForumPostsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumPostsResponse> { return executeOperation<M.GetMyForumPostsResponse>(this.client, "getMyForumPosts", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyForumPosts}; snake_case aliases are removed in a future major version. */
+  get_my_forum_posts(params: M.GetMyForumPostsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumPostsResponse> { return this.getMyForumPosts(params, options); }
+  /** Get updates on threads you subscribed to. Requires minimal access key. This selection returns data visible in 'Subscribed Threads' section on forum page. Threads are sorted in the same way as on site. Required key access: minimal. `GET /user/forumsubscribedthreads` */
+  getMyForumSubscribedThreads(params: M.GetMyForumSubscribedThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumSubscribedThreadsResponse> { return executeOperation<M.GetMyForumSubscribedThreadsResponse>(this.client, "getMyForumSubscribedThreads", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyForumSubscribedThreads}; snake_case aliases are removed in a future major version. */
+  get_my_forum_subscribed_threads(params: M.GetMyForumSubscribedThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumSubscribedThreadsResponse> { return this.getMyForumSubscribedThreads(params, options); }
+  /** Get your threads. Requires public access key. Returns 100 threads per page. The field 'new_posts' is also available, indicating the amount of unread posts with a Minimum API key (or higher). Required key access: public. `GET /user/forumthreads` */
+  getMyForumThreads(params: M.GetMyForumThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumThreadsResponse> { return executeOperation<M.GetMyForumThreadsResponse>(this.client, "getMyForumThreads", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyForumThreads}; snake_case aliases are removed in a future major version. */
+  get_my_forum_threads(params: M.GetMyForumThreadsParams = {}, options?: ExecutionOptions): Promise<M.GetMyForumThreadsResponse> { return this.getMyForumThreads(params, options); }
+  /** Get your currently active gym. Requires minimal access key. Required key access: public. `GET /user/gym` */
+  getMyGym(params: M.GetMyGymParams = {}, options?: ExecutionOptions): Promise<M.GetMyGymResponse> { return executeOperation<M.GetMyGymResponse>(this.client, "getMyGym", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyGym}; snake_case aliases are removed in a future major version. */
+  get_my_gym(params: M.GetMyGymParams = {}, options?: ExecutionOptions): Promise<M.GetMyGymResponse> { return this.getMyGym(params, options); }
+  /** Get your Halloween treats information. Requires minimal access key. Returns your current and cumulative treats and the IDs of basket upgrades you have unlocked. Required key access: minimal. `GET /user/halloween` */
+  getMyHalloween(params: M.GetMyHalloweenParams = {}, options?: ExecutionOptions): Promise<M.GetMyHalloweenResponse> { return executeOperation<M.GetMyHalloweenResponse>(this.client, "getMyHalloween", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyHalloween}; snake_case aliases are removed in a future major version. */
+  get_my_halloween(params: M.GetMyHalloweenParams = {}, options?: ExecutionOptions): Promise<M.GetMyHalloweenResponse> { return this.getMyHalloween(params, options); }
+  /** Get your hall of fame rankings. Requires public access key. When requesting selection with Limited, Full or Custom key, battle_stats selection will be populated. Required key access: public. `GET /user/hof` */
+  getMyHoF(params: M.GetMyHoFParams = {}, options?: ExecutionOptions): Promise<M.GetMyHoFResponse> { return executeOperation<M.GetMyHoFResponse>(this.client, "getMyHoF", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyHoF}; snake_case aliases are removed in a future major version. */
+  get_my_ho_f(params: M.GetMyHoFParams = {}, options?: ExecutionOptions): Promise<M.GetMyHoFResponse> { return this.getMyHoF(params, options); }
+  /** Get your achieved honors. Requires minimal access key. Required key access: minimal. `GET /user/honors` */
+  getMyHonors(params: M.GetMyHonorsParams = {}, options?: ExecutionOptions): Promise<M.GetMyHonorsResponse> { return executeOperation<M.GetMyHonorsResponse>(this.client, "getMyHonors", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyHonors}; snake_case aliases are removed in a future major version. */
+  get_my_honors(params: M.GetMyHonorsParams = {}, options?: ExecutionOptions): Promise<M.GetMyHonorsResponse> { return this.getMyHonors(params, options); }
+  /** Get your icons information. Requires public access key. When requesting data for yourself with 'Limited' or 'Full' access keys, the response will be of type UserIconPrivate, otherwise UserIconPublic. Required key access: public. `GET /user/icons` */
+  getMyIcons(params: M.GetMyIconsParams = {}, options?: ExecutionOptions): Promise<M.GetMyIconsResponse> { return executeOperation<M.GetMyIconsResponse>(this.client, "getMyIcons", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyIcons}; snake_case aliases are removed in a future major version. */
+  get_my_icons(params: M.GetMyIconsParams = {}, options?: ExecutionOptions): Promise<M.GetMyIconsResponse> { return this.getMyIcons(params, options); }
+  /** Get your inventory. Cached selection (15 minutes per category). Requires minimal access key. Required key access: minimal. `GET /user/inventory` */
+  getMyInventory(params: M.GetMyInventoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyInventoryResponse> { return executeOperation<M.GetMyInventoryResponse>(this.client, "getMyInventory", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyInventory}; snake_case aliases are removed in a future major version. */
+  get_my_inventory(params: M.GetMyInventoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyInventoryResponse> { return this.getMyInventory(params, options); }
+  /** Get your item market listings. Requires limited access key. Required key access: limited. `GET /user/itemmarket` */
+  getMyItemMarketListings(params: M.GetMyItemMarketListingsParams = {}, options?: ExecutionOptions): Promise<M.GetMyItemMarketListingsResponse> { return executeOperation<M.GetMyItemMarketListingsResponse>(this.client, "getMyItemMarketListings", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyItemMarketListings}; snake_case aliases are removed in a future major version. */
+  get_my_item_market_listings(params: M.GetMyItemMarketListingsParams = {}, options?: ExecutionOptions): Promise<M.GetMyItemMarketListingsResponse> { return this.getMyItemMarketListings(params, options); }
+  /** Get your information about available item mods. Requires minimal access key. Required key access: public. `GET /user/itemmods` */
+  getMyItemModsInformation(params: M.GetMyItemModsInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyItemModsInformationResponse> { return executeOperation<M.GetMyItemModsInformationResponse>(this.client, "getMyItemModsInformation", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyItemModsInformation}; snake_case aliases are removed in a future major version. */
+  get_my_item_mods_information(params: M.GetMyItemModsInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyItemModsInformationResponse> { return this.getMyItemModsInformation(params, options); }
+  /** Get your job information. Requires public access key. Required key access: public. `GET /user/job` */
+  getMyJob(params: M.GetMyJobParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobResponse> { return executeOperation<M.GetMyJobResponse>(this.client, "getMyJob", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyJob}; snake_case aliases are removed in a future major version. */
+  get_my_job(params: M.GetMyJobParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobResponse> { return this.getMyJob(params, options); }
+  /** Get your jobpoints. Requires minimal access key. Required key access: minimal. `GET /user/jobpoints` */
+  getMyJobPoints(params: M.GetMyJobPointsParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobPointsResponse> { return executeOperation<M.GetMyJobPointsResponse>(this.client, "getMyJobPoints", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyJobPoints}; snake_case aliases are removed in a future major version. */
+  get_my_job_points(params: M.GetMyJobPointsParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobPointsResponse> { return this.getMyJobPoints(params, options); }
+  /** Get your starter job positions. Requires minimal access key. Required key access: minimal. `GET /user/jobranks` */
+  getMyJobRanks(params: M.GetMyJobRanksParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobRanksResponse> { return executeOperation<M.GetMyJobRanksResponse>(this.client, "getMyJobRanks", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyJobRanks}; snake_case aliases are removed in a future major version. */
+  get_my_job_ranks(params: M.GetMyJobRanksParams = {}, options?: ExecutionOptions): Promise<M.GetMyJobRanksResponse> { return this.getMyJobRanks(params, options); }
+  /** Get your friends, enemies or targets list. Requires limited access key. Required key access: limited. `GET /user/list` */
+  getMyContactsList(params: M.GetMyContactsListParams, options?: ExecutionOptions): Promise<M.GetMyContactsListResponse> { return executeOperation<M.GetMyContactsListResponse>(this.client, "getMyContactsList", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyContactsList}; snake_case aliases are removed in a future major version. */
+  get_my_contacts_list(params: M.GetMyContactsListParams, options?: ExecutionOptions): Promise<M.GetMyContactsListResponse> { return this.getMyContactsList(params, options); }
+  /** Get your logs. Requires full access key. It's possible to pass a list of log ids or a log category id. This selection is standalone and cannot be used together with other selections. Required key access: full. `GET /user/log` */
+  getMyLogs(params: M.GetMyLogsParams = {}, options?: ExecutionOptions): Promise<M.GetMyLogsResponse> { return executeOperation<M.GetMyLogsResponse>(this.client, "getMyLogs", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyLogs}; snake_case aliases are removed in a future major version. */
+  get_my_logs(params: M.GetMyLogsParams = {}, options?: ExecutionOptions): Promise<M.GetMyLogsResponse> { return this.getMyLogs(params, options); }
+  /** Get all available user selections. Requires public access key. Required key access: public. `GET /user/lookup` */
+  getUserLookup(params: M.GetUserLookupParams = {}, options?: ExecutionOptions): Promise<M.GetUserLookupResponse> { return executeOperation<M.GetUserLookupResponse>(this.client, "getUserLookup", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserLookup}; snake_case aliases are removed in a future major version. */
+  get_user_lookup(params: M.GetUserLookupParams = {}, options?: ExecutionOptions): Promise<M.GetUserLookupResponse> { return this.getUserLookup(params, options); }
+  /** Get all your achieved medals. Requires public access key. Required key access: public. `GET /user/medals` */
+  getMyMedals(params: M.GetMyMedalsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMedalsResponse> { return executeOperation<M.GetMyMedalsResponse>(this.client, "getMyMedals", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyMedals}; snake_case aliases are removed in a future major version. */
+  get_my_medals(params: M.GetMyMedalsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMedalsResponse> { return this.getMyMedals(params, options); }
+  /** Get your merits. Requires minimal access key. Required key access: minimal. `GET /user/merits` */
+  getMyMerits(params: M.GetMyMeritsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMeritsResponse> { return executeOperation<M.GetMyMeritsResponse>(this.client, "getMyMerits", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyMerits}; snake_case aliases are removed in a future major version. */
+  get_my_merits(params: M.GetMyMeritsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMeritsResponse> { return this.getMyMerits(params, options); }
+  /** Get your messages. Requires limited access key. Required key access: limited. `GET /user/messages` */
+  getMyMessages(params: M.GetMyMessagesParams = {}, options?: ExecutionOptions): Promise<M.GetMyMessagesResponse> { return executeOperation<M.GetMyMessagesResponse>(this.client, "getMyMessages", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyMessages}; snake_case aliases are removed in a future major version. */
+  get_my_messages(params: M.GetMyMessagesParams = {}, options?: ExecutionOptions): Promise<M.GetMyMessagesResponse> { return this.getMyMessages(params, options); }
+  /** Get your current missions information. Requires minimal access key. Required key access: minimal. `GET /user/missions` */
+  getMyMissions(params: M.GetMyMissionsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMissionsResponse> { return executeOperation<M.GetMyMissionsResponse>(this.client, "getMyMissions", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyMissions}; snake_case aliases are removed in a future major version. */
+  get_my_missions(params: M.GetMyMissionsParams = {}, options?: ExecutionOptions): Promise<M.GetMyMissionsResponse> { return this.getMyMissions(params, options); }
+  /** Get your current wealth. Requires limited access key. Required key access: limited. `GET /user/money` */
+  getMyMoney(params: M.GetMyMoneyParams = {}, options?: ExecutionOptions): Promise<M.GetMyMoneyResponse> { return executeOperation<M.GetMyMoneyResponse>(this.client, "getMyMoney", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyMoney}; snake_case aliases are removed in a future major version. */
+  get_my_money(params: M.GetMyMoneyParams = {}, options?: ExecutionOptions): Promise<M.GetMyMoneyResponse> { return this.getMyMoney(params, options); }
+  /** Get your networth. Requires limited access key. Required key access: limited. `GET /user/networth` */
+  getMyNetworth(params: M.GetMyNetworthParams = {}, options?: ExecutionOptions): Promise<M.GetMyNetworthResponse> { return executeOperation<M.GetMyNetworthResponse>(this.client, "getMyNetworth", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyNetworth}; snake_case aliases are removed in a future major version. */
+  get_my_networth(params: M.GetMyNetworthParams = {}, options?: ExecutionOptions): Promise<M.GetMyNetworthResponse> { return this.getMyNetworth(params, options); }
+  /** Get your unseen events. Requires limited access key. Required key access: limited. `GET /user/newevents` */
+  getMyNewEvents(params: M.GetMyNewEventsParams = {}, options?: ExecutionOptions): Promise<M.GetMyNewEventsResponse> { return executeOperation<M.GetMyNewEventsResponse>(this.client, "getMyNewEvents", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyNewEvents}; snake_case aliases are removed in a future major version. */
+  get_my_new_events(params: M.GetMyNewEventsParams = {}, options?: ExecutionOptions): Promise<M.GetMyNewEventsResponse> { return this.getMyNewEvents(params, options); }
+  /** Get your unseen messages. Requires limited access key. This selection is cached for 1 hour. Required key access: limited. `GET /user/newmessages` */
+  getMyNewMessages(params: M.GetMyNewMessagesParams = {}, options?: ExecutionOptions): Promise<M.GetMyNewMessagesResponse> { return executeOperation<M.GetMyNewMessagesResponse>(this.client, "getMyNewMessages", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyNewMessages}; snake_case aliases are removed in a future major version. */
+  get_my_new_messages(params: M.GetMyNewMessagesParams = {}, options?: ExecutionOptions): Promise<M.GetMyNewMessagesResponse> { return this.getMyNewMessages(params, options); }
+  /** Get your notifications. Requires minimal access key. Required key access: minimal. `GET /user/notifications` */
+  getMyNotifications(params: M.GetMyNotificationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyNotificationsResponse> { return executeOperation<M.GetMyNotificationsResponse>(this.client, "getMyNotifications", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyNotifications}; snake_case aliases are removed in a future major version. */
+  get_my_notifications(params: M.GetMyNotificationsParams = {}, options?: ExecutionOptions): Promise<M.GetMyNotificationsResponse> { return this.getMyNotifications(params, options); }
+  /** Get your current ongoing organized crime. Requires minimal access key. Required key access: minimal. `GET /user/organizedcrime` */
+  getMyOrganizedCrime(params: M.GetMyOrganizedCrimeParams = {}, options?: ExecutionOptions): Promise<M.GetMyOrganizedCrimeResponse> { return executeOperation<M.GetMyOrganizedCrimeResponse>(this.client, "getMyOrganizedCrime", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyOrganizedCrime}; snake_case aliases are removed in a future major version. */
+  get_my_organized_crime(params: M.GetMyOrganizedCrimeParams = {}, options?: ExecutionOptions): Promise<M.GetMyOrganizedCrimeResponse> { return this.getMyOrganizedCrime(params, options); }
+  /** Get your available slots for organized crimes with status 'Recruiting'. Requires minimal access key. Unlike 'faction' -> 'crimes', this selection only shows empty slots, and only for crimes with the 'Recruiting' status. Required key access: minimal. `GET /user/organizedcrimes` */
+  getMyAvailableOrganizedCrimes(params: M.GetMyAvailableOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetMyAvailableOrganizedCrimesResponse> { return executeOperation<M.GetMyAvailableOrganizedCrimesResponse>(this.client, "getMyAvailableOrganizedCrimes", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyAvailableOrganizedCrimes}; snake_case aliases are removed in a future major version. */
+  get_my_available_organized_crimes(params: M.GetMyAvailableOrganizedCrimesParams = {}, options?: ExecutionOptions): Promise<M.GetMyAvailableOrganizedCrimesResponse> { return this.getMyAvailableOrganizedCrimes(params, options); }
+  /** Get your current perks. Requires minimal access key. Required key access: public. `GET /user/perks` */
+  getMyPerks(params: M.GetMyPerksParams = {}, options?: ExecutionOptions): Promise<M.GetMyPerksResponse> { return executeOperation<M.GetMyPerksResponse>(this.client, "getMyPerks", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyPerks}; snake_case aliases are removed in a future major version. */
+  get_my_perks(params: M.GetMyPerksParams = {}, options?: ExecutionOptions): Promise<M.GetMyPerksResponse> { return this.getMyPerks(params, options); }
+  /** Get your personal stats. Requires public access key. * UserPersonalStatsFull is returned only when this selection is requested with Limited, Full or Custom key access key. * UserPersonalStatsFullPublic is returned when the requested category is 'all'. * UserPersonalStatsPopular is returned when the requested category is 'popular'. Please try to use UserPersonalStatsPopular over UserPersonalStatsFullPublic wherever possible in order to reduce the server load. * Otherwise, UserPersonalStatsCategory is returned for the matched category. * Historical stats can be fetched via 'stat' query parameter. It's only possible to pass up to 10 historical stats at once (the rest is trimmed). When requesting historical stats the response will be of type UserPersonalStatsHistoric. * Use 'timestamp' query parameter to get historical stats at the certain point in time. It's possible some historical stats didn't exist at the given timestamp, and for such stats you will not receive anything back. Required key access: public. `GET /user/personalstats` */
+  getMyPersonalStats(params: M.GetMyPersonalStatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyPersonalStatsResponse> { return executeOperation<M.GetMyPersonalStatsResponse>(this.client, "getMyPersonalStats", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyPersonalStats}; snake_case aliases are removed in a future major version. */
+  get_my_personal_stats(params: M.GetMyPersonalStatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyPersonalStatsResponse> { return this.getMyPersonalStats(params, options); }
+  /** Get your own profile. Requires public access key. Required key access: public. `GET /user/profile` */
+  getMyProfile(params: M.GetMyProfileParams = {}, options?: ExecutionOptions): Promise<M.GetMyProfileResponse> { return executeOperation<M.GetMyProfileResponse>(this.client, "getMyProfile", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyProfile}; snake_case aliases are removed in a future major version. */
+  get_my_profile(params: M.GetMyProfileParams = {}, options?: ExecutionOptions): Promise<M.GetMyProfileResponse> { return this.getMyProfile(params, options); }
+  /** Get your own properties. Requires public access key. Extended responses are available when requesting the data with Limited or higher access keys. Required key access: public. `GET /user/properties` */
+  getMyProperties(params: M.GetMyPropertiesParams = {}, options?: ExecutionOptions): Promise<M.GetMyPropertiesResponse> { return executeOperation<M.GetMyPropertiesResponse>(this.client, "getMyProperties", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyProperties}; snake_case aliases are removed in a future major version. */
+  get_my_properties(params: M.GetMyPropertiesParams = {}, options?: ExecutionOptions): Promise<M.GetMyPropertiesResponse> { return this.getMyProperties(params, options); }
+  /** Get your current property. Requires public access key. Required key access: public. `GET /user/property` */
+  getMyProperty(params: M.GetMyPropertyParams = {}, options?: ExecutionOptions): Promise<M.GetMyPropertyResponse> { return executeOperation<M.GetMyPropertyResponse>(this.client, "getMyProperty", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyProperty}; snake_case aliases are removed in a future major version. */
+  get_my_property(params: M.GetMyPropertyParams = {}, options?: ExecutionOptions): Promise<M.GetMyPropertyResponse> { return this.getMyProperty(params, options); }
+  /** Get your races. Requires minimal access key. Returns a list of user races, ordered by race start timestamp. Required key access: minimal. `GET /user/races` */
+  getMyRaces(params: M.GetMyRacesParams = {}, options?: ExecutionOptions): Promise<M.GetMyRacesResponse> { return executeOperation<M.GetMyRacesResponse>(this.client, "getMyRaces", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyRaces}; snake_case aliases are removed in a future major version. */
+  get_my_races(params: M.GetMyRacesParams = {}, options?: ExecutionOptions): Promise<M.GetMyRacesResponse> { return this.getMyRaces(params, options); }
+  /** Get your current racing records. Requires minimal access key. Required key access: minimal. `GET /user/racingrecords` */
+  getMyRacingRecords(params: M.GetMyRacingRecordsParams = {}, options?: ExecutionOptions): Promise<M.GetMyRacingRecordsResponse> { return executeOperation<M.GetMyRacingRecordsResponse>(this.client, "getMyRacingRecords", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyRacingRecords}; snake_case aliases are removed in a future major version. */
+  get_my_racing_records(params: M.GetMyRacingRecordsParams = {}, options?: ExecutionOptions): Promise<M.GetMyRacingRecordsResponse> { return this.getMyRacingRecords(params, options); }
+  /** Get your refills information. Requires minimal access key. Required key access: minimal. `GET /user/refills` */
+  getMyRefills(params: M.GetMyRefillsParams = {}, options?: ExecutionOptions): Promise<M.GetMyRefillsResponse> { return executeOperation<M.GetMyRefillsResponse>(this.client, "getMyRefills", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyRefills}; snake_case aliases are removed in a future major version. */
+  get_my_refills(params: M.GetMyRefillsParams = {}, options?: ExecutionOptions): Promise<M.GetMyRefillsResponse> { return this.getMyRefills(params, options); }
+  /** Get your reports. Requires limited access key. The limit is set to 25 when requesting any category other than 'stats'. When requesting the 'stats' category, limit can be increased up to 100. Required key access: limited. `GET /user/reports` */
+  getMyReports(params: M.GetMyReportsParams = {}, options?: ExecutionOptions): Promise<M.GetMyReportsResponse> { return executeOperation<M.GetMyReportsResponse>(this.client, "getMyReports", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyReports}; snake_case aliases are removed in a future major version. */
+  get_my_reports(params: M.GetMyReportsParams = {}, options?: ExecutionOptions): Promise<M.GetMyReportsResponse> { return this.getMyReports(params, options); }
+  /** Get your detailed revives. Requires limited access key. Required key access: limited. `GET /user/revives` */
+  getMyRevives(params: M.GetMyRevivesParams = {}, options?: ExecutionOptions): Promise<M.GetMyRevivesResponse> { return executeOperation<M.GetMyRevivesResponse>(this.client, "getMyRevives", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyRevives}; snake_case aliases are removed in a future major version. */
+  get_my_revives(params: M.GetMyRevivesParams = {}, options?: ExecutionOptions): Promise<M.GetMyRevivesResponse> { return this.getMyRevives(params, options); }
+  /** Get your simplified revives. Requires limited access key. Required key access: limited. `GET /user/revivesFull` */
+  getMyRevivesSimplified(params: M.GetMyRevivesSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyRevivesSimplifiedResponse> { return executeOperation<M.GetMyRevivesSimplifiedResponse>(this.client, "getMyRevivesSimplified", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyRevivesSimplified}; snake_case aliases are removed in a future major version. */
+  get_my_revives_simplified(params: M.GetMyRevivesSimplifiedParams = {}, options?: ExecutionOptions): Promise<M.GetMyRevivesSimplifiedResponse> { return this.getMyRevivesSimplified(params, options); }
+  /** Search users by name or other criteria. Requires public access key. This selection is standalone and cannot be used together with other selections. It's always limited to return just 25 records. Required key access: public. `GET /user/search` */
+  getUsersSearch(params: M.GetUsersSearchParams = {}, options?: ExecutionOptions): Promise<M.GetUsersSearchResponse> { return executeOperation<M.GetUsersSearchResponse>(this.client, "getUsersSearch", params, options); }
+  /** @deprecated Use {@link OpenApi.getUsersSearch}; snake_case aliases are removed in a future major version. */
+  get_users_search(params: M.GetUsersSearchParams = {}, options?: ExecutionOptions): Promise<M.GetUsersSearchResponse> { return this.getUsersSearch(params, options); }
+  /** Get your skills. Requires minimal access key. Required key access: minimal. `GET /user/skills` */
+  getMySkills(params: M.GetMySkillsParams = {}, options?: ExecutionOptions): Promise<M.GetMySkillsResponse> { return executeOperation<M.GetMySkillsResponse>(this.client, "getMySkills", params, options); }
+  /** @deprecated Use {@link OpenApi.getMySkills}; snake_case aliases are removed in a future major version. */
+  get_my_skills(params: M.GetMySkillsParams = {}, options?: ExecutionOptions): Promise<M.GetMySkillsResponse> { return this.getMySkills(params, options); }
+  /** Get daily active players snapshot CSV. Requires public access key. Returns a CSV daily snapshot of active players. This selection is standalone and cannot be used together with other selections. CSV columns: id, name, gender, signed_up, level, rank, donator, faction, company, job, spouse, display_case, bazaar, fed, fed_reason, time_played, awards Required key access: public. `GET /user/snapshot` */
+  getUsersSnapshot(params: M.GetUsersSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetUsersSnapshotResponse> { return executeOperation<M.GetUsersSnapshotResponse>(this.client, "getUsersSnapshot", params, options); }
+  /** @deprecated Use {@link OpenApi.getUsersSnapshot}; snake_case aliases are removed in a future major version. */
+  get_users_snapshot(params: M.GetUsersSnapshotParams = {}, options?: ExecutionOptions): Promise<M.GetUsersSnapshotResponse> { return this.getUsersSnapshot(params, options); }
+  /** Get your stocks. Requires limited access key. Required key access: limited. `GET /user/stocks` */
+  getMyStocks(params: M.GetMyStocksParams = {}, options?: ExecutionOptions): Promise<M.GetMyStocksResponse> { return executeOperation<M.GetMyStocksResponse>(this.client, "getMyStocks", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyStocks}; snake_case aliases are removed in a future major version. */
+  get_my_stocks(params: M.GetMyStocksParams = {}, options?: ExecutionOptions): Promise<M.GetMyStocksResponse> { return this.getMyStocks(params, options); }
+  /** Get current server time. Requires public access key. Required key access: public. `GET /user/timestamp` */
+  getUserTimestamp(params: M.GetUserTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetUserTimestampResponse> { return executeOperation<M.GetUserTimestampResponse>(this.client, "getUserTimestamp", params, options); }
+  /** @deprecated Use {@link OpenApi.getUserTimestamp}; snake_case aliases are removed in a future major version. */
+  get_user_timestamp(params: M.GetUserTimestampParams = {}, options?: ExecutionOptions): Promise<M.GetUserTimestampResponse> { return this.getUserTimestamp(params, options); }
+  /** Get your trades. Requires limited access key. When requesting 'ongoing' trades (default), limit/offset/sort are not being used. Required key access: limited. `GET /user/trades` */
+  getMyTrades(params: M.GetMyTradesParams = {}, options?: ExecutionOptions): Promise<M.GetMyTradesResponse> { return executeOperation<M.GetMyTradesResponse>(this.client, "getMyTrades", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyTrades}; snake_case aliases are removed in a future major version. */
+  get_my_trades(params: M.GetMyTradesParams = {}, options?: ExecutionOptions): Promise<M.GetMyTradesResponse> { return this.getMyTrades(params, options); }
+  /** Get your travel information. Requires minimal access key. Required key access: minimal. `GET /user/travel` */
+  getMyTravelInformation(params: M.GetMyTravelInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyTravelInformationResponse> { return executeOperation<M.GetMyTravelInformationResponse>(this.client, "getMyTravelInformation", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyTravelInformation}; snake_case aliases are removed in a future major version. */
+  get_my_travel_information(params: M.GetMyTravelInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyTravelInformationResponse> { return this.getMyTravelInformation(params, options); }
+  /** Get your travel inventory capacity. Requires limited access key. Required key access: limited. `GET /user/travelinventory` */
+  getMyTravelInventory(params: M.GetMyTravelInventoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyTravelInventoryResponse> { return executeOperation<M.GetMyTravelInventoryResponse>(this.client, "getMyTravelInventory", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyTravelInventory}; snake_case aliases are removed in a future major version. */
+  get_my_travel_inventory(params: M.GetMyTravelInventoryParams = {}, options?: ExecutionOptions): Promise<M.GetMyTravelInventoryResponse> { return this.getMyTravelInventory(params, options); }
+  /** Get your virus coding information. Requires minimal access key. Required key access: minimal. `GET /user/virus` */
+  getMyVirusCodingInformation(params: M.GetMyVirusCodingInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyVirusCodingInformationResponse> { return executeOperation<M.GetMyVirusCodingInformationResponse>(this.client, "getMyVirusCodingInformation", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyVirusCodingInformation}; snake_case aliases are removed in a future major version. */
+  get_my_virus_coding_information(params: M.GetMyVirusCodingInformationParams = {}, options?: ExecutionOptions): Promise<M.GetMyVirusCodingInformationResponse> { return this.getMyVirusCodingInformation(params, options); }
+  /** Get your weapon experience information. Requires minimal key. Required key access: minimal. `GET /user/weaponexp` */
+  getMyWeaponExp(params: M.GetMyWeaponExpParams = {}, options?: ExecutionOptions): Promise<M.GetMyWeaponExpResponse> { return executeOperation<M.GetMyWeaponExpResponse>(this.client, "getMyWeaponExp", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyWeaponExp}; snake_case aliases are removed in a future major version. */
+  get_my_weapon_exp(params: M.GetMyWeaponExpParams = {}, options?: ExecutionOptions): Promise<M.GetMyWeaponExpResponse> { return this.getMyWeaponExp(params, options); }
+  /** Get your working stats. Requires minimal access key. Required key access: minimal. `GET /user/workstats` */
+  getMyWorkstats(params: M.GetMyWorkstatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyWorkstatsResponse> { return executeOperation<M.GetMyWorkstatsResponse>(this.client, "getMyWorkstats", params, options); }
+  /** @deprecated Use {@link OpenApi.getMyWorkstats}; snake_case aliases are removed in a future major version. */
+  get_my_workstats(params: M.GetMyWorkstatsParams = {}, options?: ExecutionOptions): Promise<M.GetMyWorkstatsResponse> { return this.getMyWorkstats(params, options); }
 }

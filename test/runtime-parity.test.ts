@@ -27,12 +27,12 @@ class QueueTransport implements HttpTransport {
   }
 }
 const json = (value: unknown, status = 200): TransportResponse => ({ status, body: JSON.stringify(value) });
-const apiError = (message: string, status = 200): TransportResponse => json({ error: { code: 6, error: message } }, status);
+const apiError = (message: string, status = 200, code = 6): TransportResponse => json({ error: { code, error: message } }, status);
 const call = (overrides: Partial<PlannedRequest> = {}): PlannedRequest => ({ resource: 'user', path: '/user', method: 'GET', query: { selections: 'profile' }, selections: ['profile'], strategy: 'generic-single', fallbackSplit: [], apiVersion: 'v2', ...overrides });
 const plan = (...requests: PlannedRequest[]): RequestPlan => ({ resource: 'user', requests });
 const harness = (responses: (TransportResponse | Error)[], config: ExecutorConfigInput = {}, keys = ['test-key-one', 'test-key-two']) => {
   const transport = new QueueTransport(responses), clock = new Clock();
-  const executor = new RequestExecutor(transport, keys, { networkRetryBackoffMs: 5, ...config }, { scheduler: clock });
+  const executor = new RequestExecutor(transport, keys, { networkRetryBackoffMs: 5, jitter: 'none', ...config }, { scheduler: clock });
   return { executor, transport, clock };
 };
 
@@ -69,7 +69,7 @@ describe('Executor contract audit', () => {
   test('split fallback omits failed combination attempt from the report', async () => {
     const planner = new RequestPlanner();
     const request = planner.plan(new PlanRequest('user', ['profile', 'discord']));
-    const { executor, transport } = harness([apiError('Selections cannot be used together'), json({ profile: 1 }), json({ discord: 2 })]);
+    const { executor, transport } = harness([apiError('Selections cannot be used together', 200, 4), json({ profile: 1 }), json({ discord: 2 })]);
     const report = await executor.executePlan(request);
     expect(report.mergedJson).toEqual({ profile: 1, discord: 2 });
     expect(report.calls).toHaveLength(2);
@@ -78,30 +78,32 @@ describe('Executor contract audit', () => {
   });
   test('split errors are terminal and do not recursively migrate or split', async () => {
     const request = new RequestPlanner().plan(new PlanRequest('user', ['profile', 'discord']));
-    const { executor, transport } = harness([apiError('standalone selection'), apiError('selection not available in API v2')]);
+    const { executor, transport } = harness([apiError('wrong fields', 200, 4), apiError('wrong fields', 200, 4)]);
     await expect(executor.executePlan(request)).rejects.toBeInstanceOf(ApiError);
     expect(transport.requests).toHaveLength(2);
     expect(transport.requests.every(value => value.baseUrl.endsWith('/v2'))).toBe(true);
   });
-  test('migration fallback precedes splitting, preserves allowed filters, uses v1 base and path id', async () => {
+  test('code 22 re-plans on v1 before splitting, forwards filters and comment, uses v1 base and path id (P4.3)', async () => {
     const request = new RequestPlanner().plan(new PlanRequest('user', ['profile', 'discord']).withId('55').withFilter('limit', 10).withFilter('comment', 'tool'));
-    const { executor, transport } = harness([apiError('selection must fallback to API v1, cannot combine'), json({ profile: 1, discord: 2 })]);
+    const { executor, transport } = harness([apiError('This selection is only available in API v1', 200, 22), json({ profile: 1, discord: 2 })]);
     const report = await executor.executePlan(request);
     expect(transport.requests).toHaveLength(2);
     expect(transport.requests[1]).toMatchObject({ baseUrl: 'https://api.torn.com', apiVersion: 'v1', path: '/user/55', query: { selections: 'profile,discord', limit: '10' } });
     expect(transport.requests[0]!.apiVersion).toBe('v2');
-    expect(transport.requests[1]!.query).not.toHaveProperty('comment');
+    expect(transport.requests[1]!.query).toHaveProperty('comment', 'tool');
     expect(transport.requests[1]!.query).not.toHaveProperty('id');
     expect(report.calls[0]).toMatchObject({ fallback: true, strategy: 'version-fallback', apiVersion: 'v1' });
   });
-  test('migration is not available for v1 or unsupported v1 resources', () => {
-    const error = new ApiError('not available in API v2', { path: '/', status: 400 });
+  test('version re-planning needs code 22/23 and a route on the other version (message text is ignored, P4.1)', () => {
+    expect(runtimeV1Fallback(call(), new ApiError('fallback to API v1', { path: '/', status: 200, code: 6 }))).toBeUndefined();
+    expect(runtimeV1Fallback(call({ apiVersion: 'v1', path: '/user/', query: { selections: 'profile' } }), new ApiError('v2 only', { path: '/', status: 200, code: 23 }))).toMatchObject({ apiVersion: 'v2', path: '/user' });
+    const error = new ApiError('only available in API v1', { path: '/', status: 200, code: 22 });
     expect(runtimeV1Fallback(call({ apiVersion: 'v1' }), error)).toBeUndefined();
     expect(runtimeV1Fallback(call({ resource: 'forum' }), error)).toBeUndefined();
     expect(runtimeV1Fallback(call(), new TransportError('fallback to API v1'))).toBeUndefined();
     expect(isSelectionCombinationError(new Error('standalone'))).toBe(false);
   });
-  test('transport failure uses linear backoff and rotates keys across attempts', async () => {
+  test('transport failure uses exponential backoff and rotates keys across attempts', async () => {
     const { executor, transport, clock } = harness([new TransportError('offline'), new Error('offline'), json({ ok: true })]);
     const report = await executor.executePlan(plan(call()));
     expect(clock.sleeps).toEqual([5, 10]);
@@ -129,18 +131,22 @@ describe('Executor contract audit', () => {
     expect(transport.requests).toHaveLength(1);
     expect(clock.sleeps).toEqual([]);
   });
-  test('429 marks key and IP route exhausted, waits to the minute, then retries', async () => {
-    const { executor, transport, clock } = harness([apiError('IP rate limit reached', 429), json({ ok: true })]);
+  test('HTTP 429 backs off (or honors Retry-After) and retries', async () => {
+    const { executor, transport, clock } = harness([apiError('IP rate limit reached', 429), { status: 429, body: '', headers: { 'retry-after': '2' } }, json({ ok: true })]);
     expect((await executor.executePlan(plan(call()))).mergedJson).toEqual({ ok: true });
-    expect(clock.sleeps).toEqual([50_000]);
-    expect(transport.requests).toHaveLength(2);
+    expect(clock.sleeps).toEqual([5, 2000]);
+    expect(transport.requests).toHaveLength(3);
   });
-  test('application rate errors exhaust key even on the final attempt', async () => {
-    const { executor, clock } = harness([apiError('Too many calls')], { maxAttempts: 1 });
+  test('code 5 marks the key rate-limited even on the final attempt (P3.3)', async () => {
+    const { executor, clock } = harness([apiError('Too many requests', 200, 5)], { maxAttempts: 1 });
     await expect(executor.executePlan(plan(call()))).rejects.toBeInstanceOf(ApiError);
-    expect(executor.rateLimiter.tryAcquireAtUnixSeconds('test-key-one', 10).acquired).toBe(false);
-    expect(executor.rateLimiter.tryAcquireAtUnixSeconds('test-key-two', 10).acquired).toBe(true);
+    expect(executor.keyStates().map(state => state.state)).toEqual(['rate_limited', 'healthy']);
     expect(clock.sleeps).toEqual([]);
+  });
+  test('rate-limit wording on another code is not a rate limit (P4.1)', async () => {
+    const { executor } = harness([apiError('Too many calls')], { maxAttempts: 3 });
+    await expect(executor.executePlan(plan(call()))).rejects.toMatchObject({ code: 6 });
+    expect(executor.keyStates().every(state => state.state === 'healthy')).toBe(true);
   });
   test('malformed success JSON is a terminal decode failure; HTTP errors show a Unicode-safe snippet', async () => {
     const bad = harness([{ status: 200, body: 'invalid' }]);
@@ -176,13 +182,13 @@ describe('Executor contract audit', () => {
     expect(clock.sleeps).toEqual([5, 10]);
     const limited = harness([apiError('Rate limit', 429), { status: 200, body: 'ok' }]);
     expect((await limited.executor.executePlanTextWithOptions(plan(call()))).body).toBe('ok');
-    expect(limited.clock.sleeps).toEqual([50_000]);
+    expect(limited.clock.sleeps).toEqual([5]);
   });
-  test('quota waits use shared state and minute rollover, named routes spill before default', async () => {
+  test('quota waits use shared sliding-window state, named routes spill before default', async () => {
     const { executor, transport, clock } = harness([json({}), json({}), json({}), json({})], { rateLimits: { perKeyPerMinute: 10, perIpPerMinute: 1 }, routes: [{ id: 'a', perIpPerMinute: 1 }, { id: 'b', perIpPerMinute: 1 }] });
     for (let i = 0; i < 4; i++) await executor.executePlan(plan(call()));
     expect(transport.requests.map(value => value.routeId)).toEqual(['a', 'b', 'default', 'a']);
-    expect(clock.sleeps).toEqual([50_000]);
+    expect(clock.sleeps).toEqual([60_000]);
     expect(executor.routeCandidates('default')).toEqual(['default']);
     expect(executor.routeCandidates('unknown')).toEqual(['unknown']);
   });
@@ -193,7 +199,8 @@ describe('Executor contract audit', () => {
     await executor.executePlan(plan(call()));
     clock.time = 60_000;
     await executor.executePlan(plan(call()));
-    expect(transport.requests.map(value => value.routeId)).toEqual(['default', 'named', 'named']);
+    // Sliding window: the named route's send at 10 s still counts at 60 s, so the third call spills to default.
+    expect(transport.requests.map(value => value.routeId)).toEqual(['default', 'named', 'default']);
     expect(metrics).toEqual([{ minuteIndex: 0, routeId: 'default', calls: 1, waits: 0, limit: 1000 }, { minuteIndex: 0, routeId: 'named', calls: 1, waits: 0, limit: 1 }]);
   });
   test('executor, call, transport request and proxy config diagnostics redact secrets', async () => {
@@ -278,16 +285,17 @@ describe('environment and quota contracts', () => {
   test('config validation rejects empty key set and zero quotas/concurrency/routes', () => {
     expect(() => new RequestExecutor(new QueueTransport(), [])).toThrow('no API keys');
     for (const config of [{ maxInFlight: 0 }, { rateLimits: { perKeyPerMinute: 0 } }, { rateLimits: { perIpPerMinute: 0 } }, { routes: [{ id: 'bad', perIpPerMinute: 0 }] }]) expect(() => new RequestExecutor(new QueueTransport(), ['test'], config)).toThrow();
-    expect(defaultExecutorConfig().rateLimits).toEqual({ perKeyPerMinute: 100, perIpPerMinute: 1000, routeIpLimits: {} });
+    expect(defaultExecutorConfig().rateLimits).toEqual({ perKeyPerMinute: 100, perIpPerMinute: 1000, routeIpLimits: {}, windowMs: 60_000 });
   });
-  test('per-key quota is global across routes, per-route quota is independent, minutes roll over', () => {
+  test('per-key quota is global across routes, per-route quota is independent, windows slide (P3.1)', () => {
     const limiter = new RateLimiter({ perKeyPerMinute: 2, perIpPerMinute: 1, routeIpLimits: { a: 2 } });
     expect(limiter.tryAcquireForRouteAtUnixSeconds('one', 'a', 10).acquired).toBe(true);
     expect(limiter.tryAcquireForRouteAtUnixSeconds('one', 'b', 10).acquired).toBe(true);
-    expect(limiter.tryAcquireForRouteAtUnixSeconds('one', 'a', 10)).toEqual({ acquired: false, waitMs: 50_000 });
+    expect(limiter.tryAcquireForRouteAtUnixSeconds('one', 'a', 10)).toEqual({ acquired: false, waitMs: 60_000 });
     expect(limiter.tryAcquireForRouteAtUnixSeconds('two', 'a', 10).acquired).toBe(true);
     expect(limiter.tryAcquireForRouteAtUnixSeconds('three', 'a', 10).acquired).toBe(false);
-    expect(limiter.tryAcquireForRouteAtUnixSeconds('one', 'a', 60).acquired).toBe(true);
+    expect(limiter.tryAcquireForRouteAtUnixSeconds('one', 'a', 60).acquired).toBe(false);
+    expect(limiter.tryAcquireForRouteAtUnixSeconds('one', 'a', 70).acquired).toBe(true);
     expect(RateLimiter.waitDurationUntilNextMinute(60)).toBe(60_000);
     expect(RateLimiter.waitDurationUntilNextMinute(119)).toBe(1000);
   });
@@ -312,7 +320,7 @@ describe('Bun native transport local integration', () => {
     let receivedUrl = '', receivedAgent: string | null = null, receivedAuth: string | null = null;
     const baseUrl = serve(req => { receivedUrl = req.url; receivedAgent = req.headers.get('user-agent'); receivedAuth = req.headers.get('authorization'); return new Response('plain-text', { status: 202 }); });
     const transport = new BunTransport(1000, 'sdk-local-test');
-    expect(await transport.execute(request(baseUrl))).toEqual({ status: 202, body: 'plain-text' });
+    expect(await transport.execute(request(baseUrl))).toMatchObject({ status: 202, body: 'plain-text', headers: { 'content-type': 'text/plain;charset=utf-8' } });
     const url = new URL(receivedUrl);
     expect(url.pathname).toBe('/user'); expect(url.searchParams.get('search')).toBe('a b&c'); expect(url.searchParams.has('key')).toBe(false);
     expect(receivedAuth as string | null).toBe('ApiKey local-test-secret');

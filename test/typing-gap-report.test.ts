@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import { fileURLToPath } from 'node:url';
-import { buildTypingGapReport, buildSourceTypingGapReport, classifyTyping, formatTypingGapReport, loadReport, typingClassLabel, sourceTypingReportVersion } from '../src/typing-gap.ts';
+import { buildTypingGapReport, buildSourceTypingGapReport, classifyTyping, formatTypingGapReport, loadReport, typingClassLabel, sourceTypingReportVersion } from '../tools/typing-gap.ts';
 import { defaultCapabilities } from '../src/capabilities.ts';
 import snapshot from '../spec/parity/typing-classification.json' with { type: 'json' };
 

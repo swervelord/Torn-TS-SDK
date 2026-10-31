@@ -9,7 +9,7 @@ const goldenPath = new URL('../spec/parity/planner-golden.json', import.meta.url
 const manifestPath = new URL('../spec/parity/parity-manifest.json', import.meta.url);
 const fixtures = await Bun.file(goldenPath).json() as { input: PlanRequestData; expected: unknown }[];
 const manifest = await Bun.file(manifestPath).json();
-const planners = [new RequestPlanner(sourceCapabilities), new RequestPlanner()];
+const planners = [new RequestPlanner(sourceCapabilities, { routing: 'legacy' }), new RequestPlanner(undefined, { routing: 'legacy' })];
 for (const planner of planners) {
 for (const fixture of fixtures) {
   const input = fixture.input;

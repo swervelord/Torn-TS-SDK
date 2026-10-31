@@ -1,5 +1,5 @@
 /** Compile-only public API contract checks. These are deliberately included by tsc. */
-import { OpenApi, TornClient, RequestExecutor, RequestPlanner, TornSdk } from '../src/index.ts';
+import { OpenApi, TornClient, RequestExecutor, RequestPlanner, TornSdk, type KnownEnumValue } from '../src/index.ts';
 import type { HttpTransport, TransportRequest, TransportResponse } from '../src/transport.ts';
 import type { GetUserDiscordResponse, GetTornItemDetailsResponse, UserInventoryItem, RaceClassEnum, GetTornItemDetailsParams } from '../src/generated/models.ts';
 
@@ -25,12 +25,15 @@ customApi.getUserDiscord({id:1,key:'forbidden'});
 customApi.getUserDiscord({id:null});
 // @ts-expect-error Path UID arrays must contain integers, not arbitrary objects.
 customApi.getTornItemDetails({ids:[{id:1}]});
-// @ts-expect-error Exact generated enums reject unknown strings.
-const invalidEnum:RaceClassEnum='F';
+// PARITY_SPEC P1.1: generated enums are open, so an unknown upstream value type-checks...
+const unknownEnum:RaceClassEnum='F';
+// @ts-expect-error ...while KnownEnumValue is the closed set of pinned literals.
+const invalidEnum:KnownEnumValue<'RaceClassEnum'>='F';
+const knownEnum:KnownEnumValue<'RaceClassEnum'>='A';
 // @ts-expect-error Required nullable uid must be present even when null.
 const missingRequiredNullable:UserInventoryItem={id:1,amount:1,equipped:false,name:'test',faction_owned:false};
 const nullableUid:UserInventoryItem={id:1,amount:1,equipped:false,name:'test',faction_owned:false,uid:null};
-void [discord,snakeDiscord,details,csv,ids,enumValue,invalidEnum,missingRequiredNullable,nullableUid,sdk];
+void [discord,snakeDiscord,details,csv,ids,enumValue,invalidEnum,unknownEnum,knownEnum,missingRequiredNullable,nullableUid,sdk];
 
 import type { legacy6136Models, TornEliminationTeam, TornEliminationTeamLeader, TornEliminationTeamCaptain } from '../src/generated/index.ts';
 declare const currentTeam:TornEliminationTeam;

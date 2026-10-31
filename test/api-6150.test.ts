@@ -1,3 +1,4 @@
+import type { ValidationIssue } from '../src/schema.ts';
 import { expect, test } from 'bun:test';
 import spec from '../spec/torn-openapi-current.json';
 import { decodeModel, validateModel } from '../src/generated/runtime.ts';
@@ -22,11 +23,16 @@ test('6.15.0 travel inventory endpoint requires a Limited key and joins the user
  expect(spec.components.schemas.UserSelectionName.oneOf[0]!.enum).toContain('travelinventory');
 });
 
-test('6.15.0 enum additions decode and unknown members are still rejected',()=>{
+test('6.15.0 enum additions decode; unknown members are kept by default and rejected in strict mode (P1.1, P1.3)',()=>{
  expect(decodeModel('JobPositionCasinoEnum','Dealer')).toBe('Dealer');
  expect(decodeModel('FactionTerritoryWarResultEnum','end_with_dirty_bomb')).toBe('end_with_dirty_bomb');
- expect(validateModel('JobPositionCasinoEnum','Croupier').length).toBeGreaterThan(0);
- expect(validateModel('FactionTerritoryWarResultEnum','end_with_nuke').length).toBeGreaterThan(0);
+ expect(validateModel('JobPositionCasinoEnum','Croupier')).toEqual([]);
+ const warnings:ValidationIssue[]=[];
+ expect(validateModel('FactionTerritoryWarResultEnum','end_with_nuke',{warnings})).toEqual([]);
+ expect(warnings).toMatchObject([{path:'$',kind:'unknown_enum',value:'end_with_nuke'}]);
+ expect(validateModel('JobPositionCasinoEnum','Croupier',{mode:'strict'}).length).toBeGreaterThan(0);
+ expect(validateModel('FactionTerritoryWarResultEnum','end_with_nuke',{mode:'strict'}).length).toBeGreaterThan(0);
+ expect(validateModel('FactionTerritoryWarResultEnum',5).length).toBeGreaterThan(0);
 });
 
 test('travel inventory sample decodes with nullable slot item and item UID',()=>{

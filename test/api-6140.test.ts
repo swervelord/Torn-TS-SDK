@@ -33,9 +33,10 @@ test('Halloween exact operations, facade helpers, and typed selection batches de
  expect(calls[0]!.path).toBe('/user/halloween');expect(calls[1]!.path).toBe('/torn/halloween');
 });
 
-test('Halloween rejects missing required unknown type and malformed typed treat counts',()=>{
+test('Halloween upgrade type is relaxed by spec-overrides.json (P1.2): optional by default, required in strict mode',()=>{
  const upgrade={id:1,name:'Basket',description:'Upgrade',flavor:'Flavor',cost:10,requirement:0};
- expect(()=>decodeModel('TornHalloweenUpgrade',upgrade)).toThrow('type');
+ expect(decodeModel('TornHalloweenUpgrade',upgrade)).toEqual(upgrade);
+ expect(()=>decodeModel('TornHalloweenUpgrade',upgrade,{mode:'strict'})).toThrow('type');
  expect(decodeModel('TornHalloweenUpgrade',{...upgrade,type:null})).toEqual({...upgrade,type:null});
  expect(()=>decodeModel('UserHalloweenResponse',{halloween:{treats:{current:'25',total:100},basket_upgrades:[]}})).toThrow('integer');
 });

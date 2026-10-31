@@ -98,9 +98,26 @@ export const ResourceCapabilities = {
   },
 };
 
+/**
+ * Read a text file on any runtime (PARITY_SPEC P9.5): http(s) URLs via fetch, `Deno.readTextFile`, otherwise
+ * `node:fs/promises` (Node, Bun). The specifier is computed so browser bundlers do not try to resolve it.
+ */
+export async function readTextFile(path: string | URL): Promise<string> {
+  if (path instanceof URL && (path.protocol === 'http:' || path.protocol === 'https:')) {
+    const response = await fetch(path);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.text();
+  }
+  const deno = (globalThis as { Deno?: { readTextFile?: (path: string | URL) => Promise<string> } }).Deno;
+  if (deno?.readTextFile) return deno.readTextFile(path);
+  const specifier = ['node', 'fs/promises'].join(':');
+  const fs = await import(/* @vite-ignore */ specifier) as { readFile(path: string | URL, encoding: 'utf8'): Promise<string> };
+  return fs.readFile(path, 'utf8');
+}
+
 export async function capabilitiesFromPath(path: string | URL): Promise<CapabilitiesDocument> {
   let content: string;
-  try { content = await Bun.file(path).text(); }
+  try { content = await readTextFile(path); }
   catch (cause) {
     throw new PlannerError(`Failed to read capabilities from ${path}`, 'CapabilitiesRead', { path: String(path), cause });
   }
@@ -112,6 +129,10 @@ export async function capabilitiesFromPath(path: string | URL): Promise<Capabili
 
 /** Static helpers are also exposed under the public type's name. */
 export const CapabilitiesDocument = {
-  fromJsonStr: capabilitiesFromJson, from_json_str: capabilitiesFromJson,
-  fromPath: capabilitiesFromPath, from_path: capabilitiesFromPath,
+  fromJsonStr: capabilitiesFromJson,
+  /** @deprecated Use fromJsonStr. */
+  from_json_str: capabilitiesFromJson,
+  fromPath: capabilitiesFromPath,
+  /** @deprecated Use fromPath. */
+  from_path: capabilitiesFromPath,
 };

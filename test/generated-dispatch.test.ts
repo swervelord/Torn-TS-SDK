@@ -1,3 +1,5 @@
+import { operationAccessLevels } from '../src/generated/access-levels.ts';
+import { operationCacheTtlMs } from '../src/generated/cache-policy.ts';
 import { describe,expect,test } from 'bun:test';
 import { OpenApi } from '../src/generated/operations.ts';
 import { operationDefinitions, operationIds, componentSchemaNames } from '../src/generated/operation-data.ts';
@@ -35,7 +37,7 @@ describe('every generated operation executes both naming aliases against its exa
   for(const alias of new Set([definition.method,definition.camel])){
    const method=Reflect.get(api,alias) as (params:object,options:ExecutionOptions)=>Promise<unknown>;
    await expect(method.call(api,params,options)).rejects.toBe(sentinel);
-   expect(observedPlan).toEqual({resource:path.slice(1).split('/')[0]!,requests:[{resource:path.slice(1).split('/')[0]!,path:expectedPath,method:'GET',query:expectedQuery,selections:[],strategy:'direct-endpoint',fallbackSplit:[],apiVersion:'v2'}]});
+   expect(observedPlan).toEqual({resource:path.slice(1).split('/')[0]!,requests:[{resource:path.slice(1).split('/')[0]!,path:expectedPath,method:'GET',query:expectedQuery,selections:[],strategy:'direct-endpoint',fallbackSplit:[],apiVersion:'v2',operation:id,...(operationAccessLevels[id]?{access:operationAccessLevels[id]}:{}),...(operationCacheTtlMs[id]!==undefined?{cacheTtlMs:operationCacheTtlMs[id]}:{})}]});
    expect(observedOptions).toBe(options);expect(observedChannel).toBe(definition.text?'text':'json');
    expect(observedPlan!.requests[0]!.query).not.toHaveProperty('key');
   }
@@ -79,6 +81,6 @@ describe('6.13.8 elimination migration preserves an explicit frozen 6.13.6 contr
  test('new error33 is typed in the current union and absent from the frozen union',()=>{
   const error={code:33,error:'No competition available'};
   expect(decodeModel('ApiError',error)).toBe(error);
-  expect(()=>decodeLegacyModel('ApiError',error)).toThrow('union variant');
+  expect(()=>decodeLegacyModel('ApiError',error,{mode:'strict'})).toThrow('union variant');
  });
 });

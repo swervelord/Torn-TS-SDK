@@ -2,10 +2,10 @@ import sourceClassification from '../spec/parity/typing-classification.json' wit
 import currentClassification from '../spec/parity/typing-classification-current.json' with { type: 'json' };
 import sourceCapabilities from '../spec/versions/torn-capabilities-6.13.6.json' with { type: 'json' };
 import sourceSchemaNames from '../spec/parity/source-schema-names.json' with { type: 'json' };
-import { defaultCapabilities, capabilitiesFromPath, type CapabilitiesDocument } from './capabilities.ts';
-import { componentSchemaNames } from './generated/operation-data.ts';
-import { manualModelMetadata } from './models/manual-metadata.ts';
-import { facadeManifest } from './wrapper/manifest.ts';
+import { defaultCapabilities, capabilitiesFromPath, type CapabilitiesDocument } from '../src/capabilities.ts';
+import { componentSchemaNames } from '../src/generated/operation-data.ts';
+import { manualModelMetadata } from '../src/models/manual-metadata.ts';
+import { facadeManifest } from '../src/wrapper/manifest.ts';
 
 export type TypingClass = 'strict-typed' | 'typed-with-extra' | 'dynamic-facade' | 'raw-only' | 'missing-schema' | 'schema-exists-but-not-wired';
 export const typingClassLabel = (classification: TypingClass): string => classification === 'raw-only' ? 'raw-only' : classification.replaceAll('-', ' ');

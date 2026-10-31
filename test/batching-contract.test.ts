@@ -11,7 +11,8 @@ import type { PlannedRequest } from '../src/types.ts';
 const planner = new RequestPlanner(), v1 = new V1Catalog();
 type Bucket = 'combined' | 'standalone' | 'direct' | 'v1';
 function bucket(resource: string, selection: SelectionCapability): Bucket {
-  if ((selection.fallback_to_v1 || selection.unavailable_in_v2) && v1.hasSelection(resource, selection.name)) return 'v1';
+  // 3.x default routing: only selections v2 cannot serve go to v1 up front; `fallback_to_v1` ones use Torn's v2 fallback (P4.3).
+  if (selection.unavailable_in_v2 && v1.hasSelection(resource, selection.name)) return 'v1';
   if (selection.requires_direct_endpoint_only || !selection.can_use_generic_endpoint) return 'direct';
   return selection.standalone_only ? 'standalone' : 'combined';
 }
@@ -86,13 +87,15 @@ describe('batching at the public HTTP boundary', () => {
     expect(transport.requests).toHaveLength(1);
     expect(transport.requests[0]!.query.selections).toBe('profile,job');
   });
-  test('unknown filters are scrubbed; compatible shared filters use the generic allowlist', () => {
-    const result = planner.plan(new PlanRequest('user', ['profile', 'job']).withId('123').withFilter('limit', '25').withFilter('cat', 'all').withFilter('made_up_filter', 'ignored'));
+  test('unknown filters are forwarded verbatim (P1.5); compatible shared filters use the generic allowlist', () => {
+    const result = planner.plan(new PlanRequest('user', ['profile', 'job']).withId('123').withFilter('limit', '25').withFilter('cat', 'all').withFilter('made_up_filter', 'kept'));
     expect(result.requests).toHaveLength(1);
-    expect(result.requests[0]!.query).toEqual({ selections: 'profile,job', id: '123', limit: '25', cat: 'all' });
+    expect(result.requests[0]!.query).toEqual({ selections: 'profile,job', id: '123', limit: '25', cat: 'all', made_up_filter: 'kept' });
+    const legacy = new RequestPlanner(undefined, { routing: 'legacy' }).plan(new PlanRequest('user', ['profile']).withFilter('made_up_filter', 'x'));
+    expect(legacy.requests[0]!.query).not.toHaveProperty('made_up_filter');
   });
-  test('a rejected combined call splits once and successful reports contain only split calls', async () => {
-    const { client, transport } = clientWith((request, count) => count === 1 ? response({ error: { code: 6, error: 'Selections cannot be used together' } }) : response({ [request.query.selections!]: { success: true } }));
+  test('a combined call rejected with code 4 (wrong fields) splits once and successful reports contain only split calls', async () => {
+    const { client, transport } = clientWith((request, count) => count === 1 ? response({ error: { code: 4, error: 'Selections cannot be used together' } }) : response({ [request.query.selections!]: { success: true } }));
     const report = await client.getUserData(['profile', 'job', 'discord'], { id: '123' });
     expect(transport.requests.map(request => request.query.selections)).toEqual(['profile,job,discord', 'profile', 'job', 'discord']);
     expect(report.calls).toHaveLength(3);
@@ -100,7 +103,7 @@ describe('batching at the public HTTP boundary', () => {
     expect(report.mergedJson).toEqual({ profile: { success: true }, job: { success: true }, discord: { success: true } });
   });
   test('a rejected split is terminal and does not start another combination fallback', async () => {
-    const { client, transport } = clientWith(() => response({ error: { code: 6, error: 'Selections cannot be used together' } }));
+    const { client, transport } = clientWith(() => response({ error: { code: 4, error: 'Selections cannot be used together' } }));
     await expect(client.getUserData(['profile', 'job'], { id: '123' })).rejects.toThrow('Selections cannot');
     expect(transport.requests.map(request => request.query.selections)).toEqual(['profile,job', 'profile']);
   });

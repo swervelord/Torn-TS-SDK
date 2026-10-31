@@ -36,7 +36,7 @@ describe("complete facade surface",()=>{
   });
   test("required endpoint parameters and mutually exclusive personal stats filters reject before transport",async()=>{
     const {sdk,calls}=harness();
-    await expect(sdk.user().profile()).rejects.toThrow("requires 'id'");
+    await expect(sdk.market().itemmarket()).rejects.toThrow("requires 'id'");
     await expect(sdk.user().crimes()).rejects.toThrow("crimeId");
     await expect(sdk.user().trade()).rejects.toThrow("tradeId");
     await expect(sdk.user().inventory()).rejects.toThrow("query parameter 'cat'");
@@ -51,7 +51,7 @@ describe("complete facade surface",()=>{
     await expect(sdk.torn().stock()).rejects.toThrow("stockId");
     await expect(sdk.torn().stocks(new TornOptions().withStockId(1))).rejects.toThrow("does not accept stockId");
     await expect(sdk.user().rawSelection("snapshot")).rejects.toThrow("CSV");
-    await expect(sdk.user().rawSelections(["fake"])).rejects.toThrow("does not support");
+    await expect(sdk.market().itemmarket({} as never)).rejects.toThrow("expects an options object or an id");
     await expect(sdk.user().money(new UserOptions().withBase(new BaseOptions().withFrom(20).withTo(10)))).rejects.toThrow("'from' <= 'to'");
     expect(calls).toHaveLength(0);
   });

@@ -1,7 +1,10 @@
 import { TornClient } from "../client.ts";
 import type { HttpTransport } from "../transport.ts";
 import type { ExecutorConfigInput } from "../config.ts";
-import type { ExecutorDependencies } from "../executor.ts";
+import type { ExecutorDependencies, KeyStateInfo } from "../executor.ts";
+import type { PlannerOptions } from "../planner.ts";
+import type { ExecutionOptions } from "../types.ts";
+import type { KeyInfoResponse } from "../generated/models.ts";
 import { OpenApi } from "../generated/operations.ts";
 import { UserApi } from "./user.ts";
 import { CompanyApi } from "./company.ts";
@@ -29,9 +32,13 @@ export { facadeManifest } from "./manifest.ts";
 export class TornSdk {
   constructor(private readonly underlyingClient:TornClient<HttpTransport>){}
   static new(client:TornClient<HttpTransport>):TornSdk{return new TornSdk(client);}
+  /** Keys from `TORN_API_KEY` / `TORN_API_KEYS` on Node, Bun and Deno (PARITY_SPEC P2.6). */
   static async fromEnv(capabilitiesPath?:string,env?:Record<string,string|undefined>):Promise<TornSdk>{return new TornSdk(await TornClient.fromEnv(capabilitiesPath,env));}
+  /** @deprecated Use fromEnv. */
   static from_env=TornSdk.fromEnv;
-  static withApiKeys(keys:Iterable<string>,config:ExecutorConfigInput={},dependencies:ExecutorDependencies={}):TornSdk{return new TornSdk(TornClient.withApiKeys(keys,config,dependencies));}
+  static withApiKeys(keys:Iterable<string>,config:ExecutorConfigInput={},dependencies:ExecutorDependencies={},planner:PlannerOptions={}):TornSdk{return new TornSdk(TornClient.withApiKeys(keys,config,dependencies,planner));}
+  /** Use a custom HttpTransport (proxy-capable fetch, test double, ...). */
+  static withTransport(transport:HttpTransport,keys:Iterable<string>,config:ExecutorConfigInput={},dependencies:ExecutorDependencies={},planner:PlannerOptions={}):TornSdk{return new TornSdk(TornClient.withTransport(transport,keys,config,dependencies,planner));}
   client():TornClient<HttpTransport>{return this.underlyingClient;}
   openapi():OpenApi{return new OpenApi(this.underlyingClient);}
   user():UserApi{return new UserApi(this.underlyingClient);}
@@ -43,4 +50,11 @@ export class TornSdk {
   property():PropertyApi{return new PropertyApi(this.underlyingClient);}
   racing():RacingApi{return new RacingApi(this.underlyingClient);}
   torn():TornApi{return new TornApi(this.underlyingClient);}
+  /** PARITY_SPEC P2.5: redacted per-key states. */
+  keyStates():KeyStateInfo[]{return this.underlyingClient.keyStates();}
+  /** PARITY_SPEC P6.2: typed `key/info`. */
+  keyInfo(options:ExecutionOptions={}):Promise<KeyInfoResponse>{return this.underlyingClient.keyInfo(options);}
+  toJSON():object{return {client:this.underlyingClient.toJSON()};}
+  [Symbol.for("nodejs.util.inspect.custom")]():object{return this.toJSON();}
+  toString():string{return `TornSdk(${this.underlyingClient.toString()})`;}
 }

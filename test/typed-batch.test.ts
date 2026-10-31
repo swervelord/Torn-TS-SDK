@@ -40,7 +40,7 @@ describe("typed planner batches",()=>{
     expect(data.profile.name).toBe("Example");expect(data.search).toEqual([]);expect(transport.calls.length).toBeGreaterThan(1);expect(report.calls.length).toBe(transport.calls.length);
   });
   test("incompatible combined selections fall back without losing inferred fields",async()=>{
-    const {sdk:api,transport}=sdk((request,index)=>index===1?{error:{code:6,error:"Selections cannot be used together"}}:request.query.selections==="job"||request.path.endsWith("/job")?{job:{type:"job",name:"Army"}}:{profile:{id:42,name:"Example"}});
+    const {sdk:api,transport}=sdk((request,index)=>index===1?{error:{code:4,error:"Selections cannot be used together"}}:request.query.selections==="job"||request.path.endsWith("/job")?{job:{type:"job",name:"Army"}}:{profile:{id:42,name:"Example"}});
     const {data,report}=await api.user().selectWithReport(["profile","job"],new UserOptions().withId(42));
     expect(data.profile.name).toBe("Example");expect(data.job).toMatchObject({name:"Army"});expect(transport.calls).toHaveLength(3);expect(report.calls).toHaveLength(2);
   });
@@ -50,7 +50,7 @@ describe("typed planner batches",()=>{
     await expect(api.user().select(["snapshot"])).rejects.toThrow("CSV");
     // @ts-expect-error Resource selections are checked statically and at runtime.
     await expect(api.user().select(["not-a-selection"])).rejects.toThrow("not supported");
-    await expect(api.user().select(["profile","job"])).rejects.toThrow("requires 'id'");
+    await expect(api.market().select(["itemmarket"])).rejects.toThrow("requires 'id'");
     await expect(api.user().select(["inventory"])).rejects.toThrow("cat");
     await expect(api.user().select(["job"],new UserOptions().withBase(new BaseOptions().withFrom(2).withTo(1)))).rejects.toThrow("'from' <= 'to'");
     expect(transport.calls).toHaveLength(0);

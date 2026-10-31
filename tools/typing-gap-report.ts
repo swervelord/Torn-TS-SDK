@@ -1,4 +1,4 @@
-import { formatTypingGapReport, loadReport } from '../src/typing-gap.ts';
+import { formatTypingGapReport, loadReport } from './typing-gap.ts';
 
 const args = process.argv.slice(2);
 const rootIndex = args.indexOf('--root');

@@ -1,6 +1,8 @@
 export interface V1ResourceSpec { name: string; path_segment: string; selections: readonly string[]; hasSelection(selection: string): boolean; has_selection(selection: string): boolean }
-export const V1_ALLOWED_FILTERS = ["cat", "filters", "from", "limit", "offset", "sort", "stat", "striptags", "timestamp", "to"] as const;
+/** Query parameters Torn v1 understands. `comment` is forwarded on v1 as well as v2 (PARITY_SPEC P1.5). */
+export const V1_ALLOWED_FILTERS = ["cat", "comment", "filters", "from", "limit", "offset", "sort", "stat", "striptags", "timestamp", "to"] as const;
 export const isAllowedV1Filter = (name: string): boolean => (V1_ALLOWED_FILTERS as readonly string[]).includes(name);
+/** @deprecated Use isAllowedV1Filter. */
 export const is_allowed_v1_filter = isAllowedV1Filter;
 export const V1_RESOURCES: Record<string, V1ResourceSpec> = {};
 { const selections = ["ammo", "attacks", "attacksfull", "bars", "basic", "battlestats", "bazaar", "bounties", "calendar", "competition", "cooldowns", "crimes", "criminalrecord", "discord", "display", "education", "enlistedcars", "equipment", "events", "faction", "forumfeed", "forumfriends", "forumposts", "forumsubscribedthreads", "forumthreads", "gym", "hof", "honors", "icons", "inventory", "itemmarket", "job", "jobpoints", "jobranks", "list", "log", "lookup", "medals", "merits", "messages", "missions", "money", "networth", "newevents", "newmessages", "notifications", "organizedcrime", "organizedcrimes", "perks", "personalstats", "profile", "properties", "property", "races", "racingrecords", "refills", "reports", "revives", "revivesfull", "skills", "stocks", "timestamp", "travel", "virus", "weaponexp", "workstats"] as const; const hasSelection = (selection: string) => (selections as readonly string[]).includes(selection); V1_RESOURCES.user = { name: "user", path_segment: "user", selections, hasSelection, has_selection: hasSelection }; }
@@ -12,7 +14,10 @@ export const V1_RESOURCES: Record<string, V1ResourceSpec> = {};
 export class V1Catalog {
   resource(resource: string): V1ResourceSpec | undefined { return Object.hasOwn(V1_RESOURCES, resource) ? V1_RESOURCES[resource] : undefined; }
   hasSelection(resource: string, selection: string): boolean { return this.resource(resource)?.hasSelection(selection) ?? false; }
+  /** @deprecated Use hasSelection. */
   has_selection(resource: string, selection: string): boolean { return this.hasSelection(resource, selection); }
-  buildGenericPath(resource: string, id?: string): string | undefined { const spec = this.resource(resource); if (!spec) return undefined; const value = id?.trim(); return `/${spec.path_segment}${value ? `/${value}` : ""}`; }
+  /** `/user/55`, or `/user` (2.x form) / `/user/` (`canonical`, Torn's documented v1 form) without an id. */
+  buildGenericPath(resource: string, id?: string, canonical = false): string | undefined { const spec = this.resource(resource); if (!spec) return undefined; const value = id?.trim(); return `/${spec.path_segment}${value ? `/${value}` : canonical ? "/" : ""}`; }
+  /** @deprecated Use buildGenericPath. */
   build_generic_path(resource: string, id?: string): string | undefined { return this.buildGenericPath(resource, id); }
 }

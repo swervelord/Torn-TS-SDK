@@ -8,8 +8,9 @@ import sourceCapabilities from '../spec/versions/torn-capabilities-6.13.6.json' 
 import sourceSchemaNames from '../spec/parity/source-schema-names.json' with { type: 'json' };
 
 describe('committed SDK regression contracts', () => {
-  const planner = new RequestPlanner();
-  const sourcePlanner = new RequestPlanner(sourceCapabilities);
+  // The frozen goldens pin the 2.x plans; 3.x default routing differences are covered in test/planner.test.ts.
+  const planner = new RequestPlanner(undefined, { routing: 'legacy' });
+  const sourcePlanner = new RequestPlanner(sourceCapabilities, { routing: 'legacy' });
   for (const [index, fixture] of fixtures.entries()) {
     const input = fixture.input as PlanRequestData;
     test(`${index + 1}: ${input.resource.trim()}.${input.selections.join(',') || '(empty)'}`, () => {

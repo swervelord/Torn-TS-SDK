@@ -135,4 +135,13 @@ function decodeType(type:string,value:JsonValue|undefined,path:string):unknown {
 }
 
 /** Deserialize compatibility models, including defaults, aliases, flattened extras, and custom unions. */
-export function decodeManualModel<T>(name:string,value:JsonValue):T {return decodeType(name,value,name) as T;}
+export function decodeManualModel<T>(name:string,value:JsonValue,options:{selection?:string;operation?:string}={}):T {
+  try{return decodeType(name,value,name) as T;}
+  catch(error){
+    if(!(error instanceof DecodeError))throw error;
+    // PARITY_SPEC P1.4: keep the selection, JSON path and the complete payload on the error.
+    const match=/^([^:]*): (.*)$/s.exec(error.message);
+    const jsonPath=match?"$"+match[1]!.slice(name.length):undefined;
+    throw new DecodeError(`Invalid ${name}${options.selection?` (selection ${options.selection})`:""}: ${error.message}`,{schemaName:name,...options,...(jsonPath?{jsonPath,expected:match![2]}:{}),raw:value});
+  }
+}

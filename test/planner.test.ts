@@ -1,9 +1,9 @@
 import { describe, expect, test } from 'bun:test';
 import { CapabilitiesDocument, defaultCapabilities, type ResourceCapabilities } from '../src/capabilities.ts';
-import { PlanRequest, RequestPlanner } from '../src/planner.ts';
+import { PlanRequest, RequestPlanner, type PlannerOptions } from '../src/planner.ts';
 import { V1Catalog, V1_RESOURCES } from '../src/v1-catalog.ts';
 
-function fixture(): RequestPlanner {
+function fixture(options: PlannerOptions = {}): RequestPlanner {
   return new RequestPlanner({ resources: {
     user: {
       generic_path: '/user',
@@ -19,8 +19,9 @@ function fixture(): RequestPlanner {
       generic_path: '/faction', generic_parameters: [{ name: 'selections' }, { name: 'name' }],
       selections: [{ name: 'search', can_use_generic_endpoint: true, standalone_only: true }, { name: 'members', can_use_generic_endpoint: true }],
     },
-  } });
+  } }, options);
 }
+const legacy = () => fixture({ routing: 'legacy' });
 
 describe('Planner contract', () => {
   test('combines generic requests and precomputes individual fallback', () => {
@@ -31,7 +32,9 @@ describe('Planner contract', () => {
     expect(plan.requests).toHaveLength(1);
     const call = plan.requests[0]!;
     expect(call).toMatchObject({ path: '/user', strategy: 'generic-combined', apiVersion: 'v2', query: { selections: 'profile,discord,hof', id: '3637232', limit: '100', striptags: 'true' } });
-    expect(call.query).not.toHaveProperty('foo');
+    // P1.5: filters unknown to the resource are forwarded verbatim; legacy routing scrubs them.
+    expect(call.query).toHaveProperty('foo', 'bar');
+    expect(legacy().plan(request).requests[0]!.query).not.toHaveProperty('foo');
     expect(call.fallbackSplit).toHaveLength(3);
     expect(call.fallbackSplit.map(split => split.query.selections)).toEqual(['profile', 'discord', 'hof']);
     expect(call.fallbackSplit.every(split => split.strategy === 'generic-single')).toBe(true);
@@ -57,12 +60,18 @@ describe('Planner contract', () => {
   });
 
   test('v1 fallback, resource restriction and filter contracts', () => {
+    // 3.x: Torn v2 serves `fallback_to_v1` selections itself, so they share the v2 call (code 22 re-plans, P4.3).
     const plan = fixture().plan(new PlanRequest('user', ['bazaar', 'profile']).with_id('3637232'));
-    expect(plan.requests.map(call => [call.apiVersion, call.path])).toEqual([['v2', '/user'], ['v1', '/user/3637232']]);
-    const company = fixture().plan(new PlanRequest('company', ['companies', 'news']).withId(' 55 ').withFilter('limit', 25).withFilter('timestamp', 1).withFilter('foo', 'bar')).requests[0]!;
+    expect(plan.requests.map(call => [call.apiVersion, call.path, call.query.selections])).toEqual([['v2', '/user', 'bazaar,profile']]);
+    const legacyPlan = legacy().plan(new PlanRequest('user', ['bazaar', 'profile']).with_id('3637232'));
+    expect(legacyPlan.requests.map(call => [call.apiVersion, call.path])).toEqual([['v2', '/user'], ['v1', '/user/3637232']]);
+    const company = fixture().plan(new PlanRequest('company', ['companies', 'news']).withId(' 55 ').withFilter('limit', 25).withFilter('timestamp', 1).withFilter('foo', 'bar').withFilter('comment', 'tool')).requests[0]!;
     expect(company.path).toBe('/company/55');
-    expect(company.query).toEqual({ limit: '25', timestamp: '1', selections: 'companies,news' });
+    expect(company.query).toEqual({ comment: 'tool', foo: 'bar', limit: '25', timestamp: '1', selections: 'companies,news' });
     expect(company.fallbackSplit).toEqual([]);
+    const legacyCompany = legacy().plan(new PlanRequest('company', ['companies']).withFilter('foo', 'bar').withFilter('comment', 'tool')).requests[0]!;
+    expect(legacyCompany).toMatchObject({ path: '/company', query: { selections: 'companies' } });
+    expect(fixture().plan(new PlanRequest('company', ['companies'])).requests[0]!.path).toBe('/company/');
   });
 
   test('legacy selections normalize, deduplicate and require endpoint support', () => {
@@ -73,7 +82,10 @@ describe('Planner contract', () => {
 
   test('unknown resources and selections reject; empty selection lists return empty plans', () => {
     expect(() => fixture().plan(new PlanRequest('bad', []))).toThrow('Unknown resource');
-    expect(() => fixture().plan(new PlanRequest('user', ['nonexistent']))).toThrow('Unknown selection');
+    expect(() => legacy().plan(new PlanRequest('user', ['nonexistent']))).toThrow('Unknown selection');
+    // P1.5: by default an unknown selection is sent as a v2 generic selection, combined with known ones.
+    expect(fixture().plan(new PlanRequest('user', ['nonexistent', 'profile'])).requests.map(call => [call.path, call.query.selections])).toEqual([['/user', 'nonexistent,profile']]);
+    expect(() => fixture().plan(new PlanRequest('company', ['nonexistent']))).toThrow('Unknown selection');
     expect(fixture().plan(new PlanRequest('user', ['', ' ']))).toEqual({ resource: 'user', requests: [] });
   });
 

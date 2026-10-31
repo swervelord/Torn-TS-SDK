@@ -16,7 +16,7 @@ describe('complete pinned OpenAPI surface',()=>{
   expect(Object.values(operationDefinitions).filter(d=>d.text)).toHaveLength(3);
  });
  test('enums and required nullable properties decode without coercion',()=>{
-  expect(decodeModel('RaceClassEnum','A')).toBe('A');expect(()=>decodeModel('RaceClassEnum','Z')).toThrow('expected one of');
+  expect(decodeModel('RaceClassEnum','A')).toBe('A');expect(decodeModel('RaceClassEnum','Z')).toBe('Z');expect(()=>decodeModel('RaceClassEnum','Z',{mode:'strict'})).toThrow('unknown enum value');expect(()=>decodeModel('RaceClassEnum',5)).toThrow('expected one of');
   const schema={type:'object',required:['value'],properties:{value:{oneOf:[{type:'integer'},{type:'null'}]}}};
   expect(validateSchema(schema,{value:null},{})).toEqual([]);
   expect(validateSchema(schema,{},{})).toHaveLength(1);
@@ -40,7 +40,11 @@ describe('complete pinned OpenAPI surface',()=>{
   const request=operationPlan('getTornItemDetails',{ids:[123,456],comment:'hello world'}).requests[0]!;
   expect(request.path).toBe('/torn/123,456/itemdetails');expect(request.query).toEqual({comment:'hello world'});expect(request.apiVersion).toBe('v2');
   expect(()=>operationPlan('getTornItemDetails',{})).toThrow('required property');
-  expect(()=>operationPlan('getTornItemDetails',{ids:[123],key:'do-not-pass'})).toThrow('unknown property');
+  // P2.1: a `key` never reaches a v2 URL (executeOperation moves it to the Authorization header).
+  expect(operationPlan('getTornItemDetails',{ids:[123],key:'do-not-pass'}).requests[0]!.query).toEqual({});
+  // P1.5: unknown parameters are forwarded verbatim by default and rejected only in strict mode.
+  expect(operationPlan('getTornItemDetails',{ids:[123],brand_new:'x'}).requests[0]!.query).toEqual({brand_new:'x'});
+  expect(()=>operationPlan('getTornItemDetails',{ids:[123],brand_new:'x'},{mode:'strict'})).toThrow('unknown property');
  });
  test('scalar path escaping and null optional query omission',()=>{
   const p=operationPlan('getUserDiscord',{id:123,comment:null}).requests[0]!;
