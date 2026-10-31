@@ -1,2 +1,7 @@
 * text=auto eol=lf
 *.json text eol=lf
+# PARITY_SPEC P9.3: generated sources and pinned/shared spec data are LF on every checkout so --check drift gates pass on Windows.
+src/generated/** text eol=lf
+src/batch-models.ts text eol=lf
+src/models/manual.ts text eol=lf
+spec/** text eol=lf

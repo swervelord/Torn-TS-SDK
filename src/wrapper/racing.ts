@@ -32,13 +32,21 @@ export class RacingApi extends ResourceApi<RacingOptions, "racing"> {
   async timestamp(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RacingTimestampBundle> {
     return this.executeTyped<RacingTimestampBundle>("timestamp", options, "RacingTimestampBundle", true);
   }
+  /** @deprecated Use recordsRaw(). */
   records_raw(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RawSelectionBundle> { return this.rawSelection("records", options); }
+  /** @deprecated Use racesRaw(). */
   races_raw(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RawSelectionBundle> { return this.rawSelection("races", options); }
+  /** @deprecated Use tracksRaw(). */
   tracks_raw(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RawSelectionBundle> { return this.rawSelection("tracks", options); }
+  /** @deprecated Use timestampRaw(). */
   timestamp_raw(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RawSelectionBundle> { return this.rawSelection("timestamp", options); }
+  /** @deprecated Use carupgradesRaw(). */
   carupgrades_raw(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RawSelectionBundle> { return this.rawSelection("carupgrades", options); }
+  /** @deprecated Use carsRaw(). */
   cars_raw(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RawSelectionBundle> { return this.rawSelection("cars", options); }
+  /** @deprecated Use raceRaw(). */
   race_raw(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RawSelectionBundle> { return this.rawSelection("race", options); }
+  /** @deprecated Use lookupRaw(). */
   lookup_raw(options: OptionsOrId<RacingOptions> = new RacingOptions()): Promise<RawSelectionBundle> { return this.rawSelection("lookup", options); }
   recordsRaw(options: OptionsOrId<RacingOptions> = new RacingOptions()) { return this.records_raw(options); }
   racesRaw(options: OptionsOrId<RacingOptions> = new RacingOptions()) { return this.races_raw(options); }

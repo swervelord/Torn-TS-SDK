@@ -14,7 +14,9 @@ export class KeyApi extends ResourceApi<KeyOptions, "key"> {
   async log(options: OptionsOrId<KeyOptions> = new KeyOptions()): Promise<KeyLogBundle> {
     return this.executeTyped<KeyLogBundle>("log", options, "KeyLogBundle", true);
   }
+  /** @deprecated Use logRaw(). */
   log_raw(options: OptionsOrId<KeyOptions> = new KeyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("log", options); }
+  /** @deprecated Use infoRaw(). */
   info_raw(options: OptionsOrId<KeyOptions> = new KeyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("info", options); }
   logRaw(options: OptionsOrId<KeyOptions> = new KeyOptions()) { return this.log_raw(options); }
   infoRaw(options: OptionsOrId<KeyOptions> = new KeyOptions()) { return this.info_raw(options); }

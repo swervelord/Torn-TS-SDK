@@ -9,15 +9,34 @@
   "homepage": "https://github.com/swervelord/Torn-TS-SDK#readme",
   "bugs": { "url": "https://github.com/swervelord/Torn-TS-SDK/issues" },
   "sideEffects": false,
-  "engines": { "bun": ">=1.4.4" },
+  "engines": { "node": ">=20" },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./src/index.ts", "import": "./src/index.ts" },
-    "./models": { "types": "./src/models.ts", "import": "./src/models.ts" },
-    "./generated": { "types": "./src/generated/index.ts", "import": "./src/generated/index.ts" },
-    "./spec/*": "./spec/*",
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "default": "./dist/index.js" },
+    "./models": { "types": "./dist/models.d.ts", "import": "./dist/models.js", "default": "./dist/models.js" },
+    "./generated": { "types": "./dist/generated/index.d.ts", "import": "./dist/generated/index.js", "default": "./dist/generated/index.js" },
+    "./testing": { "types": "./dist/testing.d.ts", "import": "./dist/testing.js", "default": "./dist/testing.js" },
+    "./spec/torn-openapi-current.json": "./spec/torn-openapi-current.json",
+    "./spec/capabilities.json": "./spec/capabilities.json",
+    "./spec/metadata.json": "./spec/metadata.json",
+    "./spec/shared/*": "./spec/shared/*",
     "./package.json": "./package.json"
   },
-  "files": ["dist", "src", "spec", "docs", "README.md", "LICENSE", "NOTICE", "CONTRACT.md"],
+  "files": [
+    "dist",
+    "spec/torn-openapi-current.json",
+    "spec/capabilities.json",
+    "spec/metadata.json",
+    "spec/shared",
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
+    "CONTRACT.md"
+  ],
   "scripts": {
     "test": "bun test",
     "typecheck": "bun check --no-script",
@@ -30,10 +49,15 @@
     "generate:batch:check": "bun tools/generate-batch.ts --check",
     "refresh": "bun tools/refresh.ts",
     "refresh:check": "bun tools/refresh.ts --spec spec/torn-openapi-current.json --check",
+    "refresh:docs-audit": "bun tools/refresh-docs-audit.ts --write",
+    "refresh:docs-audit:check": "bun tools/refresh-docs-audit.ts --check",
+    "refresh:typing-classification": "bun tools/refresh-typing-classification.ts --write",
+    "refresh:typing-classification:check": "bun tools/refresh-typing-classification.ts --check",
     "parity:check": "bun tools/parity-fixtures.ts",
     "typing-gap-report": "bun tools/typing-gap-report.ts",
     "build": "bun tools/build.ts",
-    "check": "bun run typecheck && bun test && bun run generate:check && bun run generate:manual:check && bun run generate:batch:check && bun run refresh:check && bun run parity:check && bun run build"
+    "smoke:pack": "bun tools/pack-smoke.ts",
+    "check": "bun run typecheck && bun test && bun run generate:check && bun run generate:manual:check && bun run generate:batch:check && bun run refresh:check && bun run refresh:docs-audit:check && bun run refresh:typing-classification:check && bun run parity:check && bun run build"
   },
   "devDependencies": { "@types/bun": "^1.4.4", "typescript": "^5.9.0" }
 }

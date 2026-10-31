@@ -26,11 +26,17 @@ export class ForumApi extends ResourceApi<ForumOptions, "forum"> {
   async timestamp(options: OptionsOrId<ForumOptions> = new ForumOptions()): Promise<ForumTimestampBundle> {
     return this.executeTyped<ForumTimestampBundle>("timestamp", options, "ForumTimestampBundle", true);
   }
+  /** @deprecated Use threadRaw(). */
   thread_raw(options: OptionsOrId<ForumOptions> = new ForumOptions()): Promise<RawSelectionBundle> { return this.rawSelection("thread", options); }
+  /** @deprecated Use threadsRaw(). */
   threads_raw(options: OptionsOrId<ForumOptions> = new ForumOptions()): Promise<RawSelectionBundle> { return this.rawSelection("threads", options); }
+  /** @deprecated Use timestampRaw(). */
   timestamp_raw(options: OptionsOrId<ForumOptions> = new ForumOptions()): Promise<RawSelectionBundle> { return this.rawSelection("timestamp", options); }
+  /** @deprecated Use categoriesRaw(). */
   categories_raw(options: OptionsOrId<ForumOptions> = new ForumOptions()): Promise<RawSelectionBundle> { return this.rawSelection("categories", options); }
+  /** @deprecated Use lookupRaw(). */
   lookup_raw(options: OptionsOrId<ForumOptions> = new ForumOptions()): Promise<RawSelectionBundle> { return this.rawSelection("lookup", options); }
+  /** @deprecated Use postsRaw(). */
   posts_raw(options: OptionsOrId<ForumOptions> = new ForumOptions()): Promise<RawSelectionBundle> { return this.rawSelection("posts", options); }
   threadRaw(options: OptionsOrId<ForumOptions> = new ForumOptions()) { return this.thread_raw(options); }
   threadsRaw(options: OptionsOrId<ForumOptions> = new ForumOptions()) { return this.threads_raw(options); }

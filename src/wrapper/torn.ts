@@ -14,6 +14,7 @@ export class TornApi extends ResourceApi<TornOptions, "torn"> {
   async halloween(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<TornHalloweenResponse> {
     return this.executeTyped<TornHalloweenResponse>("halloween", options, "TornHalloweenResponse", false);
   }
+  /** @deprecated Use halloweenRaw(). */
   halloween_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("halloween", options); }
   halloweenRaw(options: OptionsOrId<TornOptions> = new TornOptions()) { return this.halloween_raw(options); }
   async museum(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<TornMuseumResponse> {
@@ -144,46 +145,87 @@ export class TornApi extends ResourceApi<TornOptions, "torn"> {
   async territory(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<TornTerritoryBundle> {
     return this.executeTyped<TornTerritoryBundle>("territory", options, "TornTerritoryBundle", true);
   }
+  /** @deprecated Use museumRaw(). */
   museum_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("museum", options); }
+  /** @deprecated Use meritsRaw(). */
   merits_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("merits", options); }
+  /** @deprecated Use medalsRaw(). */
   medals_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("medals", options); }
+  /** @deprecated Use organisedcrimesRaw(). */
   organisedcrimes_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("organisedcrimes", options); }
+  /** @deprecated Use pawnshopRaw(). */
   pawnshop_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("pawnshop", options); }
+  /** @deprecated Use organizedcrimesRaw(). */
   organizedcrimes_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("organizedcrimes", options); }
+  /** @deprecated Use itemstatsRaw(). */
   itemstats_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("itemstats", options); }
+  /** @deprecated Use itemsRaw(). */
   items_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("items", options); }
+  /** @deprecated Use logcategoriesRaw(). */
   logcategories_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("logcategories", options); }
+  /** @deprecated Use lookupRaw(). */
   lookup_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("lookup", options); }
+  /** @deprecated Use logtypesRaw(). */
   logtypes_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("logtypes", options); }
+  /** @deprecated Use stocksRaw(). */
   stocks_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("stocks", options); }
+  /** @deprecated Use statsRaw(). */
   stats_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("stats", options); }
+  /** @deprecated Use subcrimesRaw(). */
   subcrimes_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("subcrimes", options); }
+  /** @deprecated Use timestampRaw(). */
   timestamp_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("timestamp", options); }
+  /** @deprecated Use territoryRaw(). */
   territory_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("territory", options); }
+  /** @deprecated Use propertiesRaw(). */
   properties_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("properties", options); }
+  /** @deprecated Use pokertablesRaw(). */
   pokertables_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("pokertables", options); }
+  /** @deprecated Use rockpaperscissorsRaw(). */
   rockpaperscissors_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("rockpaperscissors", options); }
+  /** @deprecated Use shopliftingRaw(). */
   shoplifting_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("shoplifting", options); }
+  /** @deprecated Use searchforcashRaw(). */
   searchforcash_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("searchforcash", options); }
+  /** @deprecated Use companiesRaw(). */
   companies_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("companies", options); }
+  /** @deprecated Use cityshopsRaw(). */
   cityshops_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("cityshops", options); }
+  /** @deprecated Use competitionRaw(). */
   competition_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("competition", options); }
+  /** @deprecated Use educationRaw(). */
   education_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("education", options); }
+  /** @deprecated Use crimesRaw(). */
   crimes_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("crimes", options); }
+  /** @deprecated Use bankRaw(). */
   bank_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("bank", options); }
+  /** @deprecated Use attacklogRaw(). */
   attacklog_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("attacklog", options); }
+  /** @deprecated Use bountiesRaw(). */
   bounties_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("bounties", options); }
+  /** @deprecated Use cardsRaw(). */
   cards_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("cards", options); }
+  /** @deprecated Use calendarRaw(). */
   calendar_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("calendar", options); }
+  /** @deprecated Use honorsRaw(). */
   honors_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("honors", options); }
+  /** @deprecated Use hofRaw(). */
   hof_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("hof", options); }
+  /** @deprecated Use itemammoRaw(). */
   itemammo_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("itemammo", options); }
+  /** @deprecated Use itemmodsRaw(). */
   itemmods_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("itemmods", options); }
+  /** @deprecated Use itemdetailsRaw(). */
   itemdetails_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("itemdetails", options); }
+  /** @deprecated Use eliminationteamRaw(). */
   eliminationteam_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("eliminationteam", options); }
+  /** @deprecated Use eliminationRaw(). */
   elimination_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("elimination", options); }
+  /** @deprecated Use factionhofRaw(). */
   factionhof_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("factionhof", options); }
+  /** @deprecated Use gymsRaw(). */
   gyms_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("gyms", options); }
+  /** @deprecated Use factiontreeRaw(). */
   factiontree_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("factiontree", options); }
   museumRaw(options: OptionsOrId<TornOptions> = new TornOptions()) { return this.museum_raw(options); }
   meritsRaw(options: OptionsOrId<TornOptions> = new TornOptions()) { return this.merits_raw(options); }

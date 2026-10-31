@@ -42,14 +42,23 @@ export class CompanyApi extends ResourceApi<CompanyOptions, "company"> {
   async stock(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<CompanyStockBundle> {
     return this.executeTyped<CompanyStockBundle>("stock", options, "CompanyStockBundle", true);
   }
+  /** @deprecated Use applicationsRaw(). */
   applications_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("applications", options); }
+  /** @deprecated Use companiesRaw(). */
   companies_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("companies", options); }
+  /** @deprecated Use employeesRaw(). */
   employees_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("employees", options); }
+  /** @deprecated Use lookupRaw(). */
   lookup_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("lookup", options); }
+  /** @deprecated Use newsRaw(). */
   news_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("news", options); }
+  /** @deprecated Use profileRaw(). */
   profile_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("profile", options); }
+  /** @deprecated Use searchRaw(). */
   search_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("search", options); }
+  /** @deprecated Use stockRaw(). */
   stock_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("stock", options); }
+  /** @deprecated Use timestampRaw(). */
   timestamp_raw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("timestamp", options); }
   applicationsRaw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()) { return this.applications_raw(options); }
   companiesRaw(options: OptionsOrId<CompanyOptions> = new CompanyOptions()) { return this.companies_raw(options); }

@@ -17,8 +17,11 @@ export class PropertyApi extends ResourceApi<PropertyOptions, "property"> {
   async timestamp(options: OptionsOrId<PropertyOptions> = new PropertyOptions()): Promise<PropertyTimestampBundle> {
     return this.executeTyped<PropertyTimestampBundle>("timestamp", options, "PropertyTimestampBundle", true);
   }
+  /** @deprecated Use timestampRaw(). */
   timestamp_raw(options: OptionsOrId<PropertyOptions> = new PropertyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("timestamp", options); }
+  /** @deprecated Use propertyRaw(). */
   property_raw(options: OptionsOrId<PropertyOptions> = new PropertyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("property", options); }
+  /** @deprecated Use lookupRaw(). */
   lookup_raw(options: OptionsOrId<PropertyOptions> = new PropertyOptions()): Promise<RawSelectionBundle> { return this.rawSelection("lookup", options); }
   timestampRaw(options: OptionsOrId<PropertyOptions> = new PropertyOptions()) { return this.timestamp_raw(options); }
   propertyRaw(options: OptionsOrId<PropertyOptions> = new PropertyOptions()) { return this.property_raw(options); }

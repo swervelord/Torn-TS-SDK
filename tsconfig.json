@@ -7,5 +7,6 @@
     "verbatimModuleSyntax": true, "skipLibCheck": true, "noEmit": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts", "tools/**/*.ts", "test/**/*.ts", "examples/**/*.ts"]
+  "include": ["src/**/*.ts", "tools/**/*.ts", "test/**/*.ts", "examples/**/*.ts"],
+  "exclude": ["tools/smoke"]
 }

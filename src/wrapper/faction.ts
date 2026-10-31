@@ -165,55 +165,105 @@ export class FactionApi extends ResourceApi<FactionOptions, "faction"> {
   async upgrades(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<FactionUpgradesBundle> {
     return this.executeTyped<FactionUpgradesBundle>("upgrades", options, "FactionUpgradesBundle", true);
   }
+  /** @deprecated Use dirtybombsRaw(). */
   dirtybombs_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("dirtybombs", options); }
+  /** @deprecated Use inventoryRaw(). */
   inventory_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("inventory", options); }
+  /** @deprecated Use warfarechainsRaw(). */
   warfarechains_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("warfarechains", options); }
+  /** @deprecated Use warfareraidsRaw(). */
   warfareraids_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("warfareraids", options); }
+  /** @deprecated Use warfarerankedRaw(). */
   warfareranked_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("warfareranked", options); }
+  /** @deprecated Use warfareterritoryRaw(). */
   warfareterritory_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("warfareterritory", options); }
+  /** @deprecated Use revivesRaw(). */
   revives_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("revives", options); }
+  /** @deprecated Use reportsRaw(). */
   reports_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("reports", options); }
+  /** @deprecated Use revivesfullRaw(). */
   revivesfull_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("revivesfull", options); }
+  /** @deprecated Use statsRaw(). */
   stats_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("stats", options); }
+  /** @deprecated Use searchRaw(). */
   search_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("search", options); }
+  /** @deprecated Use rankedwarsRaw(). */
   rankedwars_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("rankedwars", options); }
+  /** @deprecated Use racketsRaw(). */
   rackets_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("rackets", options); }
+  /** @deprecated Use positionsRaw(). */
   positions_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("positions", options); }
+  /** @deprecated Use raidreportRaw(). */
   raidreport_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("raidreport", options); }
+  /** @deprecated Use rankedwarreportRaw(). */
   rankedwarreport_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("rankedwarreport", options); }
+  /** @deprecated Use raidsRaw(). */
   raids_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("raids", options); }
+  /** @deprecated Use utilitiesRaw(). */
   utilities_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("utilities", options); }
+  /** @deprecated Use upgradesRaw(). */
   upgrades_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("upgrades", options); }
+  /** @deprecated Use warfareRaw(). */
   warfare_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("warfare", options); }
+  /** @deprecated Use weaponsRaw(). */
   weapons_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("weapons", options); }
+  /** @deprecated Use warsRaw(). */
   wars_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("wars", options); }
+  /** @deprecated Use timestampRaw(). */
   timestamp_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("timestamp", options); }
+  /** @deprecated Use territoryRaw(). */
   territory_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("territory", options); }
+  /** @deprecated Use temporaryRaw(). */
   temporary_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("temporary", options); }
+  /** @deprecated Use territoryownershipRaw(). */
   territoryownership_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("territoryownership", options); }
+  /** @deprecated Use territorywarsRaw(). */
   territorywars_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("territorywars", options); }
+  /** @deprecated Use territorywarreportRaw(). */
   territorywarreport_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("territorywarreport", options); }
+  /** @deprecated Use cachesRaw(). */
   caches_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("caches", options); }
+  /** @deprecated Use boostersRaw(). */
   boosters_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("boosters", options); }
+  /** @deprecated Use cesiumRaw(). */
   cesium_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("cesium", options); }
+  /** @deprecated Use chainreportRaw(). */
   chainreport_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("chainreport", options); }
+  /** @deprecated Use chainRaw(). */
   chain_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("chain", options); }
+  /** @deprecated Use basicRaw(). */
   basic_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("basic", options); }
+  /** @deprecated Use armorRaw(). */
   armor_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("armor", options); }
+  /** @deprecated Use applicationsRaw(). */
   applications_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("applications", options); }
+  /** @deprecated Use attacksRaw(). */
   attacks_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("attacks", options); }
+  /** @deprecated Use balanceRaw(). */
   balance_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("balance", options); }
+  /** @deprecated Use attacksfullRaw(). */
   attacksfull_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("attacksfull", options); }
+  /** @deprecated Use lookupRaw(). */
   lookup_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("lookup", options); }
+  /** @deprecated Use hofRaw(). */
   hof_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("hof", options); }
+  /** @deprecated Use medicalRaw(). */
   medical_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("medical", options); }
+  /** @deprecated Use newsRaw(). */
   news_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("news", options); }
+  /** @deprecated Use membersRaw(). */
   members_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("members", options); }
+  /** @deprecated Use drugsRaw(). */
   drugs_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("drugs", options); }
+  /** @deprecated Use contributorsRaw(). */
   contributors_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("contributors", options); }
+  /** @deprecated Use chainsRaw(). */
   chains_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("chains", options); }
+  /** @deprecated Use crimeRaw(). */
   crime_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("crime", options); }
+  /** @deprecated Use crimesRaw(). */
   crimes_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("crimes", options); }
+  /** @deprecated Use crimeexpRaw(). */
   crimeexp_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("crimeexp", options); }
   dirtybombsRaw(options: OptionsOrId<FactionOptions> = new FactionOptions()) { return this.dirtybombs_raw(options); }
   inventoryRaw(options: OptionsOrId<FactionOptions> = new FactionOptions()) { return this.inventory_raw(options); }

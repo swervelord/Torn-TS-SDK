@@ -36,14 +36,23 @@ export class MarketApi extends ResourceApi<MarketOptions, "market"> {
   async auctionhouselisting(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<MarketAuctionHouseListingBundle> {
     return this.executeTyped<MarketAuctionHouseListingBundle>("auctionhouselisting", options, "MarketAuctionHouseListingBundle", true);
   }
+  /** @deprecated Use propertiesRaw(). */
   properties_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("properties", options); }
+  /** @deprecated Use pointsmarketRaw(). */
   pointsmarket_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("pointsmarket", options); }
+  /** @deprecated Use timestampRaw(). */
   timestamp_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("timestamp", options); }
+  /** @deprecated Use rentalsRaw(). */
   rentals_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("rentals", options); }
+  /** @deprecated Use lookupRaw(). */
   lookup_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("lookup", options); }
+  /** @deprecated Use auctionhouselistingRaw(). */
   auctionhouselisting_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("auctionhouselisting", options); }
+  /** @deprecated Use auctionhouseRaw(). */
   auctionhouse_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("auctionhouse", options); }
+  /** @deprecated Use itemmarketRaw(). */
   itemmarket_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("itemmarket", options); }
+  /** @deprecated Use bazaarRaw(). */
   bazaar_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("bazaar", options); }
   propertiesRaw(options: OptionsOrId<MarketOptions> = new MarketOptions()) { return this.properties_raw(options); }
   pointsmarketRaw(options: OptionsOrId<MarketOptions> = new MarketOptions()) { return this.pointsmarket_raw(options); }

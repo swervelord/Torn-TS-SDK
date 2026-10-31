@@ -14,12 +14,14 @@ export class UserApi extends ResourceApi<UserOptions, "user"> {
   async halloween(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserHalloweenResponse> {
     return this.executeTyped<UserHalloweenResponse>("halloween", options, "UserHalloweenResponse", false);
   }
+  /** @deprecated Use halloweenRaw(). */
   halloween_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("halloween", options); }
   halloweenRaw(options: OptionsOrId<UserOptions> = new UserOptions()) { return this.halloween_raw(options); }
   /** Items carried abroad, or the items that would be taken if departing now, from API v2. Requires a Limited access key. */
   async travelinventory(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserTravelInventoryResponse> {
     return this.executeTyped<UserTravelInventoryResponse>("travelinventory", options, "UserTravelInventoryResponse", false);
   }
+  /** @deprecated Use travelinventoryRaw(). */
   travelinventory_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("travelinventory", options); }
   travelinventoryRaw(options: OptionsOrId<UserOptions> = new UserOptions()) { return this.travelinventory_raw(options); }
   async search(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserSearchResponse> {
@@ -254,77 +256,149 @@ export class UserApi extends ResourceApi<UserOptions, "user"> {
   async personalstats(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserPersonalStatsBundle> {
     return this.executeTyped<UserPersonalStatsBundle>("personalstats", options, "UserPersonalStatsBundle", true);
   }
+  /** @deprecated Use searchRaw(). */
   search_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("search", options); }
+  /** @deprecated Use virusRaw(). */
   virus_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("virus", options); }
+  /** @deprecated Use organizedcrimesRaw(). */
   organizedcrimes_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("organizedcrimes", options); }
+  /** @deprecated Use networthRaw(). */
   networth_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("networth", options); }
+  /** @deprecated Use neweventsRaw(). */
   newevents_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("newevents", options); }
+  /** @deprecated Use missionsRaw(). */
   missions_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("missions", options); }
+  /** @deprecated Use moneyRaw(). */
   money_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("money", options); }
+  /** @deprecated Use organizedcrimeRaw(). */
   organizedcrime_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("organizedcrime", options); }
+  /** @deprecated Use perksRaw(). */
   perks_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("perks", options); }
+  /** @deprecated Use newmessagesRaw(). */
   newmessages_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("newmessages", options); }
+  /** @deprecated Use notificationsRaw(). */
   notifications_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("notifications", options); }
+  /** @deprecated Use listRaw(). */
   list_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("list", options); }
+  /** @deprecated Use logRaw(). */
   log_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("log", options); }
+  /** @deprecated Use jobpointsRaw(). */
   jobpoints_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("jobpoints", options); }
+  /** @deprecated Use jobranksRaw(). */
   jobranks_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("jobranks", options); }
+  /** @deprecated Use meritsRaw(). */
   merits_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("merits", options); }
+  /** @deprecated Use messagesRaw(). */
   messages_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("messages", options); }
+  /** @deprecated Use lookupRaw(). */
   lookup_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("lookup", options); }
+  /** @deprecated Use medalsRaw(). */
   medals_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("medals", options); }
+  /** @deprecated Use personalstatsRaw(). */
   personalstats_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("personalstats", options); }
+  /** @deprecated Use stocksRaw(). */
   stocks_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("stocks", options); }
+  /** @deprecated Use timestampRaw(). */
   timestamp_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("timestamp", options); }
+  /** @deprecated Use tradeRaw(). */
   trade_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("trade", options); }
+  /** @deprecated Use tradesRaw(). */
   trades_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("trades", options); }
+  /** @deprecated Use revivesfullRaw(). */
   revivesfull_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("revivesfull", options); }
+  /** @deprecated Use skillsRaw(). */
   skills_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("skills", options); }
+  /** @deprecated Use workstatsRaw(). */
   workstats_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("workstats", options); }
+  /** @deprecated Use travelRaw(). */
   travel_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("travel", options); }
+  /** @deprecated Use weaponexpRaw(). */
   weaponexp_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("weaponexp", options); }
+  /** @deprecated Use propertyRaw(). */
   property_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("property", options); }
+  /** @deprecated Use racesRaw(). */
   races_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("races", options); }
+  /** @deprecated Use profileRaw(). */
   profile_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("profile", options); }
+  /** @deprecated Use propertiesRaw(). */
   properties_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("properties", options); }
+  /** @deprecated Use reportsRaw(). */
   reports_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("reports", options); }
+  /** @deprecated Use revivesRaw(). */
   revives_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("revives", options); }
+  /** @deprecated Use racingrecordsRaw(). */
   racingrecords_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("racingrecords", options); }
+  /** @deprecated Use refillsRaw(). */
   refills_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("refills", options); }
+  /** @deprecated Use cooldownsRaw(). */
   cooldowns_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("cooldowns", options); }
+  /** @deprecated Use crimesRaw(). */
   crimes_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("crimes", options); }
+  /** @deprecated Use calendarRaw(). */
   calendar_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("calendar", options); }
+  /** @deprecated Use casinoRaw(). */
   casino_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("casino", options); }
+  /** @deprecated Use competitionRaw(). */
   competition_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("competition", options); }
+  /** @deprecated Use displayRaw(). */
   display_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("display", options); }
+  /** @deprecated Use educationRaw(). */
   education_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("education", options); }
+  /** @deprecated Use criminalrecordRaw(). */
   criminalrecord_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("criminalrecord", options); }
+  /** @deprecated Use discordRaw(). */
   discord_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("discord", options); }
+  /** @deprecated Use attacksfullRaw(). */
   attacksfull_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("attacksfull", options); }
+  /** @deprecated Use barsRaw(). */
   bars_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("bars", options); }
+  /** @deprecated Use ammoRaw(). */
   ammo_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("ammo", options); }
+  /** @deprecated Use attacksRaw(). */
   attacks_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("attacks", options); }
+  /** @deprecated Use bazaarRaw(). */
   bazaar_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("bazaar", options); }
+  /** @deprecated Use bountiesRaw(). */
   bounties_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("bounties", options); }
+  /** @deprecated Use basicRaw(). */
   basic_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("basic", options); }
+  /** @deprecated Use battlestatsRaw(). */
   battlestats_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("battlestats", options); }
+  /** @deprecated Use enlistedcarsRaw(). */
   enlistedcars_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("enlistedcars", options); }
+  /** @deprecated Use hofRaw(). */
   hof_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("hof", options); }
+  /** @deprecated Use honorsRaw(). */
   honors_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("honors", options); }
+  /** @deprecated Use forumthreadsRaw(). */
   forumthreads_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("forumthreads", options); }
+  /** @deprecated Use gymRaw(). */
   gym_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("gym", options); }
+  /** @deprecated Use itemmarketRaw(). */
   itemmarket_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("itemmarket", options); }
+  /** @deprecated Use itemmodsRaw(). */
   itemmods_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("itemmods", options); }
+  /** @deprecated Use jobRaw(). */
   job_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("job", options); }
+  /** @deprecated Use iconsRaw(). */
   icons_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("icons", options); }
+  /** @deprecated Use inventoryRaw(). */
   inventory_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("inventory", options); }
+  /** @deprecated Use factionRaw(). */
   faction_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("faction", options); }
+  /** @deprecated Use factionbalanceRaw(). */
   factionbalance_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("factionbalance", options); }
+  /** @deprecated Use equipmentRaw(). */
   equipment_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("equipment", options); }
+  /** @deprecated Use eventsRaw(). */
   events_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("events", options); }
+  /** @deprecated Use forumpostsRaw(). */
   forumposts_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("forumposts", options); }
+  /** @deprecated Use forumsubscribedthreadsRaw(). */
   forumsubscribedthreads_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("forumsubscribedthreads", options); }
+  /** @deprecated Use forumfeedRaw(). */
   forumfeed_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("forumfeed", options); }
+  /** @deprecated Use forumfriendsRaw(). */
   forumfriends_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("forumfriends", options); }
   searchRaw(options: OptionsOrId<UserOptions> = new UserOptions()) { return this.search_raw(options); }
   virusRaw(options: OptionsOrId<UserOptions> = new UserOptions()) { return this.virus_raw(options); }
