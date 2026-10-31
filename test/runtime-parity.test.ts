@@ -335,12 +335,14 @@ describe('Bun native transport local integration', () => {
     expect(receivedAuth as string | null).toBe('ApiKey local-test-secret');
     expect(receivedAgent as string | null).toBe('sdk-local-test');
   });
-  test('v1 requests send the key as a query parameter without an Authorization header', async () => {
+  test('v1 requests also authenticate with the Authorization header and never put the key in the URL (P2.1)', async () => {
     let receivedUrl = '', receivedAuth: string | null = 'unset';
     const baseUrl = serve(req => { receivedUrl = req.url; receivedAuth = req.headers.get('authorization'); return new Response('{}'); });
-    await new BunTransport(1000).execute(request(baseUrl, { apiVersion: 'v1' }));
-    expect(new URL(receivedUrl).searchParams.get('key')).toBe('local-test-secret');
-    expect(receivedAuth as string | null).toBeNull();
+    await new BunTransport(1000).execute(request(baseUrl, { apiVersion: 'v1', query: { selections: 'bazaar', key: 'caller-supplied-key' } }));
+    expect(new URL(receivedUrl).searchParams.has('key')).toBe(false);
+    expect(receivedUrl).not.toContain('local-test-secret');
+    expect(receivedUrl).not.toContain('caller-supplied-key');
+    expect(receivedAuth as string | null).toBe('ApiKey local-test-secret');
   });
   test('per-call timeout and cancellation abort network requests and permit later requests', async () => {
     const baseUrl = serve(async req => { if (new URL(req.url).pathname === '/slow') await Bun.sleep(250); return new Response('{}'); });
@@ -368,8 +370,9 @@ describe('Bun native transport local integration', () => {
     expect(response.body).toBe('proxied'); expect(requests).toBe(1);
   });
   test('URL builder and sanitized errors preserve query semantics without disclosing secrets', () => {
-    const url = buildUrl('http://localhost/v2///', 'user', { selections: 'profile', special: 'x y&z' }, 'secret');
-    expect(url.pathname).toBe('/v2/user'); expect(url.searchParams.get('special')).toBe('x y&z'); expect(url.searchParams.get('key')).toBe('secret');
+    const url = buildUrl('http://localhost/v2///', 'user', { selections: 'profile', special: 'x y&z', key: 'leak' }, 'secret');
+    expect(url.pathname).toBe('/v2/user'); expect(url.searchParams.get('special')).toBe('x y&z'); expect(url.searchParams.has('key')).toBe(false);
+    expect(url.toString()).not.toContain('secret');
     expect(buildUrl('http://localhost/v2', '/user', {}).searchParams.has('key')).toBe(false);
     expect(() => buildUrl('://bad', '/user', {}, 'secret')).toThrow(TransportError);
     const output = sanitizeErrorMessage('failed https://api.example/user?key=secret&x=1 via http://user:password@proxy.invalid:8080');

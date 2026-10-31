@@ -29,7 +29,7 @@ export interface RecordedRequest {
   query: Record<string, string>;
   /** Full URL without any key. */
   url: string;
-  /** The key the SDK authenticated with (Authorization header on v2, `key=` query on v1). Test keys only. */
+  /** The key the SDK authenticated with (always the Authorization header, P2.1). Test keys only. */
   apiKey: string;
   routeId?: string;
 }

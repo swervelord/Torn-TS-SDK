@@ -6,7 +6,7 @@ import type { ApiVersion, HttpMethod } from "./types.ts";
 export { sanitizeErrorMessage } from "./redact.ts";
 export interface TransportRequest {
   baseUrl:string;path:string;method:HttpMethod;query:Record<string,string>;
-  /** v2 (the default) sends `Authorization: ApiKey <key>`; v1 has no documented header authentication and sends the `key` query parameter. */
+  /** Sent as `Authorization: ApiKey <key>` on v2 and v1 alike; never in the URL (PARITY_SPEC P2.1). */
   apiKey:string;apiVersion?:ApiVersion;timeoutMs?:number;routeId?:string;signal?:AbortSignal;
 }
 export interface TransportResponse {
@@ -26,13 +26,16 @@ export interface FetchTransportOptions {
   /** Custom fetch (default: `globalThis.fetch`). Use it for proxies on Node, e.g. undici's `fetch` with a `ProxyAgent` dispatcher. */
   fetch?: FetchLike;
 }
-/** Builds the request URL; `apiKey` is appended as the `key` query parameter only when given. */
-export function buildUrl(baseUrl:string,path:string,query:Record<string,string>,apiKey?:string):URL {
+/**
+ * Builds the request URL. PARITY_SPEC P2.1: no key ever travels in a URL, so a `key` query entry is dropped (safety net
+ * for callers that still pass one) and the deprecated `apiKey` argument is ignored.
+ */
+export function buildUrl(baseUrl:string,path:string,query:Record<string,string>,
+  /** @deprecated Ignored since 3.0.0: keys are sent only in the Authorization header. */ _apiKey?:string):URL {
   let url:URL;
   try { url=new URL(`${baseUrl.replace(/\/+$/,"")}${path.startsWith("/")?path:`/${path}`}`); }
   catch { throw new TransportError("invalid URL built from configured base and request path",{path}); }
-  for(const [key,value] of Object.entries(query).sort(([a],[b])=>a.localeCompare(b))) url.searchParams.append(key,value);
-  if(apiKey!==undefined)url.searchParams.append("key",apiKey);
+  for(const [key,value] of Object.entries(query).sort(([a],[b])=>a.localeCompare(b))) if(key!=="key")url.searchParams.append(key,value);
   return url;
 }
 type ProxyRuntime = { kind: "bun" } | { kind: "deno"; createHttpClient(options: { proxy: { url: string } }): unknown } | { kind: "none" };
@@ -88,10 +91,9 @@ export class FetchTransport implements HttpTransport {
       if(!route) throw new TransportError(`unknown transport route '${request.routeId}'`,{routeId:request.routeId});
       proxy=route.proxyUrl;
     }
-    const v1=request.apiVersion==="v1";
-    const url=buildUrl(request.baseUrl,request.path,request.query,v1?request.apiKey:undefined);
-    const headers:Record<string,string>={"User-Agent":this.userAgent};
-    if(!v1)headers.Authorization=`ApiKey ${request.apiKey}`;
+    // PARITY_SPEC P2.1: header authentication for v2 and v1 (Torn v1 accepts it, verified 2026-10-31).
+    const url=buildUrl(request.baseUrl,request.path,request.query);
+    const headers:Record<string,string>={"User-Agent":this.userAgent,Authorization:`ApiKey ${request.apiKey}`};
     const proxyInit=this.#proxyInit(proxy);
     const timeoutMs=request.timeoutMs??this.timeoutMs;
     const controller=new AbortController();

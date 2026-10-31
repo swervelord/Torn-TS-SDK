@@ -35,6 +35,7 @@ The contract includes capability loading; selection normalization and deduplicat
 - Durations use milliseconds. Builder APIs and ordinary object options are both available; snake_case aliases are deprecated.
 - Integral JSON tokens outside the safe JavaScript range become `bigint`. Generated integer models enforce signed 64-bit bounds; manual models retain signed or unsigned domains. Safe integers remain `number`.
 - Decoding uses explicit schema and model metadata. Manual model fields include flattened `extra` maps; generated models use API JSON names. Omitted optional manual fields normalize to `null`.
+- Every request (v2 and v1) authenticates with the `Authorization: ApiKey` header; no URL ever carries a key (P2.1).
 - Route usage is observable through `onRouteUsage` and request lifecycle hooks. Explicit credential getters are available, while SDK JSON, inspection, string conversion, errors and hooks show at most `***` + the last four characters (P2.2).
 - Capabilities are bundled. Explicit file initialization is also supported.
 - Request parameter validation applies declared constraints before HTTP execution. Resource helpers validate their documented inputs.

@@ -37,8 +37,8 @@ const exact = await sdk.openapi().getUserProfile({ id: 3637232 });
 
 ## Authentication & keys
 
-- v2 requests send `Authorization: ApiKey <key>`; v1 requests (only selections v2 cannot serve) use the `key` query
-  parameter. No public API puts a key in a v2 URL; a `key` passed as an operation parameter is moved to the header (P2.1).
+- Every request, v2 and v1 alike, authenticates with `Authorization: ApiKey <key>`; no key is ever put in a URL. A `key`
+  passed as an operation, raw or filter parameter is moved to the header (or dropped from the query) (P2.1).
 - Keys never appear in `JSON.stringify`, `util.inspect`, `String()`, error messages, hook payloads or reports; at most
   `***` plus the last four characters (`keyHint`) is shown (P2.2).
 - Several keys form a pool with round-robin over healthy keys. Each key is `healthy`, `rate_limited(until)` or

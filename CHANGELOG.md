@@ -19,7 +19,10 @@ unchanged (6.15.0: 237 operations, 724 component schemas, 208 capability selecti
   parameters/filters are forwarded verbatim (planner and `openapi()`); `comment` is forwarded on v1.
 
 ### Keys, rate limits, retries, errors
-- P2.1: a `key` passed as an operation/raw parameter is moved to the request's Authorization header (`ExecutionOptions.apiKey`).
+- P2.1: header-only authentication for v2 **and v1** (`Authorization: ApiKey <key>`; Torn v1 accepts it, verified live
+  2026-10-31). No key is ever put in a URL: v1 requests no longer send `key=`, `buildUrl` drops any `key` query entry and
+  ignores its deprecated `apiKey` argument, and a `key` passed as an operation/raw parameter is moved to the request's
+  Authorization header (`ExecutionOptions.apiKey`).
 - P2.2: key hints are `***` + last four characters everywhere (`keyHint`, `ApiError.keyHint`, `ExecutedCall.keyHint`).
 - P2.3-P2.5: key pool states (`healthy`, `rate_limited`, `disabled`), immediate failover on key errors, code 14 disables
   until UTC midnight, code 16 rotates without disabling, `NoUsableKeysError`, `keyStates()`.
@@ -82,6 +85,9 @@ unchanged (6.15.0: 237 operations, 724 component schemas, 208 capability selecti
   (`jitter: "none"` for deterministic tests); `networkRetryBackoffMs` defaults to 500. Rate limiting is a sliding window
   (`RateLimiter.tryAcquire(key, route, nowMs)`; the seconds-based methods are deprecated). Combined requests split on
   code 4 and re-plan on codes 22/23 instead of matching English messages; `isRateLimitError` is deprecated (`isRateLimit`).
+- **v1 authentication**: v1 requests now send the key in the `Authorization` header instead of `?key=`. Custom
+  `HttpTransport` implementations should authenticate every request with the header (`TransportRequest.apiVersion` no
+  longer changes how the key is sent); `buildUrl(base, path, query, apiKey)` ignores `apiKey`.
 - **Errors**: `ApiError.toJSON()` reports `keyHint` instead of `keyUsed: "[REDACTED]"`; HTTP failures without a Torn
   envelope are `HttpError` (a subclass of `ApiError`); aborted calls reject with `CancelledError`.
 - **Facades**: id-less self-scoped calls now hit the key owner instead of throwing; facade methods accept an id shorthand.
