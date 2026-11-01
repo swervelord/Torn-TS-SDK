@@ -28,8 +28,12 @@ const errorCodes = await Bun.file(resolve(root,'spec/shared/error-codes.json')).
 function applySpecOverrides(input:Spec):Spec {
  const copy=structuredClone(input);
  for(const o of sharedOverrides){
-  const target=copy.components.schemas[o.schema];
-  if(!target)throw new Error(`spec-overrides.json: unknown schema ${o.schema}`);
+  const root=copy.components.schemas[o.schema];
+  if(!root)throw new Error(`spec-overrides.json: unknown schema ${o.schema}`);
+  // The property may be declared on the schema itself or on one of its inline allOf branches
+  // (e.g. UserPropertyDetailsExtendedWithRent = allOf[$ref, {required:[status,...]}]).
+  const nodes=[root,...(root.allOf??[]).filter(branch=>!branch.$ref)];
+  const target=nodes.find(node=>o.change==='optional'?node.required?.includes(o.property):node.properties?.[o.property])??root;
   if(o.change==='optional'){
    if(!target.required?.includes(o.property))throw new Error(`spec-overrides.json: ${o.schema}.${o.property} is no longer required upstream; drop the override`);
    target.required=target.required.filter(name=>name!==o.property);

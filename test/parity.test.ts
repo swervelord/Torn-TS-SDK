@@ -12,7 +12,9 @@ import {
   FetchTransport, BunTransport, ReqwestTransport, decodeModel, decodeModelWithWarnings, nextUtcMidnight, requestFromLink,
 } from '../src/index.ts';
 import { MockTransport, VirtualScheduler, mockSdk, jsonResponse, tornError, loadFixture } from '../src/testing.ts';
-import type { RequestEvent, RetryEvent, ErrorEvent } from '../src/types.ts';
+import type { RequestEvent, RetryEvent, ErrorEvent, JsonValue } from '../src/types.ts';
+import { sampleSchema } from '../tools/schema-samples.ts';
+import { schemas } from '../src/generated/schema-data.ts';
 
 const profile = { profile: { id: 1, name: 'Test', level: 10, gender: 'Male', status: { description: 'Okay', details: null, state: 'Okay', color: 'green', until: null } } };
 const SECRET = 'SECRETKEY1234567';
@@ -69,6 +71,16 @@ describe('P1 forward-compatible decoding', () => {
     const models = readFileSync(new URL('../src/generated/models.ts', import.meta.url), 'utf8');
     expect(models).toMatch(/export type UserTrade = \{[^\n]*"items"\?: /);
     expect(models).toMatch(/export type TornHalloweenUpgrade = \{[^\n]*"type"\?: /);
+  });
+  test('P1.2 property/{id}/property without status (allOf override) decodes in tolerant mode', async () => {
+    const property = sampleSchema(schemas.UserPropertyDetailsExtendedWithRent!, schemas, { nonemptyArrays: true }) as Record<string, JsonValue>;
+    delete property.status;
+    const warnings = decodeModelWithWarnings('UserPropertyDetailsExtendedWithRent', property).warnings;
+    expect(warnings).toContainEqual(expect.objectContaining({ path: '$.status', kind: 'relaxed_required' }));
+    expect(() => decodeModel('UserPropertyDetailsExtendedWithRent', property, { mode: 'strict' })).toThrow('$.status');
+    const { sdk, transport } = mockSdk([jsonResponse({ property })]);
+    expect((await sdk.openapi().getProperty({ id: 1 })).property).toEqual(property as never);
+    expect(transport.requests[0]!.path).toBe('/v2/property/1/property');
   });
   test('P1.3 unknown properties are kept by default and rejected in strict mode', () => {
     const value = { ...profile, profile: { ...profile.profile, brand_new: 1 } };

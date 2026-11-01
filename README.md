@@ -120,7 +120,7 @@ Every error extends `SdkError` and has a literal, bundler-stable `name` and an `
 - Enums are open: generated enum types are `"A" | "B" | (string & {})`, unknown values decode and are preserved;
   `enumValues`, `knownEnumValues(name)` and `isKnownEnumValue(name, value)` expose the pinned members (P1.1).
 - [`spec-overrides.json`](spec/shared/spec-overrides.json) relaxes spec defects proven by the live sweep
-  (`TornHalloweenUpgrade.type`, `UserTrade.items` are optional) (P1.2).
+  (`TornHalloweenUpgrade.type`, `UserTrade.items`, `UserPropertyDetailsExtendedWithRent.status` are optional) (P1.2).
 - Decoding is tolerant by default: unknown enum values, unknown properties and override-relaxed fields are accepted and
   reported as warnings (`decodeModelWithWarnings`). `validation: "strict"` (or `{ mode: "strict" }`) turns them into
   errors; the SDK's own tests use it (P1.3).

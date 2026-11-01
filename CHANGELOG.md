@@ -9,7 +9,8 @@ unchanged (6.15.0: 237 operations, 724 component schemas, 208 capability selecti
 ### Forward-compatible decoding
 - P1.1: generated enums are open (`"A" | "B" | (string & {})`); unknown values decode and are preserved. New
   `enumValues`, `knownEnumValues`, `isKnownEnumValue`, `KnownEnumValue<Name>`.
-- P1.2: the generator applies `spec/shared/spec-overrides.json`: `TornHalloweenUpgrade.type` and `UserTrade.items` are optional.
+- P1.2: the generator applies `spec/shared/spec-overrides.json` (including properties declared inside inline `allOf`
+  branches): `TornHalloweenUpgrade.type`, `UserTrade.items` and `UserPropertyDetailsExtendedWithRent.status` are optional.
 - P1.3: decoding is tolerant by default (unknown enum values, unknown properties and override-relaxed fields are warnings,
   see `decodeModelWithWarnings`); `validation: "strict"` / `{ mode: "strict" }` / `TORN_VALIDATION=strict` makes them errors.
 - P1.4: `DecodeError` carries `operation`/`selection`, `jsonPath`, `expected`, a redacted `excerpt`, and the payload

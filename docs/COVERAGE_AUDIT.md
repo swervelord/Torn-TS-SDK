@@ -4,9 +4,10 @@ The SDK covers **all 237 official Torn v2 operations** and **all 724 component s
 
 ## 3.0.0 parity update (spec unchanged, 6.15.0)
 
-The live sweep (PARITY_SPEC P9.2) proved two spec defects, recorded in `spec/shared/spec-overrides.json` and applied by the
-generator: `TornHalloweenUpgrade.type` (required upstream, omitted by `GET /v2/torn/halloween`) and `UserTrade.items`
-(required upstream, omitted on some trades by `GET /v2/user/trades`) are optional. Strict validation still reports their
+The live sweeps (PARITY_SPEC P9.2) proved three spec defects, recorded in `spec/shared/spec-overrides.json` and applied by the
+generator: `TornHalloweenUpgrade.type` (required upstream, omitted by `GET /v2/torn/halloween`), `UserTrade.items`
+(required upstream, omitted on some trades by `GET /v2/user/trades`) and `UserPropertyDetailsExtendedWithRent.status`
+(required in an inline `allOf` branch, omitted by `GET /v2/property/{id}/property`) are optional. Strict validation still reports their
 absence. Enums are open, so values newer than the snapshot (as `Dealer` and `end_with_dirty_bomb` were for 6.14.0) decode
 instead of failing; per-operation access levels come from `spec/shared/access-levels.json`, and the spec's "Cached
 selection" notes now provide default TTLs for the optional response cache.
