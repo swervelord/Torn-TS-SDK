@@ -10,7 +10,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # setup-node exports a placeholder NODE_AUTH_TOKEN, so gate publishing on the secret itself.
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -28,5 +29,7 @@ jobs:
       - run: gh release create "${GITHUB_REF_NAME}" torn-ts-sdk-*.tgz --title "${GITHUB_REF_NAME}" --notes "See CHANGELOG.md" --verify-tag
         env:
           GH_TOKEN: ${{ github.token }}
-      - if: ${{ env.NODE_AUTH_TOKEN != '' }}
+      - if: ${{ env.NPM_TOKEN != '' }}
         run: npm publish torn-ts-sdk-*.tgz --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
