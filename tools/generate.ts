@@ -177,6 +177,17 @@ const currentNames=new Set([...files['src/generated/models.ts']!.matchAll(/^expo
 const oldNames=[...baselineFiles['src/generated/models.ts']!.matchAll(/^export type (\w+)/gm)].map(m=>m[1]!);
 const removedNames=oldNames.filter(name=>!currentNames.has(name));
 for(const name of removedNames) files['src/generated/models.ts']+=`/** @deprecated Frozen 6.13.6 compatibility name. Use current models or legacy6136Models explicitly. */\nexport type ${name} = import('./legacy-models.ts').${name};\n`;
+// Removed enum schemas keep their enumValues entry (marked deprecated), so EnumName/knownEnumValues stay source-compatible.
+{
+ const enumEntry=/^  "(\w+)": \[.*\],$/;
+ const removedEnumLines=baselineFiles['src/generated/enums.ts']!.split('\n').filter(line=>removedNames.includes(line.match(enumEntry)?.[1]??''));
+ if(removedEnumLines.length){
+  const lines=files['src/generated/enums.ts']!.split('\n'),start=lines.indexOf('export const enumValues = {'),end=lines.indexOf('} as const;',start);
+  const entries=[...lines.slice(start+1,end).map(line=>[line] as string[]),...removedEnumLines.map(line=>['  /** @deprecated Frozen 6.13.6 compatibility enum (schema removed upstream). */',line])];
+  entries.sort((a,b)=>a.at(-1)!.match(enumEntry)![1]!.localeCompare(b.at(-1)!.match(enumEntry)![1]!));
+  files['src/generated/enums.ts']=[...lines.slice(0,start+1),...entries.flat(),...lines.slice(end)].join('\n');
+ }
+}
 files['src/generated/schema-data.ts']+=`import { legacySchemas } from './legacy-schema-data.ts';\nexport const compatibilitySchemaNames = ${JSON.stringify(removedNames)} as const;\nfor(const name of compatibilitySchemaNames) schemas[name]=legacySchemas[name]!;\n`;
 files['src/generated/index.ts']+="export * as legacy6136Models from './legacy-models.ts';\nexport { decodeLegacyModel, validateLegacyModel } from './runtime.ts';\n";
 // PARITY_SPEC P5.1: error-code enum + policy table generated from the shared error-codes.json.

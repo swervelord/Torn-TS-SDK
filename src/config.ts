@@ -6,7 +6,7 @@ import { accessLevelOrder, type AccessLevel } from "./generated/access-levels.ts
 export type ExecutorConfigInput = Partial<Omit<ExecutorConfig, "rateLimits">> & { rateLimits?: Partial<RateLimitConfig> };
 export const DEFAULT_ROUTE_ID = "default";
 /** Package version; kept equal to package.json by tests (PARITY_SPEC P8.7). */
-export const SDK_VERSION = "3.0.0";
+export const SDK_VERSION = "3.1.0";
 export const DEFAULT_USER_AGENT = `torn-sdk-typescript/${SDK_VERSION}`;
 const INSPECT = Symbol.for("nodejs.util.inspect.custom");
 export function defaultRateLimitConfig(): RateLimitConfig {

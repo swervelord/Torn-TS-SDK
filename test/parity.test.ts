@@ -332,7 +332,7 @@ describe('P8 developer experience', () => {
   test('P8.7 runtime constants', async () => {
     const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')) as { version: string };
     expect(SDK_VERSION).toBe(pkg.version);
-    expect(SPEC_VERSION).toBe('6.15.0');
+    expect(SPEC_VERSION).toBe('6.15.7');
     expect(SPEC_SHA256).toMatch(/^[0-9a-f]{64}$/);
   });
 });

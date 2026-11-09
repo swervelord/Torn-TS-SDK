@@ -47,6 +47,39 @@ describe("opt-in live Torn contracts",()=>{
     expect(batch.report.calls[0]!.path).toBe("/user");
     expect(batch.report.calls[0]!.query.selections).toBe("travelinventory,job");
   },65_000);
+  live("6.15.7 gym unlocked_gyms, calendar bounds and available races decode live responses",async()=>{
+    // Calls are spaced 0.7 s apart and back off 61 s once on code 5 because other tools share the key.
+    const sdk=new TornSdk(TornClient.withApiKeys([apiKey!],{maxAttempts:1,timeoutMs:15_000}));
+    const paced=async<T>(run:()=>Promise<T>):Promise<T>=>{
+      for(let attempt=0;;attempt++){
+        await new Promise(resolve=>setTimeout(resolve,700));
+        try{return await run();}
+        catch(error){
+          if(error instanceof ApiError&&error.code===5&&attempt===0){await new Promise(resolve=>setTimeout(resolve,61_000));sdk.client().executor.resetKeyStates();continue;}
+          throw error;
+        }
+      }
+    };
+    const gym=await paced(()=>sdk.openapi().getMyGym());
+    expect(gym.gym.unlocked_gyms.length).toBeGreaterThan(0);
+    for(const unlocked of gym.gym.unlocked_gyms){expect(Number.isInteger(unlocked.id)).toBe(true);expect(typeof unlocked.available).toBe("boolean");}
+    const facadeGym=await paced(()=>sdk.user().gym());
+    expect(facadeGym.gym.unlocked_gyms.length).toBe(gym.gym.unlocked_gyms.length);
+    const batch=await paced(()=>sdk.user().selectWithReport(["gym","bars"]));
+    expect(batch.data.gym.unlocked_gyms.length).toBe(gym.gym.unlocked_gyms.length);
+    expect(batch.data).toHaveProperty("bars");
+    expect(batch.report.calls).toHaveLength(1);
+    expect(batch.report.calls[0]!.path).toBe("/user");
+    expect(batch.report.calls[0]!.query.selections).toBe("gym,bars");
+    const calendar=await paced(()=>sdk.openapi().getTornCalendar());
+    for(const activity of [...calendar.calendar.competitions,...calendar.calendar.events]){
+      expect(Number.isInteger(activity.earliest_start)).toBe(true);
+      expect(Number.isInteger(activity.latest_end)).toBe(true);
+      expect(typeof activity.fixed_start_time).toBe("boolean");
+    }
+    const races=await paced(()=>sdk.openapi().getRacingRaces({cat:"available",limit:10}));
+    for(const race of races.races)expect(race.schedule.end).toBeNull();
+  },200_000);
   /**
    * P9.2 live sweep: every typed operation reachable with the key owner's ids (plus public catalog ids such as item 206)
    * is called through `openapi()` and decoded in the default tolerant mode. Decode failures fail the test with their

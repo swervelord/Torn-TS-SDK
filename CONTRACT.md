@@ -2,13 +2,13 @@
 
 Torn-TS-SDK is a standalone TypeScript SDK for the official Torn API. Its runtime, models, generators, and tests are maintained in this repository. Generation and verification use Bun and the declared development dependencies; the published package is portable ESM for Node >= 20, Bun, Deno, browsers and workers ([portability](docs/PORTABILITY.md)). Since 3.0.0 the SDK implements the cross-SDK parity contract in [`spec/shared/PARITY_SPEC.md`](spec/shared/PARITY_SPEC.md) (P1-P9), shared with the Rust, Go and Zig SDKs.
 
-The current API contract is the official Torn **6.15.0** OpenAPI snapshot: **237 operations and 724 component schemas**. The frozen **6.13.6** snapshot remains available for explicit legacy decoding. Its SHA-256 is `DC04C6A03424DA1D0361F29E80971D830115A23DDB1C47FBE5824FB54BB46EC4`. Versioned specifications, routing metadata, and regression fixtures are committed under `spec/`.
+The current API contract is the official Torn **6.15.7** OpenAPI snapshot: **237 operations and 726 component schemas**. The frozen **6.13.6** snapshot remains available for explicit legacy decoding. Its SHA-256 is `DC04C6A03424DA1D0361F29E80971D830115A23DDB1C47FBE5824FB54BB46EC4`. Versioned specifications, routing metadata, and regression fixtures are committed under `spec/`.
 
 `legacy6136Models` and `decodeLegacyModel` decode old payloads. Current elimination-team responses require `captains`; legacy responses use `leaders`. See [the coverage audit](docs/COVERAGE_AUDIT.md) for the exact upstream changes and documentation comparison.
 
 | Surface | Inventory | Contract |
 | --- | ---: | --- |
-| Current API component schemas | 724 | Complete 6.15.0 types and runtime decoding |
+| Current API component schemas | 726 | Complete 6.15.7 types and runtime decoding |
 | Frozen API component schemas | 711 | Explicit 6.13.6 legacy decoding |
 | Exact endpoint operations | 237 | Typed parameters/responses, TSDoc from the spec, per-operation access level (deprecated snake_case aliases) |
 | Frozen generated model acceptance samples | 1,628 | Named and inline model validation |

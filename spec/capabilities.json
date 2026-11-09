@@ -1,7 +1,7 @@
 {
     "spec": {
         "title": "Torn API",
-        "version": "6.15.0",
+        "version": "6.15.7",
         "openapi": "3.1.0",
         "source_file": "spec/torn-openapi-current.json"
     },
@@ -1260,7 +1260,6 @@
                             "schema": {
                                 "type": "array",
                                 "items": {
-                                    "schema": "CompanySearchParameter",
                                     "oneOf": [
                                         {
                                             "type": "string",
@@ -3898,7 +3897,9 @@
                         "reports[].report.items[].item.id",
                         "reports[].report.items[].item.name",
                         "reports[].report.items[].item.price",
+                        "reports[].report.items[].item.stock",
                         "reports[].report.items[].item.value",
+                        "reports[].report.items[].restock_timestamp",
                         "reports[].report.items[].trip_duration",
                         "reports[].report.level",
                         "reports[].report.money",
@@ -7187,7 +7188,9 @@
                         "reports[].report.items[].item.id",
                         "reports[].report.items[].item.name",
                         "reports[].report.items[].item.price",
+                        "reports[].report.items[].item.stock",
                         "reports[].report.items[].item.value",
+                        "reports[].report.items[].restock_timestamp",
                         "reports[].report.items[].trip_duration",
                         "reports[].report.level",
                         "reports[].report.money",
@@ -7536,7 +7539,6 @@
                             "schema": {
                                 "type": "array",
                                 "items": {
-                                    "schema": "Parameters",
                                     "oneOf": [
                                         {
                                             "type": "string",
@@ -14434,7 +14436,7 @@
                     "schema": {
                         "oneOf": [
                             {
-                                "$ref": "#/components/schemas/RacingRaceTypeEnum"
+                                "$ref": "#/components/schemas/RacingRacesCategoryEnum"
                             },
                             {
                                 "$ref": "#/components/schemas/RaceClassEnum"
@@ -14559,7 +14561,7 @@
                     "schema": {
                         "oneOf": [
                             {
-                                "$ref": "#/components/schemas/RacingRaceTypeEnum"
+                                "$ref": "#/components/schemas/RacingRacesCategoryEnum"
                             },
                             {
                                 "$ref": "#/components/schemas/RaceClassEnum"
@@ -15218,7 +15220,7 @@
                             "in": "query",
                             "required": false,
                             "schema": {
-                                "$ref": "#/components/schemas/RacingRaceTypeEnum"
+                                "$ref": "#/components/schemas/RacingRacesCategoryEnum"
                             }
                         },
                         {
@@ -15963,6 +15965,9 @@
                     "response_schema_refs": [
                         "#/components/schemas/AttackActionEnum",
                         "#/components/schemas/AttackLog",
+                        "#/components/schemas/AttackLogAttacker",
+                        "#/components/schemas/AttackLogDefender",
+                        "#/components/schemas/AttackLogItem",
                         "#/components/schemas/AttackLogResponse",
                         "#/components/schemas/AttackLogSummary",
                         "#/components/schemas/ItemId",
@@ -16124,15 +16129,19 @@
                         "calendar.competitions",
                         "calendar.competitions[]",
                         "calendar.competitions[].description",
+                        "calendar.competitions[].earliest_start",
                         "calendar.competitions[].end",
                         "calendar.competitions[].fixed_start_time",
+                        "calendar.competitions[].latest_end",
                         "calendar.competitions[].start",
                         "calendar.competitions[].title",
                         "calendar.events",
                         "calendar.events[]",
                         "calendar.events[].description",
+                        "calendar.events[].earliest_start",
                         "calendar.events[].end",
                         "calendar.events[].fixed_start_time",
+                        "calendar.events[].latest_end",
                         "calendar.events[].start",
                         "calendar.events[].title"
                     ],
@@ -18084,6 +18093,9 @@
                     "response_schema_refs": [
                         "#/components/schemas/AttackActionEnum",
                         "#/components/schemas/AttackLog",
+                        "#/components/schemas/AttackLogAttacker",
+                        "#/components/schemas/AttackLogDefender",
+                        "#/components/schemas/AttackLogItem",
                         "#/components/schemas/AttackLogResponse",
                         "#/components/schemas/AttackLogSummary",
                         "#/components/schemas/ItemId",
@@ -18341,15 +18353,19 @@
                         "calendar.competitions",
                         "calendar.competitions[]",
                         "calendar.competitions[].description",
+                        "calendar.competitions[].earliest_start",
                         "calendar.competitions[].end",
                         "calendar.competitions[].fixed_start_time",
+                        "calendar.competitions[].latest_end",
                         "calendar.competitions[].start",
                         "calendar.competitions[].title",
                         "calendar.events",
                         "calendar.events[]",
                         "calendar.events[].description",
+                        "calendar.events[].earliest_start",
                         "calendar.events[].end",
                         "calendar.events[].fixed_start_time",
+                        "calendar.events[].latest_end",
                         "calendar.events[].start",
                         "calendar.events[].title"
                     ]
@@ -23496,7 +23512,8 @@
                     "required_path_parameters": [],
                     "response_schema_refs": [
                         "#/components/schemas/GymId",
-                        "#/components/schemas/UserGymResponse"
+                        "#/components/schemas/UserGymResponse",
+                        "#/components/schemas/UserUnlockedGym"
                     ],
                     "response_top_level_fields": [
                         "gym"
@@ -23504,7 +23521,12 @@
                     "response_field_paths": [
                         "gym",
                         "gym.id",
-                        "gym.name"
+                        "gym.name",
+                        "gym.unlocked_gyms",
+                        "gym.unlocked_gyms[]",
+                        "gym.unlocked_gyms[].available",
+                        "gym.unlocked_gyms[].id",
+                        "gym.unlocked_gyms[].name"
                     ],
                     "notes": [],
                     "can_use_generic_endpoint": true,
@@ -25666,7 +25688,9 @@
                         "reports[].report.items[].item.id",
                         "reports[].report.items[].item.name",
                         "reports[].report.items[].item.price",
+                        "reports[].report.items[].item.stock",
                         "reports[].report.items[].item.value",
+                        "reports[].report.items[].restock_timestamp",
                         "reports[].report.items[].trip_duration",
                         "reports[].report.level",
                         "reports[].report.money",
@@ -28263,7 +28287,8 @@
                     ],
                     "response_schema_refs": [
                         "#/components/schemas/GymId",
-                        "#/components/schemas/UserGymResponse"
+                        "#/components/schemas/UserGymResponse",
+                        "#/components/schemas/UserUnlockedGym"
                     ],
                     "response_top_level_fields": [
                         "gym"
@@ -28271,7 +28296,12 @@
                     "response_field_paths": [
                         "gym",
                         "gym.id",
-                        "gym.name"
+                        "gym.name",
+                        "gym.unlocked_gyms",
+                        "gym.unlocked_gyms[]",
+                        "gym.unlocked_gyms[].available",
+                        "gym.unlocked_gyms[].id",
+                        "gym.unlocked_gyms[].name"
                     ]
                 },
                 {
@@ -31541,7 +31571,9 @@
                         "reports[].report.items[].item.id",
                         "reports[].report.items[].item.name",
                         "reports[].report.items[].item.price",
+                        "reports[].report.items[].item.stock",
                         "reports[].report.items[].item.value",
+                        "reports[].report.items[].restock_timestamp",
                         "reports[].report.items[].trip_duration",
                         "reports[].report.level",
                         "reports[].report.money",
@@ -31896,7 +31928,6 @@
                             "schema": {
                                 "type": "array",
                                 "items": {
-                                    "schema": "UserSearchParameter",
                                     "oneOf": [
                                         {
                                             "type": "string",

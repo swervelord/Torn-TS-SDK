@@ -6,7 +6,7 @@ A complete TypeScript SDK for the official Torn API: typed endpoints, inferred m
 runtime validation, key failover, sliding-window rate limiting and retries. It ships compiled ESM (`dist/*.js` + `.d.ts`)
 that runs on **Node >= 20, Bun, Deno, browsers and workers**; Bun is only the development toolchain.
 
-The SDK covers all **237 operations and 724 component schemas of Torn API 6.15.0**, all **208 capability selections**, and
+The SDK covers all **237 operations and 726 component schemas of Torn API 6.15.7**, all **208 capability selections**, and
 the 549 compatibility facade models. It implements the cross-SDK parity contract shared with the Rust, Go and Zig SDKs
 ([`spec/shared/PARITY_SPEC.md`](spec/shared/PARITY_SPEC.md), requirement ids such as `P1.2` are cited below).
 
@@ -14,7 +14,7 @@ the 549 compatibility facade models. It implements the cross-SDK parity contract
 
 ```sh
 # Release tarball (built by the release workflow for every v* tag)
-npm install https://github.com/swervelord/Torn-TS-SDK/releases/download/v3.0.0/torn-ts-sdk-3.0.0.tgz
+npm install https://github.com/swervelord/Torn-TS-SDK/releases/download/v3.1.0/torn-ts-sdk-3.1.0.tgz
 # From source
 git clone https://github.com/swervelord/Torn-TS-SDK && cd Torn-TS-SDK && bun install --frozen-lockfile && bun run build && npm pack
 ```

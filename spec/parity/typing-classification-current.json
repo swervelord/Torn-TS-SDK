@@ -7,7 +7,7 @@
     "facade_manifest_sha256": "fd5d741088eab36162a66ab4a9cfa776892cdfa8893ede3a166697902d7bcd90",
     "kind": "typing-classification-regression",
     "source_url": "https://www.torn.com/swagger/openapi.json",
-    "apiVersion": "6.15.0"
+    "apiVersion": "6.15.7"
   },
   "selections": [
     {
@@ -1985,6 +1985,9 @@
       "schema_refs": [
         "#/components/schemas/AttackActionEnum",
         "#/components/schemas/AttackLog",
+        "#/components/schemas/AttackLogAttacker",
+        "#/components/schemas/AttackLogDefender",
+        "#/components/schemas/AttackLogItem",
         "#/components/schemas/AttackLogResponse",
         "#/components/schemas/AttackLogSummary",
         "#/components/schemas/ItemId",
@@ -3356,7 +3359,8 @@
       "return_type": "UserGymResponse",
       "schema_refs": [
         "#/components/schemas/GymId",
-        "#/components/schemas/UserGymResponse"
+        "#/components/schemas/UserGymResponse",
+        "#/components/schemas/UserUnlockedGym"
       ],
       "notes": [],
       "has_extra": false,

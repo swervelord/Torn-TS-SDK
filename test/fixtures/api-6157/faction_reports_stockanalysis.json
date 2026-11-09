@@ -1,0 +1,49 @@
+{
+  "reports": [
+    {
+      "type": "stockanalysis",
+      "target_id": null,
+      "reporter_id": 1001,
+      "faction_id": 2001,
+      "timestamp": 1794230000,
+      "report": {
+        "items": [
+          {
+            "country": "Mexico",
+            "item": {
+              "id": 258,
+              "name": "Jaguar Plushie",
+              "stock": 412,
+              "price": 10000,
+              "value": 32000,
+              "due": null
+            },
+            "trip_duration": 1560,
+            "hourly_profit": 4520000,
+            "restock_timestamp": null
+          },
+          {
+            "country": "Japan",
+            "item": {
+              "id": 277,
+              "name": "Cherry Blossom",
+              "stock": 0,
+              "price": 500,
+              "value": 2900,
+              "due": 1794231200
+            },
+            "trip_duration": 7980,
+            "hourly_profit": 1310000,
+            "restock_timestamp": 1794231200
+          }
+        ]
+      }
+    }
+  ],
+  "_metadata": {
+    "links": {
+      "prev": null,
+      "next": null
+    }
+  }
+}

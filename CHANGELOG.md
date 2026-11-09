@@ -1,5 +1,43 @@
 # Changelog
 
+## 3.1.0 - 2026-11-09
+
+Updated the pinned official Torn OpenAPI contract from 6.15.0 to 6.15.7: 237 operations, 726 component schemas, and 208
+capability selections. No endpoints or selections were added or removed and Torn published no patch notes; the changes
+below come from the specification diff and were confirmed live where the test key allows.
+
+### Added
+- `UserUnlockedGym` and `UserGymResponse.gym.unlocked_gyms` (`user/gym`, Public key).
+- `TornCalendarActivity.earliest_start` and `latest_end` (`torn/calendar`); `fixed_start_time` is now required.
+- `AttackLogAttacker`, `AttackLogDefender` and `AttackLogItem` are named schemas (previously inline in `AttackLog`, same wire
+  shape). `attacker`, `defender` and `attacker_item` are `null` in stealthed attacks; the attacker's `item` now requires
+  `id` and `name`.
+- `ReportStockAnalysis` items gain `restock_timestamp` (`integer | null`, required) and type `item.stock` as an integer
+  (it was required but untyped, so `JsonValue`) (`faction/reports`, `cat=stockanalysis`). Spec-only: not probed live.
+- `RacingRacesCategoryEnum` (`official`, `custom`, `available`) types the `cat` parameter of `/racing/races` and the
+  `/racing` generic endpoint. `available` lists joinable races that have not started (`from`/`to` are ignored).
+  `RacingRaceTypeEnum` is unchanged and still used by `/user/races`.
+- `/user/log` documents inclusive `from`/`to` bounds and `_metadata.nanostamp` as the nanosecond paging cursor; following
+  the `prev` link with `paginate(..., { direction: "prev" })` keeps its `nanostamp` (P7.1). No wire change.
+
+### Compatibility
+- The upstream spec removed the never-referenced `CompanySearchParameter`, `Parameters` and `UserSearchParameter`
+  schemas. Their types, `*Variant1` enum types, runtime decoders and `enumValues` entries remain as deprecated 6.13.6
+  compatibility names; the generator now keeps `enumValues`/`EnumName` entries for removed enum schemas (P1.1).
+- Path id lists (`/forum/{categoryIds}/threads`, `/torn/{ids}/honors|itemdetails|items|itemstats|medals`) changed from
+  `style: form, explode: false` to `style: simple`; requests still send comma-joined ids (`/torn/1,2/items`).
+- New required fields are validated like every required field (a payload without them fails decoding); the three
+  `spec-overrides.json` relaxations (P1.2) are unchanged. Facade calls that return the frozen 6.13.6 manual models keep the
+  new calendar fields in `extra`.
+
+### Tests
+- `test/api-6157.test.ts`: scrubbed live fixtures (gym, calendar, available races, attack log with a stealthed all-null
+  entry, user log) and a spec-built stock analysis report decode exactly; negative cases for every new required key;
+  open-enum checks for `RacingRacesCategoryEnum`; deprecated compatibility names; planner and exact-operation paths
+  (`/torn/1,2/items`, `cat=available`); the user/log pager follows the `prev` link with its `nanostamp` and no key in the query.
+- `test/live.test.ts`: live `user/gym` (non-empty `unlocked_gyms`, facade and a batched `gym,bars` call),
+  `torn/calendar` and `racing/races?cat=available`.
+
 ## 3.0.0 - 2026-10-31
 
 Brings the SDK up to the cross-SDK parity contract (`spec/shared/PARITY_SPEC.md`, vendored with the shared

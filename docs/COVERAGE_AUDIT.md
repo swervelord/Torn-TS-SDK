@@ -1,6 +1,25 @@
 # Torn API coverage audit
 
-The SDK covers **all 237 official Torn v2 operations** and **all 724 component schemas** in the official **6.15.0** snapshot checked on 2026-10-30. Three operations return CSV strings. The immutable Markdown vault comparison below remains the historical 6.13.6 baseline; current operation and shared-parameter hashes are separately recorded in `spec/parity/docs-coverage.json`.
+The SDK covers **all 237 official Torn v2 operations** and **all 726 component schemas** in the official **6.15.7** snapshot checked on 2026-11-09. Three operations return CSV strings. The immutable Markdown vault comparison below remains the historical 6.13.6 baseline; current operation and shared-parameter hashes are separately recorded in `spec/parity/docs-coverage.json`.
+
+## 6.15.7 update
+
+Relative to 6.15.0 there are no new or removed operations or selections, and no patch notes: every change below comes from
+the specification diff and live probes. Five component schemas are added: `UserUnlockedGym`, `AttackLogAttacker`,
+`AttackLogDefender`, `AttackLogItem` (the last three were inline objects of `AttackLog`) and `RacingRacesCategoryEnum`
+(`official`, `custom`, `available`). Three never-referenced schemas are removed (`CompanySearchParameter`, `Parameters`,
+`UserSearchParameter`); the SDK keeps them, and their `*Variant1` enums, as deprecated 6.13.6 compatibility names.
+
+`UserGymResponse.gym` requires `unlocked_gyms`. `TornCalendarActivity` requires `earliest_start`, `latest_end` and the
+previously optional `fixed_start_time`. `AttackLog.attacker_item` is `AttackLogItem | null` and the attacker's `item`
+requires `id` and `name`. `ReportStockAnalysis` items require `restock_timestamp` (nullable) and declare `item.stock` as an
+integer (it was required but untyped). `/racing/races` and the racing `cat` parameter use `RacingRacesCategoryEnum`; the
+`available` category lists joinable races that have not started and ignores `from`/`to`. `RacingRaceTypeEnum` remains
+for `/user/races`. `/user/log` uses inclusive `from`/`to` bounds and documents `_metadata.nanostamp` as the nanosecond
+paging cursor that the `prev` link carries. Path id lists (`/forum/{categoryIds}/threads`, `/torn/{ids}/...`) moved
+from `style: form, explode: false` to `style: simple`; the wire format is still comma-joined. The three spec overrides
+remain valid. Gym, calendar, available races, attack log and user log payloads were confirmed live; the stock analysis
+report could not be probed and its fixture is built from the specification.
 
 ## 3.0.0 parity update (spec unchanged, 6.15.0)
 
