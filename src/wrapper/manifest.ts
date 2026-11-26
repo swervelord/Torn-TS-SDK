@@ -78,7 +78,8 @@ export const facadeManifest = {
       "weaponexp",
       "workstats",
       "halloween",
-      "travelinventory"
+      "travelinventory",
+      "auctionhouse"
     ],
     "options": [
       "crime_id",
@@ -528,7 +529,7 @@ export const facadeManifest = {
       },
       {
         "method": "display",
-        "returnType": "UserDisplayBundle",
+        "returnType": "UserDisplayResponse",
         "selection": "display",
         "alias": null,
         "idArgument": false
@@ -549,14 +550,14 @@ export const facadeManifest = {
       },
       {
         "method": "criminalrecord",
-        "returnType": "UserCriminalRecordBundle",
+        "returnType": "UserCriminalRecordResponse",
         "selection": "criminalrecord",
         "alias": null,
         "idArgument": false
       },
       {
         "method": "bazaar",
-        "returnType": "UserBazaarBundle",
+        "returnType": "UserBazaarResponse",
         "selection": "bazaar",
         "alias": null,
         "idArgument": false
@@ -613,6 +614,24 @@ export const facadeManifest = {
         "method": "travelinventory",
         "returnType": "UserTravelInventoryResponse",
         "selection": "travelinventory",
+        "alias": null
+      },
+      {
+        "method": "auctionhouse",
+        "returnType": "UserAuctionHouseResponse",
+        "selection": "auctionhouse",
+        "alias": null
+      },
+      {
+        "method": "honorsDetailed",
+        "returnType": "UserHonorsDetailedResponse",
+        "selection": "honors",
+        "alias": null
+      },
+      {
+        "method": "medalsDetailed",
+        "returnType": "UserMedalsDetailedResponse",
+        "selection": "medals",
         "alias": null
       }
     ],
@@ -912,6 +931,10 @@ export const facadeManifest = {
       [
         "travelinventory_raw",
         "travelinventory"
+      ],
+      [
+        "auctionhouse_raw",
+        "auctionhouse"
       ]
     ]
   },
@@ -1101,7 +1124,9 @@ export const facadeManifest = {
       "chains",
       "crime",
       "crimes",
-      "crimeexp"
+      "crimeexp",
+      "headlines",
+      "ochistory"
     ],
     "options": [
       "chain_id",
@@ -1474,6 +1499,18 @@ export const facadeManifest = {
         "selection": "upgrades",
         "alias": null,
         "idArgument": false
+      },
+      {
+        "method": "headlines",
+        "returnType": "FactionHeadlinesResponse",
+        "selection": "headlines",
+        "alias": null
+      },
+      {
+        "method": "ochistory",
+        "returnType": "FactionOcHistoryResponse",
+        "selection": "ochistory",
+        "alias": null
       }
     ],
     "rawMethods": [
@@ -1676,6 +1713,14 @@ export const facadeManifest = {
       [
         "crimeexp_raw",
         "crimeexp"
+      ],
+      [
+        "headlines_raw",
+        "headlines"
+      ],
+      [
+        "ochistory_raw",
+        "ochistory"
       ]
     ]
   },
@@ -1806,7 +1851,9 @@ export const facadeManifest = {
       "auctionhouselisting",
       "auctionhouse",
       "itemmarket",
-      "bazaar"
+      "bazaar",
+      "pointshistory",
+      "itemhistory"
     ],
     "options": [
       "property_type_id"
@@ -1874,6 +1921,18 @@ export const facadeManifest = {
         "selection": "auctionhouselisting",
         "alias": null,
         "idArgument": false
+      },
+      {
+        "method": "pointshistory",
+        "returnType": "MarketPointsHistoryResponse",
+        "selection": "pointshistory",
+        "alias": null
+      },
+      {
+        "method": "itemhistory",
+        "returnType": "MarketItemHistoryResponse",
+        "selection": "itemhistory",
+        "alias": null
       }
     ],
     "rawMethods": [
@@ -1912,6 +1971,14 @@ export const facadeManifest = {
       [
         "bazaar_raw",
         "bazaar"
+      ],
+      [
+        "pointshistory_raw",
+        "pointshistory"
+      ],
+      [
+        "itemhistory_raw",
+        "itemhistory"
       ]
     ]
   },
@@ -2111,7 +2178,8 @@ export const facadeManifest = {
       "factionhof",
       "gyms",
       "factiontree",
-      "halloween"
+      "halloween",
+      "headlines"
     ],
     "options": [
       "crime_id",
@@ -2419,6 +2487,12 @@ export const facadeManifest = {
         "returnType": "TornHalloweenResponse",
         "selection": "halloween",
         "alias": null
+      },
+      {
+        "method": "headlines",
+        "returnType": "TornHeadlinesResponse",
+        "selection": "headlines",
+        "alias": null
       }
     ],
     "rawMethods": [
@@ -2589,6 +2663,10 @@ export const facadeManifest = {
       [
         "halloween_raw",
         "halloween"
+      ],
+      [
+        "headlines_raw",
+        "headlines"
       ]
     ]
   }

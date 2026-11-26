@@ -66,7 +66,9 @@ describe('all generated model names match committed representative payload expec
   const changedStats=/^(TornCityStatsResponse(?:Stats)?|GetTornGenericResponseStats)(Attacking|Communication|Crimes|Currency|Other|Traveling)?$/.test(c.model);
   // 6.15.7 added required fields (gym unlocked_gyms, calendar earliest_start/latest_end/fixed_start_time, stock analysis restock_timestamp/stock).
   const required6157=/^(UserGymResponse(?:Gym)?|GetUserGenericResponseGym|TornCalendarActivity|ReportStockAnalysisItemsItem(?:Item)?)$/.test(c.model);
-  expect(validateModel(c.model,c.input).length===0).toBe((c.model==='TornEliminationTeam'||changedStats||required6157)?false:c.validation.ok);
+  // 6.21.0 added required fields (ranked war template, key info access sensitive_data/legacy_permissions).
+  const required6210=/^(FactionRankedWar(?:Details|ReportResponse(?:Rankedwarreport)?)?|GetFactionGenericResponseRankedwarreport|KeyInfoResponse(?:Info(?:Access)?)?|GetKeyGenericResponseInfo(?:Access)?)$/.test(c.model);
+  expect(validateModel(c.model,c.input).length===0).toBe((c.model==='TornEliminationTeam'||changedStats||required6157||required6210)?false:c.validation.ok);
  });
 });
 

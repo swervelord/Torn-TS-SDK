@@ -6,7 +6,7 @@ A complete TypeScript SDK for the official Torn API: typed endpoints, inferred m
 runtime validation, key failover, sliding-window rate limiting and retries. It ships compiled ESM (`dist/*.js` + `.d.ts`)
 that runs on **Node >= 20, Bun, Deno, browsers and workers**; Bun is only the development toolchain.
 
-The SDK covers all **237 operations and 726 component schemas of Torn API 6.15.7**, all **208 capability selections**, and
+The SDK covers all **248 operations and 772 component schemas of Torn API 6.21.0**, all **213 capability selections**, and
 the 549 compatibility facade models. It implements the cross-SDK parity contract shared with the Rust, Go and Zig SDKs
 ([`spec/shared/PARITY_SPEC.md`](spec/shared/PARITY_SPEC.md), requirement ids such as `P1.2` are cited below).
 
@@ -14,7 +14,7 @@ the 549 compatibility facade models. It implements the cross-SDK parity contract
 
 ```sh
 # Release tarball (built by the release workflow for every v* tag)
-npm install https://github.com/swervelord/Torn-TS-SDK/releases/download/v3.1.0/torn-ts-sdk-3.1.0.tgz
+npm install https://github.com/swervelord/Torn-TS-SDK/releases/download/v4.0.0/torn-ts-sdk-4.0.0.tgz
 # From source
 git clone https://github.com/swervelord/Torn-TS-SDK && cd Torn-TS-SDK && bun install --frozen-lockfile && bun run build && npm pack
 ```
@@ -174,8 +174,9 @@ are embedded, nothing is read from disk at runtime (P8.7).
 ## Versioning
 
 Semantic versioning; the minor version moves with each Torn API contract bump and breaking changes bump the major version.
-3.0.0 changed the package exports, the default decoding and routing behavior and the retry policy; see the
-[CHANGELOG migration notes](CHANGELOG.md#migrating-from-2x). Development: `bun install --frozen-lockfile`,
+3.0.0 changed the package exports, the default decoding and routing behavior and the retry policy; 4.0.0 re-typed the
+`user` `bazaar`, `display` and `criminalrecord` helpers after Torn made them native v2 selections (API 6.21.0). See the
+CHANGELOG migration notes ([from 3.x](CHANGELOG.md#migrating-from-3x), [from 2.x](CHANGELOG.md#migrating-from-2x)). Development: `bun install --frozen-lockfile`,
 `bun run check` (typecheck, tests, generator/refresh drift checks, parity fixtures, build) and `bun run typecheck:tsc`;
 `bun run smoke:pack` installs the packed tarball into fresh Node/Bun/Deno/tsc consumer projects. See
 [CONTRACT.md](CONTRACT.md) and [docs/COVERAGE_AUDIT.md](docs/COVERAGE_AUDIT.md).

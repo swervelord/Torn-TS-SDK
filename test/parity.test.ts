@@ -239,7 +239,7 @@ describe('P6 access levels', () => {
     const error = await rejection<AccessLevelError>(sdk.openapi().getMyTravelInventory());
     expect(error).toMatchObject({ name: 'AccessLevelError', requiredAccess: 'limited', keyAccess: 'minimal' });
     expect(transport.requests).toHaveLength(0);
-    const info = { info: { selections: { company: [], faction: [], market: [], property: [], torn: [], user: [], racing: [], forum: [], key: [] }, user: { id: 1, faction_id: null, company_id: null }, access: { level: 4, type: 'Full Access', faction: true, company: true, log: { custom_permissions: false, available: [] } } } };
+    const info = { info: { selections: { company: [], faction: [], market: [], property: [], torn: [], user: [], racing: [], forum: [], key: [] }, user: { id: 1, faction_id: null, company_id: null }, access: { level: 4, type: 'Full Access', faction: true, company: true, sensitive_data: true, legacy_permissions: false, log: { custom_permissions: false, available: [] } } } };
     const typed = mockSdk([jsonResponse(info)]);
     expect((await typed.sdk.keyInfo()).info.access.type).toBe('Full Access');
   });
@@ -332,7 +332,7 @@ describe('P8 developer experience', () => {
   test('P8.7 runtime constants', async () => {
     const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')) as { version: string };
     expect(SDK_VERSION).toBe(pkg.version);
-    expect(SPEC_VERSION).toBe('6.15.7');
+    expect(SPEC_VERSION).toBe('6.21.0');
     expect(SPEC_SHA256).toMatch(/^[0-9a-f]{64}$/);
   });
 });

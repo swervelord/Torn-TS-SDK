@@ -1,0 +1,14 @@
+{
+  "criminalrecord": {
+    "version": "v2",
+    "vandalism": 207,
+    "theft": 701,
+    "counterfeiting": 2121,
+    "fraud": 623,
+    "illicit_services": 35,
+    "cybercrime": 110,
+    "extortion": 0,
+    "illegal_production": 0,
+    "total": 3797
+  }
+}

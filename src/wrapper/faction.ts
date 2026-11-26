@@ -3,12 +3,26 @@ import type { HttpTransport } from "../transport.ts";
 import { ResourceApi, RawSelectionBundle, type OptionsOrId } from "./runtime.ts";
 import { FactionOptions } from "./options.ts";
 import type { FactionApplicationsBundle, FactionArmorBundle, FactionAttacksBundle, FactionAttacksFullBundle, FactionBalanceBundle, FactionBasicBundle, FactionBoostersBundle, FactionCachesBundle, FactionCesiumBundle, FactionChainBundle, FactionChainReportBundle, FactionChainsBundle, FactionContributorsBundle, FactionCrimeBundle, FactionCrimeExpBundle, FactionCrimesBundle, FactionDrugsBundle, FactionHofBundle, FactionLookupBundle, FactionMedicalBundle, FactionMembersBundle, FactionNewsBundle, FactionPositionsBundle, FactionRacketsBundle, FactionRaidReportBundle, FactionRaidsBundle, FactionRankedWarReportBundle, FactionRankedWarsBundle, FactionReportsBundle, FactionRevivesBundle, FactionRevivesFullBundle, FactionSearchBundle, FactionStatsBundle, FactionTemporaryBundle, FactionTerritoryBundle, FactionTerritoryOwnershipBundle, FactionTerritoryWarReportBundle, FactionTerritoryWarsBundle, FactionTimestampBundle, FactionUpgradesBundle, FactionUtilitiesBundle, FactionWarfareBundle, FactionWarsBundle, FactionWeaponsBundle } from "../models/manual.ts";
-import type { FactionInventoryResponse, FactionWarfareChainsResponse, FactionWarfareDirtyBombsResponse, FactionWarfareRaidsResponse, FactionWarfareRankedResponse, FactionWarfareTerritoryWarsResponse } from "../generated/models.ts";
+import type { FactionHeadlinesResponse, FactionInventoryResponse, FactionOcHistoryResponse, FactionWarfareChainsResponse, FactionWarfareDirtyBombsResponse, FactionWarfareRaidsResponse, FactionWarfareRankedResponse, FactionWarfareTerritoryWarsResponse } from "../generated/models.ts";
 export { FactionOptions } from "./options.ts";
 
 export class FactionApi extends ResourceApi<FactionOptions, "faction"> {
-  static readonly SUPPORTED_SELECTIONS = ["revivesFull", "dirtybombs", "dirtbombs", "inventory", "warfarechains", "warfareraids", "warfareranked", "warfareterritory", "snapshot", "revives", "reports", "revivesfull", "stats", "search", "rankedwars", "rackets", "positions", "raidreport", "rankedwarreport", "raids", "utilities", "upgrades", "warfare", "weapons", "wars", "timestamp", "territory", "temporary", "territoryownership", "territorywars", "territorywarreport", "caches", "boosters", "cesium", "chainreport", "chain", "basic", "armor", "applications", "attacks", "balance", "attacksfull", "lookup", "hof", "medical", "news", "members", "drugs", "contributors", "chains", "crime", "crimes", "crimeexp"] as const;
+  static readonly SUPPORTED_SELECTIONS = ["revivesFull", "dirtybombs", "dirtbombs", "inventory", "warfarechains", "warfareraids", "warfareranked", "warfareterritory", "snapshot", "revives", "reports", "revivesfull", "stats", "search", "rankedwars", "rackets", "positions", "raidreport", "rankedwarreport", "raids", "utilities", "upgrades", "warfare", "weapons", "wars", "timestamp", "territory", "temporary", "territoryownership", "territorywars", "territorywarreport", "caches", "boosters", "cesium", "chainreport", "chain", "basic", "armor", "applications", "attacks", "balance", "attacksfull", "lookup", "hof", "medical", "news", "members", "drugs", "contributors", "chains", "crime", "crimes", "crimeexp", "headlines", "ochistory"] as const;
   constructor(client: TornClient<HttpTransport>) { super(client, "faction", FactionApi.SUPPORTED_SELECTIONS, () => new FactionOptions()); }
+  /** Your faction's news ticker headlines (`striptags` defaults to false: HTML kept), from API v2. Requires a Minimal access key with faction API access. */
+  async headlines(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<FactionHeadlinesResponse> {
+    return this.executeTyped<FactionHeadlinesResponse>("headlines", options, "FactionHeadlinesResponse", false);
+  }
+  /** @deprecated Use headlinesRaw(). */
+  headlines_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("headlines", options); }
+  headlinesRaw(options: OptionsOrId<FactionOptions> = new FactionOptions()) { return this.headlines_raw(options); }
+  /** History of one of your faction's organized crimes (`withCrimeId`; newest first, latest 500; `details` depends on `action`), from API v2. Requires a Limited access key with faction API access. */
+  async ochistory(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<FactionOcHistoryResponse> {
+    return this.executeTyped<FactionOcHistoryResponse>("ochistory", options, "FactionOcHistoryResponse", false);
+  }
+  /** @deprecated Use ochistoryRaw(). */
+  ochistory_raw(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<RawSelectionBundle> { return this.rawSelection("ochistory", options); }
+  ochistoryRaw(options: OptionsOrId<FactionOptions> = new FactionOptions()) { return this.ochistory_raw(options); }
   async dirtybombs(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<FactionWarfareDirtyBombsResponse> {
     return this.executeTyped<FactionWarfareDirtyBombsResponse>("dirtybombs", options, "FactionWarfareDirtyBombsResponse", false);
   }
@@ -30,6 +44,7 @@ export class FactionApi extends ResourceApi<FactionOptions, "faction"> {
   async snapshot(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<string> {
     return this.executeText("snapshot", options);
   }
+  /** @deprecated Alias of dirtybombs(); the `dirtbombs` misspelling left the FactionSelectionName enum in API 6.21.0. */
   async dirtbombs(options: OptionsOrId<FactionOptions> = new FactionOptions()): Promise<FactionWarfareDirtyBombsResponse> {
     return this.dirtybombs(options);
   }

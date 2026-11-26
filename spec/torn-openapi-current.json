@@ -2,8 +2,8 @@
     "openapi": "3.1.0",
     "info": {
         "title": "Torn API",
-        "description": "\n * The development of Torn's API v2 is still ongoing.\n * If selections remain unaltered, they will default to the API v1 version.\n * Unlike API v1, API v2 accepts both selections and IDs as path and query parameters.\n * If any discrepancies or errors are found, please submit a [bug report](https://www.torn.com/forums.php#/p=forums&f=19&b=0&a=0) on the Torn Forums.\n * In case you're using bots to check for changes on openapi.json file, make sure to specificy a custom user-agent header - CloudFlare sometimes prevents requests from default user-agents.",
-        "version": "6.15.7"
+        "description": "\n * The development of Torn's API v2 is still ongoing.\n * If selections remain unaltered, they will default to the API v1 version.\n * Unlike API v1, API v2 accepts both selections and IDs as path and query parameters.\n * If any discrepancies or errors are found, please submit a [bug report](https://www.torn.com/forums.php#/p=forums&f=19&b=0&a=0) on the Torn Forums.\n * Every response is cached for 29 seconds: per key owner in the User, Faction and Company sections, and for all keys in the Torn, Market and Property sections. Pass a different 'timestamp' value to bypass this cache. Selections with a longer cache state it in their description.\n * In case you're using bots to check for changes on openapi.json file, make sure to specificy a custom user-agent header - CloudFlare sometimes prevents requests from default user-agents.",
+        "version": "6.21.0"
     },
     "servers": [
         {
@@ -159,6 +159,66 @@
                 "x-stability": "Stable"
             }
         },
+        "/user/auctionhouse": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get your auction house listings",
+                "description": "Requires Limited, Full or Custom key with sensitive data enabled. <br>Returns your item listings ordered by their end time.",
+                "operationId": "getMyAuctionHouseListings",
+                "parameters": [
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "Listings category, defaults to all",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserAuctionHouseCategory"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiLimit100Default20"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiSort"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiFrom"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTo"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyLimited"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserAuctionHouseResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
+            }
+        },
         "/user/bars": {
             "get": {
                 "tags": [
@@ -196,6 +256,74 @@
                     }
                 ],
                 "x-stability": "Stable"
+            }
+        },
+        "/user/bazaar": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get your bazaar",
+                "description": "Requires Limited, Full or Custom key with sensitive data enabled. <br>Item details are included only for the Primary, Secondary, Melee and Defensive categories. <br>The All category returns every item unless a limit is given. <br>Identical items are grouped into one row with their uids listed; limit and offset count individual items.",
+                "operationId": "getMyBazaar",
+                "parameters": [
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "Items category, defaults to All",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserItemsCategory"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiOffset"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiLimit100Default20"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort by item name",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "ASC",
+                            "enum": [
+                                "DESC",
+                                "ASC"
+                            ]
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyLimited"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserBazaarResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
             }
         },
         "/user/basic": {
@@ -336,7 +464,7 @@
                     "User"
                 ],
                 "summary": "Get bounties placed on you",
-                "description": "<b>Globally cached selection.</b><br><br>Requires public access key. <br>",
+                "description": "<b>Globally cached selection (5 minutes).</b><br><br>Requires public access key. <br>",
                 "operationId": "getMyBounties",
                 "parameters": [
                     {
@@ -375,7 +503,7 @@
                     "User"
                 ],
                 "summary": "Get bounties placed on a specific user",
-                "description": "Requires public access key. <br>",
+                "description": "<b>Globally cached selection (5 minutes).</b><br><br>Requires public access key. <br>",
                 "operationId": "getUserBounties",
                 "parameters": [
                     {
@@ -669,6 +797,93 @@
                 "x-stability": "Stable"
             }
         },
+        "/user/criminalrecord": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get your criminal record",
+                "description": "Requires public access key. <br>UserCriminalRecordV1 is returned only for players who have not yet migrated to Crimes 2.0.",
+                "operationId": "getMyCriminalRecord",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyPublic"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserCriminalRecordResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
+            }
+        },
+        "/user/{id}/criminalrecord": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get criminal record for a specific player",
+                "description": "Requires public access key. <br>UserCriminalRecordV1 is returned only for players who have not yet migrated to Crimes 2.0.",
+                "operationId": "getUserCriminalRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id or user discord id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserDiscordPathId"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyPublic"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserCriminalRecordResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
+            }
+        },
         "/user/discord": {
             "get": {
                 "tags": [
@@ -754,6 +969,151 @@
                     }
                 ],
                 "x-stability": "Stable"
+            }
+        },
+        "/user/display": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get your display case",
+                "description": "Requires public access key. <br>Item details are included only for the Primary, Secondary, Melee and Defensive categories. <br>The All category returns every item unless a limit is given. <br>Identical items are grouped into one row with their uids listed; limit and offset count individual items.",
+                "operationId": "getMyDisplayCase",
+                "parameters": [
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "Items category, defaults to All",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserItemsCategory"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiOffset"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiLimit100Default20"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort by item name",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "ASC",
+                            "enum": [
+                                "DESC",
+                                "ASC"
+                            ]
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyPublic"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserDisplayResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
+            }
+        },
+        "/user/{id}/display": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get display case for a specific player",
+                "description": "Requires public access key. <br>Item details are included only for the Primary, Secondary, Melee and Defensive categories. <br>The All category returns every item unless a limit is given. <br>Identical items are grouped into one row with their uids listed; limit and offset count individual items.",
+                "operationId": "getUserDisplayCase",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserId"
+                        }
+                    },
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "Items category, defaults to All",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserItemsCategory"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiOffset"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiLimit100Default20"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort by item name",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "ASC",
+                            "enum": [
+                                "DESC",
+                                "ASC"
+                            ]
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyPublic"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserDisplayResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
             }
         },
         "/user/education": {
@@ -1526,10 +1886,19 @@
                 "tags": [
                     "User"
                 ],
-                "summary": "Get your achieved honors",
-                "description": "Requires minimal access key. <br>",
+                "summary": "Get your honors",
+                "description": "Requires minimal access key. <br>By default (category 'all'), only your achieved honors are returned as 'UserHonorsResponse'. <br>When a specific category is requested, all honors of that category are returned as 'UserHonorsDetailedResponse', including the ones you have not achieved yet. <br>The 'latest' category returns your 36 most recently achieved honors.",
                 "operationId": "getMyHonors",
                 "parameters": [
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "Honors category, defaults to all",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserHonorsCategory"
+                        }
+                    },
                     {
                         "$ref": "#/components/parameters/ApiTimestamp"
                     },
@@ -1546,7 +1915,14 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserHonorsResponse"
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/UserHonorsResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/UserHonorsDetailedResponse"
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -2095,10 +2471,19 @@
                 "tags": [
                     "User"
                 ],
-                "summary": "Get all your achieved medals",
-                "description": "Requires public access key. <br>",
+                "summary": "Get your medals",
+                "description": "Requires public access key. <br>By default (category 'all'), only your achieved medals are returned as 'UserMedalsResponse'. <br>When a specific category is requested, all medals of that category are returned as 'UserMedalsDetailedResponse', including the ones you have not achieved yet, with your progress towards them. This requires a minimal access key. <br>The 'latest' category returns your 30 most recently achieved medals.",
                 "operationId": "getMyMedals",
                 "parameters": [
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "Medals category, defaults to all",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserMedalsCategory"
+                        }
+                    },
                     {
                         "$ref": "#/components/parameters/ApiTimestamp"
                     },
@@ -2115,7 +2500,14 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserMedalsResponse"
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/UserMedalsResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/UserMedalsDetailedResponse"
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -2393,7 +2785,7 @@
                     "User"
                 ],
                 "summary": "Get your networth",
-                "description": "Requires limited access key. <br>",
+                "description": "<b>Cached selection (15 minutes).</b><br><br>Requires limited access key. <br>",
                 "operationId": "getMyNetworth",
                 "parameters": [
                     {
@@ -2432,7 +2824,7 @@
                     "User"
                 ],
                 "summary": "Get your unseen messages",
-                "description": "Requires limited access key. <br>This selection is cached for 1 hour.",
+                "description": "Requires limited access key. <br>",
                 "operationId": "getMyNewMessages",
                 "parameters": [
                     {
@@ -2867,7 +3259,7 @@
                     "User"
                 ],
                 "summary": "Get your own properties",
-                "description": "Requires public access key. <br>Extended responses are available when requesting the data with Limited or higher access keys.",
+                "description": "<b>Cached selection (1 hour).</b><br><br>Requires public access key. <br>Extended responses are available when requesting the data with Limited or higher access keys. <br>The cache is skipped when requesting your own or your spouse's properties with a Limited or higher access key.",
                 "operationId": "getMyProperties",
                 "parameters": [
                     {
@@ -2915,7 +3307,7 @@
                     "User"
                 ],
                 "summary": "Get specific user's properties",
-                "description": "Requires public access key. <br>Extended responses are available when requesting the data with Limited or higher access keys for yourself or your spouse.",
+                "description": "<b>Cached selection (1 hour).</b><br><br>Requires public access key. <br>Extended responses are available when requesting the data with Limited or higher access keys for yourself or your spouse. <br>The cache is skipped when requesting your own or your spouse's properties with a Limited or higher access key.",
                 "operationId": "getUserProperties",
                 "parameters": [
                     {
@@ -3263,7 +3655,7 @@
                     "User"
                 ],
                 "summary": "Get your detailed revives",
-                "description": "Requires limited access key. <br>",
+                "description": "Requires minimal access key. <br>",
                 "operationId": "getMyRevives",
                 "parameters": [
                     {
@@ -3291,7 +3683,7 @@
                         "$ref": "#/components/parameters/ApiComment"
                     },
                     {
-                        "$ref": "#/components/parameters/ApiKeyLimited"
+                        "$ref": "#/components/parameters/ApiKeyMinimal"
                     }
                 ],
                 "responses": {
@@ -3320,7 +3712,7 @@
                     "User"
                 ],
                 "summary": "Get your simplified revives",
-                "description": "Requires limited access key. <br>",
+                "description": "Requires minimal access key. <br>",
                 "operationId": "getMyRevivesSimplified",
                 "parameters": [
                     {
@@ -3348,7 +3740,7 @@
                         "$ref": "#/components/parameters/ApiComment"
                     },
                     {
-                        "$ref": "#/components/parameters/ApiKeyLimited"
+                        "$ref": "#/components/parameters/ApiKeyMinimal"
                     }
                 ],
                 "responses": {
@@ -4127,9 +4519,6 @@
                                             "$ref": "#/components/schemas/UserPropertiesResponse"
                                         },
                                         {
-                                            "$ref": "#/components/schemas/UserFactionBalanceResponse"
-                                        },
-                                        {
                                             "$ref": "#/components/schemas/UserBasicResponse"
                                         },
                                         {
@@ -4139,7 +4528,13 @@
                                             "$ref": "#/components/schemas/UserHonorsResponse"
                                         },
                                         {
+                                            "$ref": "#/components/schemas/UserHonorsDetailedResponse"
+                                        },
+                                        {
                                             "$ref": "#/components/schemas/UserMedalsResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/UserMedalsDetailedResponse"
                                         },
                                         {
                                             "$ref": "#/components/schemas/UserMeritsResponse"
@@ -4259,10 +4654,22 @@
                                             "$ref": "#/components/schemas/UserNewMessagesResponse"
                                         },
                                         {
-                                            "$ref": "#/components/schemas/UserLookupResponse"
+                                            "$ref": "#/components/schemas/UserInventoryResponse"
                                         },
                                         {
-                                            "$ref": "#/components/schemas/UserInventoryResponse"
+                                            "$ref": "#/components/schemas/UserBazaarResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/UserDisplayResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/UserAuctionHouseResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/UserCriminalRecordResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/UserLookupResponse"
                                         },
                                         {
                                             "$ref": "#/components/schemas/TimestampResponse"
@@ -5127,6 +5534,48 @@
                 "x-stability": "Stable"
             }
         },
+        "/faction/headlines": {
+            "get": {
+                "tags": [
+                    "Faction"
+                ],
+                "summary": "Get your faction's news ticker headlines",
+                "description": "Requires minimal access key with faction API access permissions. <br>Returns the headlines currently shown in your faction's news ticker. 'importance' is 'urgent' for headlines marked as urgent.",
+                "operationId": "getMyFactionHeadlines",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiStripTagsFalse"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyMinimal"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FactionHeadlinesResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
+            }
+        },
         "/faction/hof": {
             "get": {
                 "tags": [
@@ -5422,6 +5871,57 @@
                     }
                 ],
                 "x-stability": "Stable"
+            }
+        },
+        "/faction/{crimeId}/ochistory": {
+            "get": {
+                "tags": [
+                    "Faction"
+                ],
+                "summary": "Get the history of a specific organized crime",
+                "description": "Requires limited access key with faction API access permissions. <br>Only available for organized crimes of your current faction. Entries are ordered from newest to oldest, limited to the latest 500.<br> The 'details' field depends on the 'action':\n * 'Joined', 'Left' & 'Kicked' return 'FactionOcHistoryRoleDetails'.\n * 'RoleChanged' returns 'FactionOcHistoryRoleChangeDetails'.\n * 'Spawned' returns 'FactionOcHistorySpawnDetails'.\n * 'ItemUsed' & 'ItemLost' return 'FactionOcHistoryItem'.\n * 'Jailed' & 'Hospitalized' return 'FactionOcHistoryPunishmentDetails'.\n * 'Injured' returns 'FactionOcHistoryInjuryDetails'.\n * 'Payout' returns 'FactionOcHistoryPayoutDetails'.\n * 'PayoutReceived' returns 'FactionOcHistoryPayoutReceivedDetails'.\n * 'Completed', 'Failed' & 'Expired' return null.",
+                "operationId": "getMyFactionOrganizedCrimeHistory",
+                "parameters": [
+                    {
+                        "name": "crimeId",
+                        "in": "path",
+                        "description": "Crime id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/FactionCrimeId"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiStripTagsTrue"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyLimited"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FactionOcHistoryResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
             }
         },
         "/faction/positions": {
@@ -5892,7 +6392,7 @@
                     "Faction"
                 ],
                 "summary": "Get your faction's detailed revives",
-                "description": "Requires limited access key with faction API access permissions. <br>",
+                "description": "Requires minimal access key with faction API access permissions. <br>",
                 "operationId": "getMyFactionRevives",
                 "parameters": [
                     {
@@ -5920,7 +6420,7 @@
                         "$ref": "#/components/parameters/ApiComment"
                     },
                     {
-                        "$ref": "#/components/parameters/ApiKeyLimited"
+                        "$ref": "#/components/parameters/ApiKeyMinimal"
                     }
                 ],
                 "responses": {
@@ -5949,7 +6449,7 @@
                     "Faction"
                 ],
                 "summary": "Get your faction's simplified revives",
-                "description": "Requires limited access key with faction API access permissions. <br>",
+                "description": "Requires minimal access key with faction API access permissions. <br>",
                 "operationId": "getMyFactionRevivesSimplified",
                 "parameters": [
                     {
@@ -5977,7 +6477,7 @@
                         "$ref": "#/components/parameters/ApiComment"
                     },
                     {
-                        "$ref": "#/components/parameters/ApiKeyLimited"
+                        "$ref": "#/components/parameters/ApiKeyMinimal"
                     }
                 ],
                 "responses": {
@@ -7089,6 +7589,9 @@
                                             "$ref": "#/components/schemas/NewsResponse"
                                         },
                                         {
+                                            "$ref": "#/components/schemas/FactionHeadlinesResponse"
+                                        },
+                                        {
                                             "$ref": "#/components/schemas/RevivesResponse"
                                         },
                                         {
@@ -7132,6 +7635,9 @@
                                         },
                                         {
                                             "$ref": "#/components/schemas/FactionCrimeResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/FactionOcHistoryResponse"
                                         },
                                         {
                                             "$ref": "#/components/schemas/FactionRaidsResponse"
@@ -7405,7 +7911,7 @@
                     "Company"
                 ],
                 "summary": "Get a list of companies for a specific company type",
-                "description": "Requires public access key. <br>",
+                "description": "<b>Globally cached selection (1 hour).</b><br><br>Requires public access key. <br>",
                 "operationId": "getCompaniesList",
                 "parameters": [
                     {
@@ -8389,7 +8895,7 @@
                     "Key"
                 ],
                 "summary": "Get current key info",
-                "description": "Available for any key. <br>",
+                "description": "Available for any key. <br>'sensitive_data' is true when the key returns the same data as a Limited Access key (e.g. battle stats, revive setting, property and company finances): Limited Access, Full Access and custom keys created with 'Include sensitive data' enabled. Custom keys created before this option existed keep the permissions they had, report false and have 'legacy_permissions' set to true.",
                 "operationId": "getKeyInfo",
                 "parameters": [
                     {
@@ -8493,7 +8999,7 @@
                     "Market"
                 ],
                 "summary": "Get specific item auction house listings",
-                "description": "Requires public access key. <br>",
+                "description": "<b>Globally cached selection (15 minutes, ongoing listings only).</b><br><br>Requires public access key. <br>Ongoing listings are returned from the cached and delayed ongoing listings.",
                 "operationId": "getMarketAuctionHouseListing",
                 "parameters": [
                     {
@@ -8541,7 +9047,7 @@
                     "Market"
                 ],
                 "summary": "Get specific item auction house listings",
-                "description": "Requires public access key. <br>",
+                "description": "<b>Globally cached selection (15 minutes, ongoing listings only).</b><br><br>Requires public access key. <br>Ongoing listings are cached and delayed; auctionhouse_timestamp and auctionhouse_delay are returned only for the ongoing category. <br>Listings are sorted by their end time: complete listings descending by default, ongoing listings ascending by default.",
                 "operationId": "getMarketAuctionHouseItem",
                 "parameters": [
                     {
@@ -8551,6 +9057,15 @@
                         "required": true,
                         "schema": {
                             "$ref": "#/components/schemas/ItemId"
+                        }
+                    },
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "Listings category, defaults to complete",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/MarketAuctionHouseCategory"
                         }
                     },
                     {
@@ -8601,9 +9116,18 @@
                     "Market"
                 ],
                 "summary": "Get auction house listings",
-                "description": "Requires public access key. <br>",
+                "description": "<b>Globally cached selection (15 minutes, ongoing listings only).</b><br><br>Requires public access key. <br>Ongoing listings are cached and delayed; auctionhouse_timestamp and auctionhouse_delay are returned only for the ongoing category. <br>Listings are sorted by their end time: complete listings descending by default, ongoing listings ascending by default.",
                 "operationId": "getMarketAuctionHouse",
                 "parameters": [
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "Listings category, defaults to complete",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/MarketAuctionHouseCategory"
+                        }
+                    },
                     {
                         "$ref": "#/components/parameters/ApiLimit100Default20"
                     },
@@ -8748,7 +9272,7 @@
                     "Market"
                 ],
                 "summary": "Get item market listings",
-                "description": "<b>Globally cached selection.</b><br><br>Requires public access key. <br>",
+                "description": "<b>Globally cached selection (1 hour).</b><br><br>Requires public access key. <br>",
                 "operationId": "getMarketItemMarketItem",
                 "parameters": [
                     {
@@ -8805,13 +9329,73 @@
                 "x-stability": "Stable"
             }
         },
+        "/market/{id}/itemhistory": {
+            "get": {
+                "tags": [
+                    "Market"
+                ],
+                "summary": "Get item price and circulation history",
+                "description": "Requires public access key. <br>Returns the daily average sale price and circulation of an item, one entry per day, as used for the item value and circulation graphs.",
+                "operationId": "getMarketItemHistory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Item id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/ItemId"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiLimit1000Default100"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiSortDesc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiFrom"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTo"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyPublic"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MarketItemHistoryResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
+            }
+        },
         "/market/{propertyTypeId}/properties": {
             "get": {
                 "tags": [
                     "Market"
                 ],
                 "summary": "Get properties market listings",
-                "description": "<b>Globally cached selection.</b><br><br>Requires public access key. <br>",
+                "description": "<b>Globally cached selection (1 hour).</b><br><br>Requires public access key. <br>",
                 "operationId": "getMarketProperties",
                 "parameters": [
                     {
@@ -8901,13 +9485,64 @@
                 "x-stability": "Stable"
             }
         },
+        "/market/pointshistory": {
+            "get": {
+                "tags": [
+                    "Market"
+                ],
+                "summary": "Get points price and circulation history",
+                "description": "Requires public access key. <br>Returns the daily average points market price and the total points in circulation, one entry per day, as used for the points price graph.",
+                "operationId": "getMarketPointsHistory",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiLimit1000Default100"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiSortDesc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiFrom"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTo"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyPublic"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MarketPointsHistoryResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
+            }
+        },
         "/market/{propertyTypeId}/rentals": {
             "get": {
                 "tags": [
                     "Market"
                 ],
                 "summary": "Get properties rental listings",
-                "description": "<b>Globally cached selection.</b><br><br>Requires public access key. <br>",
+                "description": "<b>Globally cached selection (1 hour).</b><br><br>Requires public access key. <br>",
                 "operationId": "getMarketPropertiesRental",
                 "parameters": [
                     {
@@ -9156,6 +9791,12 @@
                                             "$ref": "#/components/schemas/MarketItemMarketResponse"
                                         },
                                         {
+                                            "$ref": "#/components/schemas/MarketItemHistoryResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/MarketPointsHistoryResponse"
+                                        },
+                                        {
                                             "$ref": "#/components/schemas/MarketRentalsResponse"
                                         },
                                         {
@@ -9274,7 +9915,7 @@
                     "Racing"
                 ],
                 "summary": "Get races",
-                "description": "Requires public access key. <br>Returns a list of races, ordered by race start timestamp. <br>The 'available' category returns races which have not started yet and can still be joined; 'from' and 'to' are ignored for this category.",
+                "description": "Requires public access key. <br>Returns a list of races, ordered by race start timestamp. <br>The 'available' category returns only custom races which have not started yet and can still be joined; 'from' and 'to' are ignored for this category.",
                 "operationId": "getRacingRaces",
                 "parameters": [
                     {
@@ -9975,7 +10616,7 @@
                     "Torn"
                 ],
                 "summary": "Get bounties",
-                "description": "<b>Globally cached selection.</b><br><br>Requires public key. <br>",
+                "description": "<b>Globally cached selection (5 minutes).</b><br><br>Requires public key. <br>",
                 "operationId": "getTornBounties",
                 "parameters": [
                     {
@@ -10606,6 +11247,48 @@
                     }
                 ],
                 "x-stability": "Stable"
+            }
+        },
+        "/torn/headlines": {
+            "get": {
+                "tags": [
+                    "Torn"
+                ],
+                "summary": "Get news ticker headlines",
+                "description": "Requires public access key. <br>Returns the headlines currently shown in the news ticker. 'importance' is 'urgent' for headlines marked as announcements.",
+                "operationId": "getTornHeadlines",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiStripTagsFalse"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiTimestamp"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiComment"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiKeyPublic"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TornHeadlinesResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "x-stability": "Unstable"
             }
         },
         "/torn/honors": {
@@ -12101,6 +12784,9 @@
                                         },
                                         {
                                             "$ref": "#/components/schemas/TornHalloweenResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/TornHeadlinesResponse"
                                         },
                                         {
                                             "$ref": "#/components/schemas/TornBountiesResponse"
@@ -17655,6 +18341,26 @@
                     "Expired"
                 ]
             },
+            "FactionOcHistoryActionEnum": {
+                "type": "string",
+                "enum": [
+                    "Joined",
+                    "Left",
+                    "Kicked",
+                    "RoleChanged",
+                    "Spawned",
+                    "ItemUsed",
+                    "ItemLost",
+                    "Jailed",
+                    "Hospitalized",
+                    "Injured",
+                    "Completed",
+                    "Failed",
+                    "Expired",
+                    "Payout",
+                    "PayoutReceived"
+                ]
+            },
             "AttackActionEnum": {
                 "type": "string",
                 "enum": [
@@ -20075,6 +20781,142 @@
                             }
                         },
                         "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "UserCriminalRecordV2": {
+                "required": [
+                    "version",
+                    "vandalism",
+                    "theft",
+                    "counterfeiting",
+                    "fraud",
+                    "illicit_services",
+                    "cybercrime",
+                    "extortion",
+                    "illegal_production",
+                    "total"
+                ],
+                "properties": {
+                    "version": {
+                        "type": "string",
+                        "enum": [
+                            "v2"
+                        ]
+                    },
+                    "vandalism": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "theft": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "counterfeiting": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fraud": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "illicit_services": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "cybercrime": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "extortion": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "illegal_production": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "total": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "type": "object"
+            },
+            "UserCriminalRecordV1": {
+                "required": [
+                    "version",
+                    "sell_illegal_goods",
+                    "theft",
+                    "auto_theft",
+                    "drug_deals",
+                    "computer",
+                    "fraud",
+                    "murder",
+                    "other",
+                    "total"
+                ],
+                "properties": {
+                    "version": {
+                        "type": "string",
+                        "enum": [
+                            "v1"
+                        ]
+                    },
+                    "sell_illegal_goods": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "theft": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "auto_theft": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "drug_deals": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "computer": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fraud": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "murder": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "other": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "total": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "type": "object"
+            },
+            "UserCriminalRecordResponse": {
+                "required": [
+                    "criminalrecord"
+                ],
+                "properties": {
+                    "criminalrecord": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/UserCriminalRecordV2"
+                            },
+                            {
+                                "$ref": "#/components/schemas/UserCriminalRecordV1"
+                            }
+                        ]
                     }
                 },
                 "type": "object"
@@ -24456,41 +25298,6 @@
                 },
                 "type": "object"
             },
-            "UserFactionBalance": {
-                "required": [
-                    "money",
-                    "points"
-                ],
-                "properties": {
-                    "money": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "points": {
-                        "type": "integer",
-                        "format": "int64"
-                    }
-                },
-                "type": "object"
-            },
-            "UserFactionBalanceResponse": {
-                "required": [
-                    "factionBalance"
-                ],
-                "properties": {
-                    "factionBalance": {
-                        "oneOf": [
-                            {
-                                "$ref": "#/components/schemas/UserFactionBalance"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    }
-                },
-                "type": "object"
-            },
             "UserOrganizedCrimeError": {
                 "required": [
                     "code",
@@ -24591,27 +25398,30 @@
             "UserSelectionName": {
                 "oneOf": [
                     {
-                        "description": "The following selections will fallback to API v1 and may change at any time: 'bazaar','criminalrecord','display','networth'.",
                         "type": "string",
                         "enum": [
                             "ammo",
                             "attacks",
                             "attacksfull",
+                            "auctionhouse",
                             "bars",
                             "basic",
                             "battlestats",
+                            "bazaar",
                             "bounties",
                             "calendar",
                             "casino",
                             "competition",
                             "cooldowns",
                             "crimes",
+                            "criminalrecord",
                             "discord",
+                            "display",
+                            "education",
                             "enlistedcars",
                             "equipment",
                             "events",
                             "faction",
-                            "factionbalance",
                             "forumfeed",
                             "forumfriends",
                             "forumposts",
@@ -24624,13 +25434,12 @@
                             "icons",
                             "inventory",
                             "itemmarket",
-                            "itemmod",
+                            "itemmods",
                             "job",
                             "jobpoints",
                             "jobranks",
                             "list",
                             "log",
-                            "lookup",
                             "medals",
                             "merits",
                             "messages",
@@ -24641,6 +25450,8 @@
                             "newmessages",
                             "notifications",
                             "organizedcrime",
+                            "organizedcrimes",
+                            "perks",
                             "personalstats",
                             "profile",
                             "properties",
@@ -24652,20 +25463,16 @@
                             "revives",
                             "revivesfull",
                             "skills",
-                            "snapshot",
                             "stocks",
-                            "trades",
                             "trade",
+                            "trades",
                             "travel",
                             "travelinventory",
-                            "timestamp",
+                            "virus",
                             "weaponexp",
                             "workstats",
-                            "bazaar",
-                            "criminalrecord",
-                            "display",
-                            "education",
-                            "perks"
+                            "lookup",
+                            "timestamp"
                         ]
                     },
                     {
@@ -24717,6 +25524,114 @@
                 },
                 "type": "object"
             },
+            "UserHonorsCategory": {
+                "type": "string",
+                "enum": [
+                    "all",
+                    "latest",
+                    "attacking",
+                    "camo",
+                    "weapons",
+                    "education",
+                    "crimes",
+                    "drugs",
+                    "jail",
+                    "hospital",
+                    "travel",
+                    "gym",
+                    "level",
+                    "competitions",
+                    "money",
+                    "items",
+                    "commitment",
+                    "casino",
+                    "missions",
+                    "misc"
+                ]
+            },
+            "UserHonorProgress": {
+                "required": [
+                    "current",
+                    "target"
+                ],
+                "properties": {
+                    "current": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "target": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "type": "object"
+            },
+            "UserHonorDetailed": {
+                "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "is_unlocked",
+                    "is_tracked",
+                    "timestamp",
+                    "progress"
+                ],
+                "properties": {
+                    "id": {
+                        "$ref": "#/components/schemas/HonorId"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "is_unlocked": {
+                        "type": "boolean"
+                    },
+                    "is_tracked": {
+                        "type": "boolean"
+                    },
+                    "timestamp": {
+                        "description": "'timestamp' is null when 'is_unlocked' is false.",
+                        "oneOf": [
+                            {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "progress": {
+                        "description": "'progress' is null when 'is_unlocked' is true or 'is_tracked' is false.",
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/UserHonorProgress"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "UserHonorsDetailedResponse": {
+                "required": [
+                    "honors"
+                ],
+                "properties": {
+                    "honors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UserHonorDetailed"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "UserMedal": {
                 "required": [
                     "id",
@@ -24742,6 +25657,99 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/UserMedal"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UserMedalsCategory": {
+                "type": "string",
+                "enum": [
+                    "all",
+                    "latest",
+                    "general",
+                    "attacking",
+                    "crimes",
+                    "commitment",
+                    "rank",
+                    "level",
+                    "networth"
+                ]
+            },
+            "UserMedalProgress": {
+                "required": [
+                    "current",
+                    "target"
+                ],
+                "properties": {
+                    "current": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "target": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "type": "object"
+            },
+            "UserMedalDetailed": {
+                "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "is_unlocked",
+                    "timestamp",
+                    "progress"
+                ],
+                "properties": {
+                    "id": {
+                        "$ref": "#/components/schemas/MedalId"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "is_unlocked": {
+                        "type": "boolean"
+                    },
+                    "timestamp": {
+                        "description": "'timestamp' is null when 'is_unlocked' is false.",
+                        "oneOf": [
+                            {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "progress": {
+                        "description": "'progress' is null when 'is_unlocked' is true.",
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/UserMedalProgress"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "UserMedalsDetailedResponse": {
+                "required": [
+                    "medals"
+                ],
+                "properties": {
+                    "medals": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UserMedalDetailed"
                         }
                     }
                 },
@@ -24863,6 +25871,337 @@
                 "properties": {
                     "halloween": {
                         "$ref": "#/components/schemas/UserHalloween"
+                    }
+                },
+                "type": "object"
+            },
+            "UserItemsCategory": {
+                "type": "string",
+                "enum": [
+                    "All",
+                    "Alcohol",
+                    "Artifact",
+                    "Booster",
+                    "Candy",
+                    "Car",
+                    "Clothing",
+                    "Collectible",
+                    "Defensive",
+                    "Drug",
+                    "Energy Drink",
+                    "Enhancer",
+                    "Flower",
+                    "Jewelry",
+                    "Material",
+                    "Medical",
+                    "Melee",
+                    "Other",
+                    "Plushie",
+                    "Primary",
+                    "Secondary",
+                    "Special",
+                    "Supply Pack",
+                    "Temporary",
+                    "Tool"
+                ]
+            },
+            "UserArmouryItemDetails": {
+                "required": [
+                    "stats",
+                    "bonuses",
+                    "rarity"
+                ],
+                "properties": {
+                    "stats": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/ItemMarketListingItemStats"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "bonuses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ItemMarketListingItemBonus"
+                        }
+                    },
+                    "rarity": {
+                        "oneOf": [
+                            {
+                                "type": "string",
+                                "enum": [
+                                    "yellow",
+                                    "orange",
+                                    "red"
+                                ]
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "UserBazaarItemUid": {
+                "required": [
+                    "uid",
+                    "price"
+                ],
+                "properties": {
+                    "uid": {
+                        "$ref": "#/components/schemas/ItemUid"
+                    },
+                    "price": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "type": "object"
+            },
+            "UserBazaarItem": {
+                "required": [
+                    "id",
+                    "uids",
+                    "name",
+                    "type",
+                    "quantity",
+                    "price",
+                    "market_price",
+                    "item_details"
+                ],
+                "properties": {
+                    "id": {
+                        "$ref": "#/components/schemas/ItemId"
+                    },
+                    "uids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UserBazaarItemUid"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/TornInventoryItemType"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "price": {
+                        "oneOf": [
+                            {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "market_price": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "item_details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/UserArmouryItemDetails"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "UserBazaar": {
+                "required": [
+                    "exists",
+                    "is_open",
+                    "items"
+                ],
+                "properties": {
+                    "exists": {
+                        "type": "boolean"
+                    },
+                    "is_open": {
+                        "type": "boolean"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UserBazaarItem"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UserBazaarResponse": {
+                "required": [
+                    "bazaar",
+                    "_metadata"
+                ],
+                "properties": {
+                    "bazaar": {
+                        "$ref": "#/components/schemas/UserBazaar"
+                    },
+                    "_metadata": {
+                        "$ref": "#/components/schemas/RequestMetadataWithLinks"
+                    }
+                },
+                "type": "object"
+            },
+            "UserDisplayItem": {
+                "required": [
+                    "id",
+                    "uids",
+                    "name",
+                    "type",
+                    "quantity",
+                    "circulation",
+                    "market_price",
+                    "item_details"
+                ],
+                "properties": {
+                    "id": {
+                        "$ref": "#/components/schemas/ItemId"
+                    },
+                    "uids": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ItemUid"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/TornInventoryItemType"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "circulation": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "market_price": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "item_details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/UserArmouryItemDetails"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "UserDisplay": {
+                "required": [
+                    "items"
+                ],
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UserDisplayItem"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UserDisplayResponse": {
+                "required": [
+                    "display",
+                    "_metadata"
+                ],
+                "properties": {
+                    "display": {
+                        "$ref": "#/components/schemas/UserDisplay"
+                    },
+                    "_metadata": {
+                        "$ref": "#/components/schemas/RequestMetadataWithLinks"
+                    }
+                },
+                "type": "object"
+            },
+            "UserAuctionHouseCategory": {
+                "type": "string",
+                "enum": [
+                    "all",
+                    "ongoing",
+                    "complete"
+                ]
+            },
+            "UserAuctionHouseListing": {
+                "required": [
+                    "id",
+                    "buyer",
+                    "timestamp",
+                    "price",
+                    "bids",
+                    "item"
+                ],
+                "properties": {
+                    "id": {
+                        "$ref": "#/components/schemas/AuctionListingId"
+                    },
+                    "buyer": {
+                        "$ref": "#/components/schemas/BasicUser"
+                    },
+                    "timestamp": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "price": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "bids": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "item": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/AuctionHouseStackableItem"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TornItemDetails"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "UserAuctionHouseResponse": {
+                "required": [
+                    "auctionhouse",
+                    "_metadata"
+                ],
+                "properties": {
+                    "auctionhouse": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UserAuctionHouseListing"
+                        }
+                    },
+                    "_metadata": {
+                        "$ref": "#/components/schemas/RequestMetadataWithLinks"
                     }
                 },
                 "type": "object"
@@ -29523,12 +30862,16 @@
                     "end",
                     "target",
                     "winner",
+                    "template",
                     "factions"
                 ],
                 "properties": {
                     "war_id": {
                         "type": "integer",
                         "format": "int32"
+                    },
+                    "template": {
+                        "$ref": "#/components/schemas/FactionRankedWarTemplate"
                     },
                     "start": {
                         "type": "integer",
@@ -29798,6 +31141,20 @@
                     "timestamp": {
                         "type": "integer",
                         "format": "int32"
+                    }
+                },
+                "type": "object"
+            },
+            "FactionHeadlinesResponse": {
+                "required": [
+                    "headlines"
+                ],
+                "properties": {
+                    "headlines": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TornHeadline"
+                        }
                     }
                 },
                 "type": "object"
@@ -30753,6 +32110,357 @@
                 },
                 "type": "object"
             },
+            "FactionOcHistoryRole": {
+                "required": [
+                    "id",
+                    "label"
+                ],
+                "properties": {
+                    "id": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/TornOrganizedCrimePositionId"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "label": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryItem": {
+                "required": [
+                    "item_id",
+                    "item_name",
+                    "quantity"
+                ],
+                "properties": {
+                    "item_id": {
+                        "$ref": "#/components/schemas/ItemId"
+                    },
+                    "item_name": {
+                        "type": "string"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryRoleDetails": {
+                "required": [
+                    "role"
+                ],
+                "properties": {
+                    "role": {
+                        "$ref": "#/components/schemas/FactionOcHistoryRole"
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryRoleChangeDetails": {
+                "required": [
+                    "old_role",
+                    "new_role"
+                ],
+                "properties": {
+                    "old_role": {
+                        "$ref": "#/components/schemas/FactionOcHistoryRole"
+                    },
+                    "new_role": {
+                        "$ref": "#/components/schemas/FactionOcHistoryRole"
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistorySpawnDetails": {
+                "required": [
+                    "scope"
+                ],
+                "properties": {
+                    "scope": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryPunishmentDetails": {
+                "required": [
+                    "reason",
+                    "duration"
+                ],
+                "properties": {
+                    "reason": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryInjuryDetails": {
+                "required": [
+                    "life_lost"
+                ],
+                "properties": {
+                    "life_lost": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryPayoutTypeEnum": {
+                "type": "string",
+                "enum": [
+                    "money",
+                    "item"
+                ]
+            },
+            "FactionOcHistoryPayoutDestinationEnum": {
+                "type": "string",
+                "enum": [
+                    "wallet",
+                    "balance"
+                ]
+            },
+            "FactionOcHistoryPayoutDetails": {
+                "required": [
+                    "type",
+                    "destination",
+                    "percentage",
+                    "money",
+                    "items",
+                    "participants"
+                ],
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/FactionOcHistoryPayoutTypeEnum"
+                    },
+                    "destination": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryPayoutDestinationEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "percentage": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "money": {
+                        "oneOf": [
+                            {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FactionOcHistoryItem"
+                        }
+                    },
+                    "participants": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UserId"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryPayoutReceivedDetails": {
+                "required": [
+                    "type",
+                    "destination",
+                    "percentage",
+                    "money",
+                    "items",
+                    "role",
+                    "crime_id"
+                ],
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/FactionOcHistoryPayoutTypeEnum"
+                    },
+                    "destination": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryPayoutDestinationEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "percentage": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "money": {
+                        "oneOf": [
+                            {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FactionOcHistoryItem"
+                        }
+                    },
+                    "role": {
+                        "$ref": "#/components/schemas/FactionOcHistoryRole"
+                    },
+                    "crime_id": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/FactionCrimeId"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryEntry": {
+                "required": [
+                    "id",
+                    "timestamp",
+                    "action",
+                    "user",
+                    "performed_by",
+                    "text",
+                    "details"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "timestamp": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "action": {
+                        "$ref": "#/components/schemas/FactionOcHistoryActionEnum"
+                    },
+                    "user": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/BasicUser"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "performed_by": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/BasicUser"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryRoleDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryRoleChangeDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistorySpawnDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryItem"
+                            },
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryPunishmentDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryInjuryDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryPayoutDetails"
+                            },
+                            {
+                                "$ref": "#/components/schemas/FactionOcHistoryPayoutReceivedDetails"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistory": {
+                "required": [
+                    "crime_id",
+                    "history"
+                ],
+                "properties": {
+                    "crime_id": {
+                        "$ref": "#/components/schemas/FactionCrimeId"
+                    },
+                    "history": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FactionOcHistoryEntry"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "FactionOcHistoryResponse": {
+                "required": [
+                    "ochistory"
+                ],
+                "properties": {
+                    "ochistory": {
+                        "$ref": "#/components/schemas/FactionOcHistory"
+                    }
+                },
+                "type": "object"
+            },
             "FactionBalance": {
                 "required": [
                     "faction",
@@ -30840,34 +32548,37 @@
                             "contributors",
                             "crime",
                             "crimes",
-                            "crimeexp",
-                            "dirtbombs",
-                            "hof",
-                            "lookup",
+                            "dirtybombs",
+                            "headlines",
+                            "inventory",
                             "members",
                             "news",
+                            "ochistory",
                             "positions",
                             "rackets",
                             "raidreport",
                             "raids",
-                            "rankedwars",
                             "rankedwarreport",
+                            "rankedwars",
                             "reports",
                             "revives",
                             "revivesfull",
-                            "search",
                             "stats",
                             "territory",
                             "territoryownership",
                             "territorywarreport",
                             "territorywars",
-                            "timestamp",
                             "upgrades",
+                            "warfare",
                             "warfarechains",
                             "warfareraids",
                             "warfareranked",
                             "warfareterritory",
-                            "wars"
+                            "wars",
+                            "lookup",
+                            "timestamp",
+                            "crimeexp",
+                            "hof"
                         ]
                     },
                     {
@@ -30896,9 +32607,13 @@
                     "end",
                     "target",
                     "winner",
+                    "template",
                     "factions"
                 ],
                 "properties": {
+                    "template": {
+                        "$ref": "#/components/schemas/FactionRankedWarTemplate"
+                    },
                     "id": {
                         "$ref": "#/components/schemas/RankedWarId"
                     },
@@ -31107,6 +32822,60 @@
                 },
                 "type": "object"
             },
+            "FactionRankedWarMode": {
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "enum": [
+                            "Tug of War"
+                        ]
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "FactionRankedWarRule": {
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "enum": [
+                            "Day War",
+                            "50% Reduced score requirement",
+                            "Frying Pans"
+                        ]
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "FactionRankedWarTemplate": {
+                "required": [
+                    "mode",
+                    "rules"
+                ],
+                "properties": {
+                    "mode": {
+                        "description": "'mode' is null when the war has no named mode.",
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/FactionRankedWarMode"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FactionRankedWarRule"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "FactionRankedWarReportResponse": {
                 "required": [
                     "rankedwarreport"
@@ -31119,6 +32888,7 @@
                             "end",
                             "winner",
                             "forfeit",
+                            "template",
                             "factions"
                         ],
                         "properties": {
@@ -31140,6 +32910,9 @@
                             },
                             "forfeit": {
                                 "type": "boolean"
+                            },
+                            "template": {
+                                "$ref": "#/components/schemas/FactionRankedWarTemplate"
                             },
                             "factions": {
                                 "type": "array",
@@ -31276,11 +33049,10 @@
                             "applications",
                             "companies",
                             "employees",
-                            "lookup",
                             "news",
                             "profile",
-                            "snapshot",
                             "stock",
+                            "lookup",
                             "timestamp"
                         ]
                     },
@@ -32512,10 +34284,10 @@
                         "type": "string",
                         "enum": [
                             "categories",
-                            "lookup",
                             "posts",
                             "thread",
                             "threads",
+                            "lookup",
                             "timestamp"
                         ]
                     },
@@ -32737,6 +34509,8 @@
                                 "required": [
                                     "level",
                                     "type",
+                                    "sensitive_data",
+                                    "legacy_permissions",
                                     "faction",
                                     "company",
                                     "log"
@@ -32748,6 +34522,12 @@
                                     },
                                     "type": {
                                         "$ref": "#/components/schemas/ApiKeyAccessTypeEnum"
+                                    },
+                                    "sensitive_data": {
+                                        "type": "boolean"
+                                    },
+                                    "legacy_permissions": {
+                                        "type": "boolean"
                                     },
                                     "faction": {
                                         "type": "boolean"
@@ -32915,6 +34695,13 @@
                 },
                 "type": "object"
             },
+            "MarketAuctionHouseCategory": {
+                "type": "string",
+                "enum": [
+                    "complete",
+                    "ongoing"
+                ]
+            },
             "AuctionHouseResponse": {
                 "required": [
                     "auctionhouse",
@@ -32926,6 +34713,14 @@
                         "items": {
                             "$ref": "#/components/schemas/AuctionHouseListing"
                         }
+                    },
+                    "auctionhouse_timestamp": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "auctionhouse_delay": {
+                        "type": "integer",
+                        "format": "int32"
                     },
                     "_metadata": {
                         "$ref": "#/components/schemas/RequestMetadataWithLinks"
@@ -33615,6 +35410,80 @@
                 },
                 "type": "object"
             },
+            "MarketHistoryEntry": {
+                "required": [
+                    "timestamp",
+                    "price",
+                    "circulation"
+                ],
+                "properties": {
+                    "timestamp": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "price": {
+                        "description": "'price' is null when there were no sales that day.",
+                        "oneOf": [
+                            {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "circulation": {
+                        "description": "'circulation' is null when it was not recorded that day.",
+                        "oneOf": [
+                            {
+                                "type": "integer",
+                                "format": "int64"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "MarketItemHistoryResponse": {
+                "required": [
+                    "itemhistory",
+                    "_metadata"
+                ],
+                "properties": {
+                    "itemhistory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketHistoryEntry"
+                        }
+                    },
+                    "_metadata": {
+                        "$ref": "#/components/schemas/RequestMetadataWithLinks"
+                    }
+                },
+                "type": "object"
+            },
+            "MarketPointsHistoryResponse": {
+                "required": [
+                    "pointshistory",
+                    "_metadata"
+                ],
+                "properties": {
+                    "pointshistory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketHistoryEntry"
+                        }
+                    },
+                    "_metadata": {
+                        "$ref": "#/components/schemas/RequestMetadataWithLinks"
+                    }
+                },
+                "type": "object"
+            },
             "MarketSelectionName": {
                 "oneOf": [
                     {
@@ -33623,7 +35492,9 @@
                             "auctionhouse",
                             "auctionhouselisting",
                             "bazaar",
+                            "itemhistory",
                             "itemmarket",
+                            "pointshistory",
                             "pointsmarket",
                             "properties",
                             "rentals",
@@ -34279,12 +36150,12 @@
                         "enum": [
                             "cars",
                             "carupgrades",
-                            "lookup",
                             "race",
                             "races",
                             "records",
-                            "timestamp",
-                            "tracks"
+                            "tracks",
+                            "lookup",
+                            "timestamp"
                         ]
                     },
                     {
@@ -38210,16 +40081,16 @@
                             "factiontree",
                             "gyms",
                             "halloween",
+                            "headlines",
                             "hof",
                             "honors",
                             "itemammo",
                             "itemdetails",
                             "itemmods",
-                            "itemstats",
                             "items",
+                            "itemstats",
                             "logcategories",
                             "logtypes",
-                            "lookup",
                             "medals",
                             "merits",
                             "museum",
@@ -38233,6 +40104,7 @@
                             "stocks",
                             "subcrimes",
                             "territory",
+                            "lookup",
                             "timestamp",
                             "competition",
                             "organisedcrimes"
@@ -38312,6 +40184,80 @@
                 "properties": {
                     "halloween": {
                         "$ref": "#/components/schemas/TornHalloween"
+                    }
+                },
+                "type": "object"
+            },
+            "TornHeadline": {
+                "required": [
+                    "id",
+                    "headline",
+                    "link",
+                    "type",
+                    "importance",
+                    "start_at",
+                    "end_at",
+                    "has_countdown"
+                ],
+                "properties": {
+                    "id": {
+                        "oneOf": [
+                            {
+                                "type": "integer",
+                                "format": "int32"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "headline": {
+                        "type": "string"
+                    },
+                    "link": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "importance": {
+                        "type": "string",
+                        "enum": [
+                            "normal",
+                            "urgent"
+                        ]
+                    },
+                    "start_at": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "end_at": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "has_countdown": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "TornHeadlinesResponse": {
+                "required": [
+                    "headlines"
+                ],
+                "properties": {
+                    "headlines": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TornHeadline"
+                        }
                     }
                 },
                 "type": "object"
@@ -38584,6 +40530,18 @@
                     "format": "int32",
                     "default": 20,
                     "maximum": 100,
+                    "minimum": 1
+                }
+            },
+            "ApiLimit1000Default100": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 100,
+                    "maximum": 1000,
                     "minimum": 1
                 }
             },

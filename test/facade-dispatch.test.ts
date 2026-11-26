@@ -7,6 +7,9 @@ import golden from "../spec/parity/facade-dispatch.json";
 type Invocation = {kind:"typed"|"text"|"raw";selection:string;options:ResourceOptions;model?:string;manual?:boolean};
 function camel(name:string){return name.replace(/_([a-z])/g,(_,letter:string)=>letter.toUpperCase());}
 const sentinel=Object.freeze({dispatch:"sentinel"});
+// API 6.21.0 made these former v1-fallback selections native v2 with new response shapes; their helpers now return the
+// generated v2 models (4.0.0 breaking change). The frozen golden keeps the 3.x manual models; everything else still matches it.
+const retyped6210:Record<string,string>={"user.bazaar":"UserBazaarResponse","user.criminalrecord":"UserCriminalRecordResponse","user.display":"UserDisplayResponse"};
 
 /** The intercept is below each actual public helper body and above shared validation and HTTP.
  * Other suites verify the shared decoder/validation using committed model regression fixtures.
@@ -27,6 +30,7 @@ function create(resource:string) {
 describe("exhaustive public facade dispatch",()=>{
   test("the reference freezes all 207 typed and 200 raw convenience methods",()=>{
     expect(golden.provenance.kind).toBe("facade-dispatch-regression");
+    for(const key of Object.keys(retyped6210)){const [r,m]=key.split(".");expect(Reflect.get(golden.resources,r!).methods.some((op:{method:string})=>op.method===m),key).toBe(true);}
     expect(Object.values(golden.resources).reduce((n,r)=>n+r.methods.length,0)).toBe(207);
     expect(Object.values(golden.resources).reduce((n,r)=>n+r.rawMethods.length,0)).toBe(200);
   });
@@ -65,7 +69,8 @@ describe("exhaustive public facade dispatch",()=>{
         expect(initial.options).toBeInstanceOf(ResourceOptions);
         expect(initial.options.constructor.name).toBe(resource[0]!.toUpperCase()+resource.slice(1)+"Options");
         expect(initial.options.base.id).toBeUndefined();
-        const expected=op.alias?reference.methods.find(m=>m.method===op.alias)!:op;
+        const frozen=op.alias?reference.methods.find(m=>m.method===op.alias)!:op;
+        const expected={...frozen,returnType:retyped6210[`${resource}.${frozen.method}`]??frozen.returnType};
         const kind=expected.returnType==="string"?"text":"typed";
         expect(initial).toMatchObject({kind,selection:expected.selection,...(kind==="typed"?{model:expected.returnType,manual:MANUAL_MODEL_NAMES.includes(expected.returnType)}:{})});
         // Reuse resource-specific options, exercise the explicit argument branch, and preserve identity.

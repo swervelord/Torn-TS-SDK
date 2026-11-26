@@ -3,12 +3,26 @@ import type { HttpTransport } from "../transport.ts";
 import { ResourceApi, RawSelectionBundle, type OptionsOrId } from "./runtime.ts";
 import { MarketOptions } from "./options.ts";
 import type { MarketAuctionHouseBundle, MarketAuctionHouseListingBundle, MarketBazaarBundle, MarketItemMarketBundle, MarketLookupBundle, MarketPropertiesBundle, MarketRentalsBundle, MarketTimestampBundle } from "../models/manual.ts";
-import type { PointsMarketResponse } from "../generated/models.ts";
+import type { MarketItemHistoryResponse, MarketPointsHistoryResponse, PointsMarketResponse } from "../generated/models.ts";
 export { MarketOptions } from "./options.ts";
 
 export class MarketApi extends ResourceApi<MarketOptions, "market"> {
-  static readonly SUPPORTED_SELECTIONS = ["properties", "pointsmarket", "timestamp", "rentals", "lookup", "auctionhouselisting", "auctionhouse", "itemmarket", "bazaar"] as const;
+  static readonly SUPPORTED_SELECTIONS = ["properties", "pointsmarket", "timestamp", "rentals", "lookup", "auctionhouselisting", "auctionhouse", "itemmarket", "bazaar", "pointshistory", "itemhistory"] as const;
   constructor(client: TornClient<HttpTransport>) { super(client, "market", MarketApi.SUPPORTED_SELECTIONS, () => new MarketOptions()); }
+  /** Points price and circulation history (`limit` 1-1000, default 100; `sort`, `from`, `to`; paginated), from API v2. */
+  async pointshistory(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<MarketPointsHistoryResponse> {
+    return this.executeTyped<MarketPointsHistoryResponse>("pointshistory", options, "MarketPointsHistoryResponse", false);
+  }
+  /** @deprecated Use pointshistoryRaw(). */
+  pointshistory_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("pointshistory", options); }
+  pointshistoryRaw(options: OptionsOrId<MarketOptions> = new MarketOptions()) { return this.pointshistory_raw(options); }
+  /** Item price and circulation history for an item id (`limit` 1-1000, default 100; `sort`, `from`, `to`; paginated), from API v2. */
+  async itemhistory(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<MarketItemHistoryResponse> {
+    return this.executeTyped<MarketItemHistoryResponse>("itemhistory", options, "MarketItemHistoryResponse", false);
+  }
+  /** @deprecated Use itemhistoryRaw(). */
+  itemhistory_raw(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<RawSelectionBundle> { return this.rawSelection("itemhistory", options); }
+  itemhistoryRaw(options: OptionsOrId<MarketOptions> = new MarketOptions()) { return this.itemhistory_raw(options); }
   async bazaar(options: OptionsOrId<MarketOptions> = new MarketOptions()): Promise<MarketBazaarBundle> {
     return this.executeTyped<MarketBazaarBundle>("bazaar", options, "MarketBazaarBundle", true);
   }

@@ -1,0 +1,60 @@
+{
+  "display": {
+    "items": [
+      {
+        "id": 477,
+        "uids": [],
+        "name": "Black Easter Egg",
+        "type": "Booster",
+        "quantity": 1,
+        "circulation": 28795,
+        "market_price": 0,
+        "item_details": null
+      },
+      {
+        "id": 786,
+        "uids": [],
+        "name": "Book : Brown-nosing The Boss",
+        "type": "Book",
+        "quantity": 1,
+        "circulation": 23920,
+        "market_price": 0,
+        "item_details": null
+      },
+      {
+        "id": 614,
+        "uids": [
+          10000000000
+        ],
+        "name": "Diamond Bladed Knife",
+        "type": "Melee",
+        "quantity": 1,
+        "circulation": 249900,
+        "market_price": 932309,
+        "item_details": {
+          "stats": {
+            "damage": 62.77,
+            "accuracy": 64.4,
+            "armor": null,
+            "quality": 51.7
+          },
+          "bonuses": [
+            {
+              "id": 87,
+              "title": "Empower",
+              "description": "68% increased passive strength while using this weapon",
+              "value": 68
+            }
+          ],
+          "rarity": "yellow"
+        }
+      }
+    ]
+  },
+  "_metadata": {
+    "links": {
+      "prev": null,
+      "next": "https://api.torn.com/v2/user/display?limit=3&cat=All&offset=3"
+    }
+  }
+}

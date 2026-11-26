@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { TornClient } from "../src/client.ts";
 import { TornSdk } from "../src/wrapper/index.ts";
-import { UserOptions } from "../src/wrapper/options.ts";
+import { BaseOptions, FactionOptions, MarketOptions, UserOptions } from "../src/wrapper/options.ts";
 import { ApiError, DecodeError } from "../src/errors.ts";
 import { operationDefinitions } from "../src/generated/operation-data.ts";
 import { OpenApi } from "../src/generated/operations.ts";
@@ -80,6 +80,76 @@ describe("opt-in live Torn contracts",()=>{
     const races=await paced(()=>sdk.openapi().getRacingRaces({cat:"available",limit:10}));
     for(const race of races.races)expect(race.schedule.end).toBeNull();
   },200_000);
+  live("6.21.0 headlines, market history, auction house, bazaar, display, criminal record and honor categories decode live responses",async()=>{
+    // Read-only; response data is asserted on, never printed or persisted. Spaced 0.7 s apart, one 61 s backoff on code 5.
+    const sdk=new TornSdk(TornClient.withApiKeys([apiKey!],{maxAttempts:1,timeoutMs:15_000}));
+    const paced=async<T>(run:()=>Promise<T>):Promise<T>=>{
+      for(let attempt=0;;attempt++){
+        await new Promise(resolve=>setTimeout(resolve,700));
+        try{return await run();}
+        catch(error){
+          if(error instanceof ApiError&&error.code===5&&attempt===0){await new Promise(resolve=>setTimeout(resolve,61_000));sdk.client().executor.resetKeyStates();continue;}
+          throw error;
+        }
+      }
+    };
+    const info=await paced(()=>sdk.openapi().getKeyInfo());
+    expect(typeof info.info.access.sensitive_data).toBe("boolean");
+    expect(typeof info.info.access.legacy_permissions).toBe("boolean");
+    const headlines=await paced(()=>sdk.openapi().getTornHeadlines());
+    for(const headline of headlines.headlines){expect(typeof headline.headline).toBe("string");expect(typeof headline.has_countdown).toBe("boolean");}
+    const facadeHeadlines=await paced(()=>sdk.torn().headlines());
+    expect(Array.isArray(facadeHeadlines.headlines)).toBe(true);
+    const points=await paced(()=>sdk.openapi().getMarketPointsHistory({limit:3}));
+    expect(points.pointshistory.length).toBeGreaterThan(0);
+    const history=await paced(()=>sdk.openapi().getMarketItemHistory({id:206,limit:3}));
+    expect(history.itemhistory.length).toBeGreaterThan(0);
+    for(const entry of history.itemhistory)expect(Number.isInteger(entry.timestamp)).toBe(true);
+    const facadeHistory=await paced(()=>sdk.market().itemhistory(new MarketOptions().withBase(new BaseOptions().withId(206).withLimit(3))));
+    expect(facadeHistory.itemhistory.length).toBeGreaterThan(0);
+    const ongoing=await paced(()=>sdk.openapi().getMarketAuctionHouse({cat:"ongoing",limit:2}));
+    expect(Number.isInteger(ongoing.auctionhouse_delay)).toBe(true);
+    const record=await paced(()=>sdk.openapi().getMyCriminalRecord());
+    expect(["v1","v2"]).toContain(record.criminalrecord.version);
+    const otherRecord=await paced(()=>sdk.user().criminalrecord(1));
+    expect(Number.isInteger(otherRecord.criminalrecord.total)).toBe(true);
+    const caseItems=await paced(()=>sdk.openapi().getMyDisplayCase({limit:3}));
+    expect(Array.isArray(caseItems.display.items)).toBe(true);
+    const auctions=await paced(()=>sdk.user().auctionhouse());
+    expect(Array.isArray(auctions.auctionhouse)).toBe(true);
+    const honors=await paced(()=>sdk.user().honorsDetailed("latest"));
+    for(const honor of honors.honors){expect(typeof honor.name).toBe("string");expect(typeof honor.is_unlocked).toBe("boolean");}
+    const medals=await paced(()=>sdk.openapi().getMyMedals({cat:"latest"}));
+    expect(medals.medals.length).toBeGreaterThanOrEqual(0);
+    // bazaar, display and criminalrecord are native v2 selections: one combined /user call with an existing selection.
+    const batch=await paced(()=>sdk.user().selectWithReport(["bazaar","display","criminalrecord","bars"]));
+    expect(typeof batch.data.bazaar.is_open).toBe("boolean");
+    expect(Array.isArray(batch.data.display.items)).toBe(true);
+    expect(batch.data.criminalrecord.total).toBe(record.criminalrecord.total);
+    expect(batch.data).toHaveProperty("bars");
+    expect(batch.report.calls).toHaveLength(1);
+    expect(batch.report.calls[0]!.path).toBe("/user");
+    expect(batch.report.calls[0]!.apiVersion).toBe("v2");
+    expect(batch.report.calls[0]!.query.selections).toBe("bazaar,display,criminalrecord,bars");
+  },300_000);
+  live("6.21.0 faction headlines and organized crime history decode live responses (code 7 without a faction)",async()=>{
+    const sdk=new TornSdk(TornClient.withApiKeys([apiKey!],{maxAttempts:1,timeoutMs:15_000}));
+    const noFaction=(error:unknown)=>error instanceof ApiError&&error.code===7;
+    await new Promise(resolve=>setTimeout(resolve,700));
+    let headlines;
+    try{headlines=await sdk.faction().headlines();}
+    catch(error){if(noFaction(error))return;throw error;}
+    expect(Array.isArray(headlines.headlines)).toBe(true);
+    await new Promise(resolve=>setTimeout(resolve,700));
+    const crimes=await sdk.openapi().getMyFactionOrganizedCrimes({cat:"completed",limit:1});
+    const crime=crimes.crimes[0];
+    if(!crime)return;
+    await new Promise(resolve=>setTimeout(resolve,700));
+    try{
+      const history=await sdk.faction().ochistory(new FactionOptions().withCrimeId(crime.id));
+      expect(history.ochistory.crime_id).toBe(crime.id);
+    }catch(error){if(noFaction(error))return;throw error;}
+  },120_000);
   /**
    * P9.2 live sweep: every typed operation reachable with the key owner's ids (plus public catalog ids such as item 206)
    * is called through `openapi()` and decoded in the default tolerant mode. Decode failures fail the test with their

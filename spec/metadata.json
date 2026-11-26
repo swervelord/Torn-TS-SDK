@@ -1,9 +1,9 @@
 {
     "source_url": "https://www.torn.com/swagger/openapi.json",
-    "current_version": "6.15.7",
+    "current_version": "6.21.0",
     "current_file": "spec/torn-openapi-current.json",
-    "version_file": "spec/versions/torn-openapi-6.15.7.json",
-    "sha256": "72E58C06A1D9782DCB75741DF4AC3A605A0C845BCDC92E61EBB612ABE963A5C4",
-    "fetched_at_utc": "2026-11-09T15:37:32.707Z",
+    "version_file": "spec/versions/torn-openapi-6.21.0.json",
+    "sha256": "38B673C36C2381E3BBC9103A1605931D23247E18E1C692F950F0CB04D3DF9E61",
+    "fetched_at_utc": "2026-11-26T00:45:08.826Z",
     "user_agent": "torn-typescript-sdk-spec-sync/1.0"
 }

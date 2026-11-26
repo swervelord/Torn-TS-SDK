@@ -1,0 +1,30 @@
+{
+  "pointshistory": [
+    {
+      "timestamp": 1795478400,
+      "price": 33454,
+      "circulation": 330090827
+    },
+    {
+      "timestamp": 1795392000,
+      "price": 33277,
+      "circulation": 329874350
+    },
+    {
+      "timestamp": 1795305600,
+      "price": 33457,
+      "circulation": 329735662
+    },
+    {
+      "timestamp": 1795219200,
+      "price": null,
+      "circulation": null
+    }
+  ],
+  "_metadata": {
+    "links": {
+      "prev": "https://api.torn.com/v2/market/pointshistory?&limit=3&sort=desc&to=1795305599",
+      "next": null
+    }
+  }
+}

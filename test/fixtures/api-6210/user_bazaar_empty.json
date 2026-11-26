@@ -1,0 +1,13 @@
+{
+  "bazaar": {
+    "exists": true,
+    "is_open": false,
+    "items": []
+  },
+  "_metadata": {
+    "links": {
+      "prev": null,
+      "next": null
+    }
+  }
+}

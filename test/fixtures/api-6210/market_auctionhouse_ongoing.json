@@ -1,0 +1,84 @@
+{
+  "auctionhouse_timestamp": 1795651880,
+  "auctionhouse_delay": 900,
+  "auctionhouse": [
+    {
+      "id": 594695,
+      "seller": {
+        "id": 1004,
+        "name": "Player1004"
+      },
+      "buyer": {
+        "id": 1005,
+        "name": "Player1005"
+      },
+      "timestamp": 1795653284,
+      "price": 143401007,
+      "bids": 7,
+      "item": {
+        "id": 8,
+        "uid": 17670295052,
+        "name": "Axe",
+        "type": "Weapon",
+        "sub_type": "Clubbing",
+        "stats": {
+          "damage": 43.21,
+          "accuracy": 59.93,
+          "armor": null,
+          "quality": 171.45
+        },
+        "bonuses": [
+          {
+            "id": 64,
+            "title": "Fury",
+            "description": "16% chance of striking twice in a single turn",
+            "value": 16
+          }
+        ],
+        "rarity": "orange"
+      }
+    },
+    {
+      "id": 595509,
+      "seller": {
+        "id": 1006,
+        "name": "Player1006"
+      },
+      "buyer": {
+        "id": 1007,
+        "name": "Player1007"
+      },
+      "timestamp": 1795653882,
+      "price": 29000001,
+      "bids": 5,
+      "item": {
+        "id": 25,
+        "uid": 21944103671,
+        "name": "P90",
+        "type": "Weapon",
+        "sub_type": "SMG",
+        "stats": {
+          "damage": 55.02,
+          "accuracy": 56.99,
+          "armor": null,
+          "quality": 130.05
+        },
+        "bonuses": [
+          {
+            "id": 14,
+            "title": "Proficience",
+            "description": "21% increased EXP upon final hit",
+            "value": 21
+          }
+        ],
+        "rarity": "yellow"
+      }
+    }
+  ],
+  "_metadata": {
+    "links": {
+      "prev": null,
+      "next": "https://api.torn.com/v2/market/auctionhouse?&limit=2&cat=ongoing&sort=asc&from=1795653882"
+    }
+  }
+}

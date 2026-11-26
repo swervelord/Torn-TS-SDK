@@ -35,6 +35,16 @@ export const typingClassificationProvenance = sourceClassification.provenance;
 export const typingReportSchemaRefUpgrades: Readonly<Record<string, Readonly<Record<string, Readonly<Record<string, string>>>>>> = {
   '6.13.8': { 'torn.elimination': { '#/components/schemas/TornEliminationTeamLeader': '#/components/schemas/TornEliminationTeamCaptain' } },
 };
+/**
+ * Audited facade helper return-type changes since the 6.13.6 baseline. API 6.21.0 made these former v1-fallback selections
+ * native v2 with new response shapes, so their helpers return the generated v2 model instead of the 3.x manual bundle.
+ * Only the frozen baseline report maps them back to the frozen return type; current reports use the current helper.
+ */
+export const typingReportHelperUpgrades: Readonly<Record<string, Readonly<{ from: string; to: string }>>> = {
+  'user.bazaar': { from: 'UserBazaarBundle', to: 'UserBazaarResponse' },
+  'user.criminalrecord': { from: 'UserCriminalRecordBundle', to: 'UserCriminalRecordResponse' },
+  'user.display': { from: 'UserDisplayBundle', to: 'UserDisplayResponse' },
+};
 export const sourceTypingReportVersion = '6.13.6';
 type Method = { method: string; selection: string; returnType: string };
 type Analysis = { has_extra: boolean; has_dynamic: boolean; missing_model: boolean };
@@ -66,7 +76,9 @@ export function buildTypingGapReport(capabilities: CapabilitiesDocument = defaul
       if (!reference) throw new Error(`Typing classification inventory is stale: missing ${key}`);
       observed.add(key);
       const candidates = methods.filter(method => method.selection.toLowerCase() === capability.name.toLowerCase());
-      const helper = candidates.find(method => method.method === capability.name) ?? candidates[0];
+      const current = candidates.find(method => method.method === capability.name) ?? candidates[0];
+      const upgrade = typingReportHelperUpgrades[key];
+      const helper = current && classificationMetadata === sourceClassification && upgrade?.to === current.returnType ? { ...current, returnType: upgrade.from } : current;
       if (helper?.method !== reference.helper || helper?.returnType !== reference.return_type) throw new Error(`Typing helper inventory changed for ${key}; refresh classification provenance`);
       const replacements = typingReportSchemaRefUpgrades[capabilities.spec?.version ?? '']?.[key] ?? {};
       const auditedRefs = reference.schema_refs.map(ref => replacements[ref] ?? ref).sort();

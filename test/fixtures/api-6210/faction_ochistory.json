@@ -1,0 +1,196 @@
+{
+  "ochistory": {
+    "crime_id": 123456,
+    "history": [
+      {
+        "id": 9010,
+        "timestamp": 1795600900,
+        "action": "PayoutReceived",
+        "user": {
+          "id": 2001,
+          "name": "Player2001"
+        },
+        "performed_by": null,
+        "text": "Player2001 received 25% of the payout",
+        "details": {
+          "type": "money",
+          "destination": "wallet",
+          "percentage": 25.0,
+          "money": 2500000,
+          "items": [],
+          "role": {
+            "id": "P1",
+            "label": "Muscle"
+          },
+          "crime_id": 123456
+        }
+      },
+      {
+        "id": 9009,
+        "timestamp": 1795600800,
+        "action": "Payout",
+        "user": null,
+        "performed_by": {
+          "id": 2003,
+          "name": "Player2003"
+        },
+        "text": "Payout distributed",
+        "details": {
+          "type": "item",
+          "destination": null,
+          "percentage": 100.0,
+          "money": null,
+          "items": [
+            {
+              "item_id": 206,
+              "item_name": "Xanax",
+              "quantity": 2
+            }
+          ],
+          "participants": [
+            2001,
+            2002
+          ]
+        }
+      },
+      {
+        "id": 9008,
+        "timestamp": 1795600700,
+        "action": "Completed",
+        "user": null,
+        "performed_by": null,
+        "text": "The crime was completed successfully",
+        "details": null
+      },
+      {
+        "id": 9007,
+        "timestamp": 1795600600,
+        "action": "Injured",
+        "user": {
+          "id": 2002,
+          "name": "Player2002"
+        },
+        "performed_by": null,
+        "text": "Player2002 was injured",
+        "details": {
+          "life_lost": 250
+        }
+      },
+      {
+        "id": 9006,
+        "timestamp": 1795600500,
+        "action": "Jailed",
+        "user": {
+          "id": 2002,
+          "name": "Player2002"
+        },
+        "performed_by": null,
+        "text": "Player2002 was jailed",
+        "details": {
+          "reason": null,
+          "duration": 3600
+        }
+      },
+      {
+        "id": 9005,
+        "timestamp": 1795600400,
+        "action": "ItemUsed",
+        "user": {
+          "id": 2001,
+          "name": "Player2001"
+        },
+        "performed_by": null,
+        "text": "Player2001 used a Lockpick",
+        "details": {
+          "item_id": 568,
+          "item_name": "Lockpick",
+          "quantity": 1
+        }
+      },
+      {
+        "id": 9004,
+        "timestamp": 1795600300,
+        "action": "RoleChanged",
+        "user": {
+          "id": 2001,
+          "name": "Player2001"
+        },
+        "performed_by": {
+          "id": 2003,
+          "name": "Player2003"
+        },
+        "text": "Role changed",
+        "details": {
+          "old_role": {
+            "id": "P2",
+            "label": "Picklock"
+          },
+          "new_role": {
+            "id": "P1",
+            "label": "Muscle"
+          }
+        }
+      },
+      {
+        "id": 9003,
+        "timestamp": 1795600200,
+        "action": "Spawned",
+        "user": null,
+        "performed_by": {
+          "id": 2003,
+          "name": "Player2003"
+        },
+        "text": "Crime spawned",
+        "details": {
+          "scope": 4
+        }
+      },
+      {
+        "id": 9002,
+        "timestamp": 1795600100,
+        "action": "Kicked",
+        "user": {
+          "id": 2004,
+          "name": "Player2004"
+        },
+        "performed_by": {
+          "id": 2003,
+          "name": "Player2003"
+        },
+        "text": "Player2004 was kicked",
+        "details": {
+          "role": {
+            "id": null,
+            "label": "Unassigned"
+          }
+        }
+      },
+      {
+        "id": 9001,
+        "timestamp": 1795600000,
+        "action": "Joined",
+        "user": {
+          "id": 2001,
+          "name": "Player2001"
+        },
+        "performed_by": null,
+        "text": "Player2001 joined",
+        "details": {
+          "role": {
+            "id": "P2",
+            "label": "Picklock"
+          }
+        }
+      },
+      {
+        "id": 9000,
+        "timestamp": 1795599900,
+        "action": "SomeFutureAction",
+        "user": null,
+        "performed_by": null,
+        "text": "Forward-compat: unknown action",
+        "details": null
+      }
+    ]
+  }
+}

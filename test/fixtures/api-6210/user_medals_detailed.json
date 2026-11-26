@@ -1,0 +1,42 @@
+{
+  "medals": [
+    {
+      "id": 51,
+      "name": "Level Ninety",
+      "description": "Reach level Ninety",
+      "is_unlocked": false,
+      "timestamp": null,
+      "progress": {
+        "current": 88,
+        "target": 90
+      }
+    },
+    {
+      "id": 52,
+      "name": "Level Ninety Five",
+      "description": "Reach level Ninety Five",
+      "is_unlocked": false,
+      "timestamp": null,
+      "progress": {
+        "current": 88,
+        "target": 95
+      }
+    },
+    {
+      "id": 34,
+      "name": "Level Five",
+      "description": "Reach level Five",
+      "is_unlocked": true,
+      "timestamp": 1741305512,
+      "progress": null
+    },
+    {
+      "id": 35,
+      "name": "Level Ten",
+      "description": "Reach level Ten",
+      "is_unlocked": true,
+      "timestamp": 1741623828,
+      "progress": null
+    }
+  ]
+}

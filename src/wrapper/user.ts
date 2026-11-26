@@ -1,14 +1,15 @@
-import type { UserHalloweenResponse, UserTravelInventoryResponse } from "../generated/models.ts";
+import type { UserAuctionHouseResponse, UserBazaarResponse, UserCriminalRecordResponse, UserDisplayResponse, UserHalloweenResponse, UserHonorsCategory, UserHonorsDetailedResponse, UserMedalsCategory, UserMedalsDetailedResponse, UserTravelInventoryResponse } from "../generated/models.ts";
 import type { TornClient } from "../client.ts";
 import type { HttpTransport } from "../transport.ts";
 import { ResourceApi, RawSelectionBundle, type OptionsOrId } from "./runtime.ts";
+import { ValidationError } from "../errors.ts";
 import { UserOptions } from "./options.ts";
-import type { UserAmmoBundle, UserAttacksBundle, UserAttacksFullBundle, UserBarsBundle, UserBasicBundle, UserBattleStatsBundle, UserBazaarBundle, UserBountiesBundle, UserCalendarBundle, UserCasinoBundle, UserCompetitionBundle, UserCooldownsBundle, UserCrimesBundle, UserCriminalRecordBundle, UserDiscordBundle, UserDisplayBundle, UserEducationBundle, UserEnlistedCarsBundle, UserEquipmentBundle, UserEventsBundle, UserFactionBalanceBundle, UserFactionBundle, UserForumFeedBundle, UserForumFriendsBundle, UserForumPostsBundle, UserForumSubscribedThreadsBundle, UserForumThreadsBundle, UserHofBundle, UserHonorsBundle, UserIconsBundle, UserInventoryBundle, UserItemMarketBundle, UserItemModsBundle, UserJobBundle, UserJobPointsBundle, UserJobRanksBundle, UserListBundle, UserLogBundle, UserLookupBundle, UserMedalsBundle, UserMeritsBundle, UserMessagesBundle, UserMissionsBundle, UserMoneyBundle, UserNewEventsBundle, UserNewMessagesBundle, UserNotificationsBundle, UserOrganizedCrimeBundle, UserPersonalStatsBundle, UserProfileBundle, UserPropertiesBundle, UserPropertyBundle, UserRacesBundle, UserRacingRecordsBundle, UserRefillsBundle, UserReportsBundle, UserRevivesBundle, UserRevivesFullBundle, UserSkillsBundle, UserStocksBundle, UserTimestampBundle, UserTradeBundle, UserTradesBundle, UserTravelBundle, UserWeaponExpBundle, UserWorkStatsBundle } from "../models/manual.ts";
+import type { UserAmmoBundle, UserAttacksBundle, UserAttacksFullBundle, UserBarsBundle, UserBasicBundle, UserBattleStatsBundle, UserBountiesBundle, UserCalendarBundle, UserCasinoBundle, UserCompetitionBundle, UserCooldownsBundle, UserCrimesBundle, UserDiscordBundle, UserEducationBundle, UserEnlistedCarsBundle, UserEquipmentBundle, UserEventsBundle, UserFactionBalanceBundle, UserFactionBundle, UserForumFeedBundle, UserForumFriendsBundle, UserForumPostsBundle, UserForumSubscribedThreadsBundle, UserForumThreadsBundle, UserHofBundle, UserHonorsBundle, UserIconsBundle, UserInventoryBundle, UserItemMarketBundle, UserItemModsBundle, UserJobBundle, UserJobPointsBundle, UserJobRanksBundle, UserListBundle, UserLogBundle, UserLookupBundle, UserMedalsBundle, UserMeritsBundle, UserMessagesBundle, UserMissionsBundle, UserMoneyBundle, UserNewEventsBundle, UserNewMessagesBundle, UserNotificationsBundle, UserOrganizedCrimeBundle, UserPersonalStatsBundle, UserProfileBundle, UserPropertiesBundle, UserPropertyBundle, UserRacesBundle, UserRacingRecordsBundle, UserRefillsBundle, UserReportsBundle, UserRevivesBundle, UserRevivesFullBundle, UserSkillsBundle, UserStocksBundle, UserTimestampBundle, UserTradeBundle, UserTradesBundle, UserTravelBundle, UserWeaponExpBundle, UserWorkStatsBundle } from "../models/manual.ts";
 import type { UserGymResponse, UserNetworthResponse, UserOrganizedCrimesResponse, UserPerksResponse, UserSearchResponse, UserVirusResponse } from "../generated/models.ts";
 export { UserOptions } from "./options.ts";
 
 export class UserApi extends ResourceApi<UserOptions, "user"> {
-  static readonly SUPPORTED_SELECTIONS = ["revivesFull", "search", "virus", "organizedcrimes", "snapshot", "ammo", "attacks", "attacksfull", "bars", "basic", "battlestats", "bazaar", "bounties", "calendar", "casino", "competition", "cooldowns", "crimes", "criminalrecord", "discord", "display", "education", "enlistedcars", "equipment", "events", "faction", "factionbalance", "forumfeed", "forumfriends", "forumposts", "forumsubscribedthreads", "forumthreads", "gym", "hof", "honors", "icons", "inventory", "itemmods", "itemmod", "itemmarket", "job", "jobpoints", "jobranks", "list", "log", "lookup", "medals", "merits", "messages", "missions", "money", "newevents", "networth", "newmessages", "notifications", "organizedcrime", "perks", "personalstats", "profile", "properties", "property", "races", "racingrecords", "refills", "reports", "revives", "revivesfull", "skills", "stocks", "timestamp", "trade", "trades", "travel", "weaponexp", "workstats", "halloween", "travelinventory"] as const;
+  static readonly SUPPORTED_SELECTIONS = ["revivesFull", "search", "virus", "organizedcrimes", "snapshot", "ammo", "attacks", "attacksfull", "bars", "basic", "battlestats", "bazaar", "bounties", "calendar", "casino", "competition", "cooldowns", "crimes", "criminalrecord", "discord", "display", "education", "enlistedcars", "equipment", "events", "faction", "factionbalance", "forumfeed", "forumfriends", "forumposts", "forumsubscribedthreads", "forumthreads", "gym", "hof", "honors", "icons", "inventory", "itemmods", "itemmod", "itemmarket", "job", "jobpoints", "jobranks", "list", "log", "lookup", "medals", "merits", "messages", "missions", "money", "newevents", "networth", "newmessages", "notifications", "organizedcrime", "perks", "personalstats", "profile", "properties", "property", "races", "racingrecords", "refills", "reports", "revives", "revivesfull", "skills", "stocks", "timestamp", "trade", "trades", "travel", "weaponexp", "workstats", "halloween", "travelinventory", "auctionhouse"] as const;
   constructor(client: TornClient<HttpTransport>) { super(client, "user", UserApi.SUPPORTED_SELECTIONS, () => new UserOptions()); }
   /** Halloween basket data from API v2. Requires a Minimal access key. */
   async halloween(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserHalloweenResponse> {
@@ -24,6 +25,29 @@ export class UserApi extends ResourceApi<UserOptions, "user"> {
   /** @deprecated Use travelinventoryRaw(). */
   travelinventory_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("travelinventory", options); }
   travelinventoryRaw(options: OptionsOrId<UserOptions> = new UserOptions()) { return this.travelinventory_raw(options); }
+  /** Your auction house listings (`cat` = all, ongoing or complete; paginated), from API v2. Requires a Limited access key. */
+  async auctionhouse(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserAuctionHouseResponse> {
+    return this.executeTyped<UserAuctionHouseResponse>("auctionhouse", options, "UserAuctionHouseResponse", false);
+  }
+  /** @deprecated Use auctionhouseRaw(). */
+  auctionhouse_raw(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<RawSelectionBundle> { return this.rawSelection("auctionhouse", options); }
+  auctionhouseRaw(options: OptionsOrId<UserOptions> = new UserOptions()) { return this.auctionhouse_raw(options); }
+  /** Detailed honors (name, description, unlock state, progress) for one category other than `all`, from API v2 (`/user/honors?cat=`). Requires a Minimal access key. `honors()` keeps the basic `{id, timestamp}` list. */
+  async honorsDetailed(category: UserHonorsCategory, options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserHonorsDetailedResponse> {
+    return this.executeTyped<UserHonorsDetailedResponse>("honors", this.detailedCategory("honors", category, options), "UserHonorsDetailedResponse", false);
+  }
+  /** Detailed medals (name, description, unlock state, progress) for one category other than `all`, from API v2 (`/user/medals?cat=`). `medals()` keeps the basic `{id, timestamp}` list. */
+  async medalsDetailed(category: UserMedalsCategory, options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserMedalsDetailedResponse> {
+    return this.executeTyped<UserMedalsDetailedResponse>("medals", this.detailedCategory("medals", category, options), "UserMedalsDetailedResponse", false);
+  }
+  private detailedCategory(selection: "honors" | "medals", category: string, input: OptionsOrId<UserOptions>): UserOptions {
+    // `cat=all` (or no `cat`) returns the basic shape; every other category returns the detailed one.
+    if (!category || category === "all") throw new ValidationError(`resource 'user' selection '${selection}' detailed helper requires a category other than 'all'; use ${selection}() for the basic list`);
+    // Copy so the caller's options object is not mutated.
+    const options = new UserOptions(this.options(input));
+    options.base.withCat(category);
+    return options;
+  }
   async search(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserSearchResponse> {
     return this.executeTyped<UserSearchResponse>("search", options, "UserSearchResponse", false);
   }
@@ -36,6 +60,7 @@ export class UserApi extends ResourceApi<UserOptions, "user"> {
   async snapshot(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<string> {
     return this.executeText("snapshot", options);
   }
+  /** @deprecated Alias of itemmods(); `itemmod` left the UserSelectionName enum in API 6.21.0. */
   async itemmod(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserItemModsBundle> {
     return this.itemmods(options);
   }
@@ -190,6 +215,7 @@ export class UserApi extends ResourceApi<UserOptions, "user"> {
   async organizedcrime(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserOrganizedCrimeBundle> {
     return this.executeTyped<UserOrganizedCrimeBundle>("organizedcrime", options, "UserOrganizedCrimeBundle", true);
   }
+  /** @deprecated Torn removed the user `factionbalance` selection in API 6.21.0; the request is passed through unchanged (P1.5) and Torn may reject it. Use `faction().balance()`. */
   async factionbalance(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserFactionBalanceBundle> {
     return this.executeTyped<UserFactionBalanceBundle>("factionbalance", options, "UserFactionBalanceBundle", true);
   }
@@ -223,8 +249,9 @@ export class UserApi extends ResourceApi<UserOptions, "user"> {
   async travel(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserTravelBundle> {
     return this.executeTyped<UserTravelBundle>("travel", options, "UserTravelBundle", true);
   }
-  async display(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserDisplayBundle> {
-    return this.executeTyped<UserDisplayBundle>("display", options, "UserDisplayBundle", true);
+  /** Display case items (`cat`, `offset`, `limit`, `sort`; offset-paginated), from API v2. Native v2 since API 6.21.0: returns the generated v2 model. */
+  async display(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserDisplayResponse> {
+    return this.executeTyped<UserDisplayResponse>("display", options, "UserDisplayResponse", false);
   }
   async gym(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserGymResponse> {
     return this.executeTyped<UserGymResponse>("gym", options, "UserGymResponse", false);
@@ -232,11 +259,13 @@ export class UserApi extends ResourceApi<UserOptions, "user"> {
   async perks(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserPerksResponse> {
     return this.executeTyped<UserPerksResponse>("perks", options, "UserPerksResponse", false);
   }
-  async criminalrecord(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserCriminalRecordBundle> {
-    return this.executeTyped<UserCriminalRecordBundle>("criminalrecord", options, "UserCriminalRecordBundle", true);
+  /** Criminal record (`version` "v2" or "v1" selects the shape), from API v2. Native v2 since API 6.21.0: returns the generated v2 model. */
+  async criminalrecord(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserCriminalRecordResponse> {
+    return this.executeTyped<UserCriminalRecordResponse>("criminalrecord", options, "UserCriminalRecordResponse", false);
   }
-  async bazaar(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserBazaarBundle> {
-    return this.executeTyped<UserBazaarBundle>("bazaar", options, "UserBazaarBundle", true);
+  /** Your bazaar (open state and items with per-uid prices; `cat`, `offset`, `limit`, `sort`; offset-paginated), from API v2. Requires a Limited access key. Native v2 since API 6.21.0: returns the generated v2 model. */
+  async bazaar(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserBazaarResponse> {
+    return this.executeTyped<UserBazaarResponse>("bazaar", options, "UserBazaarResponse", false);
   }
   async reports(options: OptionsOrId<UserOptions> = new UserOptions()): Promise<UserReportsBundle> {
     return this.executeTyped<UserReportsBundle>("reports", options, "UserReportsBundle", true);

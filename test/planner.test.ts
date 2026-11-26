@@ -152,6 +152,7 @@ describe('full pinned capability coverage', () => {
     for (const resource of ['company', 'faction', 'user']) expect(planner.plan(new PlanRequest(resource, ['snapshot', 'timestamp'])).requests).toHaveLength(2);
   });
   test('published endpoint aliases are preserved', () => {
-    for (const [resource, selection, path] of [['faction', 'inventory', '/faction/inventory'], ['faction', 'dirtbombs', '/faction/dirtybombs'], ['user', 'itemmod', '/user/itemmods']]) expect(planner.plan(new PlanRequest(resource!, [selection!])).requests[0]!.path).toBe(path!);
+    // 6.21.0 added inventory to FactionSelectionName (generic); the retired dirtbombs/itemmod aliases keep their endpoints.
+    for (const [resource, selection, path] of [['faction', 'inventory', '/faction'], ['faction', 'dirtbombs', '/faction/dirtybombs'], ['user', 'itemmod', '/user/itemmods']]) expect(planner.plan(new PlanRequest(resource!, [selection!])).requests[0]!.path).toBe(path!);
   });
 });

@@ -1,0 +1,62 @@
+{
+  "rankedwars": [
+    {
+      "id": 53229,
+      "start": 1795788000,
+      "end": 0,
+      "target": 17300,
+      "winner": null,
+      "template": {
+        "mode": "Tug of War",
+        "rules": [
+          "Day War"
+        ]
+      },
+      "factions": [
+        {
+          "id": 16312,
+          "name": "39th Street Killers X",
+          "score": 0,
+          "chain": 0
+        },
+        {
+          "id": 18569,
+          "name": "Romania Elite Kommando",
+          "score": 0,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 52694,
+      "start": 1795280400,
+      "end": 1795471218,
+      "target": 12390,
+      "winner": 16312,
+      "template": {
+        "mode": null,
+        "rules": []
+      },
+      "factions": [
+        {
+          "id": 8151,
+          "name": "Chromatic",
+          "score": 7261,
+          "chain": 0
+        },
+        {
+          "id": 16312,
+          "name": "39th Street Killers X",
+          "score": 19813,
+          "chain": 0
+        }
+      ]
+    }
+  ],
+  "_metadata": {
+    "links": {
+      "prev": null,
+      "next": "https://api.torn.com/v2/faction/rankedwars?&limit=2&offset=2"
+    }
+  }
+}

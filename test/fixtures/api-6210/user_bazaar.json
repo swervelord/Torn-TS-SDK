@@ -1,0 +1,52 @@
+{
+  "bazaar": {
+    "exists": true,
+    "is_open": true,
+    "items": [
+      {
+        "id": 206,
+        "uids": [],
+        "name": "Xanax",
+        "type": "Drug",
+        "quantity": 25,
+        "price": 830000,
+        "market_price": 832389,
+        "item_details": null
+      },
+      {
+        "id": 614,
+        "uids": [
+          {
+            "uid": 10000000001,
+            "price": 950000
+          },
+          {
+            "uid": 10000000002,
+            "price": 960000
+          }
+        ],
+        "name": "Diamond Bladed Knife",
+        "type": "Melee",
+        "quantity": 2,
+        "price": null,
+        "market_price": 932309,
+        "item_details": {
+          "stats": {
+            "damage": 62.77,
+            "accuracy": 64.4,
+            "armor": null,
+            "quality": 51.7
+          },
+          "bonuses": [],
+          "rarity": null
+        }
+      }
+    ]
+  },
+  "_metadata": {
+    "links": {
+      "prev": null,
+      "next": null
+    }
+  }
+}

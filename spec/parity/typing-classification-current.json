@@ -4,10 +4,10 @@
     "source": "Committed SDK typing-classification regression expectations, including historical textual-analysis behavior. Classifications are SDK audit contracts, not classifications supplied by the API specification.",
     "source_report_sha256": "d98a331c0415afd193d2860700eb806824896f19f62ad3c08169e20b27492508",
     "manual_metadata_sha256": "6c655bc86d78dc1e8a0ca59a864aac4abfbd4414425d856bd99fc234ce32186f",
-    "facade_manifest_sha256": "fd5d741088eab36162a66ab4a9cfa776892cdfa8893ede3a166697902d7bcd90",
+    "facade_manifest_sha256": "d34043bb95b9dc4e2fe8341bdf8155152f5556af283c4f0659b129bdfc2e5c8a",
     "kind": "typing-classification-regression",
     "source_url": "https://www.torn.com/swagger/openapi.json",
-    "apiVersion": "6.15.7"
+    "apiVersion": "6.21.0"
   },
   "selections": [
     {
@@ -652,6 +652,21 @@
     },
     {
       "resource": "faction",
+      "selection": "headlines",
+      "class": "strict-typed",
+      "helper": "headlines",
+      "return_type": "FactionHeadlinesResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/FactionHeadlinesResponse",
+        "#/components/schemas/TornHeadline"
+      ]
+    },
+    {
+      "resource": "faction",
       "selection": "hof",
       "class": "dynamic-facade",
       "helper": "hof",
@@ -772,6 +787,39 @@
     },
     {
       "resource": "faction",
+      "selection": "ochistory",
+      "class": "strict-typed",
+      "helper": "ochistory",
+      "return_type": "FactionOcHistoryResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/FactionCrimeId",
+        "#/components/schemas/FactionOcHistory",
+        "#/components/schemas/FactionOcHistoryActionEnum",
+        "#/components/schemas/FactionOcHistoryEntry",
+        "#/components/schemas/FactionOcHistoryInjuryDetails",
+        "#/components/schemas/FactionOcHistoryItem",
+        "#/components/schemas/FactionOcHistoryPayoutDestinationEnum",
+        "#/components/schemas/FactionOcHistoryPayoutDetails",
+        "#/components/schemas/FactionOcHistoryPayoutReceivedDetails",
+        "#/components/schemas/FactionOcHistoryPayoutTypeEnum",
+        "#/components/schemas/FactionOcHistoryPunishmentDetails",
+        "#/components/schemas/FactionOcHistoryResponse",
+        "#/components/schemas/FactionOcHistoryRole",
+        "#/components/schemas/FactionOcHistoryRoleChangeDetails",
+        "#/components/schemas/FactionOcHistoryRoleDetails",
+        "#/components/schemas/FactionOcHistorySpawnDetails",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/TornOrganizedCrimePositionId",
+        "#/components/schemas/UserId"
+      ]
+    },
+    {
+      "resource": "faction",
       "selection": "positions",
       "class": "dynamic-facade",
       "helper": "positions",
@@ -864,7 +912,10 @@
       "return_type": "FactionRankedWarReportBundle",
       "schema_refs": [
         "#/components/schemas/FactionId",
+        "#/components/schemas/FactionRankedWarMode",
         "#/components/schemas/FactionRankedWarReportResponse",
+        "#/components/schemas/FactionRankedWarRule",
+        "#/components/schemas/FactionRankedWarTemplate",
         "#/components/schemas/ItemId",
         "#/components/schemas/RankedWarId",
         "#/components/schemas/UserId"
@@ -885,7 +936,10 @@
       "schema_refs": [
         "#/components/schemas/FactionId",
         "#/components/schemas/FactionRankedWarDetails",
+        "#/components/schemas/FactionRankedWarMode",
         "#/components/schemas/FactionRankedWarResponse",
+        "#/components/schemas/FactionRankedWarRule",
+        "#/components/schemas/FactionRankedWarTemplate",
         "#/components/schemas/RankedWarId",
         "#/components/schemas/RequestLinks",
         "#/components/schemas/RequestMetadataWithLinks"
@@ -1215,6 +1269,9 @@
         "#/components/schemas/FactionRaidWarfare",
         "#/components/schemas/FactionRaidWarfareFaction",
         "#/components/schemas/FactionRankedWarDetails",
+        "#/components/schemas/FactionRankedWarMode",
+        "#/components/schemas/FactionRankedWarRule",
+        "#/components/schemas/FactionRankedWarTemplate",
         "#/components/schemas/FactionTerritoryEnum",
         "#/components/schemas/FactionTerritoryWarFaction",
         "#/components/schemas/FactionTerritoryWarFactionWallPlayers",
@@ -1287,6 +1344,9 @@
       "schema_refs": [
         "#/components/schemas/FactionId",
         "#/components/schemas/FactionRankedWarDetails",
+        "#/components/schemas/FactionRankedWarMode",
+        "#/components/schemas/FactionRankedWarRule",
+        "#/components/schemas/FactionRankedWarTemplate",
         "#/components/schemas/FactionWarfareRankedResponse",
         "#/components/schemas/RankedWarId",
         "#/components/schemas/RequestLinks",
@@ -1332,7 +1392,10 @@
         "#/components/schemas/FactionRaidWar",
         "#/components/schemas/FactionRaidWarParticipant",
         "#/components/schemas/FactionRankedWar",
+        "#/components/schemas/FactionRankedWarMode",
         "#/components/schemas/FactionRankedWarParticipant",
+        "#/components/schemas/FactionRankedWarRule",
+        "#/components/schemas/FactionRankedWarTemplate",
         "#/components/schemas/FactionTerritoryWar",
         "#/components/schemas/FactionTerritoryWarParticipant",
         "#/components/schemas/FactionWars",
@@ -1625,6 +1688,23 @@
     },
     {
       "resource": "market",
+      "selection": "itemhistory",
+      "class": "strict-typed",
+      "helper": "itemhistory",
+      "return_type": "MarketItemHistoryResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/MarketHistoryEntry",
+        "#/components/schemas/MarketItemHistoryResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ]
+    },
+    {
+      "resource": "market",
       "selection": "itemmarket",
       "class": "dynamic-facade",
       "helper": "itemmarket",
@@ -1668,6 +1748,23 @@
       "has_extra": true,
       "has_dynamic": true,
       "missing_model": false
+    },
+    {
+      "resource": "market",
+      "selection": "pointshistory",
+      "class": "strict-typed",
+      "helper": "pointshistory",
+      "return_type": "MarketPointsHistoryResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/MarketHistoryEntry",
+        "#/components/schemas/MarketPointsHistoryResponse",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks"
+      ]
     },
     {
       "resource": "market",
@@ -2292,6 +2389,21 @@
     },
     {
       "resource": "torn",
+      "selection": "headlines",
+      "class": "strict-typed",
+      "helper": "headlines",
+      "return_type": "TornHeadlinesResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/TornHeadline",
+        "#/components/schemas/TornHeadlinesResponse"
+      ]
+    },
+    {
+      "resource": "torn",
       "selection": "hof",
       "class": "dynamic-facade",
       "helper": "hof",
@@ -2864,6 +2976,35 @@
     },
     {
       "resource": "user",
+      "selection": "auctionhouse",
+      "class": "strict-typed",
+      "helper": "auctionhouse",
+      "return_type": "UserAuctionHouseResponse",
+      "notes": [],
+      "has_extra": false,
+      "has_dynamic": false,
+      "missing_model": false,
+      "schema_refs": [
+        "#/components/schemas/AuctionHouseStackableItem",
+        "#/components/schemas/AuctionListingId",
+        "#/components/schemas/BasicUser",
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemDetails",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornItemDetails",
+        "#/components/schemas/TornItemTypeEnum",
+        "#/components/schemas/TornItemWeaponTypeEnum",
+        "#/components/schemas/UserAuctionHouseListing",
+        "#/components/schemas/UserAuctionHouseResponse",
+        "#/components/schemas/UserId"
+      ]
+    },
+    {
+      "resource": "user",
       "selection": "bars",
       "class": "strict-typed",
       "helper": "bars",
@@ -2924,15 +3065,25 @@
     {
       "resource": "user",
       "selection": "bazaar",
-      "class": "missing-schema",
+      "class": "strict-typed",
       "helper": "bazaar",
-      "return_type": "UserBazaarBundle",
-      "schema_refs": [],
-      "notes": [
-        "manual model preserves unknown fields in extra",
-        "capability selection has no response schema reference"
+      "return_type": "UserBazaarResponse",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornInventoryItemType",
+        "#/components/schemas/UserArmouryItemDetails",
+        "#/components/schemas/UserBazaar",
+        "#/components/schemas/UserBazaarItem",
+        "#/components/schemas/UserBazaarItemUid",
+        "#/components/schemas/UserBazaarResponse"
       ],
-      "has_extra": true,
+      "notes": [],
+      "has_extra": false,
       "has_dynamic": false,
       "missing_model": false
     },
@@ -3065,15 +3216,16 @@
     {
       "resource": "user",
       "selection": "criminalrecord",
-      "class": "missing-schema",
+      "class": "strict-typed",
       "helper": "criminalrecord",
-      "return_type": "UserCriminalRecordBundle",
-      "schema_refs": [],
-      "notes": [
-        "manual model preserves unknown fields in extra",
-        "capability selection has no response schema reference"
+      "return_type": "UserCriminalRecordResponse",
+      "schema_refs": [
+        "#/components/schemas/UserCriminalRecordResponse",
+        "#/components/schemas/UserCriminalRecordV1",
+        "#/components/schemas/UserCriminalRecordV2"
       ],
-      "has_extra": true,
+      "notes": [],
+      "has_extra": false,
       "has_dynamic": false,
       "missing_model": false
     },
@@ -3099,15 +3251,24 @@
     {
       "resource": "user",
       "selection": "display",
-      "class": "missing-schema",
+      "class": "strict-typed",
       "helper": "display",
-      "return_type": "UserDisplayBundle",
-      "schema_refs": [],
-      "notes": [
-        "manual model preserves unknown fields in extra",
-        "capability selection has no response schema reference"
+      "return_type": "UserDisplayResponse",
+      "schema_refs": [
+        "#/components/schemas/ItemId",
+        "#/components/schemas/ItemMarketListingItemBonus",
+        "#/components/schemas/ItemMarketListingItemStats",
+        "#/components/schemas/ItemUid",
+        "#/components/schemas/RequestLinks",
+        "#/components/schemas/RequestMetadataWithLinks",
+        "#/components/schemas/TornInventoryItemType",
+        "#/components/schemas/UserArmouryItemDetails",
+        "#/components/schemas/UserDisplay",
+        "#/components/schemas/UserDisplayItem",
+        "#/components/schemas/UserDisplayResponse"
       ],
-      "has_extra": true,
+      "notes": [],
+      "has_extra": false,
       "has_dynamic": false,
       "missing_model": false
     },
@@ -3215,20 +3376,6 @@
         "#/components/schemas/UserFactionResponse"
       ],
       "notes": [],
-      "has_extra": false,
-      "has_dynamic": false,
-      "missing_model": false
-    },
-    {
-      "resource": "user",
-      "selection": "factionbalance",
-      "class": "missing-schema",
-      "helper": "factionbalance",
-      "return_type": "UserFactionBalanceBundle",
-      "schema_refs": [],
-      "notes": [
-        "capability selection has no response schema reference"
-      ],
       "has_extra": false,
       "has_dynamic": false,
       "missing_model": false
@@ -3410,6 +3557,9 @@
       "schema_refs": [
         "#/components/schemas/HonorId",
         "#/components/schemas/UserHonor",
+        "#/components/schemas/UserHonorDetailed",
+        "#/components/schemas/UserHonorProgress",
+        "#/components/schemas/UserHonorsDetailedResponse",
         "#/components/schemas/UserHonorsResponse"
       ],
       "notes": [
@@ -3671,6 +3821,9 @@
       "schema_refs": [
         "#/components/schemas/MedalId",
         "#/components/schemas/UserMedal",
+        "#/components/schemas/UserMedalDetailed",
+        "#/components/schemas/UserMedalProgress",
+        "#/components/schemas/UserMedalsDetailedResponse",
         "#/components/schemas/UserMedalsResponse"
       ],
       "notes": [

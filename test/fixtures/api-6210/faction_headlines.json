@@ -1,0 +1,24 @@
+{
+  "headlines": [
+    {
+      "id": 12,
+      "headline": "Organized crime <b>Blast from the Past</b> is ready",
+      "link": "https://www.torn.com/factions.php?step=your#/tab=crimes",
+      "type": "factionOrganizedCrimeReady",
+      "importance": "normal",
+      "start_at": 1795600000,
+      "end_at": 1795686400,
+      "has_countdown": false
+    },
+    {
+      "id": null,
+      "headline": "War starts soon",
+      "link": null,
+      "type": "factionAnnouncement",
+      "importance": "urgent",
+      "start_at": 1795600000,
+      "end_at": 1795686400,
+      "has_countdown": true
+    }
+  ]
+}

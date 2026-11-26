@@ -41,6 +41,9 @@ export function generateCapabilities(spec:JsonObject,overrides:JsonObject):JsonO
    if(dest)segment.split("'").forEach((part,i)=>{if(i%2===1)dest.add(part.toLowerCase());});
   }
   for(const n of [...fallback,...strings(at(overrides,'legacy_selections',resource))])names.add(n);
+  // Misspelled/singular aliases that left the selection enums in 6.21.0 keep routing to their dedicated endpoints.
+  if(resource==='faction'&&names.has('dirtybombs'))names.add('dirtbombs');
+  if(resource==='user'&&names.has('itemmods'))names.add('itemmod');
   const endpoints:JsonObject[]=[];
   for(const path of Object.keys(paths).sort()){
    if(path.split('/')[1]!==resource||path===genericPath)continue;

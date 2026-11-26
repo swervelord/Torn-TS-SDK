@@ -2,26 +2,26 @@
 
 Torn-TS-SDK is a standalone TypeScript SDK for the official Torn API. Its runtime, models, generators, and tests are maintained in this repository. Generation and verification use Bun and the declared development dependencies; the published package is portable ESM for Node >= 20, Bun, Deno, browsers and workers ([portability](docs/PORTABILITY.md)). Since 3.0.0 the SDK implements the cross-SDK parity contract in [`spec/shared/PARITY_SPEC.md`](spec/shared/PARITY_SPEC.md) (P1-P9), shared with the Rust, Go and Zig SDKs.
 
-The current API contract is the official Torn **6.15.7** OpenAPI snapshot: **237 operations and 726 component schemas**. The frozen **6.13.6** snapshot remains available for explicit legacy decoding. Its SHA-256 is `DC04C6A03424DA1D0361F29E80971D830115A23DDB1C47FBE5824FB54BB46EC4`. Versioned specifications, routing metadata, and regression fixtures are committed under `spec/`.
+The current API contract is the official Torn **6.21.0** OpenAPI snapshot: **248 operations and 772 component schemas**. The frozen **6.13.6** snapshot remains available for explicit legacy decoding. Its SHA-256 is `DC04C6A03424DA1D0361F29E80971D830115A23DDB1C47FBE5824FB54BB46EC4`. Versioned specifications, routing metadata, and regression fixtures are committed under `spec/`.
 
 `legacy6136Models` and `decodeLegacyModel` decode old payloads. Current elimination-team responses require `captains`; legacy responses use `leaders`. See [the coverage audit](docs/COVERAGE_AUDIT.md) for the exact upstream changes and documentation comparison.
 
 | Surface | Inventory | Contract |
 | --- | ---: | --- |
-| Current API component schemas | 726 | Complete 6.15.7 types and runtime decoding |
+| Current API component schemas | 772 | Complete 6.21.0 types and runtime decoding |
 | Frozen API component schemas | 711 | Explicit 6.13.6 legacy decoding |
-| Exact endpoint operations | 237 | Typed parameters/responses, TSDoc from the spec, per-operation access level (deprecated snake_case aliases) |
+| Exact endpoint operations | 248 | Typed parameters/responses, TSDoc from the spec, per-operation access level (deprecated snake_case aliases) |
 | Frozen generated model acceptance samples | 1,628 | Named and inline model validation |
-| Capability selections | 208 | All nine resources |
+| Capability selections | 213 | All nine resources |
 | Manual facade model declarations | 549 | Typed declarations and metadata-driven decoders |
-| Typed facade convenience methods | 210 | Selection helpers and detail aliases |
-| Raw convenience methods | 203 | Raw selection helpers |
+| Typed facade convenience methods | 218 | Selection helpers and detail aliases |
+| Raw convenience methods | 209 | Raw selection helpers |
 | CSV operations | 3 | Text execution and string return values |
 | Planner regression scenarios | 466 | Normalized plan/error comparisons (`routing: "legacy"`) |
 | Shared conformance scenarios | 32 | `spec/shared/conformance/*.json` through the mock transport and virtual clock (P9.1) |
 | Manual model regression scenarios | 59 | Normalized decoder output comparisons |
 
-The baseline facade typing classification contains 49 strict typed, 12 typed with extra fields, 125 dynamic facades, and 19 missing upstream schemas. Handwritten models preserve permissive and dynamic fields where the contract requires them. Generated exact operations retain the full pinned declared schema. Unknown upstream data remains explicit JSON rather than invented static types.
+The baseline facade typing classification contains 49 strict typed, 12 typed with extra fields, 125 dynamic facades, and 19 missing upstream schemas; against 6.21.0 the 213 current selections classify as 61 strict typed, 12 typed with extra fields, 125 dynamic facades and 15 missing upstream schemas. Handwritten models preserve permissive and dynamic fields where the contract requires them. Generated exact operations retain the full pinned declared schema. Unknown upstream data remains explicit JSON rather than invented static types.
 
 ## Runtime behavior
 

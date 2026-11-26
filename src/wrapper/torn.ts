@@ -1,4 +1,4 @@
-import type { TornHalloweenResponse } from "../generated/models.ts";
+import type { TornHalloweenResponse, TornHeadlinesResponse } from "../generated/models.ts";
 import type { TornClient } from "../client.ts";
 import type { HttpTransport } from "../transport.ts";
 import { ResourceApi, RawSelectionBundle, type OptionsOrId } from "./runtime.ts";
@@ -8,7 +8,7 @@ import type { TornBankResponse, TornCardsResponse, TornCityShopsResponse, TornCi
 export { TornOptions } from "./options.ts";
 
 export class TornApi extends ResourceApi<TornOptions, "torn"> {
-  static readonly SUPPORTED_SELECTIONS = ["museum", "merits", "medals", "organisedcrimes", "pawnshop", "organizedcrimes", "itemstats", "items", "logcategories", "lookup", "logtypes", "stocks", "stats", "subcrimes", "timestamp", "territory", "properties", "pokertables", "rockpaperscissors", "shoplifting", "searchforcash", "companies", "cityshops", "competition", "education", "crimes", "bank", "attacklog", "bounties", "cards", "calendar", "honors", "hof", "itemammo", "itemmods", "itemdetails", "eliminationteam", "elimination", "factionhof", "gyms", "factiontree", "halloween"] as const;
+  static readonly SUPPORTED_SELECTIONS = ["museum", "merits", "medals", "organisedcrimes", "pawnshop", "organizedcrimes", "itemstats", "items", "logcategories", "lookup", "logtypes", "stocks", "stats", "subcrimes", "timestamp", "territory", "properties", "pokertables", "rockpaperscissors", "shoplifting", "searchforcash", "companies", "cityshops", "competition", "education", "crimes", "bank", "attacklog", "bounties", "cards", "calendar", "honors", "hof", "itemammo", "itemmods", "itemdetails", "eliminationteam", "elimination", "factionhof", "gyms", "factiontree", "halloween", "headlines"] as const;
   constructor(client: TornClient<HttpTransport>) { super(client, "torn", TornApi.SUPPORTED_SELECTIONS, () => new TornOptions()); }
   /** Halloween basket data from API v2. */
   async halloween(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<TornHalloweenResponse> {
@@ -17,6 +17,13 @@ export class TornApi extends ResourceApi<TornOptions, "torn"> {
   /** @deprecated Use halloweenRaw(). */
   halloween_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("halloween", options); }
   halloweenRaw(options: OptionsOrId<TornOptions> = new TornOptions()) { return this.halloween_raw(options); }
+  /** News ticker headlines (`striptags` defaults to false: HTML kept), from API v2. */
+  async headlines(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<TornHeadlinesResponse> {
+    return this.executeTyped<TornHeadlinesResponse>("headlines", options, "TornHeadlinesResponse", false);
+  }
+  /** @deprecated Use headlinesRaw(). */
+  headlines_raw(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<RawSelectionBundle> { return this.rawSelection("headlines", options); }
+  headlinesRaw(options: OptionsOrId<TornOptions> = new TornOptions()) { return this.headlines_raw(options); }
   async museum(options: OptionsOrId<TornOptions> = new TornOptions()): Promise<TornMuseumResponse> {
     return this.executeTyped<TornMuseumResponse>("museum", options, "TornMuseumResponse", false);
   }

@@ -40,10 +40,17 @@ export function pageLink(page: JsonValue, direction: PageDirection = "next"): st
   const link = page._metadata.links[direction];
   return typeof link === "string" && link ? link : undefined;
 }
-/** The list carried by a page: `field` when given, else the only array-valued top-level member besides `_metadata`. */
+/**
+ * The list carried by a page: `field` when given, else the only array-valued top-level member besides `_metadata`, else
+ * the `items` array of the only object-valued member (`display: {items}`, `bazaar: {is_open, items}`, API 6.21.0).
+ */
 export function pageItems(page: JsonValue, field?: string): JsonValue[] {
   if (!isJsonObject(page)) return [];
   if (field !== undefined) { const value = page[field]; return Array.isArray(value) ? value : []; }
-  const arrays = Object.entries(page).filter(([name, value]) => name !== "_metadata" && Array.isArray(value));
-  return arrays.length === 1 ? arrays[0]![1] as JsonValue[] : [];
+  const members = Object.entries(page).filter(([name]) => name !== "_metadata");
+  const arrays = members.filter(([, value]) => Array.isArray(value));
+  if (arrays.length === 1) return arrays[0]![1] as JsonValue[];
+  if (arrays.length || members.length !== 1) return [];
+  const wrapper = members[0]![1];
+  return isJsonObject(wrapper) && Array.isArray(wrapper.items) ? wrapper.items : [];
 }

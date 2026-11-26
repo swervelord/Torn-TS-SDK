@@ -1,0 +1,34 @@
+{
+  "headlines": [
+    {
+      "id": 51,
+      "headline": "The share price of <b>Yazoo</b> has decreased by <b>1.03%</b> to <b>$52.64</b> in the last 24 hours",
+      "link": "https://www.torn.com/page.php?sid=stocks",
+      "type": "stockMarketDailyDecrease",
+      "importance": "normal",
+      "start_at": 1795653004,
+      "end_at": 1795663804,
+      "has_countdown": false
+    },
+    {
+      "id": 77,
+      "headline": "The share price of <b>I Industries Ltd.</b> has decreased by <b>2.27%</b> to <b>$133.17</b> in the last week",
+      "link": "https://www.torn.com/page.php?sid=stocks",
+      "type": "stockMarketWeeklyDecrease",
+      "importance": "normal",
+      "start_at": 1795639504,
+      "end_at": 1795661104,
+      "has_countdown": false
+    },
+    {
+      "id": null,
+      "headline": "Server maintenance in <b>10 minutes</b>",
+      "link": null,
+      "type": "announcement",
+      "importance": "urgent",
+      "start_at": 1795653004,
+      "end_at": 1795663804,
+      "has_countdown": true
+    }
+  ]
+}

@@ -1,6 +1,31 @@
 # Torn API coverage audit
 
-The SDK covers **all 237 official Torn v2 operations** and **all 726 component schemas** in the official **6.15.7** snapshot checked on 2026-11-09. Three operations return CSV strings. The immutable Markdown vault comparison below remains the historical 6.13.6 baseline; current operation and shared-parameter hashes are separately recorded in `spec/parity/docs-coverage.json`.
+The SDK covers **all 248 official Torn v2 operations** and **all 772 component schemas** in the official **6.21.0** snapshot checked on 2026-11-25. Three operations return CSV strings. The immutable Markdown vault comparison below remains the historical 6.13.6 baseline; current operation and shared-parameter hashes are separately recorded in `spec/parity/docs-coverage.json`.
+
+## 6.21.0 update
+
+Relative to 6.15.7 there are eleven new operations and no patch notes; every change below comes from the specification
+diff and live probes. New endpoints: `/torn/headlines`, `/faction/headlines`, `/faction/{crimeId}/ochistory`,
+`/market/pointshistory`, `/market/{id}/itemhistory`, `/user/auctionhouse`, `/user/bazaar`, `/user/display`,
+`/user/{id}/display`, `/user/criminalrecord` and `/user/{id}/criminalrecord`. The last five replace Torn's server-side v1
+fallbacks for `bazaar`, `display` and `criminalrecord` with native v2 responses in new shapes, so the SDK's facade helpers
+for those three selections now return the generated v2 models (4.0.0). Six new capability selections are added (torn and
+faction `headlines`, faction `ochistory`, market `itemhistory` and `pointshistory`, user `auctionhouse`) and user
+`factionbalance` is removed; the retired `dirtbombs`/`itemmod` aliases keep their dedicated endpoints.
+
+Sixty-seven component schemas are added (headlines, the OC history entry, action enum and eight detail shapes, ranked war
+templates, market history entries, user auction house, bazaar, display case, criminal record v1/v2 and detailed
+honors/medals) and `UserFactionBalance`/`UserFactionBalanceResponse` are removed (kept as deprecated compatibility names).
+`/user/honors` and `/user/medals` take a `cat` that switches to the detailed shape; `/market/auctionhouse` takes `cat`
+(`complete`/`ongoing`) and reports `auctionhouse_timestamp`/`auctionhouse_delay` for ongoing listings. Ranked wars require
+`template`, key info requires `access.sensitive_data` and `access.legacy_permissions`, and revives (user and faction) need a
+Minimal key. Selection enums gained the new and previously dedicated-only selections (`dirtybombs`, `inventory`,
+`warfare`, `itemmods`, `organizedcrimes`, `virus`), which therefore move to generic batching; faction `search` left the
+enum and uses `/faction/search`. The three spec overrides remain valid. Headlines, points and item history, auction house
+(user and ongoing market), bazaar, display case, criminal record, detailed honors/medals, key info and ranked war templates
+were confirmed live; faction headlines and OC history return code 7 for the test key (no faction), so their fixtures and
+the criminal record v1 fixture are built from the specification. The OC history `role.id` is typed by the spec as
+`TornOrganizedCrimePositionId` (`"P1"`..`"P6"`); no live payload was available to confirm it.
 
 ## 6.15.7 update
 

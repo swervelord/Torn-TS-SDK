@@ -1,0 +1,46 @@
+{
+  "honors": [
+    {
+      "id": 1028,
+      "name": "Cinephile",
+      "description": "Sell 10,000 DVDs of each movie genre in Bootlegging",
+      "is_unlocked": false,
+      "is_tracked": true,
+      "timestamp": null,
+      "progress": {
+        "current": 5,
+        "target": 8
+      }
+    },
+    {
+      "id": 1031,
+      "name": "Online Entrepreneur",
+      "description": "Acquire 10,000 customers on your online counterfeit DVD store",
+      "is_unlocked": false,
+      "is_tracked": true,
+      "timestamp": null,
+      "progress": {
+        "current": 0,
+        "target": 10000
+      }
+    },
+    {
+      "id": 1326,
+      "name": "Shore Thing",
+      "description": "Find sand while searching the beach",
+      "is_unlocked": true,
+      "is_tracked": false,
+      "timestamp": 1764862259,
+      "progress": null
+    },
+    {
+      "id": 251,
+      "name": "Society's Worst",
+      "description": "Commit 10,000 criminal offenses",
+      "is_unlocked": true,
+      "is_tracked": true,
+      "timestamp": 1749534630,
+      "progress": null
+    }
+  ]
+}

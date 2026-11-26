@@ -1,0 +1,106 @@
+{
+  "auctionhouse": [
+    {
+      "id": 594039,
+      "buyer": {
+        "id": 1001,
+        "name": "Player1001"
+      },
+      "timestamp": 1795346467,
+      "price": 37620001,
+      "bids": 6,
+      "item": {
+        "id": 224,
+        "uid": 20000000039,
+        "name": "Swiss Army Knife",
+        "type": "Weapon",
+        "sub_type": "Piercing",
+        "stats": {
+          "damage": 30.73,
+          "accuracy": 57.17,
+          "armor": null,
+          "quality": 129
+        },
+        "bonuses": [
+          {
+            "id": 87,
+            "title": "Empower",
+            "description": "68% increased passive strength while using this weapon",
+            "value": 68
+          }
+        ],
+        "rarity": "yellow"
+      }
+    },
+    {
+      "id": 594038,
+      "buyer": {
+        "id": 1002,
+        "name": "Player1002"
+      },
+      "timestamp": 1795346462,
+      "price": 45797467,
+      "bids": 8,
+      "item": {
+        "id": 5,
+        "uid": 20000000038,
+        "name": "Pen Knife",
+        "type": "Weapon",
+        "sub_type": "Piercing",
+        "stats": {
+          "damage": 28.74,
+          "accuracy": 49.26,
+          "armor": null,
+          "quality": 120.01
+        },
+        "bonuses": [
+          {
+            "id": 102,
+            "title": "Irradiate",
+            "description": "Applies radiation sickness upon final hit",
+            "value": 3
+          }
+        ],
+        "rarity": "yellow"
+      }
+    },
+    {
+      "id": 594037,
+      "buyer": {
+        "id": 1003,
+        "name": "Player1003"
+      },
+      "timestamp": 1795346458,
+      "price": 37620001,
+      "bids": 6,
+      "item": {
+        "id": 110,
+        "uid": 20000000037,
+        "name": "Leather Bullwhip",
+        "type": "Weapon",
+        "sub_type": "Slashing",
+        "stats": {
+          "damage": 33.72,
+          "accuracy": 56.76,
+          "armor": null,
+          "quality": 114.82
+        },
+        "bonuses": [
+          {
+            "id": 54,
+            "title": "Berserk",
+            "description": "29% increased damage but 14.5% reduced hit chance",
+            "value": 29
+          }
+        ],
+        "rarity": "yellow"
+      }
+    }
+  ],
+  "_metadata": {
+    "links": {
+      "prev": "https://api.torn.com/v2/user/auctionhouse?&limit=3&cat=all&sort=desc&to=1795346458",
+      "next": null
+    }
+  }
+}

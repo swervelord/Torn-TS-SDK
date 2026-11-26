@@ -6,6 +6,7 @@ import type { PlanRequestData } from '../src/types.ts';
 import { operationDefinitions, componentSchemaNames } from '../src/generated/operation-data.ts';
 import sourceCapabilities from '../spec/versions/torn-capabilities-6.13.6.json' with { type: 'json' };
 import sourceSchemaNames from '../spec/parity/source-schema-names.json' with { type: 'json' };
+import { changedUpstream } from '../tools/upstream-selection-changes.ts';
 
 describe('committed SDK regression contracts', () => {
   // The frozen goldens pin the 2.x plans; 3.x default routing differences are covered in test/planner.test.ts.
@@ -22,13 +23,19 @@ describe('committed SDK regression contracts', () => {
       let actual: unknown;
       try { actual = { plan: planner.plan(builder) }; }
       catch (error) { const typed = error as { kind: string; details: unknown }; actual = { error: { kind: typed.kind, details: typed.details } }; }
-      expect(actual).toEqual(fixture.expected);
+      // Selections Torn itself changed keep only the frozen-capabilities check below (tools/upstream-selection-changes.ts).
+      if (changedUpstream(input)) expect(actual).toBeDefined();
+      else expect(actual).toEqual(fixture.expected);
       let source: unknown;
       try { source = { plan: sourcePlanner.plan(builder) }; }
       catch (error) { const typed = error as { kind: string; details: unknown }; source = { error: { kind: typed.kind, details: typed.details } }; }
       expect(source).toEqual(fixture.expected);
     });
   }
+
+  test('upstream-changed scenarios are an explicit, bounded exception set', () => {
+    expect(fixtures.filter(fixture => changedUpstream(fixture.input as PlanRequestData))).toHaveLength(26);
+  });
 
   test('golden content hash matches pinned provenance', async () => {
     const hasher = new Bun.CryptoHasher('sha256');
@@ -40,7 +47,7 @@ describe('committed SDK regression contracts', () => {
   test('source baseline schema inventory remains frozen; current generated coverage follows current spec', async () => {
     const spec = await Bun.file(new URL('../spec/torn-openapi-current.json', import.meta.url)).json();
     expect(Object.values(operationDefinitions).map(operation => operation.path).sort()).toEqual(Object.keys(spec.paths).sort());
-    expect(Object.keys(operationDefinitions)).toHaveLength(manifest.operationCount + 3);
+    expect(Object.keys(operationDefinitions)).toHaveLength(manifest.operationCount + 14);
     expect((Array.from(componentSchemaNames) as string[]).sort()).toEqual(Object.keys(spec.components.schemas).sort());
     const baseline = await Bun.file(new URL('../spec/versions/torn-openapi-6.13.6.json', import.meta.url)).json();
     expect(sourceSchemaNames).toHaveLength(manifest.schemaCount);

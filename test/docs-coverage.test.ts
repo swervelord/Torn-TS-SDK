@@ -3,6 +3,7 @@ import type { JsonValue } from '../src/types.ts';
 import { operationDefinitions, componentSchemaNames, specificationVersion } from '../src/generated/operation-data.ts';
 import { schemas } from '../src/generated/schema-data.ts';
 import { legacySchemas } from '../src/generated/legacy-schema-data.ts';
+import { selectionChangedUpstream, upstreamRemovedSelections } from '../tools/upstream-selection-changes.ts';
 interface OperationEntry {path:string;method:string;operationId:string;document:string;hash:string;parameterCount:number;responseContentTypes:string[]}
 interface SchemaEntry {name:string;document:string;hash:string}
 interface Selection {name:string;combine:string;flags:string;sdkCapabilityPresent:boolean;sdkGeneric:boolean;sdkStandalone:boolean;sdkFallback:boolean}
@@ -22,10 +23,11 @@ describe('official Torn Markdown vault coverage and freshness',()=>{
   expect(audit.errors).toEqual([]);expect(audit.docs.operationCount).toBe(234);expect(audit.docs.schemaCount).toBe(711);expect(audit.docs.sharedParameterCount).toBe(38);
   expect(hash(baseline)).toBe(audit.docs.canonicalSha256);expect(audit.sdkBaseline.semanticallyIdenticalToDocs).toBe(true);
  });
- test('current snapshot is the separately audited live6.13.8 API, not mislabeled frozen docs',()=>{
-  expect(audit.docs.version).toBe('6.13.6');expect(current.info.version).toBe('6.15.7');expect(specificationVersion).toBe('6.15.7');
+ test('current snapshot is the separately audited live 6.21.0 API, not mislabeled frozen docs',()=>{
+  expect(audit.docs.version).toBe('6.13.6');expect(current.info.version).toBe('6.21.0');expect(specificationVersion).toBe('6.21.0');
   expect(hash(current)).toBe(audit.live.canonicalSha256);expect(hash(current)).toBe(audit.sdkCurrent.canonicalSha256);
-  expect(componentSchemaNames).toHaveLength(726);expect(audit.live.operationChanges).toContain("/user/travelinventory");expect(audit.live.operationChanges).toContain("/racing/races");expect(audit.live.operationChanges).toContain("/torn/{ids}/items");expect(audit.live.operationChanges).toContain("/user/halloween");expect(audit.live.operationChanges).toContain("/torn/halloween");
+  expect(componentSchemaNames).toHaveLength(772);expect(audit.live.operationChanges).toContain("/user/travelinventory");expect(audit.live.operationChanges).toContain("/racing/races");expect(audit.live.operationChanges).toContain("/torn/{ids}/items");expect(audit.live.operationChanges).toContain("/user/halloween");expect(audit.live.operationChanges).toContain("/torn/halloween");
+  for(const path of ["/torn/headlines","/faction/headlines","/faction/{crimeId}/ochistory","/market/pointshistory","/market/{id}/itemhistory","/user/auctionhouse","/user/bazaar","/user/display","/user/{id}/display","/user/criminalrecord","/user/{id}/criminalrecord","/user/honors","/user/medals","/market/auctionhouse"])expect(audit.live.operationChanges).toContain(path);
  });
  for(const entry of audit.operations)test(`${entry.method.toUpperCase()} ${entry.path} includes every documented parameter and response`,()=>{
   expect(hash(baseline.paths[entry.path]?.[entry.method])).toBe(entry.hash);
@@ -45,13 +47,20 @@ describe('official Torn Markdown vault coverage and freshness',()=>{
   const added=Object.keys(current.components.schemas).filter(n=>!baseline.components.schemas[n]);
   const removed=Object.keys(baseline.components.schemas).filter(n=>!current.components.schemas[n]);
   const changed=Object.keys(baseline.components.schemas).filter(n=>current.components.schemas[n]&&hash(current.components.schemas[n])!==hash(baseline.components.schemas[n]));
-  expect(added.sort()).toEqual([...audit.live.addedSchemas].sort());expect(removed.sort()).toEqual([...audit.live.removedSchemas].sort());expect(changed.sort()).toEqual([...audit.live.changedSchemas].sort());expect(changed).toContain('JobPositionCasinoEnum');expect(changed).toContain('FactionTerritoryWarResultEnum');expect(changed).toContain('TornCalendarActivity');expect(changed).toContain('UserGymResponse');expect(changed).toContain('AttackLog');expect(changed).toContain('ReportStockAnalysis');
-  expect(added).toHaveLength(19);expect(added).toContain("UserTravelInventoryResponse");expect(added).toContain("UserUnlockedGym");expect(added).toContain("RacingRacesCategoryEnum");expect(added).toContain("AttackLogItem");expect(added).toContain("UserHalloweenResponse");expect(added).toContain("TornHalloweenResponse");expect([...removed].sort()).toEqual(['CompanySearchParameter','Parameters','TornEliminationTeamLeader','UserSearchParameter']);
+  expect(added.sort()).toEqual([...audit.live.addedSchemas].sort());expect(removed.sort()).toEqual([...audit.live.removedSchemas].sort());expect(changed.sort()).toEqual([...audit.live.changedSchemas].sort());expect(changed).toContain('JobPositionCasinoEnum');expect(changed).toContain('FactionTerritoryWarResultEnum');expect(changed).toContain('TornCalendarActivity');expect(changed).toContain('UserGymResponse');expect(changed).toContain('AttackLog');expect(changed).toContain('ReportStockAnalysis');expect(changed).toContain('KeyInfoResponse');expect(changed).toContain('FactionRankedWar');expect(changed).toContain('AuctionHouseResponse');expect(changed).toContain('UserSelectionName');
+  expect(added).toHaveLength(67);expect(added).toContain("UserTravelInventoryResponse");expect(added).toContain("UserUnlockedGym");expect(added).toContain("RacingRacesCategoryEnum");expect(added).toContain("AttackLogItem");expect(added).toContain("UserHalloweenResponse");expect(added).toContain("TornHalloweenResponse");for(const name of ["TornHeadline","FactionOcHistoryEntry","FactionRankedWarTemplate","MarketHistoryEntry","UserBazaarItem","UserCriminalRecordV2","UserHonorsDetailedResponse","UserMedalsDetailedResponse"])expect(added).toContain(name);expect([...removed].sort()).toEqual(['CompanySearchParameter','Parameters','TornEliminationTeamLeader','UserFactionBalance','UserFactionBalanceResponse','UserSearchParameter']);
   for(const name of added)expect(schemas[name]).toBeDefined();
  });
  for(const resource of audit.resources)for(const selection of resource.selections)test(`documented selection ${resource.resource}.${selection.name} is supported`,()=>{
   const capability=capabilities.resources[resource.resource]?.selections.find(s=>s.name===selection.name);
-  expect(capability).toBeDefined();expect(selection.sdkCapabilityPresent).toBe(true);
+  expect(selection.sdkCapabilityPresent).toBe(true);
+  // Torn changed these selections itself (6.21.0); the frozen docs flags describe the 6.13.6 routing.
+  if(selectionChangedUpstream(resource.resource,selection.name)){
+   if(upstreamRemovedSelections[resource.resource]?.includes(selection.name))expect(capability).toBeUndefined();
+   else {expect(capability).toBeDefined();expect(capability?.fallback_to_v1).toBe(false);}
+   return;
+  }
+  expect(capability).toBeDefined();
   expect(capability?.can_use_generic_endpoint).toBe(selection.sdkGeneric);expect(capability?.standalone_only).toBe(selection.sdkStandalone);expect(capability?.fallback_to_v1).toBe(selection.sdkFallback);
  });
  test('coverage boundaries are explicit: no complete v1 spec or third-party SDK is implied',()=>{

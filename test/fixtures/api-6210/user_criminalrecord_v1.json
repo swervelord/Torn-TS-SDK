@@ -1,0 +1,14 @@
+{
+  "criminalrecord": {
+    "version": "v1",
+    "sell_illegal_goods": 12,
+    "theft": 340,
+    "auto_theft": 5,
+    "drug_deals": 20,
+    "computer": 3,
+    "fraud": 44,
+    "murder": 1,
+    "other": 9,
+    "total": 434
+  }
+}

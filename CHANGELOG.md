@@ -1,5 +1,94 @@
 # Changelog
 
+## 4.0.0 - 2026-11-25
+
+Updated the pinned official Torn OpenAPI contract from 6.15.7 to 6.21.0: 248 operations, 772 component schemas, and 213
+capability selections. Torn published no patch notes; the changes below come from the specification diff and were
+confirmed live where the test key allows (it has no faction). This is a major release because three existing typed facade
+helpers change their return types (see "Migrating from 3.x").
+
+### Added
+- `torn/headlines` (Public key): `sdk.torn().headlines()`, `getTornHeadlines` (`striptags` defaults to `false`, HTML kept),
+  `TornHeadline` (`id` and `link` are nullable, `importance` is `normal` or `urgent`).
+- `faction/headlines` (Minimal key with faction API access): `sdk.faction().headlines()`, `getMyFactionHeadlines`.
+- `faction/{crimeId}/ochistory` (Limited key with faction API access): `sdk.faction().ochistory(options.withCrimeId(id))`,
+  `getMyFactionOrganizedCrimeHistory`. `FactionOcHistoryEntry.details` is one of eight shapes chosen by `action`
+  (`FactionOcHistoryActionEnum`), or `null` for `Completed`, `Failed` and `Expired`; unknown actions decode (P1.1).
+- `market/pointshistory` and `market/{id}/itemhistory` (Public key): `pointshistory()`, `itemhistory(id)`,
+  `getMarketPointsHistory`, `getMarketItemHistory` (`limit` 1-1000, default 100, from the new `ApiLimit1000Default100`;
+  `MarketHistoryEntry.price` and `circulation` are nullable; paginated).
+- `user/auctionhouse` (Limited key): `sdk.user().auctionhouse()`, `getMyAuctionHouseListings` (`cat`: `all`, `ongoing`,
+  `complete`; paginated).
+- `user/bazaar` (Limited key), `user/display` and `user/{id}/display` (Public key), `user/criminalrecord` and
+  `user/{id}/criminalrecord` (Public key) are native v2 endpoints: `getMyBazaar`, `getMyDisplayCase`, `getUserDisplayCase`,
+  `getMyCriminalRecord`, `getUserCriminalRecord`. `UserCriminalRecordResponse.criminalrecord` is `UserCriminalRecordV2` or
+  `UserCriminalRecordV1` (by `version`).
+- `/user/honors` and `/user/medals` take `cat` (`UserHonorsCategory`, `UserMedalsCategory`). Without `cat` (or `all`) the
+  response is the existing `{id, timestamp}` list; any other category (including `latest`) returns the detailed shape
+  (`name`, `description`, `is_unlocked`, honors `is_tracked`, nullable `timestamp` and `progress`). New facade helpers
+  `sdk.user().honorsDetailed(category)` and `medalsDetailed(category)` return `UserHonorsDetailedResponse` /
+  `UserMedalsDetailedResponse`; `honors()` and `medals()` are unchanged. `getMyHonors`/`getMyMedals` now return the union.
+- `/market/auctionhouse` and `/market/{id}/auctionhouse` take `cat` (`MarketAuctionHouseCategory`: `complete` (default),
+  `ongoing`); `AuctionHouseResponse` gains optional `auctionhouse_timestamp` and `auctionhouse_delay` (ongoing only).
+  The 3.x manual facade model `MarketAuctionHouseBundle` does not carry them; use `getMarketAuctionHouse` or the raw helper.
+- Required `template: FactionRankedWarTemplate` (`mode: FactionRankedWarMode | null`, `rules: FactionRankedWarRule[]`, both
+  open strings) on `FactionRankedWar`, `FactionRankedWarDetails` and the ranked war report.
+- Required `sensitive_data` and `legacy_permissions` booleans in `KeyInfoResponse.info.access`.
+- Selection enums: `UserSelectionName` gains `auctionhouse`, `itemmods`, `organizedcrimes`, `virus`, `bazaar`, `display`,
+  `criminalrecord`; `FactionSelectionName` gains `dirtybombs`, `headlines`, `inventory`, `ochistory`, `warfare`;
+  `TornSelectionName` gains `headlines`; `MarketSelectionName` gains `itemhistory`, `pointshistory`. The new enum members are
+  generic `/resource?selections=` selections, so `faction` `dirtybombs`/`inventory`/`warfare` and `user`
+  `itemmods`/`organizedcrimes`/`virus` now batch with other selections instead of using their dedicated endpoints.
+- P7.1: `paginateItems()` (and `pageItems`) also find wrapped item lists such as `display.items` and `bazaar.items`.
+- Doc comments: cache durations on company/companies, market item market, properties, rentals and auction house,
+  torn/user bounties, user networth and properties; `racing/races` `available` covers custom races only.
+
+### Changed
+- `/user/revives`, `/user/revivesFull`, `/faction/revives` and `/faction/revivesFull` need a Minimal key (was Limited), from
+  the shared `access-levels.json` (P6).
+- User `bazaar`, `criminalrecord` and `display` are no longer server-side v1 fallbacks, so `routing: "legacy"` sends them to
+  v2 as well (P4.3).
+- Faction `search` left `FactionSelectionName`; the planner sends it to `/faction/search`.
+
+### Removed upstream (kept as deprecated compatibility names)
+- The user `factionbalance` selection and the `UserFactionBalance` / `UserFactionBalanceResponse` schemas. The types and
+  decoders remain (6.13.6 compatibility), `sdk.user().factionbalance()` is deprecated and its request passes through
+  unchanged (P1.5); Torn may reject it. Use `sdk.faction().balance()`.
+- `UserSelectionName` drops `factionbalance`, `itemmod` and `snapshot`; `FactionSelectionName` drops `dirtbombs` and
+  `search`; `CompanySelectionName` drops `snapshot`. The enums are open, so these strings still type-check and decode;
+  `knownEnumValues()` no longer lists them. The `faction().dirtbombs()` and `user().itemmod()` aliases are deprecated and
+  keep routing to `/faction/dirtybombs` and `/user/itemmods`.
+
+### Migrating from 3.x
+- `sdk.user().bazaar()`, `display()` and `criminalrecord()` (and `select([...])` / typed batches with these selections)
+  return the generated v2 models `UserBazaarResponse`, `UserDisplayResponse` and `UserCriminalRecordResponse` instead of the
+  3.x manual `UserBazaarBundle`, `UserDisplayBundle` and `UserCriminalRecordBundle`. Torn's v2 API now answers these
+  selections with new shapes (verified live), which the 3.x types cannot decode:
+  - bazaar: `bazaar` is `{exists, is_open, items}` (was an item array plus `bazaar_is_open`); items carry `uids` with
+    per-uid prices, a nullable `price` and `item_details`.
+  - display: `display` is `{items}` (was an item array); paginated with `offset`.
+  - criminalrecord: v2 keys (`illicit_services`, `illegal_production`) plus `version`; v1 records use the v1 keys.
+  The manual bundle types stay exported for old payloads.
+- Code that reads `getMyHonors()`/`getMyMedals()` must narrow the new basic/detailed union (or use the facade helpers).
+- Payloads decoded with `decodeModel('KeyInfoResponse' | 'FactionRankedWar*', ...)` must contain the new required fields.
+
+### Tests
+- `test/api-6210.test.ts`: scrubbed live fixtures (headlines with a synthetic urgent entry with null id/link, points and
+  item history with null prices, user auction house, bazaar and empty bazaar, display case, criminal record v2, detailed
+  honors/medals, ongoing auction house, key info flags, ranked war templates with named and null mode) and spec-built ones
+  (faction headlines, OC history covering every action plus an unknown one, criminal record v1) decode exactly; negative
+  cases for new required keys and wrong types; every new enum, open-enum behavior and retired selection names; planner
+  routing and access levels for all new selections; exact paths (`/market/206/itemhistory?limit=3&sort=ASC`,
+  `/user/display?cat=Melee&offset=3`, `/faction/123/ochistory`, `/user/honors?cat=crimes`,
+  `/market/auctionhouse?cat=ongoing`, `/user/1/criminalrecord`); facade, raw and batch helpers; the itemhistory `prev` and
+  display `next` (offset) pagers never put the key in a query.
+- Frozen 6.13.6 goldens: selections Torn itself re-routed (`tools/upstream-selection-changes.ts`) are checked against the
+  frozen capabilities only, the three re-typed helpers are listed explicitly in the facade-dispatch test and the typing
+  report (`typingReportHelperUpgrades`), and the frozen generated samples list the new required fields.
+- `test/live.test.ts`: live headlines, points/item history, ongoing auction house, criminal record, display case, auction
+  house listings, detailed honors/medals, key info flags, and one batched `bazaar,display,criminalrecord,bars` v2 call;
+  faction headlines and OC history skip on code 7 (no faction).
+
 ## 3.1.0 - 2026-11-09
 
 Updated the pinned official Torn OpenAPI contract from 6.15.0 to 6.15.7: 237 operations, 726 component schemas, and 208

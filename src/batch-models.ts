@@ -7,25 +7,25 @@ export interface SelectionModelMap {
     "ammo": Manual.UserAmmoBundle;
     "attacks": Manual.UserAttacksBundle;
     "attacksfull": Manual.UserAttacksFullBundle;
+    "auctionhouse": Generated.UserAuctionHouseResponse;
     "bars": Manual.UserBarsBundle;
     "basic": Manual.UserBasicBundle;
     "battlestats": Manual.UserBattleStatsBundle;
-    "bazaar": Manual.UserBazaarBundle;
+    "bazaar": Generated.UserBazaarResponse;
     "bounties": Manual.UserBountiesBundle;
     "calendar": Manual.UserCalendarBundle;
     "casino": Manual.UserCasinoBundle;
     "competition": Manual.UserCompetitionBundle;
     "cooldowns": Manual.UserCooldownsBundle;
     "crimes": Manual.UserCrimesBundle;
-    "criminalrecord": Manual.UserCriminalRecordBundle;
+    "criminalrecord": Generated.UserCriminalRecordResponse;
     "discord": Manual.UserDiscordBundle;
-    "display": Manual.UserDisplayBundle;
+    "display": Generated.UserDisplayResponse;
     "education": Manual.UserEducationBundle;
     "enlistedcars": Manual.UserEnlistedCarsBundle;
     "equipment": Manual.UserEquipmentBundle;
     "events": Manual.UserEventsBundle;
     "faction": Manual.UserFactionBundle;
-    "factionbalance": Manual.UserFactionBalanceBundle;
     "forumfeed": Manual.UserForumFeedBundle;
     "forumfriends": Manual.UserForumFriendsBundle;
     "forumposts": Manual.UserForumPostsBundle;
@@ -80,6 +80,7 @@ export interface SelectionModelMap {
     "weaponexp": Manual.UserWeaponExpBundle;
     "workstats": Manual.UserWorkStatsBundle;
     "revivesFull": Manual.UserRevivesFullBundle;
+    "factionbalance": Manual.UserFactionBalanceBundle;
   };
   company: {
     "applications": Manual.CompanyApplicationsBundle;
@@ -112,12 +113,14 @@ export interface SelectionModelMap {
     "dirtbombs": Generated.FactionWarfareDirtyBombsResponse;
     "dirtybombs": Generated.FactionWarfareDirtyBombsResponse;
     "drugs": Manual.FactionDrugsBundle;
+    "headlines": Generated.FactionHeadlinesResponse;
     "hof": Manual.FactionHofBundle;
     "inventory": Generated.FactionInventoryResponse;
     "lookup": Manual.FactionLookupBundle;
     "medical": Manual.FactionMedicalBundle;
     "members": Manual.FactionMembersBundle;
     "news": Manual.FactionNewsBundle;
+    "ochistory": Generated.FactionOcHistoryResponse;
     "positions": Manual.FactionPositionsBundle;
     "rackets": Manual.FactionRacketsBundle;
     "raidreport": Manual.FactionRaidReportBundle;
@@ -162,8 +165,10 @@ export interface SelectionModelMap {
     "auctionhouse": Manual.MarketAuctionHouseBundle;
     "auctionhouselisting": Manual.MarketAuctionHouseListingBundle;
     "bazaar": Manual.MarketBazaarBundle;
+    "itemhistory": Generated.MarketItemHistoryResponse;
     "itemmarket": Manual.MarketItemMarketBundle;
     "lookup": Manual.MarketLookupBundle;
+    "pointshistory": Generated.MarketPointsHistoryResponse;
     "pointsmarket": Generated.PointsMarketResponse;
     "properties": Manual.MarketPropertiesBundle;
     "rentals": Manual.MarketRentalsBundle;
@@ -201,6 +206,7 @@ export interface SelectionModelMap {
     "factiontree": Manual.TornFactionTreeBundle;
     "gyms": Generated.TornGymsResponse;
     "halloween": Generated.TornHalloweenResponse;
+    "headlines": Generated.TornHeadlinesResponse;
     "hof": Manual.TornHofBundle;
     "honors": Manual.TornHonorsBundle;
     "itemammo": Manual.TornItemAmmoBundle;
@@ -255,6 +261,14 @@ export const selectionModelDefinitions = {
         "_metadata"
       ]
     },
+    "auctionhouse": {
+      "model": "UserAuctionHouseResponse",
+      "manual": false,
+      "inputRoots": [
+        "auctionhouse",
+        "_metadata"
+      ]
+    },
     "bars": {
       "model": "UserBarsBundle",
       "manual": true,
@@ -277,11 +291,11 @@ export const selectionModelDefinitions = {
       ]
     },
     "bazaar": {
-      "model": "UserBazaarBundle",
-      "manual": true,
+      "model": "UserBazaarResponse",
+      "manual": false,
       "inputRoots": [
-        "bazaar_is_open",
-        "bazaar"
+        "bazaar",
+        "_metadata"
       ]
     },
     "bounties": {
@@ -329,8 +343,8 @@ export const selectionModelDefinitions = {
       ]
     },
     "criminalrecord": {
-      "model": "UserCriminalRecordBundle",
-      "manual": true,
+      "model": "UserCriminalRecordResponse",
+      "manual": false,
       "inputRoots": [
         "criminalrecord"
       ]
@@ -343,10 +357,11 @@ export const selectionModelDefinitions = {
       ]
     },
     "display": {
-      "model": "UserDisplayBundle",
-      "manual": true,
+      "model": "UserDisplayResponse",
+      "manual": false,
       "inputRoots": [
-        "display"
+        "display",
+        "_metadata"
       ]
     },
     "education": {
@@ -384,13 +399,6 @@ export const selectionModelDefinitions = {
       "manual": true,
       "inputRoots": [
         "faction"
-      ]
-    },
-    "factionbalance": {
-      "model": "UserFactionBalanceBundle",
-      "manual": true,
-      "inputRoots": [
-        "factionBalance"
       ]
     },
     "forumfeed": {
@@ -785,6 +793,13 @@ export const selectionModelDefinitions = {
         "revives",
         "_metadata"
       ]
+    },
+    "factionbalance": {
+      "model": "UserFactionBalanceBundle",
+      "manual": true,
+      "inputRoots": [
+        "factionBalance"
+      ]
     }
   },
   "company": {
@@ -999,6 +1014,13 @@ export const selectionModelDefinitions = {
         "drugs"
       ]
     },
+    "headlines": {
+      "model": "FactionHeadlinesResponse",
+      "manual": false,
+      "inputRoots": [
+        "headlines"
+      ]
+    },
     "hof": {
       "model": "FactionHofBundle",
       "manual": true,
@@ -1042,6 +1064,13 @@ export const selectionModelDefinitions = {
       "inputRoots": [
         "news",
         "_metadata"
+      ]
+    },
+    "ochistory": {
+      "model": "FactionOcHistoryResponse",
+      "manual": false,
+      "inputRoots": [
+        "ochistory"
       ]
     },
     "positions": {
@@ -1334,6 +1363,14 @@ export const selectionModelDefinitions = {
         "bazaar"
       ]
     },
+    "itemhistory": {
+      "model": "MarketItemHistoryResponse",
+      "manual": false,
+      "inputRoots": [
+        "itemhistory",
+        "_metadata"
+      ]
+    },
     "itemmarket": {
       "model": "MarketItemMarketBundle",
       "manual": true,
@@ -1347,6 +1384,14 @@ export const selectionModelDefinitions = {
       "manual": true,
       "inputRoots": [
         "selections"
+      ]
+    },
+    "pointshistory": {
+      "model": "MarketPointsHistoryResponse",
+      "manual": false,
+      "inputRoots": [
+        "pointshistory",
+        "_metadata"
       ]
     },
     "pointsmarket": {
@@ -1582,6 +1627,13 @@ export const selectionModelDefinitions = {
       "manual": false,
       "inputRoots": [
         "halloween"
+      ]
+    },
+    "headlines": {
+      "model": "TornHeadlinesResponse",
+      "manual": false,
+      "inputRoots": [
+        "headlines"
       ]
     },
     "hof": {

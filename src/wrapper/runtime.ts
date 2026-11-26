@@ -89,7 +89,7 @@ export class ResourceApi<O extends ResourceOptions,R extends ResourceName=Resour
       if(selection==="personalstats"&&((b.cat!==undefined)===(b.stat!==undefined)))throw new ValidationError("resource 'user' selection 'personalstats' requires exactly one of 'cat' or 'stat'");
     }
     if(r==="faction"){
-      if(selection==="crime")path("crimeId",extras.crimeId);
+      if(["crime","ochistory"].includes(selection))path("crimeId",extras.crimeId);
       if(selection==="raidreport")path("raidWarId",extras.raidWarId);
       if(selection==="rankedwarreport")path("rankedWarId",extras.rankedWarId);
       if(selection==="territorywarreport")path("territoryWarId",extras.territoryWarId);
@@ -101,7 +101,7 @@ export class ResourceApi<O extends ResourceOptions,R extends ResourceName=Resour
     if(r==="market"){
       if(["properties","rentals"].includes(selection))path("propertyTypeId",extras.propertyTypeId);
       // market/bazaar without an id is the bazaar directory; these two have no self-scoped form.
-      if(["auctionhouselisting","itemmarket"].includes(selection))required("id",b.id!==undefined);
+      if(["auctionhouselisting","itemmarket","itemhistory"].includes(selection))required("id",b.id!==undefined);
     }
     if(r==="property"&&selection==="property")required("id",b.id!==undefined);
     if(r==="racing"){

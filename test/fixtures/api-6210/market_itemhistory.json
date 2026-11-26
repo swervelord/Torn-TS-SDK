@@ -1,0 +1,30 @@
+{
+  "itemhistory": [
+    {
+      "timestamp": 1795564800,
+      "price": 832389,
+      "circulation": 9527011
+    },
+    {
+      "timestamp": 1795478400,
+      "price": 834290,
+      "circulation": 9507161
+    },
+    {
+      "timestamp": 1795392000,
+      "price": 833486,
+      "circulation": 9481126
+    },
+    {
+      "timestamp": 1795305600,
+      "price": null,
+      "circulation": 9450000
+    }
+  ],
+  "_metadata": {
+    "links": {
+      "prev": "https://api.torn.com/v2/market/206/itemhistory?&limit=3&sort=desc&to=1795391999",
+      "next": null
+    }
+  }
+}
